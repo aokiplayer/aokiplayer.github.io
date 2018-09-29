@@ -37,11 +37,11 @@ jobs:
           command: |
               hugo
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
-              echo "==== Inside project directory
+              echo "==== Inside project directory"
               ls
               cp -rp public/* aokiplayer.github.io/
               cd aokiplayer.github.io
-              echo "==== Are there page files on top?
+              echo "==== Are there page files on top?"
               ls
               git remote set-url origin git@github.com:aokiplayer/aokiplayer.github.io.git
               git add .
