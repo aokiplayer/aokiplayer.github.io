@@ -35,30 +35,20 @@ jobs:
       - run:
           name: push to master
           command: |
-              # hugo
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
-              # hugo
-              # git add public
-              # git commit -m "Ganerated public contents"
-              echo "==== Which branch?"
               git branch -vv
-              echo "==== Inside project directory"
-              ls -al
               git checkout master
-              echo "==== Which branch?"
               git branch -vv
               echo "==== Checkout public directory from write branch"
               rm -rf ./*
               git checkout write public
-              ls -al .
-              ls -al public
               mv -f public/* .
-              rm -rf public
+              rm -rp public
               ls -al
-              # cp -rp public/* aokiplayer.github.io/
-              # cd aokiplayer.github.io
-              # echo "==== Are there page files on top?"
-              # ls
+              git add .
+              git commit -m "[Circle CI] publish"
+              # git push origin master
+
               # git remote set-url origin git@github.com:aokiplayer/aokiplayer.github.io.git
               # git add .
               # git commit -m "[Circle CI] publish"
