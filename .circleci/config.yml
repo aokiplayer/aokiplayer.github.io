@@ -43,7 +43,7 @@ jobs:
               rm -rf ./*
               git checkout write public
               mv -f public/* .
-              rm -rp public
+              rm -rf public
               ls -al
               git add .
               git commit -m "[Circle CI] publish"
