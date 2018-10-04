@@ -53,7 +53,8 @@ jobs:
               ls -al .
               ls -al public
               mv -f public/* .
-              rmdir public
+              rm -rf public
+              ls -al
               # cp -rp public/* aokiplayer.github.io/
               # cd aokiplayer.github.io
               # echo "==== Are there page files on top?"
