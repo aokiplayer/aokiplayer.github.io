@@ -28,7 +28,7 @@ jobs:
       - run:
           name: hugo install
           command: |
-              go get -v github.com/gohugoio/hugo
+              # go get -v github.com/gohugoio/hugo
               git config --global user.name "Hiroyuki Aoki"
               git config --global user.email "aokiplayer@icloud.com"
 
@@ -37,9 +37,9 @@ jobs:
           command: |
               # hugo
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
-              hugo
-              git add public
-              git commit -m "Ganerated public contents"
+              # hugo
+              # git add public
+              # git commit -m "Ganerated public contents"
               echo "==== Which branch?"
               git branch -vv
               echo "==== Inside project directory"
@@ -50,8 +50,10 @@ jobs:
               echo "==== Checkout public directory from write branch"
               rm -rf ./*
               git checkout write public
-              ls -al ./
-              ls -al ./public
+              ls -al .
+              ls -al public
+              mv -f public/* .
+              rmdir public
               # cp -rp public/* aokiplayer.github.io/
               # cd aokiplayer.github.io
               # echo "==== Are there page files on top?"
