@@ -38,6 +38,8 @@ jobs:
               # hugo
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
               hugo
+              git add public
+              git commit -m "Ganerated public contents"
               echo "==== Which branch?"
               git branch -vv
               echo "==== Inside project directory"
