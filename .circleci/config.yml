@@ -35,12 +35,16 @@ jobs:
       - run:
           name: push to master
           command: |
-              hugo
+              # hugo
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
+              hugo
               echo "==== Which branch?"
               git branch -vv
               echo "==== Inside project directory"
-              # ls
+              ls
+              git checkout master
+              echo "==== Which branch?"
+              git branch -vv
               # cp -rp public/* aokiplayer.github.io/
               # cd aokiplayer.github.io
               # echo "==== Are there page files on top?"
