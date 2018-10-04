@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://aokiplayer.github.io/posts/iosdc2018/</loc>
+    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/tags/ios/</loc>
+    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/tags/iosdc/</loc>
+    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/posts/</loc>
+    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/categories/report/</loc>
+    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/tags/swift/</loc>
+    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/tags/</loc>
+    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/</loc>
+    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
