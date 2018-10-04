@@ -41,10 +41,15 @@ jobs:
               echo "==== Which branch?"
               git branch -vv
               echo "==== Inside project directory"
-              ls
+              ls -al
               git checkout master
               echo "==== Which branch?"
               git branch -vv
+              echo "==== Checkout public directory from write branch"
+              rm -rf ./*
+              git checkout write public
+              ls -al ./
+              ls -al ./public
               # cp -rp public/* aokiplayer.github.io/
               # cd aokiplayer.github.io
               # echo "==== Are there page files on top?"
