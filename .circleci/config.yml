@@ -47,6 +47,8 @@ jobs:
               ls -al
               git add .
               git commit -m "[Circle CI] publish"
+              git remote -vv
               git remote set-url origin git@github.com:aokiplayer/aokiplayer.github.io.git
+              git remote -vv
               git push origin master
 
