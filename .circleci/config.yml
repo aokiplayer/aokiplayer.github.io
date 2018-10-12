@@ -37,7 +37,7 @@ jobs:
               git submodule init
               git submodule update
               git checkout master
-              echo ls -al
+              ls -al
               echo "==== Checkout public directory from write branch"
               rm -rf ./*
               git checkout write public
