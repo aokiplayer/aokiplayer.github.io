@@ -31,8 +31,11 @@ jobs:
           name: push to master
           command: |
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
+              # git clone --recursive https://github.com/aokiplayer/aokiplayer.github.io.git
               git branch -vv
-              git submodule update -i
+              # git submodule update -i
+              git submodule init
+              git submodule update
               git checkout master
               echo "==== Checkout public directory from write branch"
               rm -rf ./*
