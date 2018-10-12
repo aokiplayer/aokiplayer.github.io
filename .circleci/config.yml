@@ -30,12 +30,15 @@ jobs:
       - run:
           name: push to master
           command: |
+              mkdir $HOME/hugo_work
+              cd $HOME/hugo_work
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
               # git clone --recursive https://github.com/aokiplayer/aokiplayer.github.io.git
               git branch -vv
               # git submodule update -i
               git submodule init
               git submodule update
+              hugo
               git checkout master
               ls -al
               echo "==== Checkout public directory from write branch"
