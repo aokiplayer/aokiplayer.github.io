@@ -31,14 +31,11 @@ jobs:
           name: push to master
           command: |
               git branch -vv
-              # git submodule update -i
-              git submodule init
-              git submodule update
+              git submodule update -i # git submodule init; git submodule update
               hugo
               git add public; git commit -m "generated pages"
               git clean -fdx
               git checkout master
-              git status
               ls -al
               echo "==== Checkout public directory from write branch"
               rm -rf ./*
@@ -48,5 +45,5 @@ jobs:
               git add .
               git commit -m "[ci skip] publish"
               git remote -vv
-              # git push origin master
+              git push origin master
 
