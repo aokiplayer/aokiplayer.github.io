@@ -35,6 +35,8 @@ jobs:
               git submodule init
               git submodule update
               hugo
+              git add public; git commit -m "generated pages"
+              git clean -fdx
               git checkout master
               git status
               ls -al
