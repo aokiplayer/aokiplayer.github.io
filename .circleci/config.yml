@@ -19,7 +19,6 @@ jobs:
       - run:
           name: hugo install
           command: |
-              pwd
               mkdir $HOME/src
               cd $HOME/src
               git clone https://github.com/gohugoio/hugo.git
@@ -31,7 +30,6 @@ jobs:
       - run:
           name: push to master
           command: |
-              pwd
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
               # git clone --recursive https://github.com/aokiplayer/aokiplayer.github.io.git
               git branch -vv
@@ -40,6 +38,7 @@ jobs:
               git submodule update
               hugo
               git checkout master
+              git status
               ls -al
               echo "==== Checkout public directory from write branch"
               rm -rf ./*
