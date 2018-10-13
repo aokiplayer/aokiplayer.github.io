@@ -30,12 +30,10 @@ jobs:
       - run:
           name: push to master
           command: |
-              # git clone https://github.com/aokiplayer/aokiplayer.github.io.git
-              # git clone --recursive https://github.com/aokiplayer/aokiplayer.github.io.git
               git branch -vv
               # git submodule update -i
-              # git submodule init
-              # git submodule update
+              git submodule init
+              git submodule update
               hugo
               git checkout master
               git status
@@ -51,5 +49,5 @@ jobs:
               git remote -vv
               git remote set-url origin git@github.com:aokiplayer/aokiplayer.github.io.git
               git remote -vv
-              git push origin master
+#              git push origin master
 
