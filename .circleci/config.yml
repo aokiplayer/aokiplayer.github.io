@@ -30,10 +30,9 @@ jobs:
       - run:
           name: push to master
           command: |
-              mkdir $HOME/hugo_work
-              cd $HOME/hugo_work
               git clone https://github.com/aokiplayer/aokiplayer.github.io.git
               # git clone --recursive https://github.com/aokiplayer/aokiplayer.github.io.git
+              cd 
               git branch -vv
               # git submodule update -i
               git submodule init
