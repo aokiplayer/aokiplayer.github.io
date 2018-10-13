@@ -36,20 +36,17 @@ jobs:
               git submodule update
               hugo
 #              git add public; git commit -m "generated pages"
-              git clean -fdx
+#              git clean -fdx
               git checkout master
               git status
               ls -al
               echo "==== Checkout public directory from write branch"
               rm -rf ./*
               git checkout write public
-              mv -f public/* .
-              rm -rf public
+              mv -f public/* .; rm -rf public
               ls -al
               git add .
               git commit -m "[ci skip] publish"
               git remote -vv
-#              git remote set-url origin git@github.com:aokiplayer/aokiplayer.github.io.git
-#              git remote -vv
 #              git push origin master
 
