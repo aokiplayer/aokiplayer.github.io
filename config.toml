@@ -20,3 +20,6 @@ uglyURLs = false
 
 [blackfriday]
   fractions = false
+
+[params]
+  shareTo = ["Twitter", "Facebook", "Hatena"]
