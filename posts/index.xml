@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 17 Apr 2019 19:16:50 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2019 09:30:15 +0900</lastBuildDate>
     
 	<atom:link href="https://aokiplayer.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOSにおけるPush通知の基本1（通知の受信まで）</title>
+      <link>https://aokiplayer.github.io/posts/remotenotification01/</link>
+      <pubDate>Thu, 18 Apr 2019 09:30:15 +0900</pubDate>
+      
+      <guid>https://aokiplayer.github.io/posts/remotenotification01/</guid>
+      <description>はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説</description>
+    </item>
     
     <item>
       <title>try! Swift Tokyo 2019 感想など</title>

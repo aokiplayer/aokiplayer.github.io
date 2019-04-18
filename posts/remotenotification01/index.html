@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+  iOSにおけるPush通知の基本1（通知の受信まで） &ndash; Yagamo Style
+
+    </title>
+    
+    
+    <meta name="description" property="og:description" content="はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説|">
+    
+
+    <meta name="apple-mobile-web-app-title" content="Yagamo Style">
+    
+    
+    
+    
+
+
+    <link rel="stylesheet" href="/assets/syntax.css">
+    <link rel="stylesheet" href="/assets/primer-build.css">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+  <body class="bg-gray">
+    <div id="holy" class="container-lg bg-white">
+
+      <div id="header" class="px-1 bg-white">
+        <nav class="UnderlineNav UnderlineNav--right px-2">
+  <a class="UnderlineNav-actions h2" href="https://aokiplayer.github.io/">
+    Yagamo Style
+  </a>
+
+  
+  
+  <div class="UnderlineNav-body">
+    
+    
+    <a class="UnderlineNav-item " href="/posts/">
+      <i class='fa fa-road'></i>
+      <span>Posts</span>
+    </a>
+    
+    
+  </div>
+  
+</nav>
+
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        
+<article>
+  <h1>iOSにおけるPush通知の基本1（通知の受信まで）</h1>
+  <section>
+    
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>Push通知は、使い方によっては非常に効果的です
+
+<ul>
+<li>通知しすぎると、邪魔になってしまいますが</li>
+</ul></li>
+<li>ここでは、Push通知の基本的な実装方法を説明します</li>
+<li>Push通知の実装には、UserNotificationsフレームワークを利用します
+
+<ul>
+<li>ローカル通知にも、同じフレームワークを利用します</li>
+<li>昔と違って、ひとつのフレームワークで両方に対応できていいですね</li>
+</ul></li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 10.2</li>
+<li>iOS 12.2</li>
+<li>Swift 5</li>
+<li>iPod touch 6th generation</li>
+</ul>
+
+<h1 id="必要なもの">必要なもの</h1>
+
+<ul>
+<li>Apple Developer Programのアカウント
+
+<ul>
+<li><a href="https://developer.apple.com/account/">Apple Developer</a>サイト上で、以下の確認・作成が必要なため
+
+<ul>
+<li>Team ID</li>
+<li>Authentication Key</li>
+</ul></li>
+</ul></li>
+<li>APNs（Apple Push Notification Service）に対応した、Push通知を送信するサーバ
+
+<ul>
+<li><a href="https://firebase.google.com/">Firebase</a>とか<a href="https://azure.microsoft.com/">Microsoft Azure</a>とか、いろいろなサービスが対応してます</li>
+<li>テストするだけなら、APNsに対応したいろいろなツールがあります
+
+<ul>
+<li><a href="https://github.com/Dwarven/PushMeBaby">Dwarven/PushMeBaby</a></li>
+<li><a href="https://github.com/onmyway133/PushNotifications">onmyway133/PushNotifications</a></li>
+</ul></li>
+<li>APNsは、その名のとおりAppleのPush通知サービスです
+
+<ul>
+<li>Push通知の送信は、必ずこのサービスを経由します</li>
+</ul></li>
+</ul></li>
+
+<li><p>iPhoneやiPadなどの実デバイス</p>
+
+<ul>
+<li>シミュレータではPush通知が利用できないため</li>
+
+<li><p>シミュレータでPush通知の登録をしようとすると、コンソールに以下のようなメッセージが出力されます</p>
+
+<pre><code class="language-console">Failed to register: Error Domain=NSCocoaErrorDomain Code=3010 &quot;remote notifications are not supported in the simulator&quot; 
+UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h1 id="事前準備-apple-developerサイト上">事前準備（Apple Developerサイト上）</h1>
+
+<h2 id="team-idの確認">Team IDの確認</h2>
+
+<ol>
+<li><a href="https://developer.apple.com/account/">Apple Developer</a>サイトにログイン</li>
+
+<li><p>左側のMembershipを選択して、Membership Detailsに表示されたTeam IDをメモしておく</p>
+
+<p><img src="/images/remotenotification01/team_id.png" alt="team_id" /></p></li>
+</ol>
+
+<h2 id="authentication-keyの作成とダウンロード">Authentication Keyの作成とダウンロード</h2>
+
+<ol>
+<li><a href="https://developer.apple.com/account/">Apple Developer</a>サイトにログイン</li>
+<li>左側のCertificates, IDs &amp; Profilesを選択</li>
+
+<li><p>表示された画面で左側のKeysからAllを選択、右上の+をクリックしてキーを作成</p>
+
+<ul>
+<li>Nameには、キーに設定する任意の名前を入力</li>
+<li>Apple Push Notification service (APNs)にチェック</li>
+</ul>
+
+<p><img src="/images/remotenotification01/create_key.png" alt="create_key" /></p></li>
+
+<li><p>作成したら、Downloadをクリックしてキーをダウンロード</p>
+
+<ul>
+<li><strong>キーは一度しかダウンロードできません。セキュアな場所に確実に保存してください</strong></li>
+<li>このキーは、Push通知を行うサーバに設定する</li>
+<li>キーは、<code>AuthKey_XXXXXXXXXX.p8</code>という名前でダウンロードされる</li>
+<li><code>XXXXXXXXXX</code>の部分がKey ID</li>
+<li>Key IDもメモしておく</li>
+</ul>
+
+<p><img src="/images/remotenotification01/download_key.png" alt="download_key" /></p></li>
+</ol>
+
+<h1 id="主なコンポーネント">主なコンポーネント</h1>
+
+<table>
+<thead>
+<tr>
+<th align="left">コンポーネント</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">UNUserNotificationCenter</td>
+<td align="left">通知関連の機能を管理する</td>
+</tr>
+
+<tr>
+<td align="left">UNNotificationRequest</td>
+<td align="left">通知の内容や、配送のトリガーを内包する</td>
+</tr>
+
+<tr>
+<td align="left">UNNotificationAction</td>
+<td align="left">通知内で表示されるボタン</td>
+</tr>
+
+<tr>
+<td align="left">UNNotificationCategory</td>
+<td align="left">通知の方法や表示されるアクションの設定をまとめたもの</td>
+</tr>
+
+<tr>
+<td align="left">UNNotificationSettings</td>
+<td align="left">通知の設定情報を保持</td>
+</tr>
+
+<tr>
+<td align="left">UNMutableNotificationContent</td>
+<td align="left">通知する内容</td>
+</tr>
+
+<tr>
+<td align="left">UNPushNotificationTrigger</td>
+<td align="left">APNsから送信された通知に関するトリガー</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="実装手順">実装手順</h1>
+
+<h2 id="プロジェクトの設定">プロジェクトの設定</h2>
+
+<ol>
+<li><p>アプリケーションTARGETのSigningから、Teamを選択</p>
+
+<ul>
+<li>Apple Developer Programに登録済みのアカウントに紐付いている必要性あり</li>
+<li>無料アカウントのTeamでは、Push Notificationが利用できない</li>
+</ul>
+
+<p><img src="/images/remotenotification01/signing_team.png" alt="signing_team" /></p></li>
+
+<li><p>アプリケーションTARGETのCapabilitiesから、Push NotificationsをONにする</p>
+
+<p><img src="/images/remotenotification01/capabilities.png" alt="capabilities" /></p></li>
+</ol>
+
+<h2 id="プッシュ通知の登録">プッシュ通知の登録</h2>
+
+<ul>
+<li>ここから先は、すべてAppDelegate.swift内に記述します
+
+<ul>
+<li>アプリの起動時に処理するのと、<code>UIApplicationDelegate</code>のコールバックが必要になるためです</li>
+</ul></li>
+</ul>
+
+<ol>
+<li><p>UserNotificationsフレームワークを利用するので、インポート</p>
+
+<pre><code class="language-swift:AppDelegate.swift">import UserNotifications    // MARK: 01. import
+</code></pre></li>
+
+<li><p>ユーザに対して、通知の許可依頼を行う</p>
+
+<pre><code class="language-swift:AppDelegate.swift">func application(_ application: UIApplication,
+                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+
+    // MARK: 02. request to user
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+        guard granted else { return }
+
+        // 〜省略〜
+    }
+    return true
+}
+</code></pre></li>
+
+<li><p>ユーザが通知を許可していた場合は、APNsへ登録</p>
+
+<ul>
+<li><strong>「どのデバイスにインストールされたどのアプリか」</strong>を登録する</li>
+<li>これにより、APNsは対象を特定して通知を発行できるようになる</li>
+
+<li><p>この結果として、一意に識別するトークンが返される</p>
+
+<pre><code class="language-swift:AppDelegate.swift">// MARK: 02. request to user
+UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+    guard granted else { return }
+
+    // MARK: 03. register to APNs
+    DispatchQueue.main.async {
+        UIApplication.shared.registerForRemoteNotifications()
+    }
+}
+</code></pre></li>
+</ul></li>
+
+<li><p>APNsへの登録後に呼び出されるコールバックを実装（<code>UIApplicationDelegate</code>のメソッド）</p>
+
+<ul>
+<li>成功時: <code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>
+
+<ul>
+<li>先述したトークンは第2引数に渡される</li>
+<li>このトークンを、Push通知を送信するサービスに登録する必要がある
+
+<ul>
+<li>今回はテストとしてmacOS上のプログラムからPush通知を送信するので、トークンをログ出力しておく</li>
+<li>外部のサービスへトークンを登録する方法は、各サービスのドキュメントを参照してください</li>
+</ul></li>
+</ul></li>
+<li>失敗時: <code>application(_:didFailToRegisterForRemoteNotificationsWithError:)</code></li>
+</ul>
+
+<pre><code class="language-swift:AppDelegate.swift">// MARK: - Callback for Remote Notification
+extension AppDelegate {
+    // MARK: 04-1. succeeded to register to APNs
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Data -&gt; Token string
+        let tokenBytes = deviceToken.map { (byte: UInt8) in String(format: &quot;%02.2hhx&quot;, byte) }
+        print(&quot;Device token: \(tokenBytes.joined())&quot;)
+    }
+
+    // MARK: failed to register to APNs
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(&quot;Failed to register to APNs: \(error)&quot;)
+    }
+}
+</code></pre></li>
+
+<li><p>アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます</p>
+
+<ul>
+<li>もちろん、実運用上はこの手順は不要です</li>
+<li>実際には、<code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>内で外部サービスにトークンを登録する処理が必要になります</li>
+</ul>
+
+<pre><code class="language-console:コンソール出力例">Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37
+</code></pre>
+
+<h1 id="ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）</h1></li>
+</ol>
+
+<pre><code class="language-swift:AppDelegate.swift">import UIKit
+import UserNotifications    // MARK: 01. import
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+
+        // MARK: 02. request to user
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            guard granted else { return }
+
+            // MARK: 03. register to APNs
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+        return true
+    }
+}
+
+// MARK: - Callback for Remote Notification
+extension AppDelegate {
+    // MARK: 04-1. succeeded to register to APNs
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Data -&gt; Token string
+        let tokenBytes = deviceToken.map { (byte: UInt8) in String(format: &quot;%02.2hhx&quot;, byte) }
+        print(&quot;Device token: \(tokenBytes.joined())&quot;)
+    }
+
+    // MARK: failed to register to APNs
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(&quot;Failed to register to APNs: \(error)&quot;)
+    }
+}
+</code></pre>
+
+<h1 id="push通知の受信テスト">Push通知の受信テスト</h1>
+
+<ul>
+<li>Push通知が受信できることをテストしてみます</li>
+<li>今回は<a href="https://github.com/onmyway133/PushNotifications">onmyway133/PushNotifications</a>を利用するので、インストールしておいてください</li>
+</ul>
+
+<ol>
+<li><p>Push通知の送信準備（PushNotificationsアプリ）</p>
+
+<p><img src="/images/remotenotification01/push_tool.png" alt="push_tool" /></p></li>
+
+<li><p>iOSを選択</p>
+
+<ul>
+<li><p>Authentication -&gt; TOKEN</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目</th>
+<th align="left">設定値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">SELECT P8</td>
+<td align="left">ダウンロードしておいたAuthentication Keyを選択</td>
+</tr>
+
+<tr>
+<td align="left">Enter key id</td>
+<td align="left">メモしておいたKey IDを入力</td>
+</tr>
+
+<tr>
+<td align="left">Enter team id</td>
+<td align="left">メモしておいたTeam IDを入力</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>Body</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目</th>
+<th align="left">設定値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Enter bundle id</td>
+<td align="left">アプリのBundle Identifierを入力</td>
+</tr>
+
+<tr>
+<td align="left">Enter device token</td>
+<td align="left">メモしておいたトークンを入力</td>
+</tr>
+
+<tr>
+<td align="left">Enter message</td>
+<td align="left">Push通知のメッセージとなるJSONを入力</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-json:JSON">{
+    &quot;aps&quot;: {
+        &quot;alert&quot;: &quot;Minimal message&quot;,
+        &quot;sound&quot;: &quot;default&quot;
+    }
+}
+</code></pre></li>
+
+<li><p>Environment</p>
+
+<ul>
+<li>Sandboxにチェック</li>
+</ul></li>
+</ul></li>
+
+<li><p>Push通知の送信</p>
+
+<ul>
+<li>Sendボタンをクリックすると、Push通知が送信されます</li>
+</ul></li>
+
+<li><p>Push通知の受信確認</p>
+
+<ul>
+<li>通知は、アプリが表示されていない状態（以下の状態）で受信した場合に表示されます
+
+<ul>
+<li>アプリが起動していて、Backgroud状態</li>
+<li>アプリが起動していない</li>
+</ul></li>
+</ul>
+
+<p><img src="/images/remotenotification01/push_receive.png" alt="push_receive" /></p></li>
+</ol>
+
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>単純にPush通知を受信して、アプリを開くだけならこれだけの実装で済みます</li>
+<li>また、以下のような実装も可能です
+
+<ul>
+<li>通知にボタン（アクション）を追加して、タップした際に処理を実行する</li>
+<li>アプリが起動していない状態でも、アプリを起こしてタスクをバックグラウンドで実行させる</li>
+</ul></li>
+<li>通知にはUserNotificationsフレームワークを利用するので、以下の点を除いてローカル通知もほぼ同様の実装で受信できます
+
+<ul>
+<li>APNsへの登録がない（デバイスの中で完結するため）</li>
+<li>通知を送信する処理の実装が必要</li>
+</ul></li>
+<li>今回作成したサンプルコードは、GitHubに置きました
+
+<ul>
+<li><a href="https://github.com/aokiplayer/MinimalRemoteNotificationSample">aokiplayer/MinimalRemoteNotificationSample</a></li>
+</ul></li>
+</ul>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="https://developer.apple.com/documentation/usernotifications">UserNotifications | Apple Developer Documentation</a></li>
+<li><a href="https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started">Push Notifications Tutorial: Getting Started | raywenderlich.com</a></li>
+</ul>
+
+  </section>
+</article>
+
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          
+
+<div id="toc" class="Box Box--blue mb-3">
+  <b>iOSにおけるPush通知の基本1（通知の受信まで）</b>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#はじめに">はじめに</a></li>
+<li><a href="#検証環境">検証環境</a></li>
+<li><a href="#必要なもの">必要なもの</a></li>
+<li><a href="#事前準備-apple-developerサイト上">事前準備（Apple Developerサイト上）</a>
+<ul>
+<li><a href="#team-idの確認">Team IDの確認</a></li>
+<li><a href="#authentication-keyの作成とダウンロード">Authentication Keyの作成とダウンロード</a></li>
+</ul></li>
+<li><a href="#主なコンポーネント">主なコンポーネント</a></li>
+<li><a href="#実装手順">実装手順</a>
+<ul>
+<li><a href="#プロジェクトの設定">プロジェクトの設定</a></li>
+<li><a href="#プッシュ通知の登録">プッシュ通知の登録</a></li>
+</ul></li>
+<li><a href="#ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）</a></li>
+<li><a href="#push通知の受信テスト">Push通知の受信テスト</a></li>
+<li><a href="#まとめ">まとめ</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+</nav>
+</div>
+
+
+
+
+<div>
+  
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+
+  
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+
+  
+  <div class="fb-share-button" data-href="https://www.gitshell.net/blog" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.gitshell.net%2Fblog&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></div>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.0';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  
+</div>
+
+
+
+        </aside>
+      </div>
+
+    </div>
+
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+    <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+  </body>
+</html>

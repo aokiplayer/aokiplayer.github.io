@@ -4,42 +4,53 @@
   
   <url>
     <loc>https://aokiplayer.github.io/categories/</loc>
-    <lastmod>2019-04-17T19:16:50+09:00</lastmod>
+    <lastmod>2019-04-18T09:30:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aokiplayer.github.io/posts/</loc>
-    <lastmod>2019-04-17T19:16:50+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://aokiplayer.github.io/categories/report/</loc>
-    <lastmod>2019-04-17T19:16:50+09:00</lastmod>
+    <lastmod>2019-04-18T09:30:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aokiplayer.github.io/tags/swift/</loc>
-    <lastmod>2019-04-17T19:16:50+09:00</lastmod>
+    <lastmod>2019-04-18T09:30:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aokiplayer.github.io/tags/</loc>
-    <lastmod>2019-04-17T19:16:50+09:00</lastmod>
+    <lastmod>2019-04-18T09:30:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/categories/technical/</loc>
+    <lastmod>2019-04-18T09:30:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aokiplayer.github.io/</loc>
-    <lastmod>2019-04-17T19:16:50+09:00</lastmod>
+    <lastmod>2019-04-18T09:30:15+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aokiplayer.github.io/tags/ios/</loc>
+    <lastmod>2019-04-18T09:30:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/posts/remotenotification01/</loc>
+    <lastmod>2019-04-18T09:30:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/categories/report/</loc>
     <lastmod>2019-04-17T19:16:50+09:00</lastmod>
     <priority>0</priority>
   </url>
