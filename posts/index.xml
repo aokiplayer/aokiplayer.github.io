@@ -1,42 +1,699 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Yagamo Style</title>
-    <link>https://aokiplayer.github.io/posts/</link>
-    <description>Recent content in Posts on Yagamo Style</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja-jp</language>
-    <lastBuildDate>Thu, 18 Apr 2019 09:30:15 +0900</lastBuildDate>
-    
-	<atom:link href="https://aokiplayer.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>iOSにおけるPush通知の基本1（通知の受信まで）</title>
-      <link>https://aokiplayer.github.io/posts/remotenotification01/</link>
-      <pubDate>Thu, 18 Apr 2019 09:30:15 +0900</pubDate>
-      
-      <guid>https://aokiplayer.github.io/posts/remotenotification01/</guid>
-      <description>はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説</description>
-    </item>
-    
-    <item>
-      <title>try! Swift Tokyo 2019 感想など</title>
-      <link>https://aokiplayer.github.io/posts/tryswifttokyo2019/</link>
-      <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
-      
-      <guid>https://aokiplayer.github.io/posts/tryswifttokyo2019/</guid>
-      <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。 だ</description>
-    </item>
-    
-    <item>
-      <title>iOSDC 2018 感想など</title>
-      <link>https://aokiplayer.github.io/posts/iosdc2018/</link>
-      <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
-      
-      <guid>https://aokiplayer.github.io/posts/iosdc2018/</guid>
-      <description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年から</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Posts on Yagamo Style</title>
+		<link>https://aokiplayer.github.io/posts/</link>
+		<description>Recent content in Posts on Yagamo Style</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>ja-JP</language>
+		<lastBuildDate>Thu, 18 Apr 2019 09:30:15 +0900</lastBuildDate>
+		<atom:link href="https://aokiplayer.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>iOSにおけるPush通知の基本1（通知の受信まで）</title>
+			<link>https://aokiplayer.github.io/posts/remotenotification01/</link>
+			<pubDate>Thu, 18 Apr 2019 09:30:15 +0900</pubDate>
+			
+			<guid>https://aokiplayer.github.io/posts/remotenotification01/</guid>
+			<description>はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>Push通知は、使い方によっては非常に効果的です
+
+<ul>
+<li>通知しすぎると、邪魔になってしまいますが</li>
+</ul></li>
+<li>ここでは、Push通知の基本的な実装方法を説明します</li>
+<li>Push通知の実装には、UserNotificationsフレームワークを利用します
+
+<ul>
+<li>ローカル通知にも、同じフレームワークを利用します</li>
+<li>昔と違って、ひとつのフレームワークで両方に対応できていいですね</li>
+</ul></li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 10.2</li>
+<li>iOS 12.2</li>
+<li>Swift 5</li>
+<li>iPod touch 6th generation</li>
+</ul>
+
+<h1 id="必要なもの">必要なもの</h1>
+
+<ul>
+<li>Apple Developer Programのアカウント
+
+<ul>
+<li><a href="https://developer.apple.com/account/">Apple Developer</a>サイト上で、以下の確認・作成が必要なため
+
+<ul>
+<li>Team ID</li>
+<li>Authentication Key</li>
+</ul></li>
+</ul></li>
+<li>APNs（Apple Push Notification Service）に対応した、Push通知を送信するサーバ
+
+<ul>
+<li><a href="https://firebase.google.com/">Firebase</a>とか<a href="https://azure.microsoft.com/">Microsoft Azure</a>とか、いろいろなサービスが対応してます</li>
+<li>テストするだけなら、APNsに対応したいろいろなツールがあります
+
+<ul>
+<li><a href="https://github.com/Dwarven/PushMeBaby">Dwarven/PushMeBaby</a></li>
+<li><a href="https://github.com/onmyway133/PushNotifications">onmyway133/PushNotifications</a></li>
+</ul></li>
+<li>APNsは、その名のとおりAppleのPush通知サービスです
+
+<ul>
+<li>Push通知の送信は、必ずこのサービスを経由します</li>
+</ul></li>
+</ul></li>
+
+<li><p>iPhoneやiPadなどの実デバイス</p>
+
+<ul>
+<li>シミュレータではPush通知が利用できないため</li>
+
+<li><p>シミュレータでPush通知の登録をしようとすると、コンソールに以下のようなメッセージが出力されます</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">Failed to register: Error Domain=NSCocoaErrorDomain Code=3010 &#34;remote notifications are not supported in the simulator&#34; 
+UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}</code></pre></div></li>
+</ul></li>
+</ul>
+
+<h1 id="事前準備-apple-developerサイト上">事前準備（Apple Developerサイト上）</h1>
+
+<h2 id="team-idの確認">Team IDの確認</h2>
+
+<ol>
+<li><a href="https://developer.apple.com/account/">Apple Developer</a>サイトにログイン</li>
+
+<li><p>左側のMembershipを選択して、Membership Detailsに表示されたTeam IDをメモしておく</p>
+
+<p><img src="/images/remotenotification01/team_id.png" alt="team_id" /></p></li>
+</ol>
+
+<h2 id="authentication-keyの作成とダウンロード">Authentication Keyの作成とダウンロード</h2>
+
+<ol>
+<li><a href="https://developer.apple.com/account/">Apple Developer</a>サイトにログイン</li>
+<li>左側のCertificates, IDs &amp; Profilesを選択</li>
+
+<li><p>表示された画面で左側のKeysからAllを選択、右上の+をクリックしてキーを作成</p>
+
+<ul>
+<li>Nameには、キーに設定する任意の名前を入力</li>
+<li>Apple Push Notification service (APNs)にチェック</li>
+</ul>
+
+<p><img src="/images/remotenotification01/create_key.png" alt="create_key" /></p></li>
+
+<li><p>作成したら、Downloadをクリックしてキーをダウンロード</p>
+
+<ul>
+<li><strong>キーは一度しかダウンロードできません。セキュアな場所に確実に保存してください</strong></li>
+<li>このキーは、Push通知を行うサーバに設定する</li>
+<li>キーは、<code>AuthKey_XXXXXXXXXX.p8</code>という名前でダウンロードされる</li>
+<li><code>XXXXXXXXXX</code>の部分がKey ID</li>
+<li>Key IDもメモしておく</li>
+</ul>
+
+<p><img src="/images/remotenotification01/download_key.png" alt="download_key" /></p></li>
+</ol>
+
+<h1 id="主なコンポーネント">主なコンポーネント</h1>
+
+<table>
+<thead>
+<tr>
+<th align="left">コンポーネント</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">UNUserNotificationCenter</td>
+<td align="left">通知関連の機能を管理する</td>
+</tr>
+
+<tr>
+<td align="left">UNNotificationRequest</td>
+<td align="left">通知の内容や、配送のトリガーを内包する</td>
+</tr>
+
+<tr>
+<td align="left">UNNotificationAction</td>
+<td align="left">通知内で表示されるボタン</td>
+</tr>
+
+<tr>
+<td align="left">UNNotificationCategory</td>
+<td align="left">通知の方法や表示されるアクションの設定をまとめたもの</td>
+</tr>
+
+<tr>
+<td align="left">UNNotificationSettings</td>
+<td align="left">通知の設定情報を保持</td>
+</tr>
+
+<tr>
+<td align="left">UNMutableNotificationContent</td>
+<td align="left">通知する内容</td>
+</tr>
+
+<tr>
+<td align="left">UNPushNotificationTrigger</td>
+<td align="left">APNsから送信された通知に関するトリガー</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="実装手順">実装手順</h1>
+
+<h2 id="プロジェクトの設定">プロジェクトの設定</h2>
+
+<ol>
+<li><p>アプリケーションTARGETのSigningから、Teamを選択</p>
+
+<ul>
+<li>Apple Developer Programに登録済みのアカウントに紐付いている必要性あり</li>
+<li>無料アカウントのTeamでは、Push Notificationが利用できない</li>
+</ul>
+
+<p><img src="/images/remotenotification01/signing_team.png" alt="signing_team" /></p></li>
+
+<li><p>アプリケーションTARGETのCapabilitiesから、Push NotificationsをONにする</p>
+
+<p><img src="/images/remotenotification01/capabilities.png" alt="capabilities" /></p></li>
+</ol>
+
+<h2 id="プッシュ通知の登録">プッシュ通知の登録</h2>
+
+<ul>
+<li>ここから先は、すべてAppDelegate.swift内に記述します
+
+<ul>
+<li>アプリの起動時に処理するのと、<code>UIApplicationDelegate</code>のコールバックが必要になるためです</li>
+</ul></li>
+</ul>
+
+<ol>
+<li><p>UserNotificationsフレームワークを利用するので、インポート</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span></code></pre></div></li>
+
+<li><p>ユーザに対して、通知の許可依頼を行う</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                 <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 02. request to user</span>
+    <span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">().</span><span class="n">requestAuthorization</span><span class="p">(</span><span class="n">options</span><span class="p">:</span> <span class="p">[.</span><span class="n">alert</span><span class="p">,</span> <span class="p">.</span><span class="n">sound</span><span class="p">,</span> <span class="p">.</span><span class="n">badge</span><span class="p">])</span> <span class="p">{</span> <span class="n">granted</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+        <span class="k">guard</span> <span class="n">granted</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+        <span class="c1">// 〜省略〜</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></div></li>
+
+<li><p>ユーザが通知を許可していた場合は、APNsへ登録</p>
+
+<ul>
+<li><strong>「どのデバイスにインストールされたどのアプリか」</strong>を登録する</li>
+<li>これにより、APNsは対象を特定して通知を発行できるようになる</li>
+
+<li><p>この結果として、一意に識別するトークンが返される</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 02. request to user</span>
+<span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">().</span><span class="n">requestAuthorization</span><span class="p">(</span><span class="n">options</span><span class="p">:</span> <span class="p">[.</span><span class="n">alert</span><span class="p">,</span> <span class="p">.</span><span class="n">sound</span><span class="p">,</span> <span class="p">.</span><span class="n">badge</span><span class="p">])</span> <span class="p">{</span> <span class="n">granted</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+    <span class="k">guard</span> <span class="n">granted</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 03. register to APNs</span>
+    <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">async</span> <span class="p">{</span>
+        <span class="n">UIApplication</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">registerForRemoteNotifications</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div></li>
+</ul></li>
+
+<li><p>APNsへの登録後に呼び出されるコールバックを実装（<code>UIApplicationDelegate</code>のメソッド）</p>
+
+<ul>
+<li>成功時: <code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>
+
+<ul>
+<li>先述したトークンは第2引数に渡される</li>
+<li>このトークンを、Push通知を送信するサービスに登録する必要がある
+
+<ul>
+<li>今回はテストとしてmacOS上のプログラムからPush通知を送信するので、トークンをログ出力しておく</li>
+<li>外部のサービスへトークンを登録する方法は、各サービスのドキュメントを参照してください</li>
+</ul></li>
+</ul></li>
+<li>失敗時: <code>application(_:didFailToRegisterForRemoteNotificationsWithError:)</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> - Callback for Remote Notification</span>
+<span class="kd">extension</span> <span class="nc">AppDelegate</span> <span class="p">{</span>
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04-1. succeeded to register to APNs</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="n">deviceToken</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Data -&gt; Token string</span>
+        <span class="kd">let</span> <span class="nv">tokenBytes</span> <span class="p">=</span> <span class="n">deviceToken</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">:</span> <span class="nb">UInt8</span><span class="p">)</span> <span class="k">in</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&#34;%02.2hhx&#34;</span><span class="p">,</span> <span class="n">byte</span><span class="p">)</span> <span class="p">}</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Device token: </span><span class="si">\(</span><span class="n">tokenBytes</span><span class="p">.</span><span class="n">joined</span><span class="si">())</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> failed to register to APNs</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didFailToRegisterForRemoteNotificationsWithError</span> <span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed to register to APNs: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div></li>
+
+<li><p>アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます</p>
+
+<ul>
+<li>もちろん、実運用上はこの手順は不要です</li>
+<li>実際には、<code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>内で外部サービスにトークンを登録する処理が必要になります</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-console:コンソール出力例" data-lang="console:コンソール出力例">Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37</code></pre></div>
+<h1 id="ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）</h1></li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UIKit</span>
+<span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span>
+
+<span class="kr">@UIApplicationMain</span>
+<span class="kd">class</span> <span class="nc">AppDelegate</span><span class="p">:</span> <span class="n">UIResponder</span><span class="p">,</span> <span class="n">UIApplicationDelegate</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nv">window</span><span class="p">:</span> <span class="n">UIWindow</span><span class="p">?</span>
+
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+
+        <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 02. request to user</span>
+        <span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">().</span><span class="n">requestAuthorization</span><span class="p">(</span><span class="n">options</span><span class="p">:</span> <span class="p">[.</span><span class="n">alert</span><span class="p">,</span> <span class="p">.</span><span class="n">sound</span><span class="p">,</span> <span class="p">.</span><span class="n">badge</span><span class="p">])</span> <span class="p">{</span> <span class="n">granted</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+            <span class="k">guard</span> <span class="n">granted</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+            <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 03. register to APNs</span>
+            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">async</span> <span class="p">{</span>
+                <span class="n">UIApplication</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">registerForRemoteNotifications</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> - Callback for Remote Notification</span>
+<span class="kd">extension</span> <span class="nc">AppDelegate</span> <span class="p">{</span>
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04-1. succeeded to register to APNs</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="n">deviceToken</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Data -&gt; Token string</span>
+        <span class="kd">let</span> <span class="nv">tokenBytes</span> <span class="p">=</span> <span class="n">deviceToken</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">:</span> <span class="nb">UInt8</span><span class="p">)</span> <span class="k">in</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&#34;%02.2hhx&#34;</span><span class="p">,</span> <span class="n">byte</span><span class="p">)</span> <span class="p">}</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Device token: </span><span class="si">\(</span><span class="n">tokenBytes</span><span class="p">.</span><span class="n">joined</span><span class="si">())</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> failed to register to APNs</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didFailToRegisterForRemoteNotificationsWithError</span> <span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed to register to APNs: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h1 id="push通知の受信テスト">Push通知の受信テスト</h1>
+
+<ul>
+<li>Push通知が受信できることをテストしてみます</li>
+<li>今回は<a href="https://github.com/onmyway133/PushNotifications">onmyway133/PushNotifications</a>を利用するので、インストールしておいてください</li>
+</ul>
+
+<ol>
+<li><p>Push通知の送信準備（PushNotificationsアプリ）</p>
+
+<p><img src="/images/remotenotification01/push_tool.png" alt="push_tool" /></p></li>
+
+<li><p>iOSを選択</p>
+
+<ul>
+<li><p>Authentication -&gt; TOKEN</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目</th>
+<th align="left">設定値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">SELECT P8</td>
+<td align="left">ダウンロードしておいたAuthentication Keyを選択</td>
+</tr>
+
+<tr>
+<td align="left">Enter key id</td>
+<td align="left">メモしておいたKey IDを入力</td>
+</tr>
+
+<tr>
+<td align="left">Enter team id</td>
+<td align="left">メモしておいたTeam IDを入力</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>Body</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目</th>
+<th align="left">設定値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Enter bundle id</td>
+<td align="left">アプリのBundle Identifierを入力</td>
+</tr>
+
+<tr>
+<td align="left">Enter device token</td>
+<td align="left">メモしておいたトークンを入力</td>
+</tr>
+
+<tr>
+<td align="left">Enter message</td>
+<td align="left">Push通知のメッセージとなるJSONを入力</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre class="chroma"><code class="language-json:JSON" data-lang="json:JSON">{
+    &#34;aps&#34;: {
+        &#34;alert&#34;: &#34;Minimal message&#34;,
+        &#34;sound&#34;: &#34;default&#34;
+    }
+}</code></pre></div></li>
+
+<li><p>Environment</p>
+
+<ul>
+<li>Sandboxにチェック</li>
+</ul></li>
+</ul></li>
+
+<li><p>Push通知の送信</p>
+
+<ul>
+<li>Sendボタンをクリックすると、Push通知が送信されます</li>
+</ul></li>
+
+<li><p>Push通知の受信確認</p>
+
+<ul>
+<li>通知は、アプリが表示されていない状態（以下の状態）で受信した場合に表示されます
+
+<ul>
+<li>アプリが起動していて、Backgroud状態</li>
+<li>アプリが起動していない</li>
+</ul></li>
+</ul>
+
+<p><img src="/images/remotenotification01/push_receive.png" alt="push_receive" /></p></li>
+</ol>
+
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>単純にPush通知を受信して、アプリを開くだけならこれだけの実装で済みます</li>
+<li>また、以下のような実装も可能です
+
+<ul>
+<li>通知にボタン（アクション）を追加して、タップした際に処理を実行する</li>
+<li>アプリが起動していない状態でも、アプリを起こしてタスクをバックグラウンドで実行させる</li>
+</ul></li>
+<li>通知にはUserNotificationsフレームワークを利用するので、以下の点を除いてローカル通知もほぼ同様の実装で受信できます
+
+<ul>
+<li>APNsへの登録がない（デバイスの中で完結するため）</li>
+<li>通知を送信する処理の実装が必要</li>
+</ul></li>
+<li>今回作成したサンプルコードは、GitHubに置きました
+
+<ul>
+<li><a href="https://github.com/aokiplayer/MinimalRemoteNotificationSample">aokiplayer/MinimalRemoteNotificationSample</a></li>
+</ul></li>
+</ul>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="https://developer.apple.com/documentation/usernotifications">UserNotifications | Apple Developer Documentation</a></li>
+<li><a href="https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started">Push Notifications Tutorial: Getting Started | raywenderlich.com</a></li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>try! Swift Tokyo 2019 感想など</title>
+			<link>https://aokiplayer.github.io/posts/tryswifttokyo2019/</link>
+			<pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
+			
+			<guid>https://aokiplayer.github.io/posts/tryswifttokyo2019/</guid>
+			<description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。 だ</description>
+			<content type="html"><![CDATA[
+
+<p>try! Swift Tokyo 2019 に参加してきました。
+今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。</p>
+
+<p>だいぶ時間が経ってしまったけど、感想を少し書いてみます。</p>
+
+<h1 id="公式サイト-ハッシュタグなど">公式サイト、ハッシュタグなど</h1>
+
+<ul>
+<li><a href="https://www.tryswift.co/events/2019/tokyo/jp/">https://www.tryswift.co/events/2019/tokyo/jp/</a></li>
+<li><a href="https://twitter.com/tryswiftconf">@tryswiftconf</a></li>
+<li><a href="https://twitter.com/hashtag/tryswiftconf?src=hash">#tryswiftconf</a></li>
+</ul>
+
+<h1 id="ここが良かった">ここが良かった</h1>
+
+<h2 id="スポンサーとして">スポンサーとして</h2>
+
+<h3 id="知名度が少し上がってきた">知名度が少し上がってきた</h3>
+
+<ul>
+<li>Java 系ではそれなりに知名度がある弊社ですが、モバイル系のカンファレンスに継続して参加することでこちらでも知名度が少しずつ上がってきました。</li>
+<li>いろいろな方から、声を掛けて頂けました。</li>
+</ul>
+
+<h3 id="商品をお見せするのが大事">商品をお見せするのが大事</h3>
+
+<ul>
+<li>今回はマーケティングチームのアイディアで、主に私の執筆したトレーニングテキストのサンプルを展示しました。</li>
+<li>実際に手に取ってご覧頂くことで、以下の効果が得られました。
+
+<ul>
+<li>弊社の業務やトレーニング内容をイメージ頂けた -&gt; 参加者の皆様との会話のきっかけとなった</li>
+<li>たくさんのご意見を頂けた
+
+<ul>
+<li>「市販書籍よりもわかりやすい」「ここに書いてるのよりも、こっちのライブラリを使ったほうがいい」</li>
+<li>「テキストを売って欲しい」「現場に出る前の教育に使いたい」</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2 id="エンジニアとして">エンジニアとして</h2>
+
+<h3 id="世界的なエンジニアに直接聞ける">世界的なエンジニアに直接聞ける</h3>
+
+<ul>
+<li>私は IBM Kitura を使い始めているのですが、せっかく Kitura の開発チームが来日されていたので、うまくいかない点を思い切って質問してみました。
+
+<ul>
+<li>その上で、Kituraのドキュメント自体に誤りがあることなどを発見できました。 &lt;- 貢献できた！</li>
+</ul></li>
+<li>セッション自体はあとで動画がアップロードされますが、質問はその場でしかできないので、貴重な経験でした。</li>
+<li>英語は、できなくてもこわくないです（もちろん、できた方がいいけど）。
+
+<ul>
+<li>言いたいことがはっきりしていれば、文法を多少誤っていたり単語が出てこなかったりしても伝わります。</li>
+<li>カンファレンス前日の <a href="https://tryswifttokyo.connpass.com/event/118413/">Global Communication Workshop for try! Swift</a> で、背中を押してもらえた気がします。</li>
+</ul></li>
+</ul>
+
+<h1 id="今後に向けて">今後に向けて</h1>
+
+<ul>
+<li>個人・企業ともスポンサーは続けていきたいです。</li>
+<li>参加して良かった！で終わらせない。今は IBM Kitura ブースで頂いた本（抽選に当たりました）も使いながら Kitura を学習してます。</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>iOSDC 2018 感想など</title>
+			<link>https://aokiplayer.github.io/posts/iosdc2018/</link>
+			<pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
+			
+			<guid>https://aokiplayer.github.io/posts/iosdc2018/</guid>
+			<description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年から</description>
+			<content type="html"><![CDATA[
+
+<p>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。
+あと、<a href="https://www.casareal.co.jp/">弊社</a>は昨年からブーススポンサーをやってるので、そっちにも顔を出してました。</p>
+
+<h1 id="公式サイト-ハッシュタグなど">公式サイト、ハッシュタグなど</h1>
+
+<ul>
+<li><a href="https://iosdc.jp/2018/">https://iosdc.jp/2018/</a></li>
+<li><a href="https://twitter.com/iosdcjp">@iosdcjp</a></li>
+<li><a href="https://twitter.com/hashtag/iosdc?src=hash">#iosdc</a></li>
+<li><a href="https://qiita.com/winterwind26/items/210e5735d2ce832d0c36">iOSDC 2018 セッション資料まとめ</a></li>
+</ul>
+
+<p>今年は <sup>8</sup>&frasl;<sub>30</sub>-<sup>9</sup>&frasl;<sub>2</sub> の開催でしたが、 <sup>8</sup>&frasl;<sub>30</sub>-31 は残念ながら <a href="https://www.casareal.co.jp/ls/service/openseminar/apple/l020">iOSDE</a> に登壇していたので iOSDC には <sup>9</sup>&frasl;<sub>1</sub>,2 のみ参加です（名前が紛らわしい）。</p>
+
+<p>セッションは高度な内容から日常で使える tips 、入門者向けの内容まで幅広く、どのレベルのエンジニアでも学びの得られる門戸の広いカンファレンスでした。特に後者はカンファレンスでは蔑ろにされることが多い気がするけど、いろんなエンジニアが学べて交流できるのって大事だなと思ってます（なので来年もそっち系でトーク応募します）。</p>
+
+<h1 id="ここがよかった">ここがよかった</h1>
+
+<h2 id="参加者として">参加者として</h2>
+
+<ul>
+<li>初回からずっと参加してますが、「ここがもうちょっとこうなってるといいな」が毎年着実に改善されています。</li>
+<li>昨年導入された「パックマンルール」もすごい！って思ったけど、今年の「機械的席詰めタイム」はそれ以上によく考えられてるなと思いました。</li>
+<li>みんな気持ち的には「詰めた方がいいんだろうな」と思いつつ、最初から詰めるのは何となく気が引ける。で、結果的に 3 人掛けだと真ん中が空いちゃって後から来る人が入りづらい。それを上手く解決してるなーととても感心しました。</li>
+<li>ノベルティのサコッシュ（斜め掛けのバッグ）。スリーブに入れた MacBook と iPad Pro 10.5 インチがぴったり収まるし、トートバッグと違って両手が空くのでとても便利でした。カンファレンス中、大活躍でした。</li>
+<li>バドワイザー（瓶）が今年も継続されてた。</li>
+</ul>
+
+<h2 id="スポンサー-サポーターとして">スポンサー＆サポーターとして</h2>
+
+<ul>
+<li>昨年ブーススポンサー用に作成して頂いた各社ロゴの缶バッジは、参加者がブースを回るモチベーションとなりとても好評でした（あと、登壇者に目立つところに付けて頂くことで露出を狙えた）。</li>
+<li>今年はそういう感じのはないのか…とちょっとだけ残念な気持ちでしたが、運営の方々の思いである「参加者も一緒にイベントを作っていく仲間」というのが 3 年目ともなるとしっかり浸透していて、結果的に多くの方々に立ち寄って頂けました。</li>
+<li>昨年は個人サポーター（個人スポンサー）の T シャツが一般と同じだったので、パーカーを着てないと見分けがつかなかったけど今年は一般がシルバー、個人サポーターがゴールドと違いがあってうれしかった（でもスポンサーブース用に会社のポロシャツを着てたので、着るチャンスがなかった…）。</li>
+<li>来年もやります。</li>
+</ul>
+
+<h1 id="あれ-と思った点">あれ？と思った点</h1>
+
+<ul>
+<li>昨年は LT の投票＆賞ってレギュラートークとは別にありませんでしたっけ？（うろ覚え）</li>
+</ul>
+
+<hr />
+
+<h1 id="参加したトークのひとこと感想">参加したトークのひとこと感想</h1>
+
+<h2 id="9-1"><sup>9</sup>&frasl;<sub>1</sub></h2>
+
+<h3 id="詳解-fastfile">詳解 Fastfile</h3>
+
+<ul>
+<li>スピーカー: ぎぎにゃん さん <a href="https://twitter.com/giginet">@giginet</a></li>
+<li>「詳解 Fastlane だと勘違いしてた人が…」あっ、はい</li>
+<li>Fastfile の話でしたが、以下のように Fastlane に限らず一般的に有用な内容でした
+
+<ul>
+<li>値は環境変数から読み込む</li>
+<li>設定とロジックを分ける</li>
+</ul></li>
+<li>私自身は Fastlane を使い始めたばかりなので、実際にこの辺りを見ながら少しずつ適用していきたいです</li>
+</ul>
+
+<h3 id="depth-in-depth">Depth in Depth</h3>
+
+<ul>
+<li>スピーカー: 堤修一 さん <a href="https://twitter.com/shu223">@shu223</a></li>
+<li>深度はボケのためだけではない、という話でした</li>
+<li>深度の種類やセンサーの仕組みなどから、丁寧に説明されていました</li>
+<li>私自身は、深度を可視化するアプリを利用してていつも面白いなーと思ってましたが、意外と取るのは単純だと感じました（でもやったら多分難しいとは思う）</li>
+<li>説明の明快さもさることながら、人物をくり抜いて背景合成するというキャッチーなデモが非常に分かり易かったです</li>
+<li>この日に生まれたお子さんが、私の娘と同じ誕生日なので何となくうれしいです。おめでとうございます！</li>
+</ul>
+
+<h3 id="5000-行の-uitableview-を差分更新する">5000 行の UITableView を差分更新する</h3>
+
+<ul>
+<li>スピーカー: ばんじゅん さん <a href="https://twitter.com/banjun">@banjun</a></li>
+<li>差分更新のライブラリ比較や、パフォーマンスを落とさないための試行錯誤などに関する内容でした</li>
+<li>UITableView の差分更新については、 <sup>8</sup>&frasl;<sub>30</sub>, 31 にもいくつかセッションがあったようです</li>
+<li>ライブラリを入れればそれで解決、とは行かないようでした</li>
+<li>実際にパフォーマンスが上がらずに、そのボトルネックを突き止め改善するプロセス自体が有用でした</li>
+</ul>
+
+<h3 id="気遣いの-ios-プログラミング">気遣いの iOS  プログラミング</h3>
+
+<ul>
+<li>スピーカー: ezura さん <a href="https://twitter.com/eduraaa">@eduraaa</a></li>
+<li>どの場面でも利用すべきベストなものはなく、いろいろな場面に活用できる引き出しを増やすことが重要というお話でした</li>
+<li>いくつか具体例を出しながら、コードの意図をより伝えやすい記述を紹介していました</li>
+<li>紹介されていたどれも、 Swift らしい言語機能を上手く活用していました</li>
+<li>そのため、むしろ Java などの言語から移ってきた人にはすぐには理解しがたいのかもしれないと感じました</li>
+<li>メンバーの習熟度も考慮して採用する記述方法を記述する必要があり、引き出しを増やしておくのは重要だと思います</li>
+</ul>
+
+<hr />
+
+<h2 id="9-2"><sup>9</sup>&frasl;<sub>2</sub></h2>
+
+<h3 id="ios-マイクロインタラクション入門">iOS マイクロインタラクション入門</h3>
+
+<ul>
+<li>スピーカー: kiwi さん <a href="https://twitter.com/koga_wiwi">@koga_wiwi</a></li>
+<li>「マイクロインタラクション = ちょっとした相互作用」を活用することで、操作の心地良さにつながるという話でした</li>
+<li>いくつか、具体的な実装方法も紹介しながらのセッションでした</li>
+<li>機能要件的には不要であるものの、特にコンシュマー向けのアプリでは UX が重要ですよね</li>
+<li>本のちょっとしたことでも、全く印象は変わるので少しずつ試してみたいです</li>
+</ul>
+
+<h3 id="プロトコルを使って複数サービスを跨いだ-music-player-を実装する">プロトコルを使って複数サービスを跨いだ music player を実装する</h3>
+
+<ul>
+<li>スピーカー: kumabook さん <a href="https://twitter.com/kumabook">@kumabook</a></li>
+<li>実際に開発した、複数の音楽サービスをサポートするアプリ開発時の知見でした</li>
+<li>Apple Music の曲の後に Spotify の曲、その後に SoundCloud の…といったような再生が可能となっているそうです</li>
+<li>それぞれのサービスごとに利用する API の形式は違うので、プロトコルを活用して共通化されていました</li>
+<li>サービスによってサポートされていない機能などもある中で、できる限り共通化するための試行錯誤があったようです</li>
+<li>ただ、「再生する」「停止する」などの根幹部分はある程度近いので、その辺りを中心に考えると設計がしやすそうでした</li>
+</ul>
+
+<h3 id="auto-layout-エラー診断所">Auto Layout エラー診断所</h3>
+
+<ul>
+<li>スピーカー: akatsuki174 さん <a href="https://twitter.com/akatsuki174">@akatsuki174</a></li>
+<li>Auto Layout 利用時に発生するエラーや警告を解消するためのデバッグ手法を、具体例とともに紹介するセッションでした</li>
+<li>また、その際に役立つツールなどの紹介もあり、 Auto Layout を利用している場合はすぐに役立つ構成となっていました</li>
+<li>Auto Layout については、初学者のみならず苦戦すると思います</li>
+<li>このセッションの内容はまさに「明日からすぐ使える」ものなので、ぜひ取り入れていきたいです</li>
+</ul>
+
+<h3 id="教育-企業におけるデバイス管理手法について">教育・企業におけるデバイス管理手法について</h3>
+
+<ul>
+<li>スピーカー: 大西正恭 さん <a href="https://twitter.com/kenchan0130">@kenchan0130</a></li>
+<li>組織内における Apple デバイスの管理について、概要が全体的に整理されていました</li>
+<li>なぜ必要なのか、何ができるのか、何が必要なのかが整理されたセッションでした</li>
+<li>私自身は Apple 認定 iOS Deployment Essentials で教えているので、内容はだいたいわかってました</li>
+<li>ただ、具体的な MDM 製品を導入して管理している立場の方のご意見を伺いたくて参加しました</li>
+<li>デベロッパーには意外とデバイス管理は知られていないので、こういう内容のが増えるといいなと思います</li>
+</ul>
+
+<h3 id="ios-でグラフを描くために必要な知識について">iOS でグラフを描くために必要な知識について</h3>
+
+<ul>
+<li>スピーカー: 須藤将史 さん <a href="https://twitter.com/kurotyann9696">@kurotyann9696</a></li>
+<li>数学的な円の基礎知識の復習から、段階を追いながら円グラフを書いていく内容でした</li>
+<li>「こんな風になってるといいよね」から「それを実現するためには」を明確に示しながら、理解を深める説明がなされていました</li>
+<li>私自身は現状、「なんとなく難しそう」という理由でアプリ内でグラフなどは使っていませんが、このセッションを聞いて気持ちが変わりました</li>
+<li>説明が非常に明快で、グラフの書き方以上にワクワク感が伝わってきました</li>
+<li>やはり情報を伝えるためには文字情報よりも、グラフや図解が圧倒的に有効だというのを再認識しました</li>
+</ul>
+]]></content>
+		</item>
+		
+	</channel>
 </rss>

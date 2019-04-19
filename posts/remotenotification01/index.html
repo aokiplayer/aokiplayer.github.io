@@ -1,66 +1,80 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    
-    
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-      
-  iOSにおけるPush通知の基本1（通知の受信まで） &ndash; Yagamo Style
+<html lang="ja-JP">
 
-    </title>
-    
-    
-    <meta name="description" property="og:description" content="はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説|">
-    
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
 
-    <meta name="apple-mobile-web-app-title" content="Yagamo Style">
-    
-    
-    
-    
+<meta itemprop="name" content="iOSにおけるPush通知の基本1（通知の受信まで）">
+<meta itemprop="description" content="はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説">
 
 
-    <link rel="stylesheet" href="/assets/syntax.css">
-    <link rel="stylesheet" href="/assets/primer-build.css">
-    <link rel="stylesheet" href="/assets/style.css">
-  </head>
-  <body class="bg-gray">
-    <div id="holy" class="container-lg bg-white">
+<meta itemprop="datePublished" content="2019-04-18T09:30:15&#43;09:00" />
+<meta itemprop="dateModified" content="2019-04-18T09:30:15&#43;09:00" />
+<meta itemprop="wordCount" content="2847">
 
-      <div id="header" class="px-1 bg-white">
-        <nav class="UnderlineNav UnderlineNav--right px-2">
-  <a class="UnderlineNav-actions h2" href="https://aokiplayer.github.io/">
-    Yagamo Style
-  </a>
 
-  
-  
-  <div class="UnderlineNav-body">
-    
-    
-    <a class="UnderlineNav-item " href="/posts/">
-      <i class='fa fa-road'></i>
-      <span>Posts</span>
-    </a>
-    
-    
-  </div>
-  
-</nav>
 
-      </div>
+<meta itemprop="keywords" content="iOS,Swift," />
+<meta property="og:title" content="iOSにおけるPush通知の基本1（通知の受信まで）" />
+<meta property="og:description" content="はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aokiplayer.github.io/posts/remotenotification01/" />
+<meta property="article:published_time" content="2019-04-18T09:30:15&#43;09:00"/>
+<meta property="article:modified_time" content="2019-04-18T09:30:15&#43;09:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="iOSにおけるPush通知の基本1（通知の受信まで）"/>
+<meta name="twitter:description" content="はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説"/>
 
-      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
-        
-<article>
-  <h1>iOSにおけるPush通知の基本1（通知の受信まで）</h1>
-  <section>
-    
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
 
-<h1 id="はじめに">はじめに</h1>
+	<title>iOSにおけるPush通知の基本1（通知の受信まで）</title>
+	<link rel="stylesheet" href="https://aokiplayer.github.io/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://aokiplayer.github.io/">Yagamo Style</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://aokiplayer.github.io/posts/">Posts</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/Solti" target="_blank" rel="noopener" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/aokiplayer" target="_blank" rel="noopener" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://aokiplayer.github.io/posts/">Posts</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Apr 18, 2019</span></div>
+				<h1>iOSにおけるPush通知の基本1（通知の受信まで）</h1>
+			</header>
+			<div class="content">
+				
+
+<h1 id="はじめに">はじめに<a href="#はじめに" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
 <li>Push通知は、使い方によっては非常に効果的です
@@ -77,7 +91,7 @@
 </ul></li>
 </ul>
 
-<h1 id="検証環境">検証環境</h1>
+<h1 id="検証環境">検証環境<a href="#検証環境" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
 <li>Xcode 10.2</li>
@@ -86,7 +100,7 @@
 <li>iPod touch 6th generation</li>
 </ul>
 
-<h1 id="必要なもの">必要なもの</h1>
+<h1 id="必要なもの">必要なもの<a href="#必要なもの" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
 <li>Apple Developer Programのアカウント
@@ -122,16 +136,14 @@
 <li>シミュレータではPush通知が利用できないため</li>
 
 <li><p>シミュレータでPush通知の登録をしようとすると、コンソールに以下のようなメッセージが出力されます</p>
-
-<pre><code class="language-console">Failed to register: Error Domain=NSCocoaErrorDomain Code=3010 &quot;remote notifications are not supported in the simulator&quot; 
-UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}
-</code></pre></li>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">Failed to register: Error Domain=NSCocoaErrorDomain Code=3010 &#34;remote notifications are not supported in the simulator&#34; 
+UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}</code></pre></div></li>
 </ul></li>
 </ul>
 
-<h1 id="事前準備-apple-developerサイト上">事前準備（Apple Developerサイト上）</h1>
+<h1 id="事前準備-apple-developerサイト上">事前準備（Apple Developerサイト上）<a href="#事前準備-apple-developerサイト上" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
-<h2 id="team-idの確認">Team IDの確認</h2>
+<h2 id="team-idの確認">Team IDの確認<a href="#team-idの確認" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ol>
 <li><a href="https://developer.apple.com/account/">Apple Developer</a>サイトにログイン</li>
@@ -141,7 +153,7 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 <p><img src="/images/remotenotification01/team_id.png" alt="team_id" /></p></li>
 </ol>
 
-<h2 id="authentication-keyの作成とダウンロード">Authentication Keyの作成とダウンロード</h2>
+<h2 id="authentication-keyの作成とダウンロード">Authentication Keyの作成とダウンロード<a href="#authentication-keyの作成とダウンロード" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ol>
 <li><a href="https://developer.apple.com/account/">Apple Developer</a>サイトにログイン</li>
@@ -169,7 +181,7 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 <p><img src="/images/remotenotification01/download_key.png" alt="download_key" /></p></li>
 </ol>
 
-<h1 id="主なコンポーネント">主なコンポーネント</h1>
+<h1 id="主なコンポーネント">主なコンポーネント<a href="#主なコンポーネント" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <table>
 <thead>
@@ -217,9 +229,9 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 </tbody>
 </table>
 
-<h1 id="実装手順">実装手順</h1>
+<h1 id="実装手順">実装手順<a href="#実装手順" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
-<h2 id="プロジェクトの設定">プロジェクトの設定</h2>
+<h2 id="プロジェクトの設定">プロジェクトの設定<a href="#プロジェクトの設定" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ol>
 <li><p>アプリケーションTARGETのSigningから、Teamを選択</p>
@@ -236,7 +248,7 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 <p><img src="/images/remotenotification01/capabilities.png" alt="capabilities" /></p></li>
 </ol>
 
-<h2 id="プッシュ通知の登録">プッシュ通知の登録</h2>
+<h2 id="プッシュ通知の登録">プッシュ通知の登録<a href="#プッシュ通知の登録" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ul>
 <li>ここから先は、すべてAppDelegate.swift内に記述します
@@ -248,24 +260,20 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 
 <ol>
 <li><p>UserNotificationsフレームワークを利用するので、インポート</p>
-
-<pre><code class="language-swift:AppDelegate.swift">import UserNotifications    // MARK: 01. import
-</code></pre></li>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span></code></pre></div></li>
 
 <li><p>ユーザに対して、通知の許可依頼を行う</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                 <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
 
-<pre><code class="language-swift:AppDelegate.swift">func application(_ application: UIApplication,
-                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 02. request to user</span>
+    <span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">().</span><span class="n">requestAuthorization</span><span class="p">(</span><span class="n">options</span><span class="p">:</span> <span class="p">[.</span><span class="n">alert</span><span class="p">,</span> <span class="p">.</span><span class="n">sound</span><span class="p">,</span> <span class="p">.</span><span class="n">badge</span><span class="p">])</span> <span class="p">{</span> <span class="n">granted</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+        <span class="k">guard</span> <span class="n">granted</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
 
-    // MARK: 02. request to user
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-        guard granted else { return }
-
-        // 〜省略〜
-    }
-    return true
-}
-</code></pre></li>
+        <span class="c1">// 〜省略〜</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></div></li>
 
 <li><p>ユーザが通知を許可していた場合は、APNsへ登録</p>
 
@@ -274,17 +282,15 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 <li>これにより、APNsは対象を特定して通知を発行できるようになる</li>
 
 <li><p>この結果として、一意に識別するトークンが返される</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 02. request to user</span>
+<span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">().</span><span class="n">requestAuthorization</span><span class="p">(</span><span class="n">options</span><span class="p">:</span> <span class="p">[.</span><span class="n">alert</span><span class="p">,</span> <span class="p">.</span><span class="n">sound</span><span class="p">,</span> <span class="p">.</span><span class="n">badge</span><span class="p">])</span> <span class="p">{</span> <span class="n">granted</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+    <span class="k">guard</span> <span class="n">granted</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
 
-<pre><code class="language-swift:AppDelegate.swift">// MARK: 02. request to user
-UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-    guard granted else { return }
-
-    // MARK: 03. register to APNs
-    DispatchQueue.main.async {
-        UIApplication.shared.registerForRemoteNotifications()
-    }
-}
-</code></pre></li>
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 03. register to APNs</span>
+    <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">async</span> <span class="p">{</span>
+        <span class="n">UIApplication</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">registerForRemoteNotifications</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div></li>
 </ul></li>
 
 <li><p>APNsへの登録後に呼び出されるコールバックを実装（<code>UIApplicationDelegate</code>のメソッド）</p>
@@ -303,24 +309,22 @@ UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound
 </ul></li>
 <li>失敗時: <code>application(_:didFailToRegisterForRemoteNotificationsWithError:)</code></li>
 </ul>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> - Callback for Remote Notification</span>
+<span class="kd">extension</span> <span class="nc">AppDelegate</span> <span class="p">{</span>
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04-1. succeeded to register to APNs</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="n">deviceToken</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Data -&gt; Token string</span>
+        <span class="kd">let</span> <span class="nv">tokenBytes</span> <span class="p">=</span> <span class="n">deviceToken</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">:</span> <span class="nb">UInt8</span><span class="p">)</span> <span class="k">in</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&#34;%02.2hhx&#34;</span><span class="p">,</span> <span class="n">byte</span><span class="p">)</span> <span class="p">}</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Device token: </span><span class="si">\(</span><span class="n">tokenBytes</span><span class="p">.</span><span class="n">joined</span><span class="si">())</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
 
-<pre><code class="language-swift:AppDelegate.swift">// MARK: - Callback for Remote Notification
-extension AppDelegate {
-    // MARK: 04-1. succeeded to register to APNs
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // Data -&gt; Token string
-        let tokenBytes = deviceToken.map { (byte: UInt8) in String(format: &quot;%02.2hhx&quot;, byte) }
-        print(&quot;Device token: \(tokenBytes.joined())&quot;)
-    }
-
-    // MARK: failed to register to APNs
-    func application(_ application: UIApplication,
-                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print(&quot;Failed to register to APNs: \(error)&quot;)
-    }
-}
-</code></pre></li>
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> failed to register to APNs</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didFailToRegisterForRemoteNotificationsWithError</span> <span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed to register to APNs: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div></li>
 
 <li><p>アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます</p>
 
@@ -328,56 +332,50 @@ extension AppDelegate {
 <li>もちろん、実運用上はこの手順は不要です</li>
 <li>実際には、<code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>内で外部サービスにトークンを登録する処理が必要になります</li>
 </ul>
-
-<pre><code class="language-console:コンソール出力例">Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37
-</code></pre>
-
-<h1 id="ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）</h1></li>
+<div class="highlight"><pre class="chroma"><code class="language-console:コンソール出力例" data-lang="console:コンソール出力例">Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37</code></pre></div>
+<h1 id="ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）<a href="#ここまでの実装-appdelegate-swift" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1></li>
 </ol>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UIKit</span>
+<span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span>
 
-<pre><code class="language-swift:AppDelegate.swift">import UIKit
-import UserNotifications    // MARK: 01. import
+<span class="kr">@UIApplicationMain</span>
+<span class="kd">class</span> <span class="nc">AppDelegate</span><span class="p">:</span> <span class="n">UIResponder</span><span class="p">,</span> <span class="n">UIApplicationDelegate</span> <span class="p">{</span>
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+    <span class="kd">var</span> <span class="nv">window</span><span class="p">:</span> <span class="n">UIWindow</span><span class="p">?</span>
 
-    var window: UIWindow?
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+        <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 02. request to user</span>
+        <span class="n">UNUserNotificationCenter</span><span class="p">.</span><span class="n">current</span><span class="p">().</span><span class="n">requestAuthorization</span><span class="p">(</span><span class="n">options</span><span class="p">:</span> <span class="p">[.</span><span class="n">alert</span><span class="p">,</span> <span class="p">.</span><span class="n">sound</span><span class="p">,</span> <span class="p">.</span><span class="n">badge</span><span class="p">])</span> <span class="p">{</span> <span class="n">granted</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+            <span class="k">guard</span> <span class="n">granted</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
 
-        // MARK: 02. request to user
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            guard granted else { return }
+            <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 03. register to APNs</span>
+            <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">async</span> <span class="p">{</span>
+                <span class="n">UIApplication</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">registerForRemoteNotifications</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-            // MARK: 03. register to APNs
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
-        }
-        return true
-    }
-}
+<span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> - Callback for Remote Notification</span>
+<span class="kd">extension</span> <span class="nc">AppDelegate</span> <span class="p">{</span>
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04-1. succeeded to register to APNs</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="n">deviceToken</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Data -&gt; Token string</span>
+        <span class="kd">let</span> <span class="nv">tokenBytes</span> <span class="p">=</span> <span class="n">deviceToken</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">:</span> <span class="nb">UInt8</span><span class="p">)</span> <span class="k">in</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&#34;%02.2hhx&#34;</span><span class="p">,</span> <span class="n">byte</span><span class="p">)</span> <span class="p">}</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Device token: </span><span class="si">\(</span><span class="n">tokenBytes</span><span class="p">.</span><span class="n">joined</span><span class="si">())</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
 
-// MARK: - Callback for Remote Notification
-extension AppDelegate {
-    // MARK: 04-1. succeeded to register to APNs
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // Data -&gt; Token string
-        let tokenBytes = deviceToken.map { (byte: UInt8) in String(format: &quot;%02.2hhx&quot;, byte) }
-        print(&quot;Device token: \(tokenBytes.joined())&quot;)
-    }
-
-    // MARK: failed to register to APNs
-    func application(_ application: UIApplication,
-                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print(&quot;Failed to register to APNs: \(error)&quot;)
-    }
-}
-</code></pre>
-
-<h1 id="push通知の受信テスト">Push通知の受信テスト</h1>
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> failed to register to APNs</span>
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                     <span class="n">didFailToRegisterForRemoteNotificationsWithError</span> <span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed to register to APNs: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h1 id="push通知の受信テスト">Push通知の受信テスト<a href="#push通知の受信テスト" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
 <li>Push通知が受信できることをテストしてみます</li>
@@ -447,14 +445,12 @@ extension AppDelegate {
 </tr>
 </tbody>
 </table>
-
-<pre><code class="language-json:JSON">{
-    &quot;aps&quot;: {
-        &quot;alert&quot;: &quot;Minimal message&quot;,
-        &quot;sound&quot;: &quot;default&quot;
+<div class="highlight"><pre class="chroma"><code class="language-json:JSON" data-lang="json:JSON">{
+    &#34;aps&#34;: {
+        &#34;alert&#34;: &#34;Minimal message&#34;,
+        &#34;sound&#34;: &#34;default&#34;
     }
-}
-</code></pre></li>
+}</code></pre></div></li>
 
 <li><p>Environment</p>
 
@@ -483,7 +479,7 @@ extension AppDelegate {
 <p><img src="/images/remotenotification01/push_receive.png" alt="push_receive" /></p></li>
 </ol>
 
-<h1 id="まとめ">まとめ</h1>
+<h1 id="まとめ">まとめ<a href="#まとめ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
 <li>単純にPush通知を受信して、アプリを開くだけならこれだけの実装で済みます</li>
@@ -506,84 +502,42 @@ extension AppDelegate {
 </ul></li>
 </ul>
 
-<h1 id="参考">参考</h1>
+<h1 id="参考">参考<a href="#参考" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
 <li><a href="https://developer.apple.com/documentation/usernotifications">UserNotifications | Apple Developer Documentation</a></li>
 <li><a href="https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started">Push Notifications Tutorial: Getting Started | raywenderlich.com</a></li>
 </ul>
 
-  </section>
-</article>
-
-      </div>
-
-      <div id="side" class="pr-1 bg-white">
-        <aside class="pr-3">
-          
-
-<div id="toc" class="Box Box--blue mb-3">
-  <b>iOSにおけるPush通知の基本1（通知の受信まで）</b>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#はじめに">はじめに</a></li>
-<li><a href="#検証環境">検証環境</a></li>
-<li><a href="#必要なもの">必要なもの</a></li>
-<li><a href="#事前準備-apple-developerサイト上">事前準備（Apple Developerサイト上）</a>
-<ul>
-<li><a href="#team-idの確認">Team IDの確認</a></li>
-<li><a href="#authentication-keyの作成とダウンロード">Authentication Keyの作成とダウンロード</a></li>
-</ul></li>
-<li><a href="#主なコンポーネント">主なコンポーネント</a></li>
-<li><a href="#実装手順">実装手順</a>
-<ul>
-<li><a href="#プロジェクトの設定">プロジェクトの設定</a></li>
-<li><a href="#プッシュ通知の登録">プッシュ通知の登録</a></li>
-</ul></li>
-<li><a href="#ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）</a></li>
-<li><a href="#push通知の受信テスト">Push通知の受信テスト</a></li>
-<li><a href="#まとめ">まとめ</a></li>
-<li><a href="#参考">参考</a></li>
-</ul>
-</nav>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://aokiplayer.github.io/tags/ios">iOS</a></span><span class="tag"><a href="https://aokiplayer.github.io/tags/swift">Swift</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-04-18 00:30 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://aokiplayer.github.io/posts/tryswifttokyo2019/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>try! Swift Tokyo 2019 感想など</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
 </div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://aokiplayer.github.io/">Hiroyuki Aoki</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://aokiplayer.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
 
 
+	<script src="https://aokiplayer.github.io/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
 
+</body>
 
-<div>
-  
-  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  
-
-  
-  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
-  
-
-  
-  <div class="fb-share-button" data-href="https://www.gitshell.net/blog" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.gitshell.net%2Fblog&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></div>
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v3.0';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  
-</div>
-
-
-
-        </aside>
-      </div>
-
-    </div>
-
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
-    <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
-  </body>
 </html>
