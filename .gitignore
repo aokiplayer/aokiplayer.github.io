@@ -32,7 +32,3 @@ Temporary Items
 
 # End of https://www.gitignore.io/api/macos
 
-# Hugo generated files
-/public
-_gen
-
