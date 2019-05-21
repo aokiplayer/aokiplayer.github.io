@@ -23,8 +23,8 @@
 <meta property="og:description" content="はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://aokiplayer.github.io/posts/remotenotification01/" />
-<meta property="article:published_time" content="2019-04-18T09:30:15&#43;09:00"/>
-<meta property="article:modified_time" content="2019-04-18T09:30:15&#43;09:00"/>
+<meta property="article:published_time" content="2019-04-18T09:30:15+09:00" />
+<meta property="article:modified_time" content="2019-04-18T09:30:15+09:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOSにおけるPush通知の基本1（通知の受信まで）"/>
 <meta name="twitter:description" content="はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説"/>
@@ -260,9 +260,10 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 
 <ol>
 <li><p>UserNotificationsフレームワークを利用するので、インポート</p>
-<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span></code></pre></div></li>
-
-<li><p>ユーザに対して、通知の許可依頼を行う</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span></code></pre></div>
+<ol>
+<li>ユーザに対して、通知の許可依頼を行う</li>
+</ol>
 <div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
                  <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
 
@@ -324,17 +325,16 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
                      <span class="n">didFailToRegisterForRemoteNotificationsWithError</span> <span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="p">{</span>
         <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed to register to APNs: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></div></li>
-
-<li><p>アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます</p>
-
-<ul>
+<span class="p">}</span></code></pre></div>
+<ol>
+<li>アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます</li>
 <li>もちろん、実運用上はこの手順は不要です</li>
 <li>実際には、<code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>内で外部サービスにトークンを登録する処理が必要になります</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-console:コンソール出力例" data-lang="console:コンソール出力例">Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37</code></pre></div>
-<h1 id="ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）<a href="#ここまでの実装-appdelegate-swift" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1></li>
 </ol>
+<div class="highlight"><pre class="chroma"><code class="language-console:コンソール出力例" data-lang="console:コンソール出力例">Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37</code></pre></div></li>
+</ol>
+
+<h1 id="ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）<a href="#ここまでの実装-appdelegate-swift" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 <div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UIKit</span>
 <span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span>
 
@@ -450,11 +450,9 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
         &#34;alert&#34;: &#34;Minimal message&#34;,
         &#34;sound&#34;: &#34;default&#34;
     }
-}</code></pre></div></li>
-
-<li><p>Environment</p>
-
+}</code></pre></div>
 <ul>
+<li>Environment</li>
 <li>Sandboxにチェック</li>
 </ul></li>
 </ul></li>
@@ -520,6 +518,9 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 			</footer>
 		</article>
 		<div class="post-nav thin">
+			<a class="next-post" href="https://aokiplayer.github.io/posts/viewcontrollerlifecycle/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>ViewControllerのライフサイクルメソッド</span>
+			</a>
 			<a class="prev-post" href="https://aokiplayer.github.io/posts/tryswifttokyo2019/">
 				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>try! Swift Tokyo 2019 感想など</span>
 			</a>
