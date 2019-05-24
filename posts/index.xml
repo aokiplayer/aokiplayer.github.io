@@ -5,8 +5,262 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Tue, 21 May 2019 12:19:51 +0900</lastBuildDate>
+		<lastBuildDate>Fri, 24 May 2019 10:52:57 +0900</lastBuildDate>
 		<atom:link href="https://aokiplayer.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>iOSにおけるPush通知の基本2（受信した通知の内容取得）</title>
+			<link>https://aokiplayer.github.io/posts/remotenotification02/</link>
+			<pubDate>Fri, 24 May 2019 10:52:57 +0900</pubDate>
+			
+			<guid>https://aokiplayer.github.io/posts/remotenotification02/</guid>
+			<description>はじめに 前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました Push通知に必要な事前設定 Pus</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>前の記事 <a href="https://aokiplayer.github.io/posts/remotenotification01/">[iOSにおけるPush通知の基本1（通知の受信まで）]</a> では、以下のところまで紹介しました
+
+<ul>
+<li>Push通知に必要な事前設定</li>
+<li>Push通知のユーザへの利用許可依頼</li>
+<li>Push通知の送信テスト</li>
+</ul></li>
+<li>これだけでも、受け取った通知をタップしてアプリを起動することができます</li>
+<li>今回は、通知に含まれる内容（ペイロード）を取得する方法を説明します</li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 10.2</li>
+<li>iOS 12.2</li>
+<li>Swift 5</li>
+<li>iPod touch 6th generation</li>
+</ul>
+
+<h1 id="通知に対するコールバックメソッド">通知に対するコールバックメソッド</h1>
+
+<ul>
+<li>通知を受け取ると、<code>UIApplicationDelegate</code>の以下のコールバックメソッドが呼ばれます</li>
+
+<li><p>呼ばれるコールバックメソッドとそのタイミングは、アプリの実行状態により決定されます</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">事前状態</th>
+<th align="left">タイミング</th>
+<th align="left">メソッド</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">未起動</td>
+<td align="left">通知のタップにより起動</td>
+<td align="left"><code>application(_:didFinishLaunchingWithOptions:)</code></td>
+</tr>
+
+<tr>
+<td align="left">Foreground</td>
+<td align="left">通知を受信</td>
+<td align="left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
+</tr>
+
+<tr>
+<td align="left">Background</td>
+<td align="left">通知のタップによりForeground</td>
+<td align="left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>これらのコールバック内で、通知のペイロード（通知に含まれるデータ）を取得して処理を行います</p></li>
+</ul>
+
+<h1 id="push通知のペイロード">Push通知のペイロード</h1>
+
+<ul>
+<li><p>Push通知のペイロードは、以下のような形式のJSONです</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;aps&#34;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;alert&#34;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&#34;title&#34;</span> <span class="p">:</span> <span class="s2">&#34;New Message&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;subtitle&#34;</span> <span class="p">:</span> <span class="s2">&#34;You got a new message.&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;body&#34;</span> <span class="p">:</span> <span class="s2">&#34;New message has arrived. Open your inbox.&#34;</span>
+        <span class="p">},</span>
+        <span class="nt">&#34;badge&#34;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&#34;sound&#34;</span> <span class="p">:</span> <span class="s2">&#34;default&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h1 id="ペイロードの取得">ペイロードの取得</h1>
+
+<ul>
+<li>受信したPush通知から、ペイロードを取り出す処理を実装します</li>
+</ul>
+
+<h2 id="そもそもどこから取り出すのか">そもそもどこから取り出すのか？</h2>
+
+<ul>
+<li>ペイロードは、<code>UIApplicationDelegate</code>のコールバックの引数に格納された状態で渡されます</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">コールバックメソッド</th>
+<th align="left">格納場所</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>application(_:didFinishLaunchingWithOptions:)</code></td>
+<td align="left">第2引数<code>launchOptions</code>ディクショナリ内</td>
+</tr>
+
+<tr>
+<td align="left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
+<td align="left">第2引数の<code>userInfo</code>ディクショナリ内</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="送信するpush通知の内容">送信するPush通知の内容</h2>
+
+<ul>
+<li>今回は、以下の内容のPush通知を送ってみます</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-json:通知のペイロード" data-lang="json:通知のペイロード">{
+  &#34;aps&#34;: {
+    &#34;alert&#34;: &#34;Wake up!&#34;,
+    &#34;sound&#34;: &#34;default&#34;
+  }
+}</code></pre></div></li>
+</ul>
+
+<h2 id="実装例">実装例</h2>
+
+<h3 id="アプリ未起動の場合">アプリ未起動の場合</h3>
+
+<ul>
+<li>アプリが起動していない場合は通知をタップした時点でアプリが起動するので、ライフサイクルメソッドである<code>application(_:didFinishLaunchingWithOptions:)</code>が呼ばれます</li>
+<li>このサンプルコードでは、ペイロードの内容を文字列として整形してビューコントローラのプロパティに渡しています
+
+<ul>
+<li>起動済みの場合と区別するために、背景色を黄色に設定しています</li>
+</ul></li>
+</ul>
+
+<h4 id="ペイロードの取得手順">ペイロードの取得手順</h4>
+
+<ol>
+<li>第2引数の<code>launchOptions</code>ディクショナリからキー<code>UIApplication.LaunchOptionsKey.remoteNotification</code>を指定
+
+<ul>
+<li>Push通知のペイロードを格納したディクショナリが得られる</li>
+</ul></li>
+<li>Push通知のペイロードを格納したディクショナリから、キー&rdquo;aps&rdquo;でペイロードの内容部分のディクショナリを取得</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                 <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+
+    <span class="err">〜省略〜</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. get notification payload</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">notificationOptions</span> <span class="p">=</span> <span class="n">launchOptions</span><span class="p">?[.</span><span class="n">remoteNotification</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">notificationOptions</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
+
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
+        <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">yellow</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></div>
+<h4 id="実行結果">実行結果</h4>
+
+<p><img src="/images/remotenotification02/launching.png" alt="launching" /></p>
+
+<h3 id="アプリが起動中の場合">アプリが起動中の場合</h3>
+
+<ul>
+<li>アプリが起動中の場合は、以下のタイミングで<code>UIApplicationDelegate</code>プロトコルの<code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code>が呼ばれます
+
+<ul>
+<li>アプリがForegroundの場合: 通知を受け取ったタイミング</li>
+<li>アプリがBackgroundの場合: 受け取った通知をタップしてForegroundになったタイミング</li>
+</ul></li>
+<li>このサンプルコードでは、ペイロードの内容を文字列として整形してビューコントローラのプロパティに渡しています
+
+<ul>
+<li>未起動の場合と区別するために、背景色を緑に設定しています</li>
+</ul></li>
+</ul>
+
+<h4 id="ペイロードの取得手順-1">ペイロードの取得手順</h4>
+
+<ol>
+<li>第2引数の<code>userInfo</code>ディクショナリからキー&rdquo;aps&rdquo;でペイロードの内容部分のディクショナリを取得</li>
+<li>取得したディクショナリの扱いは、未起動の場合と同様</li>
+</ol>
+
+<ul>
+<li><p>このコールバックを実装した場合、Backgorund ModesをONにすることを求められるので有効にしておきます</p>
+
+<ul>
+<li>エラーにはなりませんが、コンソールにメッセージが表示されます</li>
+</ul>
+
+<p><img src="/images/remotenotification02/background_modes.png" alt="background_modes" /></p></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                 <span class="n">didReceiveRemoteNotification</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="n">AnyHashable</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">],</span>
+                 <span class="n">fetchCompletionHandler</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">UIBackgroundFetchResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04. get notification payload</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">completionHandler</span><span class="p">(.</span><span class="n">failed</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+    <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
+    <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">green</span>
+
+<span class="p">}</span></code></pre></div>
+<h4 id="実行結果-1">実行結果</h4>
+
+<p><img src="/images/remotenotification02/active.png" alt="active" /></p>
+
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>アプリの実行状態によって、呼ばれるコールバックが異なる点に注意</li>
+<li>ペイロードはディクショナリから取り出す
+
+<ul>
+<li>受け取った時点で、すでにJSONからディクショナリに変換されている</li>
+</ul></li>
+<li>今回作成したサンプルコードは、GitHubに置きました
+
+<ul>
+<li><a href="https://github.com/aokiplayer/TreatPushNotificationPayloadSample">aokiplayer/TreatPushNotificationPayloadSample</a></li>
+</ul></li>
+</ul>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="https://developer.apple.com/documentation/usernotifications">UserNotifications | Apple Developer Documentation</a></li>
+<li><a href="https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started">Push Notifications Tutorial: Getting Started | raywenderlich.com</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>ViewControllerのライフサイクルメソッド</title>

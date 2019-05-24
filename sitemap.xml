@@ -4,37 +4,42 @@
   
   <url>
     <loc>https://aokiplayer.github.io/posts/</loc>
-    <lastmod>2019-05-21T12:19:51+09:00</lastmod>
+    <lastmod>2019-05-24T10:52:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aokiplayer.github.io/tags/swift/</loc>
-    <lastmod>2019-05-21T12:19:51+09:00</lastmod>
+    <lastmod>2019-05-24T10:52:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aokiplayer.github.io/tags/</loc>
-    <lastmod>2019-05-21T12:19:51+09:00</lastmod>
+    <lastmod>2019-05-24T10:52:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://aokiplayer.github.io/posts/viewcontrollerlifecycle/</loc>
-    <lastmod>2019-05-21T12:19:51+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://aokiplayer.github.io/</loc>
-    <lastmod>2019-05-21T12:19:51+09:00</lastmod>
+    <lastmod>2019-05-24T10:52:57+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aokiplayer.github.io/tags/ios/</loc>
-    <lastmod>2019-05-21T12:19:51+09:00</lastmod>
+    <lastmod>2019-05-24T10:52:57+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/posts/remotenotification02/</loc>
+    <lastmod>2019-05-24T10:52:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aokiplayer.github.io/posts/viewcontrollerlifecycle/</loc>
+    <lastmod>2019-05-21T12:19:51+09:00</lastmod>
   </url>
   
   <url>
