@@ -1,26 +1,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on Yagamo Style</title>
-		<link>https://aokiplayer.github.io/posts/</link>
+		<link>https://yagamo-style.com/posts/</link>
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
 		<lastBuildDate>Fri, 24 May 2019 10:52:57 +0900</lastBuildDate>
-		<atom:link href="https://aokiplayer.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>iOSにおけるPush通知の基本2（受信した通知の内容取得）</title>
-			<link>https://aokiplayer.github.io/posts/remotenotification02/</link>
+			<link>https://yagamo-style.com/posts/remotenotification02/</link>
 			<pubDate>Fri, 24 May 2019 10:52:57 +0900</pubDate>
 			
-			<guid>https://aokiplayer.github.io/posts/remotenotification02/</guid>
+			<guid>https://yagamo-style.com/posts/remotenotification02/</guid>
 			<description>はじめに 前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました Push通知に必要な事前設定 Pus</description>
 			<content type="html"><![CDATA[
 
 <h1 id="はじめに">はじめに</h1>
 
 <ul>
-<li>前の記事 <a href="https://aokiplayer.github.io/posts/remotenotification01/">[iOSにおけるPush通知の基本1（通知の受信まで）]</a> では、以下のところまで紹介しました
+<li>前の記事 <a href="https://yagamo-style.com/posts/remotenotification01/">[iOSにおけるPush通知の基本1（通知の受信まで）]</a> では、以下のところまで紹介しました
 
 <ul>
 <li>Push通知に必要な事前設定</li>
@@ -264,10 +264,10 @@
 		
 		<item>
 			<title>UIViewControllerのライフサイクルメソッド</title>
-			<link>https://aokiplayer.github.io/posts/viewcontrollerlifecycle/</link>
+			<link>https://yagamo-style.com/posts/viewcontrollerlifecycle/</link>
 			<pubDate>Tue, 21 May 2019 12:19:51 +0900</pubDate>
 			
-			<guid>https://aokiplayer.github.io/posts/viewcontrollerlifecycle/</guid>
+			<guid>https://yagamo-style.com/posts/viewcontrollerlifecycle/</guid>
 			<description>はじめに iOSアプリを作成していて、どのタイミングでどのメソッドが呼ばれるんだっけ？となることは多いです 特に、画面遷移の際に困ることがありま</description>
 			<content type="html"><![CDATA[
 
@@ -416,10 +416,10 @@ A: viewDidLayoutSubviews()</code></pre></div>
 		
 		<item>
 			<title>iOSにおけるPush通知の基本1（通知の受信まで）</title>
-			<link>https://aokiplayer.github.io/posts/remotenotification01/</link>
+			<link>https://yagamo-style.com/posts/remotenotification01/</link>
 			<pubDate>Thu, 18 Apr 2019 09:30:15 +0900</pubDate>
 			
-			<guid>https://aokiplayer.github.io/posts/remotenotification01/</guid>
+			<guid>https://yagamo-style.com/posts/remotenotification01/</guid>
 			<description>はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説</description>
 			<content type="html"><![CDATA[
 
@@ -860,10 +860,10 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 		
 		<item>
 			<title>try! Swift Tokyo 2019 感想など</title>
-			<link>https://aokiplayer.github.io/posts/tryswifttokyo2019/</link>
+			<link>https://yagamo-style.com/posts/tryswifttokyo2019/</link>
 			<pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
 			
-			<guid>https://aokiplayer.github.io/posts/tryswifttokyo2019/</guid>
+			<guid>https://yagamo-style.com/posts/tryswifttokyo2019/</guid>
 			<description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。 だ</description>
 			<content type="html"><![CDATA[
 
@@ -938,10 +938,10 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 		
 		<item>
 			<title>iOSDC 2018 感想など</title>
-			<link>https://aokiplayer.github.io/posts/iosdc2018/</link>
+			<link>https://yagamo-style.com/posts/iosdc2018/</link>
 			<pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
 			
-			<guid>https://aokiplayer.github.io/posts/iosdc2018/</guid>
+			<guid>https://yagamo-style.com/posts/iosdc2018/</guid>
 			<description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年から</description>
 			<content type="html"><![CDATA[
 
