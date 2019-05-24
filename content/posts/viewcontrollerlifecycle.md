@@ -1,5 +1,5 @@
 ---
-title: "ViewControllerのライフサイクルメソッド"
+title: "UIViewControllerのライフサイクルメソッド"
 date: 2019-05-21T12:19:51+09:00
 draft: false
 toc: true
