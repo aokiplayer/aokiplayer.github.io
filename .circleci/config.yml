@@ -33,6 +33,7 @@ jobs:
               git branch -vv
               git submodule update -i # git submodule init; git submodule update
               hugo
+              echo yagamo-style.com >> public/CNAME
               git add public; git commit -m "generated pages"
               git clean -fdx
               git checkout master
