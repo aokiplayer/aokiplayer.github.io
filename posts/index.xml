@@ -5,8 +5,98 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Fri, 24 May 2019 10:52:57 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 26 May 2019 09:35:28 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>画面遷移（セグエ）のキャンセル</title>
+			<link>https://yagamo-style.com/posts/seguecancel/</link>
+			<pubDate>Sun, 26 May 2019 09:35:28 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/seguecancel/</guid>
+			<description>はじめに 画面遷移のタイミングで条件を判断し、場合によってはキャンセルするような動作が必要な場面があります ボタンなどからAction接続したメ</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>画面遷移のタイミングで条件を判断し、場合によってはキャンセルするような動作が必要な場面があります</li>
+<li>ボタンなどからAction接続したメソッド内で<code>performSegue(withIdentifier:sender:)</code>を利用する場合や、<code>addTarget(_:action:for:)</code>でアクションを登録した場合であれば、その際に条件判断を行うこともできます
+
+<ul>
+<li>しかし、ボタンからセグエを直接引いて画面遷移する場合であれば、無条件に画面遷移してしまいます</li>
+</ul></li>
+<li>ここでは、後者の場合に画面遷移の判断とキャンセルの方法について紹介します</li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 10.2</li>
+<li>iOS 12.2</li>
+<li>Swift 5</li>
+</ul>
+
+<h1 id="利用するメソッド">利用するメソッド</h1>
+
+<ul>
+<li><code>UIViewController</code>の<code>shouldPerformSegue(withIdentifier:sender:)</code>を利用します
+
+<ul>
+<li>このメソッドをオーバーライドします</li>
+<li>動きとしては、trueを返した場合は画面遷移を実行、falseの場合はキャンセルとなります</li>
+</ul></li>
+</ul>
+
+<h1 id="サンプルプログラム">サンプルプログラム</h1>
+
+<h2 id="動作">動作</h2>
+
+<ul>
+<li><p>NEXTボタンからセグエを引いてあり、スイッチがONの場合のみ画面遷移を行うプログラムです</p>
+
+<p><img src="/images/segue_cancel.png" alt="segue_cancel" /></p></li>
+</ul>
+
+<h2 id="サンプルコード">サンプルコード</h2>
+<div class="highlight"><pre class="chroma"><code class="language-swift:ViewController.swift" data-lang="swift:ViewController.swift"><span class="kd">import</span> <span class="nc">UIKit</span>
+
+<span class="kd">class</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
+
+    <span class="kr">@IBOutlet</span> <span class="kr">weak</span> <span class="kd">var</span> <span class="nv">moveSwitch</span><span class="p">:</span> <span class="n">UISwitch</span><span class="o">!</span>
+    
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">shouldPerformSegue</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="n">identifier</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">Any</span><span class="p">?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">shouldPerformSegue</span><span class="p">(</span><span class="n">withIdentifier</span><span class="p">:</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="n">sender</span><span class="p">)</span>
+
+        <span class="c1">// When the switch is off, it cancels the segue.</span>
+        <span class="k">return</span> <span class="n">moveSwitch</span><span class="p">.</span><span class="n">isOn</span>
+    <span class="p">}</span>
+
+    <span class="kr">@IBAction</span> <span class="kd">func</span> <span class="nf">unwindToMain</span><span class="p">(</span><span class="kc">_</span> <span class="n">unwindSegue</span><span class="p">:</span> <span class="n">UIStoryboardSegue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>これを利用することで、「特定の状況下では画面遷移させない」が実現できます</li>
+<li>このサンプルでは利用していませんが、<code>shouldPerformSegue(withIdentifier:sender:)</code>の第1引数にはセグエのIdentifierが渡ってきます
+
+<ul>
+<li>この情報を利用することで、複数のセグエが引かれていた際、セグエごとに条件を個別に判断できますね</li>
+</ul></li>
+</ul>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621502-shouldperformsegue">shouldPerformSegue(withIdentifier:sender:) - UIViewController | Apple Developer Documentation</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>iOSにおけるPush通知の基本2（受信した通知の内容取得）</title>
