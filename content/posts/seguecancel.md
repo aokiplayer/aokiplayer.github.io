@@ -56,6 +56,8 @@ class ViewController: UIViewController {
 - これを利用することで、「特定の状況下では画面遷移させない」が実現できます
 - このサンプルでは利用していませんが、`shouldPerformSegue(withIdentifier:sender:)`の第1引数にはセグエのIdentifierが渡ってきます
     - この情報を利用することで、複数のセグエが引かれていた際、セグエごとに条件を個別に判断できますね
+- 今回作成したサンプルは、GitHubに置きました
+    - [aokiplayer/SegueCancelSample](https://github.com/aokiplayer/SegueCancelSample)
 
 # 参考
 - [shouldPerformSegue(withIdentifier:sender:) - UIViewController | Apple Developer Documentation](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621502-shouldperformsegue)
