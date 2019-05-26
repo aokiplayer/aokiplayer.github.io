@@ -88,6 +88,11 @@
 <ul>
 <li>この情報を利用することで、複数のセグエが引かれていた際、セグエごとに条件を個別に判断できますね</li>
 </ul></li>
+<li>今回作成したサンプルは、GitHubに置きました
+
+<ul>
+<li><a href="https://github.com/aokiplayer/SegueCancelSample">aokiplayer/SegueCancelSample</a></li>
+</ul></li>
 </ul>
 
 <h1 id="参考">参考</h1>
