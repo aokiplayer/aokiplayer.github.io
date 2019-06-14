@@ -14,7 +14,7 @@
 			<pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
 			
 			<guid>https://yagamo-style.com/posts/swiftuilist_beta/</guid>
-			<description>はじめに WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます 検証環境 Xcode 11 beta</description>
+			<description>はじめに WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます 検証環境 macOS 10.15 Catalina</description>
 			<content type="html"><![CDATA[
 
 <h1 id="はじめに">はじめに</h1>
@@ -27,6 +27,7 @@
 <h1 id="検証環境">検証環境</h1>
 
 <ul>
+<li>macOS 10.15 Catalina beta</li>
 <li>Xcode 11 beta</li>
 <li>iOS 13 beta</li>
 <li>Swift 5.1</li>
