@@ -5,8 +5,239 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Sun, 26 May 2019 09:35:28 +0900</lastBuildDate>
+		<lastBuildDate>Fri, 14 Jun 2019 13:16:59 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>SwiftUIで一覧表示画面を作成する</title>
+			<link>https://yagamo-style.com/posts/swiftuilist_beta/</link>
+			<pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/swiftuilist_beta/</guid>
+			<description>はじめに WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます 検証環境 Xcode 11 beta</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>WWDC 2019で発表された目玉として、SwiftUIがあります</li>
+<li>今回は、少しだけSwiftUIを触ってみたのでメモしてみます</li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 11 beta</li>
+<li>iOS 13 beta</li>
+<li>Swift 5.1</li>
+<li>iPad Pro 10.5 inch</li>
+</ul>
+
+<h1 id="ストーリーボードは">ストーリーボードは？</h1>
+
+<ul>
+<li>これまで、レイアウトは基本的にストーリーボードで行ってきました</li>
+<li>ストーリーボードは決して悪いものではなく、まず画面の作成を始める際にはとても扱いやすいです</li>
+<li>ただし、ビューの数が増えたり、複雑なレイアウトをしようとすると非常に管理が難しいのも事実です</li>
+</ul>
+
+<h1 id="コードでレイアウトを行うswiftui">コードでレイアウトを行うSwiftUI</h1>
+
+<ul>
+<li>Flutterなどでは、画面をコード上で宣言的に記述できます</li>
+<li>最近は、この形式をとるものが増えています</li>
+<li>SwiftUIも、コードから宣言的なレイアウトを行います</li>
+<li>これまでもコードのみで画面を作成できましたが、以下のような問題を抱えていました
+
+<ul>
+<li>プレビューの方法がないため、ビルドして実行しないと確認できない</li>
+<li>手続的に記述するため、実際のレイアウトがイメージしにくい</li>
+</ul></li>
+</ul>
+
+<h1 id="swiftuiで作成した一覧画面のサンプル">SwiftUIで作成した一覧画面のサンプル</h1>
+
+<h2 id="画面イメージ">画面イメージ</h2>
+
+<p><img src="/images/swiftuilist_beta/list_preview.png" alt="background_modes" /></p>
+
+<h2 id="実装ファイル">実装ファイル</h2>
+
+<ul>
+<li>実装したのは、以下のファイルです</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">ファイル</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">FoodModel.swift</td>
+<td align="left">表の1行分を表すデータモデル</td>
+</tr>
+
+<tr>
+<td align="left">FoodDataSource.swift</td>
+<td align="left">表示するデータを提供する</td>
+</tr>
+
+<tr>
+<td align="left">FoodRow.swift</td>
+<td align="left">表の各行を表すビュー。FoodListから利用される</td>
+</tr>
+
+<tr>
+<td align="left">FoodList.swift</td>
+<td align="left">表の全体を表すビュー。FoodDataSourceからデータを取得し、各行のFoodRowを生成する</td>
+</tr>
+
+<tr>
+<td align="left">ContentView.swift</td>
+<td align="left">最初に表示されるビュー。この中でFoodListを読み込む</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="foodmodel-swift">FoodModel.swift</h3>
+<div class="highlight"><pre class="chroma"><code class="language-swift:FoodModel.swift" data-lang="swift:FoodModel.swift"><span class="kd">import</span> <span class="nc">Foundation</span>
+
+<span class="kd">struct</span> <span class="nc">FoodModel</span><span class="p">:</span> <span class="n">Codable</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">id</span><span class="p">:</span> <span class="nb">Int</span>
+    <span class="kd">var</span> <span class="nv">title</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">var</span> <span class="nv">userName</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">var</span> <span class="nv">imageName</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">var</span> <span class="nv">liked</span><span class="p">:</span> <span class="nb">Bool</span> <span class="p">=</span> <span class="kc">false</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="fooddatasource-swift">FoodDataSource.swift</h3>
+<div class="highlight"><pre class="chroma"><code class="language-swift:FoodDataSource.swift" data-lang="swift:FoodDataSource.swift"><span class="kd">import</span> <span class="nc">Combine</span>
+<span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">class</span> <span class="nc">FoodDataSource</span><span class="p">:</span> <span class="n">BindableObject</span> <span class="p">{</span>
+    <span class="kd">typealias</span> <span class="n">PublisherType</span> <span class="p">=</span> <span class="n">PassthroughSubject</span>
+    
+    <span class="kd">let</span> <span class="nv">didChange</span><span class="p">:</span> <span class="n">FoodDataSource</span><span class="p">.</span><span class="n">PublisherType</span> <span class="p">=</span> <span class="n">PassthroughSubject</span><span class="p">&lt;</span><span class="nb">Void</span><span class="p">,</span> <span class="n">Never</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="kd">var</span> <span class="nv">foodData</span><span class="p">:</span> <span class="p">[</span><span class="n">FoodModel</span><span class="p">]</span>
+
+    <span class="kd">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">foodData</span> <span class="p">=</span> <span class="p">[</span>
+            <span class="n">FoodModel</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="s">&#34;スープカレー&#34;</span><span class="p">,</span> <span class="n">userName</span><span class="p">:</span> <span class="s">&#34;山田二郎&#34;</span><span class="p">,</span> <span class="n">imageName</span><span class="p">:</span> <span class="s">&#34;1&#34;</span><span class="p">,</span> <span class="n">liked</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span>
+            <span class="n">FoodModel</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="s">&#34;そば屋のカレー&#34;</span><span class="p">,</span> <span class="n">userName</span><span class="p">:</span> <span class="s">&#34;川田吾郎&#34;</span><span class="p">,</span> <span class="n">imageName</span><span class="p">:</span> <span class="s">&#34;2&#34;</span><span class="p">),</span>
+            <span class="n">FoodModel</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="s">&#34;タイ風カレー&#34;</span><span class="p">,</span> <span class="n">userName</span><span class="p">:</span> <span class="s">&#34;里田舞&#34;</span><span class="p">,</span> <span class="n">imageName</span><span class="p">:</span> <span class="s">&#34;3&#34;</span><span class="p">,</span> <span class="n">liked</span><span class="p">:</span> <span class="kc">true</span><span class="p">),</span>
+            <span class="n">FoodModel</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="s">&#34;スタミナジャンボカレー&#34;</span><span class="p">,</span> <span class="n">userName</span><span class="p">:</span> <span class="s">&#34;海田泳七郎&#34;</span><span class="p">,</span> <span class="n">imageName</span><span class="p">:</span> <span class="s">&#34;4&#34;</span><span class="p">),</span>
+            <span class="n">FoodModel</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="s">&#34;レッドカレー&#34;</span><span class="p">,</span> <span class="n">userName</span><span class="p">:</span> <span class="s">&#34;岡田八郎&#34;</span><span class="p">,</span> <span class="n">imageName</span><span class="p">:</span> <span class="s">&#34;5&#34;</span><span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="n">didChange</span><span class="p">.</span><span class="n">send</span><span class="p">(())</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="foodrow-swift">FoodRow.swift</h3>
+<div class="highlight"><pre class="chroma"><code class="language-swift:FoodRow.swift" data-lang="swift:FoodRow.swift"><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">FoodRow</span> <span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">foodModel</span><span class="p">:</span> <span class="n">FoodModel</span>
+
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">VStack</span><span class="p">(</span><span class="n">alignment</span><span class="p">:</span> <span class="p">.</span><span class="n">leading</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Image</span><span class="p">(</span><span class="n">foodModel</span><span class="p">.</span><span class="n">imageName</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">resizable</span><span class="p">()</span>
+                <span class="p">.</span><span class="n">aspectRatio</span><span class="p">(</span><span class="n">contentMode</span><span class="p">:</span> <span class="n">ContentMode</span><span class="p">.</span><span class="n">fit</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">shadow</span><span class="p">(</span><span class="n">radius</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">border</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">Text</span><span class="p">(</span><span class="n">foodModel</span><span class="p">.</span><span class="n">title</span><span class="p">).</span><span class="n">font</span><span class="p">(.</span><span class="n">headline</span><span class="p">)</span>
+
+            <span class="n">HStack</span> <span class="p">{</span>
+                <span class="n">Text</span><span class="p">(</span><span class="n">foodModel</span><span class="p">.</span><span class="n">userName</span><span class="p">).</span><span class="n">font</span><span class="p">(.</span><span class="n">subheadline</span><span class="p">)</span>
+                <span class="n">Spacer</span><span class="p">()</span>
+                <span class="n">Image</span><span class="p">(</span><span class="n">foodModel</span><span class="p">.</span><span class="n">liked</span> <span class="p">?</span> <span class="s">&#34;liked&#34;</span> <span class="p">:</span> <span class="s">&#34;unliked&#34;</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}.</span><span class="n">padding</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#if</span> <span class="cp">DEBUG</span>
+<span class="kd">struct</span> <span class="nc">FoodRow_Previews</span> <span class="p">:</span> <span class="n">PreviewProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">Group</span> <span class="p">{</span>
+            <span class="n">FoodRow</span><span class="p">(</span><span class="n">foodModel</span><span class="p">:</span> <span class="n">FoodModel</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="s">&#34;Ramen&#34;</span><span class="p">,</span> <span class="n">userName</span><span class="p">:</span> <span class="s">&#34;Jiro Yamada&#34;</span><span class="p">,</span> <span class="n">imageName</span><span class="p">:</span> <span class="s">&#34;5&#34;</span><span class="p">))</span>
+        <span class="p">}.</span><span class="n">previewLayout</span><span class="p">(.</span><span class="n">fixed</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mi">400</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">#endif</span></code></pre></div>
+<h3 id="foodlist-swift">FoodList.swift</h3>
+<div class="highlight"><pre class="chroma"><code class="language-swift:FoodList.swift" data-lang="swift:FoodList.swift"><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">FoodList</span> <span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="p">@</span><span class="n">ObjectBinding</span> <span class="kd">var</span> <span class="nv">foodDataSource</span> <span class="p">=</span> <span class="n">FoodDataSource</span><span class="p">()</span>
+
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">NavigationView</span> <span class="p">{</span>
+            <span class="n">List</span><span class="p">(</span><span class="n">foodDataSource</span><span class="p">.</span><span class="n">foodData</span><span class="p">.</span><span class="n">identified</span><span class="p">(</span><span class="n">by</span><span class="p">:</span> <span class="err">\</span><span class="p">.</span><span class="n">id</span><span class="p">))</span> <span class="p">{</span> <span class="n">foodModel</span> <span class="k">in</span>
+                    <span class="n">FoodRow</span><span class="p">(</span><span class="n">foodModel</span><span class="p">:</span> <span class="n">foodModel</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">.</span><span class="n">navigationBarTitle</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="s">&#34;Food list&#34;</span><span class="p">))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#if</span> <span class="cp">DEBUG</span>
+<span class="kd">struct</span> <span class="nc">FoodList_Previews</span> <span class="p">:</span> <span class="n">PreviewProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">FoodList</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">#endif</span></code></pre></div>
+<h3 id="contentview-swift">ContentView.swift</h3>
+<div class="highlight"><pre class="chroma"><code class="language-swift:ContentView.swift" data-lang="swift:ContentView.swift"><span class="kd">import</span> <span class="nc">SwiftUI</span>
+
+<span class="kd">struct</span> <span class="nc">ContentView</span> <span class="p">:</span> <span class="n">View</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">FoodList</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#if</span> <span class="cp">DEBUG</span>
+<span class="kd">struct</span> <span class="nc">ContentView_Previews</span> <span class="p">:</span> <span class="n">PreviewProvider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">var</span> <span class="nv">previews</span><span class="p">:</span> <span class="n">some</span> <span class="n">View</span> <span class="p">{</span>
+        <span class="n">ContentView</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">#endif</span></code></pre></div>
+<h1 id="まとめ">まとめ</h1>
+
+<h2 id="よかった点">よかった点</h2>
+
+<ul>
+<li>ちょっとした画面の作成であれば、SwiftUIはとても簡単に思えました</li>
+<li>macOS 10.15 Catalina上であれば、ライブビューでレイアウトだけでなく動作がすぐ確認できるのが良いです</li>
+</ul>
+
+<h2 id="難しく感じた点">難しく感じた点</h2>
+
+<ul>
+<li>ストーリーボードを利用していた際と、ビュー階層のイメージが異なるのでまだ戸惑っています</li>
+<li>また、思った通りにレイアウトができず苦労しています</li>
+</ul>
+
+<h1 id="サンプルプロジェクト">サンプルプロジェクト</h1>
+
+<ul>
+<li>今回作成したサンプルコードは、GitHubに置きました</li>
+<li><a href="https://github.com/aokiplayer/SwiftUITableSample">aokiplayer/SwiftUITableSample</a></li>
+</ul>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="https://developer.apple.com/tutorials/swiftui">SwiftUI Tutorials | Apple Developer Documentation</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>画面遷移（セグエ）のキャンセル</title>
@@ -55,7 +286,7 @@
 <ul>
 <li><p>NEXTボタンからセグエを引いてあり、スイッチがONの場合のみ画面遷移を行うプログラムです</p>
 
-<p><img src="/images/segue_cancel.png" alt="segue_cancel" /></p></li>
+<p><img src="/images/seguecancel/segue_cancel.png" alt="segue_cancel" /></p></li>
 </ul>
 
 <h2 id="サンプルコード">サンプルコード</h2>

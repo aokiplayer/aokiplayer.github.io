@@ -6,10 +6,19 @@
     <description>Recent content in Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sun, 26 May 2019 09:35:28 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 14 Jun 2019 13:16:59 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SwiftUIで一覧表示画面を作成する</title>
+      <link>https://yagamo-style.com/posts/swiftuilist_beta/</link>
+      <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/swiftuilist_beta/</guid>
+      <description>はじめに WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます 検証環境 Xcode 11 beta</description>
+    </item>
     
     <item>
       <title>画面遷移（セグエ）のキャンセル</title>

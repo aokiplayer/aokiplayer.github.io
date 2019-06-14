@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sun, 26 May 2019 09:35:28 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 14 Jun 2019 13:16:59 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,16 +14,25 @@
     <item>
       <title>Swift</title>
       <link>https://yagamo-style.com/tags/swift/</link>
-      <pubDate>Sun, 26 May 2019 09:35:28 +0900</pubDate>
+      <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/swift/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>SwiftUI</title>
+      <link>https://yagamo-style.com/tags/swiftui/</link>
+      <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/swiftui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>iOS</title>
       <link>https://yagamo-style.com/tags/ios/</link>
-      <pubDate>Sun, 26 May 2019 09:35:28 +0900</pubDate>
+      <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/ios/</guid>
       <description></description>
