@@ -26,7 +26,7 @@ tags: [ "iOS", "Swift" ]
 ## 動作
 -  NEXTボタンからセグエを引いてあり、スイッチがONの場合のみ画面遷移を行うプログラムです
 
-    ![segue_cancel](/images/segue_cancel.png)
+    ![segue_cancel](/images/seguecancel/segue_cancel.png)
 
 ## サンプルコード
 ```swift:ViewController.swift
