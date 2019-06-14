@@ -11,6 +11,7 @@ tags: [ "iOS", "Swift", "SwiftUI" ]
 - 今回は、少しだけSwiftUIを触ってみたのでメモしてみます
 
 # 検証環境
+- macOS 10.15 Catalina beta
 - Xcode 11 beta
 - iOS 13 beta
 - Swift 5.1
