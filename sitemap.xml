@@ -3,6 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yagamo-style.com/about/</loc>
+    <lastmod>2019-06-17T09:30:59+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/profile/</loc>
+    <lastmod>2019-06-17T09:30:59+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/</loc>
+    <lastmod>2019-06-17T09:30:59+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/</loc>
+    <lastmod>2019-06-17T09:30:59+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://yagamo-style.com/posts/</loc>
     <lastmod>2019-06-14T13:16:59+09:00</lastmod>
     <priority>0</priority>
@@ -23,18 +46,6 @@
   <url>
     <loc>https://yagamo-style.com/posts/swiftuilist_beta/</loc>
     <lastmod>2019-06-14T13:16:59+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/</loc>
-    <lastmod>2019-06-14T13:16:59+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/</loc>
-    <lastmod>2019-06-14T13:16:59+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

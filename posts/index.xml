@@ -421,7 +421,9 @@
         <span class="nt">&#34;badge&#34;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
         <span class="nt">&#34;sound&#34;</span> <span class="p">:</span> <span class="s2">&#34;default&#34;</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></div></li>
+</ul>
+
 <h1 id="ペイロードの取得">ペイロードの取得</h1>
 
 <ul>
@@ -458,8 +460,7 @@
 <h2 id="送信するpush通知の内容">送信するPush通知の内容</h2>
 
 <ul>
-<li>今回は、以下の内容のPush通知を送ってみます</li>
-</ul>
+<li><p>今回は、以下の内容のPush通知を送ってみます</p>
 <div class="highlight"><pre class="chroma"><code class="language-json:通知のペイロード" data-lang="json:通知のペイロード">{
   &#34;aps&#34;: {
     &#34;alert&#34;: &#34;Wake up!&#34;,
@@ -489,25 +490,27 @@
 <ul>
 <li>Push通知のペイロードを格納したディクショナリが得られる</li>
 </ul></li>
-<li>Push通知のペイロードを格納したディクショナリから、キー&rdquo;aps&rdquo;でペイロードの内容部分のディクショナリを取得</li>
-</ol>
+
+<li><p>Push通知のペイロードを格納したディクショナリから、キー&rdquo;aps&rdquo;でペイロードの内容部分のディクショナリを取得</p>
 <div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
-                 <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+             <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
 
-    <span class="err">〜省略〜</span>
+<span class="err">〜省略〜</span>
 
-    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. get notification payload</span>
-    <span class="k">if</span> <span class="kd">let</span> <span class="nv">notificationOptions</span> <span class="p">=</span> <span class="n">launchOptions</span><span class="p">?[.</span><span class="n">remoteNotification</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="p">{</span>
-        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">notificationOptions</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. get notification payload</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">notificationOptions</span> <span class="p">=</span> <span class="n">launchOptions</span><span class="p">?[.</span><span class="n">remoteNotification</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">notificationOptions</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
 
-        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
-        <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
-        <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
-        <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">yellow</span>
-    <span class="p">}</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
+    <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
+    <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">yellow</span>
+<span class="p">}</span>
 
-    <span class="k">return</span> <span class="kc">true</span>
-<span class="p">}</span></code></pre></div>
+<span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></div></li>
+</ol>
+
 <h4 id="実行結果">実行結果</h4>
 
 <p><img src="/images/remotenotification02/launching.png" alt="launching" /></p>
@@ -542,24 +545,25 @@
 <li>エラーにはなりませんが、コンソールにメッセージが表示されます</li>
 </ul>
 
-<p><img src="/images/remotenotification02/background_modes.png" alt="background_modes" /></p></li>
-</ul>
+<p><img src="/images/remotenotification02/background_modes.png" alt="background_modes" /></p>
 <div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
-                 <span class="n">didReceiveRemoteNotification</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="n">AnyHashable</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">],</span>
-                 <span class="n">fetchCompletionHandler</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">UIBackgroundFetchResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+             <span class="n">didReceiveRemoteNotification</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="n">AnyHashable</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">],</span>
+             <span class="n">fetchCompletionHandler</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">UIBackgroundFetchResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04. get notification payload</span>
-    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">completionHandler</span><span class="p">(.</span><span class="n">failed</span><span class="p">)</span>
-        <span class="k">return</span>
-    <span class="p">}</span>
+<span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04. get notification payload</span>
+<span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">completionHandler</span><span class="p">(.</span><span class="n">failed</span><span class="p">)</span>
+    <span class="k">return</span>
+<span class="p">}</span>
 
-    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
-    <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
-    <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
-    <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">green</span>
+<span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+<span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
+<span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">green</span>
 
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></div></li>
+</ul>
+
 <h4 id="実行結果-1">実行結果</h4>
 
 <p><img src="/images/remotenotification02/active.png" alt="active" /></p>
@@ -644,7 +648,7 @@
 <h2 id="アプリ起動-aを表示">アプリ起動（Aを表示）</h2>
 
 <ul>
-<li>レイアウト系が2度呼ばれています
+<li><p>レイアウト系が2度呼ばれています</p>
 
 <ul>
 <li>レイアウトは、様々なタイミングで呼ばれるのでこのように複数回呼ばれる可能性があるためです
@@ -652,9 +656,8 @@
 <ul>
 <li>boundsが変更されたり、サブビューが追加されたりしても呼ばれます</li>
 </ul></li>
-<li>Auto Layoutの制約を明示的に設定せず、Autoresizing maskをAuto Layoutに変換した場合などは1度しか呼ばれなかったりします</li>
-</ul></li>
-</ul>
+
+<li><p>Auto Layoutの制約を明示的に設定せず、Autoresizing maskをAuto Layoutに変換した場合などは1度しか呼ばれなかったりします</p>
 <div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">A: init(coder:)
 A: loadView()
 A: viewDidLoad()
@@ -663,75 +666,84 @@ A: viewWillLayoutSubviews()
 A: viewDidLayoutSubviews()
 A: viewWillLayoutSubviews()
 A: viewDidLayoutSubviews()
-A: viewDidAppear(_:)</code></pre></div>
+A: viewDidAppear(_:)</code></pre></div></li>
+</ul></li>
+</ul>
+
 <h2 id="画面を回転-a画面表示中">画面を回転（A画面表示中）</h2>
 
 <ul>
-<li>レイアウトを組み直す必要が発生するので、こんな感じですね</li>
-</ul>
+<li><p>レイアウトを組み直す必要が発生するので、こんな感じですね</p>
 <div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">A: viewWillTransition(to:with:)
 A: viewWillLayoutSubviews()
-A: viewDidLayoutSubviews()</code></pre></div>
+A: viewDidLayoutSubviews()</code></pre></div></li>
+</ul>
+
 <h2 id="homeボタンを押す-a画面表示中">HOMEボタンを押す（A画面表示中）</h2>
 
 <ul>
-<li>画面は表示されなくなりますが、実際にはいずれのコールバックも呼ばれていません
+<li><p>画面は表示されなくなりますが、実際にはいずれのコールバックも呼ばれていません</p>
 
 <ul>
-<li>このあたりの挙動は、Androidとは異なりますね（Androidではこのタイミングでもコールバック呼ばれる）</li>
+<li><p>このあたりの挙動は、Androidとは異なりますね（Androidではこのタイミングでもコールバック呼ばれる）</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console"></code></pre></div></li>
 </ul></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console"></code></pre></div>
+
 <h2 id="home画面でアイコンをタップ-上記の操作後">HOME画面でアイコンをタップ（上記の操作後）</h2>
 
 <ul>
-<li>非表示状態からの復帰ですが、いずれのコールバックも呼ばれていません
+<li><p>非表示状態からの復帰ですが、いずれのコールバックも呼ばれていません</p>
 
 <ul>
-<li>これも、Androidの場合はコールバックが呼ばれますね</li>
+<li><p>これも、Androidの場合はコールバックが呼ばれますね</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console"></code></pre></div></li>
 </ul></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console"></code></pre></div>
+
 <h2 id="bへ遷移-present-modallyセグエ">Bへ遷移（Present Modallyセグエ）</h2>
 
 <ul>
-<li>ポイントはAの<code>prepare(for:sender:)</code>のタイミングです
+<li><p>ポイントはAの<code>prepare(for:sender:)</code>のタイミングです</p>
 
 <ul>
 <li>ここで必要なデータの受け渡しを行いますが、Bの<code>viewDidLoad()</code>よりも前です</li>
-<li>そのため、この時点ではBの持っているビューはnilであり、データを渡そうとすると実行時エラーとなります</li>
-</ul></li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">    B: init(coder:)
+
+<li><p>そのため、この時点ではBの持っているビューはnilであり、データを渡そうとすると実行時エラーとなります</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">B: init(coder:)
 A: prepare(for:sender:)
-    B: loadView()
-    B: viewDidLoad()
+B: loadView()
+B: viewDidLoad()
 A: viewWillDisappear(_:)
-    B: viewWillAppear(_:)
-    B: viewWillLayoutSubviews()
-    B: viewDidLayoutSubviews()
+B: viewWillAppear(_:)
+B: viewWillLayoutSubviews()
+B: viewDidLayoutSubviews()
 A: viewWillLayoutSubviews()
 A: viewDidLayoutSubviews()
-    B: viewWillLayoutSubviews()
-    B: viewDidLayoutSubviews()
-    B: viewDidAppear(_:)
-A: viewDidDisappear(_:)</code></pre></div>
+B: viewWillLayoutSubviews()
+B: viewDidLayoutSubviews()
+B: viewDidAppear(_:)
+A: viewDidDisappear(_:)</code></pre></div></li>
+</ul></li>
+</ul>
+
 <h2 id="aへ戻る-unwindセグエ">Aへ戻る（unwindセグエ）</h2>
 
 <ul>
-<li>unwindセグエで戻る際も、<code>prepare(for:sender:)</code>は呼ばれています</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">    B: prepare(for:sender:)
+<li><p>unwindセグエで戻る際も、<code>prepare(for:sender:)</code>は呼ばれています</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">B: prepare(for:sender:)
 A: unwindToFirst(_:)
-    B: viewWillDisappear(_:)
+B: viewWillDisappear(_:)
 A: viewWillAppear(_:)
 A: viewWillLayoutSubviews()
 A: viewDidLayoutSubviews()
 A: viewDidAppear(_:)
-    B: viewDidDisappear(_:)
-    B: deinit
+B: viewDidDisappear(_:)
+B: deinit
 A: viewWillLayoutSubviews()
-A: viewDidLayoutSubviews()</code></pre></div>
+A: viewDidLayoutSubviews()</code></pre></div></li>
+</ul>
+
 <h1 id="まとめ">まとめ</h1>
 
 <ul>
@@ -936,10 +948,9 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 
 <ol>
 <li><p>UserNotificationsフレームワークを利用するので、インポート</p>
-<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span></code></pre></div>
-<ol>
-<li>ユーザに対して、通知の許可依頼を行う</li>
-</ol>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">import</span> <span class="nc">UserNotifications</span>    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. import</span></code></pre></div></li>
+
+<li><p>ユーザに対して、通知の許可依頼を行う</p>
 <div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
                  <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
 
@@ -984,30 +995,34 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
 <li>外部のサービスへトークンを登録する方法は、各サービスのドキュメントを参照してください</li>
 </ul></li>
 </ul></li>
-<li>失敗時: <code>application(_:didFailToRegisterForRemoteNotificationsWithError:)</code></li>
-</ul>
+
+<li><p>失敗時: <code>application(_:didFailToRegisterForRemoteNotificationsWithError:)</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> - Callback for Remote Notification</span>
 <span class="kd">extension</span> <span class="nc">AppDelegate</span> <span class="p">{</span>
-    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04-1. succeeded to register to APNs</span>
-    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
-                     <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="n">deviceToken</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Data -&gt; Token string</span>
-        <span class="kd">let</span> <span class="nv">tokenBytes</span> <span class="p">=</span> <span class="n">deviceToken</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">:</span> <span class="nb">UInt8</span><span class="p">)</span> <span class="k">in</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&#34;%02.2hhx&#34;</span><span class="p">,</span> <span class="n">byte</span><span class="p">)</span> <span class="p">}</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Device token: </span><span class="si">\(</span><span class="n">tokenBytes</span><span class="p">.</span><span class="n">joined</span><span class="si">())</span><span class="s">&#34;</span><span class="p">)</span>
-    <span class="p">}</span>
+<span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04-1. succeeded to register to APNs</span>
+<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                 <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="n">deviceToken</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Data -&gt; Token string</span>
+    <span class="kd">let</span> <span class="nv">tokenBytes</span> <span class="p">=</span> <span class="n">deviceToken</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">byte</span><span class="p">:</span> <span class="nb">UInt8</span><span class="p">)</span> <span class="k">in</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&#34;%02.2hhx&#34;</span><span class="p">,</span> <span class="n">byte</span><span class="p">)</span> <span class="p">}</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Device token: </span><span class="si">\(</span><span class="n">tokenBytes</span><span class="p">.</span><span class="n">joined</span><span class="si">())</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="p">}</span>
 
-    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> failed to register to APNs</span>
-    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
-                     <span class="n">didFailToRegisterForRemoteNotificationsWithError</span> <span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed to register to APNs: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
-<ol>
-<li>アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます</li>
+<span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> failed to register to APNs</span>
+<span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                 <span class="n">didFailToRegisterForRemoteNotificationsWithError</span> <span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Failed to register to APNs: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">}</span></code></pre></div></li>
+</ul></li>
+
+<li><p>アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます</p>
+
+<ul>
 <li>もちろん、実運用上はこの手順は不要です</li>
-<li>実際には、<code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>内で外部サービスにトークンを登録する処理が必要になります</li>
-</ol>
+
+<li><p>実際には、<code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>内で外部サービスにトークンを登録する処理が必要になります</p>
 <div class="highlight"><pre class="chroma"><code class="language-console:コンソール出力例" data-lang="console:コンソール出力例">Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37</code></pre></div></li>
+</ul></li>
 </ol>
 
 <h1 id="ここまでの実装-appdelegate-swift">ここまでの実装（AppDelegate.swift）</h1>
@@ -1126,9 +1141,11 @@ UserInfo={NSLocalizedDescription=remote notifications are not supported in the s
         &#34;alert&#34;: &#34;Minimal message&#34;,
         &#34;sound&#34;: &#34;default&#34;
     }
-}</code></pre></div>
+}</code></pre></div></li>
+
+<li><p>Environment</p>
+
 <ul>
-<li>Environment</li>
 <li>Sandboxにチェック</li>
 </ul></li>
 </ul></li>

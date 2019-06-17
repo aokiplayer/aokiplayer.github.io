@@ -51,6 +51,7 @@
 				</div>
 				<nav class="site-nav hide-in-mobile">
 					<a href="https://yagamo-style.com/posts/">Posts</a>
+					<a href="https://yagamo-style.com/about/">About</a>
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
@@ -61,6 +62,7 @@
 	<div id="mobile-menu" class="animated fast">
 		<ul>
 			<li><a href="https://yagamo-style.com/posts/">Posts</a></li>
+			<li><a href="https://yagamo-style.com/about/">About</a></li>
 		</ul>
 	</div>
 
@@ -151,7 +153,9 @@
         <span class="nt">&#34;badge&#34;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
         <span class="nt">&#34;sound&#34;</span> <span class="p">:</span> <span class="s2">&#34;default&#34;</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></div></li>
+</ul>
+
 <h1 id="ペイロードの取得">ペイロードの取得<a href="#ペイロードの取得" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
@@ -188,8 +192,7 @@
 <h2 id="送信するpush通知の内容">送信するPush通知の内容<a href="#送信するpush通知の内容" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ul>
-<li>今回は、以下の内容のPush通知を送ってみます</li>
-</ul>
+<li><p>今回は、以下の内容のPush通知を送ってみます</p>
 <div class="highlight"><pre class="chroma"><code class="language-json:通知のペイロード" data-lang="json:通知のペイロード">{
   &#34;aps&#34;: {
     &#34;alert&#34;: &#34;Wake up!&#34;,
@@ -219,25 +222,27 @@
 <ul>
 <li>Push通知のペイロードを格納したディクショナリが得られる</li>
 </ul></li>
-<li>Push通知のペイロードを格納したディクショナリから、キー&rdquo;aps&rdquo;でペイロードの内容部分のディクショナリを取得</li>
-</ol>
+
+<li><p>Push通知のペイロードを格納したディクショナリから、キー&rdquo;aps&rdquo;でペイロードの内容部分のディクショナリを取得</p>
 <div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
-                 <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+             <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
 
-    <span class="err">〜省略〜</span>
+<span class="err">〜省略〜</span>
 
-    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. get notification payload</span>
-    <span class="k">if</span> <span class="kd">let</span> <span class="nv">notificationOptions</span> <span class="p">=</span> <span class="n">launchOptions</span><span class="p">?[.</span><span class="n">remoteNotification</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="p">{</span>
-        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">notificationOptions</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. get notification payload</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">notificationOptions</span> <span class="p">=</span> <span class="n">launchOptions</span><span class="p">?[.</span><span class="n">remoteNotification</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">notificationOptions</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
 
-        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
-        <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
-        <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
-        <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">yellow</span>
-    <span class="p">}</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
+    <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
+    <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">yellow</span>
+<span class="p">}</span>
 
-    <span class="k">return</span> <span class="kc">true</span>
-<span class="p">}</span></code></pre></div>
+<span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></div></li>
+</ol>
+
 <h4 id="実行結果">実行結果<a href="#実行結果" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 
 <p><img src="/images/remotenotification02/launching.png" alt="launching" /></p>
@@ -272,24 +277,25 @@
 <li>エラーにはなりませんが、コンソールにメッセージが表示されます</li>
 </ul>
 
-<p><img src="/images/remotenotification02/background_modes.png" alt="background_modes" /></p></li>
-</ul>
+<p><img src="/images/remotenotification02/background_modes.png" alt="background_modes" /></p>
 <div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
-                 <span class="n">didReceiveRemoteNotification</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="n">AnyHashable</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">],</span>
-                 <span class="n">fetchCompletionHandler</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">UIBackgroundFetchResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+             <span class="n">didReceiveRemoteNotification</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="n">AnyHashable</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">],</span>
+             <span class="n">fetchCompletionHandler</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">UIBackgroundFetchResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
 
-    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04. get notification payload</span>
-    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">completionHandler</span><span class="p">(.</span><span class="n">failed</span><span class="p">)</span>
-        <span class="k">return</span>
-    <span class="p">}</span>
+<span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04. get notification payload</span>
+<span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">completionHandler</span><span class="p">(.</span><span class="n">failed</span><span class="p">)</span>
+    <span class="k">return</span>
+<span class="p">}</span>
 
-    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
-    <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
-    <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
-    <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">green</span>
+<span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+<span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
+<span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">green</span>
 
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></div></li>
+</ul>
+
 <h4 id="実行結果-1">実行結果<a href="#実行結果-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
 
 <p><img src="/images/remotenotification02/active.png" alt="active" /></p>

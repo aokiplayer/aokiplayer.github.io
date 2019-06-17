@@ -51,6 +51,7 @@
 				</div>
 				<nav class="site-nav hide-in-mobile">
 					<a href="https://yagamo-style.com/posts/">Posts</a>
+					<a href="https://yagamo-style.com/about/">About</a>
 				</nav>
 			</div>
 			<div class="hdr-right hdr-icons">
@@ -61,6 +62,7 @@
 	<div id="mobile-menu" class="animated fast">
 		<ul>
 			<li><a href="https://yagamo-style.com/posts/">Posts</a></li>
+			<li><a href="https://yagamo-style.com/about/">About</a></li>
 		</ul>
 	</div>
 
@@ -120,7 +122,7 @@
 <h2 id="アプリ起動-aを表示">アプリ起動（Aを表示）<a href="#アプリ起動-aを表示" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ul>
-<li>レイアウト系が2度呼ばれています
+<li><p>レイアウト系が2度呼ばれています</p>
 
 <ul>
 <li>レイアウトは、様々なタイミングで呼ばれるのでこのように複数回呼ばれる可能性があるためです
@@ -128,9 +130,8 @@
 <ul>
 <li>boundsが変更されたり、サブビューが追加されたりしても呼ばれます</li>
 </ul></li>
-<li>Auto Layoutの制約を明示的に設定せず、Autoresizing maskをAuto Layoutに変換した場合などは1度しか呼ばれなかったりします</li>
-</ul></li>
-</ul>
+
+<li><p>Auto Layoutの制約を明示的に設定せず、Autoresizing maskをAuto Layoutに変換した場合などは1度しか呼ばれなかったりします</p>
 <div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">A: init(coder:)
 A: loadView()
 A: viewDidLoad()
@@ -139,75 +140,84 @@ A: viewWillLayoutSubviews()
 A: viewDidLayoutSubviews()
 A: viewWillLayoutSubviews()
 A: viewDidLayoutSubviews()
-A: viewDidAppear(_:)</code></pre></div>
+A: viewDidAppear(_:)</code></pre></div></li>
+</ul></li>
+</ul>
+
 <h2 id="画面を回転-a画面表示中">画面を回転（A画面表示中）<a href="#画面を回転-a画面表示中" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ul>
-<li>レイアウトを組み直す必要が発生するので、こんな感じですね</li>
-</ul>
+<li><p>レイアウトを組み直す必要が発生するので、こんな感じですね</p>
 <div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">A: viewWillTransition(to:with:)
 A: viewWillLayoutSubviews()
-A: viewDidLayoutSubviews()</code></pre></div>
+A: viewDidLayoutSubviews()</code></pre></div></li>
+</ul>
+
 <h2 id="homeボタンを押す-a画面表示中">HOMEボタンを押す（A画面表示中）<a href="#homeボタンを押す-a画面表示中" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ul>
-<li>画面は表示されなくなりますが、実際にはいずれのコールバックも呼ばれていません
+<li><p>画面は表示されなくなりますが、実際にはいずれのコールバックも呼ばれていません</p>
 
 <ul>
-<li>このあたりの挙動は、Androidとは異なりますね（Androidではこのタイミングでもコールバック呼ばれる）</li>
+<li><p>このあたりの挙動は、Androidとは異なりますね（Androidではこのタイミングでもコールバック呼ばれる）</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console"></code></pre></div></li>
 </ul></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console"></code></pre></div>
+
 <h2 id="home画面でアイコンをタップ-上記の操作後">HOME画面でアイコンをタップ（上記の操作後）<a href="#home画面でアイコンをタップ-上記の操作後" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ul>
-<li>非表示状態からの復帰ですが、いずれのコールバックも呼ばれていません
+<li><p>非表示状態からの復帰ですが、いずれのコールバックも呼ばれていません</p>
 
 <ul>
-<li>これも、Androidの場合はコールバックが呼ばれますね</li>
+<li><p>これも、Androidの場合はコールバックが呼ばれますね</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console"></code></pre></div></li>
 </ul></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console"></code></pre></div>
+
 <h2 id="bへ遷移-present-modallyセグエ">Bへ遷移（Present Modallyセグエ）<a href="#bへ遷移-present-modallyセグエ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ul>
-<li>ポイントはAの<code>prepare(for:sender:)</code>のタイミングです
+<li><p>ポイントはAの<code>prepare(for:sender:)</code>のタイミングです</p>
 
 <ul>
 <li>ここで必要なデータの受け渡しを行いますが、Bの<code>viewDidLoad()</code>よりも前です</li>
-<li>そのため、この時点ではBの持っているビューはnilであり、データを渡そうとすると実行時エラーとなります</li>
-</ul></li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">    B: init(coder:)
+
+<li><p>そのため、この時点ではBの持っているビューはnilであり、データを渡そうとすると実行時エラーとなります</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">B: init(coder:)
 A: prepare(for:sender:)
-    B: loadView()
-    B: viewDidLoad()
+B: loadView()
+B: viewDidLoad()
 A: viewWillDisappear(_:)
-    B: viewWillAppear(_:)
-    B: viewWillLayoutSubviews()
-    B: viewDidLayoutSubviews()
+B: viewWillAppear(_:)
+B: viewWillLayoutSubviews()
+B: viewDidLayoutSubviews()
 A: viewWillLayoutSubviews()
 A: viewDidLayoutSubviews()
-    B: viewWillLayoutSubviews()
-    B: viewDidLayoutSubviews()
-    B: viewDidAppear(_:)
-A: viewDidDisappear(_:)</code></pre></div>
+B: viewWillLayoutSubviews()
+B: viewDidLayoutSubviews()
+B: viewDidAppear(_:)
+A: viewDidDisappear(_:)</code></pre></div></li>
+</ul></li>
+</ul>
+
 <h2 id="aへ戻る-unwindセグエ">Aへ戻る（unwindセグエ）<a href="#aへ戻る-unwindセグエ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 
 <ul>
-<li>unwindセグエで戻る際も、<code>prepare(for:sender:)</code>は呼ばれています</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">    B: prepare(for:sender:)
+<li><p>unwindセグエで戻る際も、<code>prepare(for:sender:)</code>は呼ばれています</p>
+<div class="highlight"><pre class="chroma"><code class="language-console" data-lang="console">B: prepare(for:sender:)
 A: unwindToFirst(_:)
-    B: viewWillDisappear(_:)
+B: viewWillDisappear(_:)
 A: viewWillAppear(_:)
 A: viewWillLayoutSubviews()
 A: viewDidLayoutSubviews()
 A: viewDidAppear(_:)
-    B: viewDidDisappear(_:)
-    B: deinit
+B: viewDidDisappear(_:)
+B: deinit
 A: viewWillLayoutSubviews()
-A: viewDidLayoutSubviews()</code></pre></div>
+A: viewDidLayoutSubviews()</code></pre></div></li>
+</ul>
+
 <h1 id="まとめ">まとめ<a href="#まとめ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
 
 <ul>
