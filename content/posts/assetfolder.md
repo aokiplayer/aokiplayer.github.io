@@ -1,5 +1,5 @@
 ---
-title: "Asset Catelogで同じ名前の別画像を利用する"
+title: "Asset Catalogで同じ名前の別画像を利用する"
 date: 2019-06-21T09:09:14+09:00
 draft: false
 toc: true
