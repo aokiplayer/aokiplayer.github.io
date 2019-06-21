@@ -12,6 +12,11 @@ tags: [ "iOS", "Swift" ]
 - その際、別のフォルダに同じ名前の画像を置きたくなることもあります
 - その場合の扱い方です
 
+# 検証環境
+- Xcode 10.2.1
+- iOS 12.2
+- Swift 5
+
 # フォルダにNamespaceを付与する
 ## デフォルトの状態（Namespaceなし）
 ![no_namespace](/images/assetfolder/no_namespace.png)
