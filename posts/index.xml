@@ -5,8 +5,74 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Fri, 14 Jun 2019 13:16:59 +0900</lastBuildDate>
+		<lastBuildDate>Fri, 21 Jun 2019 09:09:14 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Asset Catelogで同じ名前の別画像を利用する</title>
+			<link>https://yagamo-style.com/posts/assetfolder/</link>
+			<pubDate>Fri, 21 Jun 2019 09:09:14 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/assetfolder/</guid>
+			<description>はじめに Xcodeのアセットカタログ（デフォルトではAssets.xcassets）は、画像などのリソースを管理します アセットカタログ内で、</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>Xcodeのアセットカタログ（デフォルトではAssets.xcassets）は、画像などのリソースを管理します</li>
+<li>アセットカタログ内で、フォルダ分けも可能です</li>
+<li>その際、別のフォルダに同じ名前の画像を置きたくなることもあります</li>
+<li>その場合の扱い方です</li>
+</ul>
+
+<h1 id="フォルダにnamespaceを付与する">フォルダにNamespaceを付与する</h1>
+
+<h2 id="デフォルトの状態-namespaceなし">デフォルトの状態（Namespaceなし）</h2>
+
+<p><img src="/images/assetfolder/no_namespace.png" alt="no_namespace" /></p>
+
+<ul>
+<li>この画像の例では、<code>bird</code>という画像が<code>forest</code>フォルダと<code>sea</code>フォルダの両方に配置されています</li>
+<li>ですが、デフォルトの状態ではフォルダ名は無視されるので、これらの画像には<code>bird</code>という名前でアクセスすることになり、区別ができません</li>
+</ul>
+
+<h2 id="フォルダ名付きでのアクセス-namespaceあり">フォルダ名付きでのアクセス（Namespaceあり）</h2>
+
+<p><img src="/images/assetfolder/with_namespace.png" alt="with_namespace" /></p>
+
+<ul>
+<li>アセットカタログ内でフォルダを選択し、Attributes Inspectorから<code>Provides Namespace</code>にチェックを入れると、そのフォルダ名がNamespaceとして利用されます
+
+<ul>
+<li>フォルダの色も黄色から水色に変わっていますね</li>
+</ul></li>
+<li>この画像の例では、それぞれ<code>forest/bird</code>と<code>sea/bird</code>という名前で区別されます</li>
+
+<li><p>こんな感じで、コード内でもInterface Builderでも参照できます</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="p">=</span> <span class="n">index</span> <span class="p">==</span> <span class="mi">0</span> <span class="p">?</span> <span class="n">UIImage</span><span class="p">(</span><span class="n">named</span><span class="p">:</span> <span class="s">&#34;forest/bird&#34;</span><span class="p">)</span> <span class="p">:</span> <span class="n">UIImage</span><span class="p">(</span><span class="n">named</span><span class="p">:</span> <span class="s">&#34;sea/bird&#34;</span><span class="p">)</span></code></pre></div>
+<p><img src="/images/assetfolder/image_ib.png" alt="image_ib" /></p></li>
+</ul>
+
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>Namespaceがあると、格段に管理がしやすくなりますね</li>
+<li>今回作成したサンプルコードは、GitHubに置きました
+
+<ul>
+<li><a href="https://github.com/aokiplayer/AssetFolderSample">aokiplayer/AssetFolderSample</a></li>
+</ul></li>
+</ul>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_ref-Asset_Catalog_Format/FolderStructure.html#//apple_ref/doc/uid/TP40015170-CH33-SW1">Asset Catalog Format Reference: Folders</a></li>
+<li><a href="https://stackoverflow.com/questions/33284412/asset-catalog-access-images-with-same-name-in-different-folders">ios - Asset Catalog: Access images with same name in different folders - Stack Overflow</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>SwiftUIで一覧表示画面を作成する</title>

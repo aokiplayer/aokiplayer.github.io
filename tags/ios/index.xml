@@ -6,10 +6,19 @@
     <description>Recent content in iOS on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 14 Jun 2019 13:16:59 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 21 Jun 2019 09:09:14 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Asset Catelogで同じ名前の別画像を利用する</title>
+      <link>https://yagamo-style.com/posts/assetfolder/</link>
+      <pubDate>Fri, 21 Jun 2019 09:09:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/assetfolder/</guid>
+      <description>はじめに Xcodeのアセットカタログ（デフォルトではAssets.xcassets）は、画像などのリソースを管理します アセットカタログ内で、</description>
+    </item>
     
     <item>
       <title>SwiftUIで一覧表示画面を作成する</title>
