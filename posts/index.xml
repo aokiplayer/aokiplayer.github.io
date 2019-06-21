@@ -26,6 +26,14 @@
 <li>その場合の扱い方です</li>
 </ul>
 
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 10.2.1</li>
+<li>iOS 12.2</li>
+<li>Swift 5</li>
+</ul>
+
 <h1 id="フォルダにnamespaceを付与する">フォルダにNamespaceを付与する</h1>
 
 <h2 id="デフォルトの状態-namespaceなし">デフォルトの状態（Namespaceなし）</h2>
