@@ -20,6 +20,7 @@ tags: [ "iOS", "Swift" ]
 - まずは、delegateを利用するMyClassクラスの定義とdelegateであるMyDelegateプロトコルの定義です
 - MyClassの`show(text:)`を呼ぶと、自身のプロパティとして保持するdelegateの`onShowCalled(withText:)`を呼ぶ実装となっています
 
+
 ```swift
 class MyClass {
     var delegate: MyDelegate?
@@ -38,6 +39,7 @@ protocol MyDelegate {
 - delegateはプロトコルなので、利用する際にはそのプロトコルに準拠して内容を実装したクラスが必要です
 - MyAdopted1とMyAdopted2の2つを用意し、それぞれ実装の異なる`onShowCalled(withText:)`を用意しています
 
+
 ```swift
 class MyAdopted1: MyDelegate {
     func onShowCalled(withText text: String) {
@@ -55,6 +57,7 @@ class MyAdopted2: MyDelegate {
 ## delegateを指定
 - MyClassのインスタンスに、上記のMyAdopted1およびMyAdopted2をdelegateとして指定します
 - MyClassの`show(text:)`を呼ぶと、delegateとして指定したオブジェクトの`onShowCalled(withText:)`が実行されているのがわかります
+
 
 ```swift
 let anObject1 = MyClass()
