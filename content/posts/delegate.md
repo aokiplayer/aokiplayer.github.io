@@ -75,4 +75,4 @@ Hello from MyAdopted2!
 - 普段、プログラマは上記の「delegateに準拠したクラスの作成」と、「delegateを指定」部分を書くことが多いと思います
 - delegateを利用するクラスを一度実装してみることで、delegateの仕組みについての理解が深まるのでおすすめです
 - 今回作成したサンプルコードは、GitHubに置きました
-- [aokiplayer/DelegateSample](https://github.com/aokiplayer/DelegateSample)
+    - [aokiplayer/DelegateSample](https://github.com/aokiplayer/DelegateSample)
