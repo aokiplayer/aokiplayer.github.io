@@ -23,6 +23,7 @@ jobs:
               cd $HOME/src
               git clone https://github.com/gohugoio/hugo.git
               cd hugo
+              git checkout -b refs/tags/v0.55.6
               go install
               git config --global user.name "Hiroyuki Aoki"
               git config --global user.email "aokiplayer@icloud.com"
