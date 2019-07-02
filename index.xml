@@ -6,10 +6,19 @@
     <description>Recent content on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 21 Jun 2019 09:09:14 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jul 2019 11:34:30 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>簡単なdelegateのサンプル</title>
+      <link>https://yagamo-style.com/posts/delegate/</link>
+      <pubDate>Tue, 02 Jul 2019 11:34:30 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/delegate/</guid>
+      <description>はじめに iOSアプリでは、delegateが非常によく利用されます トレーニングで紹介していると、初めての人には「delegateオブジェクト</description>
+    </item>
     
     <item>
       <title>Asset Catalogで同じ名前の別画像を利用する</title>

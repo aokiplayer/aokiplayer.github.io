@@ -5,8 +5,99 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Fri, 21 Jun 2019 09:09:14 +0900</lastBuildDate>
+		<lastBuildDate>Tue, 02 Jul 2019 11:34:30 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>簡単なdelegateのサンプル</title>
+			<link>https://yagamo-style.com/posts/delegate/</link>
+			<pubDate>Tue, 02 Jul 2019 11:34:30 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/delegate/</guid>
+			<description>はじめに iOSアプリでは、delegateが非常によく利用されます トレーニングで紹介していると、初めての人には「delegateオブジェクト</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>iOSアプリでは、delegateが非常によく利用されます</li>
+<li>トレーニングで紹介していると、初めての人には「delegateオブジェクトに用意したコールバックメソッドが自動的に呼ばれる」ことの理解が難しいように感じました</li>
+<li>そこで、ごく簡単なサンプルを利用してdelegateの仕組みを紹介してみます</li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 10.2</li>
+<li>Swift 5</li>
+</ul>
+
+<h1 id="サンプルコード">サンプルコード</h1>
+
+<h2 id="delegateを利用するクラスとdelegateプロトコル">delegateを利用するクラスとdelegateプロトコル</h2>
+
+<ul>
+<li>まずは、delegateを利用するMyClassクラスの定義とdelegateであるMyDelegateプロトコルの定義です</li>
+
+<li><p>MyClassの<code>show(text:)</code>を呼ぶと、自身のプロパティとして保持するdelegateの<code>onShowCalled(withText:)</code>を呼ぶ実装となっています</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="n">MyDelegate</span><span class="p">?</span>
+    
+<span class="kd">func</span> <span class="nf">show</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kc">self</span><span class="p">.</span><span class="n">delegate</span><span class="p">?.</span><span class="n">onShowCalled</span><span class="p">(</span><span class="n">withText</span><span class="p">:</span> <span class="n">text</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">protocol</span> <span class="nc">MyDelegate</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">onShowCalled</span><span class="p">(</span><span class="n">withText</span> <span class="n">text</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div></li>
+</ul>
+
+<h2 id="delegateに準拠したクラス">delegateに準拠したクラス</h2>
+
+<ul>
+<li>delegateはプロトコルなので、利用する際にはそのプロトコルに準拠して内容を実装したクラスが必要です</li>
+
+<li><p>MyAdopted1とMyAdopted2の2つを用意し、それぞれ実装の異なる<code>onShowCalled(withText:)</code>を用意しています</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">MyAdopted1</span><span class="p">:</span> <span class="n">MyDelegate</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">onShowCalled</span><span class="p">(</span><span class="n">withText</span> <span class="n">text</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;MyAdopted1: </span><span class="si">\(</span><span class="n">text</span><span class="si">)</span><span class="s">&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">MyAdopted2</span><span class="p">:</span> <span class="n">MyDelegate</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">onShowCalled</span><span class="p">(</span><span class="n">withText</span> <span class="n">text</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&#34;</span><span class="si">\(</span><span class="n">text</span><span class="si">)</span><span class="s"> from MyAdopted2!&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">}</span></code></pre></div></li>
+</ul>
+
+<h2 id="delegateを指定">delegateを指定</h2>
+
+<ul>
+<li>MyClassのインスタンスに、上記のMyAdopted1およびMyAdopted2をdelegateとして指定します</li>
+
+<li><p>MyClassの<code>show(text:)</code>を呼ぶと、delegateとして指定したオブジェクトの<code>onShowCalled(withText:)</code>が実行されているのがわかります</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">let</span> <span class="nv">anObject1</span> <span class="p">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="n">anObject1</span><span class="p">.</span><span class="n">delegate</span> <span class="p">=</span> <span class="n">MyAdopted1</span><span class="p">()</span>
+<span class="n">anObject1</span><span class="p">.</span><span class="n">show</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="s">&#34;Hello&#34;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nv">anObject2</span> <span class="p">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="n">anObject2</span><span class="p">.</span><span class="n">delegate</span> <span class="p">=</span> <span class="n">MyAdopted2</span><span class="p">()</span>
+<span class="n">anObject2</span><span class="p">.</span><span class="n">show</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="s">&#34;Hello&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-terminal" data-lang="terminal">MyAdopted1: Hello
+Hello from MyAdopted2!</code></pre></div></li>
+</ul>
+
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>普段、プログラマは上記の「delegateに準拠したクラスの作成」と、「delegateを指定」部分を書くことが多いと思います</li>
+<li>delegateを利用するクラスを一度実装してみることで、delegateの仕組みについての理解が深まるのでおすすめです</li>
+<li>今回作成したサンプルコードは、GitHubに置きました</li>
+<li><a href="https://github.com/aokiplayer/DelegateSample">aokiplayer/DelegateSample</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Asset Catalogで同じ名前の別画像を利用する</title>
