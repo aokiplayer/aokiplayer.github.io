@@ -5,38 +5,35 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version
-      - image: circleci/golang:1.12
-      
-    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+      - image: cibuilds/hugo:0.55.6
+    working_directory: ~/project
     steps:
+      - checkout
+      - run:
+          name: "Run Hugo"
+          command: HUGO_ENV=production hugo -v -s src/
+      - run:
+          name: "Test Website"
+          command: htmlproofer src/public --allow-hash-href --check-html --empty-alt-ignore --disable-external
+      - run:
+          name: "Git config"
+          command: |
+              git config --global user.name "Hiroyuki Aoki"
+              git config --global user.email "aokiplayer@icloud.com"
       - add_ssh_keys:
           fingerprints:
               - "de:0d:3f:0b:55:74:25:10:00:02:55:e0:e4:a3:8e:6f"
-
-      - checkout
-
       - run:
-          name: hugo install
-          command: |
-              mkdir $HOME/src
-              cd $HOME/src
-              git clone https://github.com/gohugoio/hugo.git
-              cd hugo
-              git checkout -b refs/tags/v0.55.6
-              go install
-              git config --global user.name "Hiroyuki Aoki"
-              git config --global user.email "aokiplayer@icloud.com"
-
-      - run:
-          name: push to master
+          name: "Build"
           command: |
               git branch -vv
               git submodule update -i # git submodule init; git submodule update
-              hugo
               echo yagamo-style.com >> public/CNAME
               git add public; git commit -m "generated pages"
               git clean -fdx
+      - run:
+          name: "Push"
+          command: |
               git checkout master
               ls -al
               echo "==== Checkout public directory from write branch"
