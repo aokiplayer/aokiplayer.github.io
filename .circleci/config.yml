@@ -16,6 +16,7 @@ jobs:
               git config --global user.email "aokiplayer@icloud.com"
       - run:
           name: "Run Hugo"
+          command: ls -al
           command: HUGO_ENV=production hugo -v -s ~/project/aokiplayer.github.io
       - add_ssh_keys:
           fingerprints:
