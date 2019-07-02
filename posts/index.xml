@@ -387,8 +387,11 @@ Hello from MyAdopted2!</code></pre></div>
 <h1 id="サンプルプロジェクト">サンプルプロジェクト</h1>
 
 <ul>
-<li>今回作成したサンプルコードは、GitHubに置きました</li>
+<li>今回作成したサンプルコードは、GitHubに置きました
+
+<ul>
 <li><a href="https://github.com/aokiplayer/SwiftUITableSample">aokiplayer/SwiftUITableSample</a></li>
+</ul></li>
 </ul>
 
 <h1 id="参考">参考</h1>
