@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="iOSにおけるPush通知の基本2（受信した通知の内容取得）">
+<meta itemprop="description" content="はじめに 前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました Push通知に必要な事前設定 Pus">
+
+
+<meta itemprop="datePublished" content="2019-05-24T10:52:57&#43;09:00" />
+<meta itemprop="dateModified" content="2019-05-24T10:52:57&#43;09:00" />
+<meta itemprop="wordCount" content="1815">
+
+
+
+<meta itemprop="keywords" content="iOS,Swift," />
+<meta property="og:title" content="iOSにおけるPush通知の基本2（受信した通知の内容取得）" />
+<meta property="og:description" content="はじめに 前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました Push通知に必要な事前設定 Pus" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yagamo-style.com/posts/remotenotification02/" />
+<meta property="article:published_time" content="2019-05-24T10:52:57&#43;09:00"/>
+<meta property="article:modified_time" content="2019-05-24T10:52:57&#43;09:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="iOSにおけるPush通知の基本2（受信した通知の内容取得）"/>
+<meta name="twitter:description" content="はじめに 前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました Push通知に必要な事前設定 Pus"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>iOSにおけるPush通知の基本2（受信した通知の内容取得）</title>
+	<link rel="stylesheet" href="https://yagamo-style.com/css/style.min.568c54a56780af2a70c45272522247710b69dbfc080b315211fb98381e3796f8.css" integrity="sha256-VoxUpWeArypwxFJyUiJHcQtp2/wICzFSEfuYOB43lvg=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://yagamo-style.com/">Yagamo Style</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://yagamo-style.com/posts/">Posts</a>
+				<a href="https://yagamo-style.com/about/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/Solti" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/aokiplayer" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://yagamo-style.com/posts/">Posts</a></li>
+			<li><a href="https://yagamo-style.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>May 24, 2019</span></div>
+				<h1>iOSにおけるPush通知の基本2（受信した通知の内容取得）</h1>
+			</header>
+			<div class="content">
+				
+
+<h1 id="はじめに">はじめに<a href="#はじめに" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li>前の記事 <a href="https://yagamo-style.com/posts/remotenotification01/">[iOSにおけるPush通知の基本1（通知の受信まで）]</a> では、以下のところまで紹介しました
+
+<ul>
+<li>Push通知に必要な事前設定</li>
+<li>Push通知のユーザへの利用許可依頼</li>
+<li>Push通知の送信テスト</li>
+</ul></li>
+<li>これだけでも、受け取った通知をタップしてアプリを起動することができます</li>
+<li>今回は、通知に含まれる内容（ペイロード）を取得する方法を説明します</li>
+</ul>
+
+<h1 id="検証環境">検証環境<a href="#検証環境" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li>Xcode 10.2</li>
+<li>iOS 12.2</li>
+<li>Swift 5</li>
+<li>iPod touch 6th generation</li>
+</ul>
+
+<h1 id="通知に対するコールバックメソッド">通知に対するコールバックメソッド<a href="#通知に対するコールバックメソッド" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li>通知を受け取ると、<code>UIApplicationDelegate</code>の以下のコールバックメソッドが呼ばれます</li>
+
+<li><p>呼ばれるコールバックメソッドとそのタイミングは、アプリの実行状態により決定されます</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">事前状態</th>
+<th align="left">タイミング</th>
+<th align="left">メソッド</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">未起動</td>
+<td align="left">通知のタップにより起動</td>
+<td align="left"><code>application(_:didFinishLaunchingWithOptions:)</code></td>
+</tr>
+
+<tr>
+<td align="left">Foreground</td>
+<td align="left">通知を受信</td>
+<td align="left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
+</tr>
+
+<tr>
+<td align="left">Background</td>
+<td align="left">通知のタップによりForeground</td>
+<td align="left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>これらのコールバック内で、通知のペイロード（通知に含まれるデータ）を取得して処理を行います</p></li>
+</ul>
+
+<h1 id="push通知のペイロード">Push通知のペイロード<a href="#push通知のペイロード" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li><p>Push通知のペイロードは、以下のような形式のJSONです</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;aps&#34;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;alert&#34;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&#34;title&#34;</span> <span class="p">:</span> <span class="s2">&#34;New Message&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;subtitle&#34;</span> <span class="p">:</span> <span class="s2">&#34;You got a new message.&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;body&#34;</span> <span class="p">:</span> <span class="s2">&#34;New message has arrived. Open your inbox.&#34;</span>
+        <span class="p">},</span>
+        <span class="nt">&#34;badge&#34;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&#34;sound&#34;</span> <span class="p">:</span> <span class="s2">&#34;default&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h1 id="ペイロードの取得">ペイロードの取得<a href="#ペイロードの取得" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li>受信したPush通知から、ペイロードを取り出す処理を実装します</li>
+</ul>
+
+<h2 id="そもそもどこから取り出すのか">そもそもどこから取り出すのか？<a href="#そもそもどこから取り出すのか" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<ul>
+<li>ペイロードは、<code>UIApplicationDelegate</code>のコールバックの引数に格納された状態で渡されます</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">コールバックメソッド</th>
+<th align="left">格納場所</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>application(_:didFinishLaunchingWithOptions:)</code></td>
+<td align="left">第2引数<code>launchOptions</code>ディクショナリ内</td>
+</tr>
+
+<tr>
+<td align="left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
+<td align="left">第2引数の<code>userInfo</code>ディクショナリ内</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="送信するpush通知の内容">送信するPush通知の内容<a href="#送信するpush通知の内容" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<ul>
+<li>今回は、以下の内容のPush通知を送ってみます</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-json:通知のペイロード" data-lang="json:通知のペイロード">{
+  &#34;aps&#34;: {
+    &#34;alert&#34;: &#34;Wake up!&#34;,
+    &#34;sound&#34;: &#34;default&#34;
+  }
+}</code></pre></div></li>
+</ul>
+
+<h2 id="実装例">実装例<a href="#実装例" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="アプリ未起動の場合">アプリ未起動の場合<a href="#アプリ未起動の場合" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>アプリが起動していない場合は通知をタップした時点でアプリが起動するので、ライフサイクルメソッドである<code>application(_:didFinishLaunchingWithOptions:)</code>が呼ばれます</li>
+<li>このサンプルコードでは、ペイロードの内容を文字列として整形してビューコントローラのプロパティに渡しています
+
+<ul>
+<li>起動済みの場合と区別するために、背景色を黄色に設定しています</li>
+</ul></li>
+</ul>
+
+<h4 id="ペイロードの取得手順">ペイロードの取得手順<a href="#ペイロードの取得手順" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ol>
+<li>第2引数の<code>launchOptions</code>ディクショナリからキー<code>UIApplication.LaunchOptionsKey.remoteNotification</code>を指定
+
+<ul>
+<li>Push通知のペイロードを格納したディクショナリが得られる</li>
+</ul></li>
+<li>Push通知のペイロードを格納したディクショナリから、キー&rdquo;aps&rdquo;でペイロードの内容部分のディクショナリを取得</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                 <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">UIApplication</span><span class="p">.</span><span class="n">LaunchOptionsKey</span><span class="p">:</span> <span class="nb">Any</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+
+    <span class="err">〜省略〜</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 01. get notification payload</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">notificationOptions</span> <span class="p">=</span> <span class="n">launchOptions</span><span class="p">?[.</span><span class="n">remoteNotification</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">notificationOptions</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
+
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span> <span class="p">}</span>
+        <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">yellow</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></div>
+<h4 id="実行結果">実行結果<a href="#実行結果" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<p><img src="/images/remotenotification02/launching.png" alt="launching" /></p>
+
+<h3 id="アプリが起動中の場合">アプリが起動中の場合<a href="#アプリが起動中の場合" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>アプリが起動中の場合は、以下のタイミングで<code>UIApplicationDelegate</code>プロトコルの<code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code>が呼ばれます
+
+<ul>
+<li>アプリがForegroundの場合: 通知を受け取ったタイミング</li>
+<li>アプリがBackgroundの場合: 受け取った通知をタップしてForegroundになったタイミング</li>
+</ul></li>
+<li>このサンプルコードでは、ペイロードの内容を文字列として整形してビューコントローラのプロパティに渡しています
+
+<ul>
+<li>未起動の場合と区別するために、背景色を緑に設定しています</li>
+</ul></li>
+</ul>
+
+<h4 id="ペイロードの取得手順-1">ペイロードの取得手順<a href="#ペイロードの取得手順-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ol>
+<li>第2引数の<code>userInfo</code>ディクショナリからキー&rdquo;aps&rdquo;でペイロードの内容部分のディクショナリを取得</li>
+<li>取得したディクショナリの扱いは、未起動の場合と同様</li>
+</ol>
+
+<ul>
+<li><p>このコールバックを実装した場合、Backgorund ModesをONにすることを求められるので有効にしておきます</p>
+
+<ul>
+<li>エラーにはなりませんが、コンソールにメッセージが表示されます</li>
+</ul>
+
+<p><img src="/images/remotenotification02/background_modes.png" alt="background_modes" /></p></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="n">UIApplication</span><span class="p">,</span>
+                 <span class="n">didReceiveRemoteNotification</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="n">AnyHashable</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">],</span>
+                 <span class="n">fetchCompletionHandler</span> <span class="n">completionHandler</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="n">UIBackgroundFetchResult</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> 04. get notification payload</span>
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">apsPart</span> <span class="p">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">&#34;aps&#34;</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="p">[</span><span class="nb">String</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">completionHandler</span><span class="p">(.</span><span class="n">failed</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">vc</span> <span class="p">=</span> <span class="n">window</span><span class="p">?.</span><span class="n">rootViewController</span> <span class="k">as</span><span class="p">?</span> <span class="n">ViewController</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+    <span class="kd">let</span> <span class="nv">text</span> <span class="p">=</span> <span class="n">apsPart</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="s">&#34;</span><span class="si">\(</span><span class="n">key</span><span class="si">)</span><span class="s">: </span><span class="si">\(</span><span class="n">value</span><span class="si">)</span><span class="s">&#34;</span> <span class="p">}.</span><span class="n">joined</span><span class="p">(</span><span class="n">separator</span><span class="p">:</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">)</span>
+    <span class="n">vc</span><span class="p">.</span><span class="n">payloadText</span> <span class="p">=</span> <span class="n">text</span>
+    <span class="n">vc</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">green</span>
+
+<span class="p">}</span></code></pre></div>
+<h4 id="実行結果-1">実行結果<a href="#実行結果-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<p><img src="/images/remotenotification02/active.png" alt="active" /></p>
+
+<h1 id="まとめ">まとめ<a href="#まとめ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li>アプリの実行状態によって、呼ばれるコールバックが異なる点に注意</li>
+<li>ペイロードはディクショナリから取り出す
+
+<ul>
+<li>受け取った時点で、すでにJSONからディクショナリに変換されている</li>
+</ul></li>
+<li>今回作成したサンプルコードは、GitHubに置きました
+
+<ul>
+<li><a href="https://github.com/aokiplayer/TreatPushNotificationPayloadSample">aokiplayer/TreatPushNotificationPayloadSample</a></li>
+</ul></li>
+</ul>
+
+<h1 id="参考">参考<a href="#参考" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li><a href="https://developer.apple.com/documentation/usernotifications">UserNotifications | Apple Developer Documentation</a></li>
+<li><a href="https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started">Push Notifications Tutorial: Getting Started | raywenderlich.com</a></li>
+</ul>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://yagamo-style.com/tags/ios">iOS</a></span><span class="tag"><a href="https://yagamo-style.com/tags/swift">Swift</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-05-24 01:52 &#43;0000</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title"></div>
+			<nav id="TableOfContents">
+<ul>
+<li><a href="#はじめに">はじめに</a></li>
+<li><a href="#検証環境">検証環境</a></li>
+<li><a href="#通知に対するコールバックメソッド">通知に対するコールバックメソッド</a></li>
+<li><a href="#push通知のペイロード">Push通知のペイロード</a></li>
+<li><a href="#ペイロードの取得">ペイロードの取得</a>
+<ul>
+<li><a href="#そもそもどこから取り出すのか">そもそもどこから取り出すのか？</a></li>
+<li><a href="#送信するpush通知の内容">送信するPush通知の内容</a></li>
+<li><a href="#実装例">実装例</a>
+<ul>
+<li><a href="#アプリ未起動の場合">アプリ未起動の場合</a>
+<ul>
+<li><a href="#ペイロードの取得手順">ペイロードの取得手順</a></li>
+<li><a href="#実行結果">実行結果</a></li>
+</ul></li>
+<li><a href="#アプリが起動中の場合">アプリが起動中の場合</a>
+<ul>
+<li><a href="#ペイロードの取得手順-1">ペイロードの取得手順</a></li>
+<li><a href="#実行結果-1">実行結果</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#まとめ">まとめ</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://yagamo-style.com/posts/seguecancel/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>画面遷移（セグエ）のキャンセル</span>
+			</a>
+			<a class="prev-post" href="https://yagamo-style.com/posts/viewcontrollerlifecycle/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>UIViewControllerのライフサイクルメソッド</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://yagamo-style.com/">Hiroyuki Aoki</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://yagamo-style.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://yagamo-style.com/js/main.min.35ccbf1cdceb91e4c64c06b5d009d6e2977fafe56beda7762febd4e67528d2ac.js" integrity="sha256-Ncy/HNzrkeTGTAa10AnW4pd/r+Vr7ad2L+vU5nUo0qw="></script>
+
+</body>
+
+</html>
