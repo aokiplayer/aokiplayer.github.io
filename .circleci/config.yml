@@ -10,16 +10,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Run Hugo"
-          command: HUGO_ENV=production hugo -v -s src/
-      - run:
-          name: "Test Website"
-          command: htmlproofer src/public --allow-hash-href --check-html --empty-alt-ignore --disable-external
-      - run:
           name: "Git config"
           command: |
               git config --global user.name "Hiroyuki Aoki"
               git config --global user.email "aokiplayer@icloud.com"
+      - run:
+          name: "Run Hugo"
+          command: HUGO_ENV=production hugo -v -s ~/aokiplayer.github.io
       - add_ssh_keys:
           fingerprints:
               - "de:0d:3f:0b:55:74:25:10:00:02:55:e0:e4:a3:8e:6f"
