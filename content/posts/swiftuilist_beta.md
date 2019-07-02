@@ -177,7 +177,7 @@ struct ContentView_Previews : PreviewProvider {
 
 # サンプルプロジェクト
 - 今回作成したサンプルコードは、GitHubに置きました
-- [aokiplayer/SwiftUITableSample](https://github.com/aokiplayer/SwiftUITableSample)
+    - [aokiplayer/SwiftUITableSample](https://github.com/aokiplayer/SwiftUITableSample)
 
 # 参考
 - [SwiftUI Tutorials | Apple Developer Documentation](https://developer.apple.com/tutorials/swiftui)
