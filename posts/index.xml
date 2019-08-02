@@ -5,8 +5,96 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Tue, 02 Jul 2019 11:34:30 +0900</lastBuildDate>
+		<lastBuildDate>Fri, 02 Aug 2019 21:49:24 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>MACアドレスを取得してファイルに書き出すシェルスクリプト</title>
+			<link>https://yagamo-style.com/posts/getmacaddress/</link>
+			<pubDate>Fri, 02 Aug 2019 21:49:24 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/getmacaddress/</guid>
+			<description>はじめに トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります 未認証の</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります</li>
+<li>未認証のデバイスを接続させないため、MACアドレスでフィルタリングを掛ける目的です</li>
+<li>手作業で取得するのは辛いので、シェルスクリプトを用意しました</li>
+<li>あとで集約する際のために、ファイル名にはMacのSerial Numberを付けるようにしました</li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>macOS 10.14.6 Mojave</li>
+</ul>
+
+<h1 id="シェルスクリプトの内容">シェルスクリプトの内容</h1>
+<div class="highlight"><pre class="chroma"><code class="language-shell:getMACaddr.sh" data-lang="shell:getMACaddr.sh"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+<span class="c1"># GET Serial Number of this Mac</span>
+<span class="nv">SERIAL</span><span class="o">=</span><span class="sb">`</span>ioreg -l <span class="p">|</span> awk <span class="s1">&#39;/IOPlatformSerialNumber/ { if (gsub(/&#34;/, &#34;&#34;)) print $4 }&#39;</span><span class="sb">`</span>
+
+<span class="c1"># Write MAC address of primary WiFi interfce in &#34;{SERIAL NUMBER}.txt&#34; on this user&#39;s Desktop</span>
+ifconfig en0 ether <span class="p">|</span> awk <span class="s1">&#39;/ether/ { print $2 }&#39;</span> &gt; ~/Desktop/<span class="si">${</span><span class="nv">SERIAL</span><span class="si">}</span>.txt</code></pre></div>
+<h2 id="serial-numberを取得して-変数に代入">Serial Numberを取得して、変数に代入</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">SERIAL</span><span class="o">=</span><span class="sb">`</span>ioreg -l <span class="p">|</span> awk <span class="s1">&#39;/IOPlatformSerialNumber/ { if (gsub(/&#34;/, &#34;&#34;)) print $4 }&#39;</span><span class="sb">`</span></code></pre></div>
+<ul>
+<li><code>ioreg</code>で、ハードウェアデバイスとドライバの情報を取得</li>
+<li><code>awk</code>を利用して、以下の処理を実行
+
+<ul>
+<li><code>IOPlatformSerialNumber</code>を含む行だけを抽出
+
+<ul>
+<li><code>　　　　|   &quot;IOPlatformSerialNumber&quot; = &quot;C0XXXXXXXXXX&quot;</code></li>
+</ul></li>
+<li><code>&quot;</code>を除去する
+
+<ul>
+<li><code>　　　　|   IOPlatformSerialNumber = C0XXXXXXXXXX</code></li>
+</ul></li>
+<li>スペースで区切った4つ目のフィールドを出力
+
+<ul>
+<li><code>C0XXXXXXXXXX</code></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2 id="wifiインターフェイスのmacアドレスを取得し-ファイルに書き込み">WiFiインターフェイスのMACアドレスを取得し、ファイルに書き込み</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ifconfig en0 ether <span class="p">|</span> awk <span class="s1">&#39;/ether/ { print $2 }&#39;</span> &gt; ~/Desktop/<span class="si">${</span><span class="nv">SERIAL</span><span class="si">}</span>.txt</code></pre></div>
+<ul>
+<li><code>ifconfig</code>でインターフェイスを指定して、MACアドレスの情報を取得</li>
+<li><code>awk</code>を利用して、以下の処理を実行
+
+<ul>
+<li><code>ether</code>を含む行だけを抽出
+
+<ul>
+<li><code>　ether XX:XX:XX:XX:XX:XX　</code></li>
+</ul></li>
+<li>スペースで区切った2つ目のフィールドを出力
+
+<ul>
+<li><code>XX:XX:XX:XX:XX:XX</code></li>
+</ul></li>
+</ul></li>
+<li>デスクトップ上の、ファイル名<code>{Serial Number}.txt</code>のファイルに書き込み</li>
+</ul>
+
+<h1 id="最後に">最後に</h1>
+
+<ul>
+<li>awkとか正規表現とか、いまだに苦手です</li>
+<li>「こう書いたほうがいいよ」などあれば、教えてください！</li>
+<li>作成したシェルスクリプト は、<a href="https://github.com/aokiplayer/scripts">aokiplayer/scripts</a>に置きました</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>簡単なdelegateのサンプル</title>

@@ -3,25 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yagamo-style.com/posts/</loc>
-    <lastmod>2019-07-02T11:34:30+09:00</lastmod>
+    <loc>https://yagamo-style.com/posts/getmacaddress/</loc>
+    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/mac/</loc>
+    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://yagamo-style.com/tags/swift/</loc>
-    <lastmod>2019-07-02T11:34:30+09:00</lastmod>
+    <loc>https://yagamo-style.com/posts/</loc>
+    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/shell-script/</loc>
+    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://yagamo-style.com/tags/</loc>
-    <lastmod>2019-07-02T11:34:30+09:00</lastmod>
+    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://yagamo-style.com/</loc>
+    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/swift/</loc>
     <lastmod>2019-07-02T11:34:30+09:00</lastmod>
     <priority>0</priority>
   </url>

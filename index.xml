@@ -6,10 +6,19 @@
     <description>Recent content on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 02 Jul 2019 11:34:30 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2019 21:49:24 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MACアドレスを取得してファイルに書き出すシェルスクリプト</title>
+      <link>https://yagamo-style.com/posts/getmacaddress/</link>
+      <pubDate>Fri, 02 Aug 2019 21:49:24 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/getmacaddress/</guid>
+      <description>はじめに トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります 未認証の</description>
+    </item>
     
     <item>
       <title>簡単なdelegateのサンプル</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/tryswifttokyo2019/</guid>
       <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。 だ</description>
-    </item>
-    
-    <item>
-      <title>iOSDC 2018 感想など</title>
-      <link>https://yagamo-style.com/posts/iosdc2018/</link>
-      <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/iosdc2018/</guid>
-      <description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年から</description>
     </item>
     
   </channel>
