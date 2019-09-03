@@ -6,10 +6,19 @@
     <description>Recent content in iOS on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 02 Jul 2019 11:34:30 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2019 13:14:41 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOSDC 2019 に LT 登壇します</title>
+      <link>https://yagamo-style.com/posts/iosdc2019pre/</link>
+      <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/iosdc2019pre/</guid>
+      <description>2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。 昨年までは個人サポーター（およびスポンサー企業の社員）として参加して</description>
+    </item>
     
     <item>
       <title>簡単なdelegateのサンプル</title>

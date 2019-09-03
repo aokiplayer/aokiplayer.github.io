@@ -6,10 +6,19 @@
     <description>Recent content on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 02 Aug 2019 21:49:24 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2019 13:14:41 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOSDC 2019 に LT 登壇します</title>
+      <link>https://yagamo-style.com/posts/iosdc2019pre/</link>
+      <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/iosdc2019pre/</guid>
+      <description>2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。 昨年までは個人サポーター（およびスポンサー企業の社員）として参加して</description>
+    </item>
     
     <item>
       <title>MACアドレスを取得してファイルに書き出すシェルスクリプト</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/remotenotification01/</guid>
       <description>はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説</description>
-    </item>
-    
-    <item>
-      <title>try! Swift Tokyo 2019 感想など</title>
-      <link>https://yagamo-style.com/posts/tryswifttokyo2019/</link>
-      <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/tryswifttokyo2019/</guid>
-      <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。 だ</description>
     </item>
     
   </channel>

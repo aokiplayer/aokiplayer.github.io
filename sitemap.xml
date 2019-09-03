@@ -3,6 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yagamo-style.com/posts/</loc>
+    <lastmod>2019-09-03T13:14:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/swift/</loc>
+    <lastmod>2019-09-03T13:14:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/</loc>
+    <lastmod>2019-09-03T13:14:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/</loc>
+    <lastmod>2019-09-03T13:14:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/ios/</loc>
+    <lastmod>2019-09-03T13:14:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/iosdc/</loc>
+    <lastmod>2019-09-03T13:14:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/posts/iosdc2019pre/</loc>
+    <lastmod>2019-09-03T13:14:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/macos/</loc>
+    <lastmod>2019-09-03T13:14:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://yagamo-style.com/posts/getmacaddress/</loc>
     <lastmod>2019-08-02T21:49:24+09:00</lastmod>
   </url>
@@ -14,38 +61,8 @@
   </url>
   
   <url>
-    <loc>https://yagamo-style.com/posts/</loc>
-    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://yagamo-style.com/tags/shell-script/</loc>
     <lastmod>2019-08-02T21:49:24+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/</loc>
-    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/</loc>
-    <lastmod>2019-08-02T21:49:24+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/swift/</loc>
-    <lastmod>2019-07-02T11:34:30+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/ios/</loc>
-    <lastmod>2019-07-02T11:34:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -110,12 +127,6 @@
   <url>
     <loc>https://yagamo-style.com/posts/tryswifttokyo2019/</loc>
     <lastmod>2019-04-17T19:16:50+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/iosdc/</loc>
-    <lastmod>2018-09-15T21:32:57+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

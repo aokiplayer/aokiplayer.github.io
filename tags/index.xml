@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 02 Aug 2019 21:49:24 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2019 13:14:41 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Swift</title>
+      <link>https://yagamo-style.com/tags/swift/</link>
+      <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iOS</title>
+      <link>https://yagamo-style.com/tags/ios/</link>
+      <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iOSDC</title>
+      <link>https://yagamo-style.com/tags/iosdc/</link>
+      <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/iosdc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macOS</title>
+      <link>https://yagamo-style.com/tags/macos/</link>
+      <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/macos/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Mac</title>
@@ -26,24 +62,6 @@
       <pubDate>Fri, 02 Aug 2019 21:49:24 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/shell-script/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Swift</title>
-      <link>https://yagamo-style.com/tags/swift/</link>
-      <pubDate>Tue, 02 Jul 2019 11:34:30 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/swift/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOS</title>
-      <link>https://yagamo-style.com/tags/ios/</link>
-      <pubDate>Tue, 02 Jul 2019 11:34:30 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/ios/</guid>
       <description></description>
     </item>
     
@@ -71,15 +89,6 @@
       <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/try-swift/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOSDC</title>
-      <link>https://yagamo-style.com/tags/iosdc/</link>
-      <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/iosdc/</guid>
       <description></description>
     </item>
     
