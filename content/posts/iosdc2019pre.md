@@ -1,5 +1,5 @@
 ---
-title: "iOSDC 2019 に LT 登壇します"
+title: "iOSDC 2019 に Mac の環境構築の内容で LT 登壇します"
 date: 2019-09-03T13:14:41+09:00
 draft: false
 toc: true
