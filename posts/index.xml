@@ -5,8 +5,160 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Tue, 03 Sep 2019 13:14:41 +0900</lastBuildDate>
+		<lastBuildDate>Sat, 07 Sep 2019 07:33:45 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>iOSDC 2019 で Mac の環境構築に関する内容で登壇してきました</title>
+			<link>https://yagamo-style.com/posts/iosdc2019day1/</link>
+			<pubDate>Sat, 07 Sep 2019 07:33:45 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/iosdc2019day1/</guid>
+			<description>[iOSDC 2019 に Mac の環境構築の内容で LT 登壇します] で書いていましたが、ルーキーズ LT に登壇してきました。 普段からトレーニングで話してはいますが、全くの別</description>
+			<content type="html"><![CDATA[
+
+<p><a href="https://yagamo-style.com/posts/iosdc2019pre/">[iOSDC 2019 に Mac の環境構築の内容で LT 登壇します]</a> で書いていましたが、ルーキーズ LT に登壇してきました。
+普段からトレーニングで話してはいますが、全くの別物なのでずっと緊張してました。</p>
+
+<p>若干のミス（残り時間を間違えて、 15  秒余らせたまま最後の部分を省略してしまった）はあったものの、お伝えできたかなと思います。</p>
+
+<h1 id="公式サイト-ハッシュタグなど">公式サイト、ハッシュタグなど</h1>
+
+<ul>
+<li><a href="https://iosdc.jp/2019/">https://iosdc.jp/2019/</a></li>
+<li><a href="https://twitter.com/iosdcjp">@iosdcjp</a></li>
+<li><a href="https://twitter.com/hashtag/iosdc?src=hash">#iosdc</a></li>
+</ul>
+
+<h1 id="発表スライド">発表スライド</h1>
+
+<p>Speaker Deck に上げたので、ぜひご覧ください。</p>
+
+<ul>
+<li><a href="https://speakerdeck.com/aokiplayer/macos-restore-history">完全に同じ開発環境を素早く用意できる（もしくはできない）技術</a></li>
+</ul>
+
+<h1 id="モチベーション">モチベーション</h1>
+
+<p>トレーニングの環境作成って、とても気をつかいます。特に、 Mac を使うトレーニングの場合、多くの受講者が Windows しか触ったことがないです。
+そのため、トレーナーがデモしている環境と、受講者の環境にちょっとでも差があると、受講者はとても戸惑います。
+なので、環境は少しの違いもなく揃えておく必要があります。</p>
+
+<p>ただし、全部手作業で行うのは効率的ではなく、ミスも発生します。それに、セットアップ自体は技術に長けた我々トレーナーではなく、別の部隊です。なので、技術的に難しい手順は踏ませられません。</p>
+
+<h1 id="話したこと">話したこと</h1>
+
+<p>いかにミスを防ぎ、大量の Mac を素早く正確にセットアップするかという点について、これまで取ってきた様々な手法についてお話ししました。
+現在、残念ながら以前と比較して手間のかかる方式で行わざるを得ず、まだ模索している状況です。
+それも含め、現状をお伝えしました。</p>
+
+<h1 id="紹介した技術">紹介した技術</h1>
+
+<h2 id="apple-の提供する機能">Apple の提供する機能</h2>
+
+<h3 id="netrestore">NetRestore</h3>
+
+<ul>
+<li>macOS Server の 1 機能として提供されていました
+
+<ul>
+<li>Apple の「モノリシックイメージからのリストアは推奨しない」方針により、現在は利用できません</li>
+<li>macOS Server にはまだ機能が残っていますが、 GUI の画面は削除されました</li>
+<li>2018 年以降（T2 Security Chip）搭載の Mac ではネットワークブート機能が削除されたため、 NetRestore が機能したとしても、各 Mac からは NetRestore イメージにはアクセスできません</li>
+</ul></li>
+<li>事前に作成しておいたシステムイメージと完全に同じ環境がリストアできます</li>
+<li>とても素早い（リストア開始から完了まで 5,6 分）</li>
+</ul>
+
+<h3 id="time-machine">Time Machine</h3>
+
+<ul>
+<li>履歴を持ったバックアップを取れる機能です</li>
+<li>基本的に、同じバックアップから複数の Mac をリストアすることは前提にしていません
+
+<ul>
+<li>そのためか、複数の Mac から同時にリストアできません</li>
+</ul></li>
+<li>Time Machine からのリストアは、 NetRestore のようなブロックコピーではないので時間がかかります</li>
+</ul>
+
+<h3 id="mdm-mobile-device-management">MDM(Mobile Device Management)</h3>
+
+<ul>
+<li>社内で iOS を集中管理する際などに利用しますが、 macOS にも対応しています</li>
+<li>Configuration Profile に設定を記述し、それをサーバからプッシュすることで設定を強制します</li>
+<li>Apple Business Manager(ABM) と連携することで、 VPP(Volume Purchase Program) で購入した App Store のアプリのインストールを各クライアントに強制できます
+
+<ul>
+<li>ただし、 App Store にある最新のアプリがインストールされるため、「チームで Xcode のバージョンを固定している」場合などには別の策を取る必要があります</li>
+</ul></li>
+<li>ABM は、 VPP と DEP を統合したものです
+
+<ul>
+<li>VPP(Volume Purchase Program)</li>
+<li>DEP(Device Enrollment Program)</li>
+</ul></li>
+</ul>
+
+<h3 id="asr-apple-software-restore">ASR(Apple Software Restore)</h3>
+
+<ul>
+<li>今回紹介した技術の中では NetRestore 以外唯一、インストールではなくイメージのコピーを行う技術
+
+<ul>
+<li>なので、リストアは速いです（数分）</li>
+<li>ただし、イメージは各 Mac に個別にコピーしておく必要があります</li>
+</ul></li>
+<li>Disk Utility を利用してシステムのイメージを DMG ファイルとして作成し、それをもとに macOS Recovery 上でコマンドラインからリストアします</li>
+<li>macOS 10.14 Mojave まではうまく動作したのですが、 10.14.1 以降必ず失敗するので、断念しました
+
+<ul>
+<li>原因は追い切れていないので、場合によってはまた利用できるかもしれません</li>
+</ul></li>
+</ul>
+
+<h2 id="サードパーティの機能">サードパーティの機能</h2>
+
+<h3 id="autodmg">AutoDMG</h3>
+
+<ul>
+<li>現在、暫定的に利用している機能です</li>
+<li>macOS のインストーラをカスタマイズし、/Applications へ配置したいアプリケーションなどはあらかじめ仕込んでおくことができます
+
+<ul>
+<li>通常手順での Xcode のインストールなどは非常に時間がかかる（ダウンロード、 xip の展開）ので、その時間をなくすことができます</li>
+<li>そのため、「クリーンインストールして、アプリを手動インストール」よりはだいぶマシです</li>
+</ul></li>
+<li>各種設定はできない（クリーンインストールと同じで、 macOS インストール後のユーザの作成から先は手作業）ので、 Configuration Profile やシェルスクリプト で対応しています</li>
+<li>macOS の設定を行うコマンドとしては、以下などを利用しています
+
+<ul>
+<li>defaults コマンド
+
+<ul>
+<li>ユーザの設定を管理するコマンド</li>
+</ul></li>
+<li>scutil コマンド
+
+<ul>
+<li>システムの設定を管理するコマンド</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="登壇した感想">登壇した感想</h1>
+
+<p>内容的にあまり刺さる方はいないだろうな、とは思っていましたが、 Twitter や対面で感想を頂くことができました。
+誰か 1 人でも、役に立った（もしくは面白かった）と思って頂けたなら、話した意味はあったのかな、と思います。</p>
+
+<p>また、特にルーキーズ LT では、事前に運営側主催で練習会を開いて頂き、アドバイスも頂けました。
+その際に、練習会参加者同士の繋がりも生まれ、良い仲間ができました。</p>
+
+<p>運営側、そしてルーキーズ仲間には本当に感謝しています。もちろん、私の LT を聞いて頂いた皆さま、このポストを読んで下さった皆さま、ありがとうございます。</p>
+
+<p>本当に iOSDC は楽しいので、次はあなたもぜひトークに応募してみてください！</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します</title>

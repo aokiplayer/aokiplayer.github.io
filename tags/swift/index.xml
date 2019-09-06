@@ -6,10 +6,19 @@
     <description>Recent content in Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 03 Sep 2019 13:14:41 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2019 07:33:45 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOSDC 2019 で Mac の環境構築に関する内容で登壇してきました</title>
+      <link>https://yagamo-style.com/posts/iosdc2019day1/</link>
+      <pubDate>Sat, 07 Sep 2019 07:33:45 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/iosdc2019day1/</guid>
+      <description>[iOSDC 2019 に Mac の環境構築の内容で LT 登壇します] で書いていましたが、ルーキーズ LT に登壇してきました。 普段からトレーニングで話してはいますが、全くの別</description>
+    </item>
     
     <item>
       <title>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/tryswifttokyo2019/</guid>
       <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。 だ</description>
-    </item>
-    
-    <item>
-      <title>iOSDC 2018 感想など</title>
-      <link>https://yagamo-style.com/posts/iosdc2018/</link>
-      <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/iosdc2018/</guid>
-      <description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年から</description>
     </item>
     
   </channel>
