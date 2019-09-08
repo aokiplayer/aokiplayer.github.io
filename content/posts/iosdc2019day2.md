@@ -1,5 +1,5 @@
 ---
-title: "iOSDC 2019 感想"
+title: "iOSDC 2019 に参加してきました"
 date: 2019-09-08T19:57:25+09:00
 draft: false
 toc: true
