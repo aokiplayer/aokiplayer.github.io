@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="iOSDC 2019 感想">
+<meta itemprop="description" content="2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&rdquo;ブログ">
+
+
+<meta itemprop="datePublished" content="2019-09-08T19:57:25&#43;09:00" />
+<meta itemprop="dateModified" content="2019-09-08T19:57:25&#43;09:00" />
+<meta itemprop="wordCount" content="4876">
+
+
+
+<meta itemprop="keywords" content="iOSDC,iOS,Swift,macOS," />
+<meta property="og:title" content="iOSDC 2019 感想" />
+<meta property="og:description" content="2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&rdquo;ブログ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yagamo-style.com/posts/iosdc2019day2/" />
+<meta property="article:published_time" content="2019-09-08T19:57:25&#43;09:00"/>
+<meta property="article:modified_time" content="2019-09-08T19:57:25&#43;09:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="iOSDC 2019 感想"/>
+<meta name="twitter:description" content="2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&rdquo;ブログ"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>iOSDC 2019 感想</title>
+	<link rel="stylesheet" href="https://yagamo-style.com/css/style.min.568c54a56780af2a70c45272522247710b69dbfc080b315211fb98381e3796f8.css" integrity="sha256-VoxUpWeArypwxFJyUiJHcQtp2/wICzFSEfuYOB43lvg=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://yagamo-style.com/">Yagamo Style</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://yagamo-style.com/posts/">Posts</a>
+				<a href="https://yagamo-style.com/about/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/Solti" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/aokiplayer" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://yagamo-style.com/posts/">Posts</a></li>
+			<li><a href="https://yagamo-style.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Sep 8, 2019</span></div>
+				<h1>iOSDC 2019 感想</h1>
+			</header>
+			<div class="content">
+				
+
+<p>2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&rdquo;ブログを書くまでが iOSDC&rdquo;）。</p>
+
+<p>私自身の登壇に関しては、前回のエントリ <a href="https://yagamo-style.com/posts/iosdc2019day1/">iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</a> をぜひご覧ください。</p>
+
+<p>ここでは、それ以外について振り返りたいと思います。</p>
+
+<h1 id="公式サイト-ハッシュタグなど">公式サイト、ハッシュタグなど<a href="#公式サイト-ハッシュタグなど" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li><a href="https://iosdc.jp/2019/">https://iosdc.jp/2019/</a></li>
+<li><a href="https://twitter.com/iosdcjp">@iosdcjp</a></li>
+<li><a href="https://twitter.com/hashtag/iosdc?src=hash">#iosdc</a></li>
+</ul>
+
+<h1 id="イベント全体について">イベント全体について<a href="#イベント全体について" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>もちろん、最高のスタッフで全体的に素晴らしかったです！
+ が、いくつかピックアップします。</p>
+
+<h2 id="良かったこと">良かったこと<a href="#良かったこと" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="公式アプリ">公式アプリ<a href="#公式アプリ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>アプリ自体も良かったですし、フィードバックを素早く反映されていてすごいなと思いました</li>
+<li>具体的には、練習会のときに「スピーカーだけじゃなくて、スタッフの方の Twitter リンクはないのですか？」とお伝えしたら直後のリリースで対応されていました！</li>
+</ul>
+
+<h3 id="ネットワーク">ネットワーク<a href="#ネットワーク" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>毎年改善が目覚ましいです</li>
+<li>ごく短時間、繋がりにくいのと WiFi の先でインターネットに接続できないこともありましたが、ほぼ問題なく接続できていました
+
+<ul>
+<li>1,000 人越えのしかもコミュニティベースのイベントで、これは本当にすごいなと思います</li>
+</ul></li>
+<li>Aruba の最新の機器をこのカンファレンスで（たぶん）国内初の利用とか、気合入ってますね！</li>
+</ul>
+
+<h3 id="映像技術">映像技術<a href="#映像技術" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>登壇者のスライドとそこから切り替えてデモ実施時の映像、登壇者の映像をセッションタイトル付きの枠にその場で合成して配信してました</li>
+<li>また、スライドの縦横比によって即座に切り替えたりも</li>
+<li>ボーッとしてると当たり前のように思えますが、冷静に考えてとてもすごい！</li>
+</ul>
+
+<h3 id="スピーカーディナーでの-1min-ピッチ">スピーカーディナーでの 1min ピッチ<a href="#スピーカーディナーでの-1min-ピッチ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>文章からだけじゃなくて、動画でトークの内容を事前に宣伝する試みは面白いなと思いました</li>
+<li>スピーカーの立場としても、これを行うことで話す練習にもなるし、考えをまとめるいい機会になりました</li>
+</ul>
+
+<h3 id="ルーキーズ-lt-練習会">ルーキーズ LT 練習会<a href="#ルーキーズ-lt-練習会" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>Twitter や別のエントリで何度も書いてますが、これは練習という意味だけでなく最高でした！</li>
+<li>練習会の参加者（スピーカーだけじゃなくてスタッフの皆さん）は、顔を合わせるたびに話が盛り上がる感じになってました</li>
+<li>どなたかがツイートしていましたが、この &ldquo;文化祭&rdquo; みたいな感じがすごくいいなーと思いました</li>
+<li>この練習会は、次に採択されてももう二度と参加できないのが寂しいです😢</li>
+</ul>
+
+<h3 id="座席予約">座席予約<a href="#座席予約" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>個人サポーターおよびジョーカーチケットを持ってる人が、あらかじめ聞きたいセッションの席を予約できるシステムです</li>
+<li>人気のセッションは前のセッションを諦めて並ぶ必要があったりしたけど、それを（ある程度）解消できます</li>
+<li>私は並ぶのが苦手なタイプなので、これはありがたかったです！</li>
+</ul>
+
+<h3 id="オープニングパーティ-茶会-懇親会">オープニングパーティ、茶会、懇親会<a href="#オープニングパーティ-茶会-懇親会" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>交流を測る場としては同じだけど、それぞれコンセプトが違っていて楽しかったです
+
+<ul>
+<li>オープニングパーティは話す、というよりもみんなで踊って楽しむ（音量大きめ）</li>
+<li>茶会は &ldquo;ノンアルコールがマジョリティ&rdquo;。着席でカテゴリ別のテーブルや、ボードゲームなどもあり</li>
+<li>懇親会は立食で、いわゆる普通の懇親会</li>
+</ul></li>
+<li>多くのカンファレンスは最終日の懇親会のみだけなので都合がつかないこともあるけど、複数あると参加できる可能性が増えていいですね</li>
+</ul>
+
+<h2 id="もっと良くできるかも">もっと良くできるかも<a href="#もっと良くできるかも" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="iosdc-チャレンジ">iOSDC チャレンジ<a href="#iosdc-チャレンジ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>これ自体は、ゲーム性があってとても楽しいものでした</li>
+<li>トークンを探すために、多くのスポンサーブースにも自然と足が向くという、よく考えられた仕組みです
+
+<ul>
+<li>2017 年の、スポンサーロゴ缶バッジと近いですね</li>
+</ul></li>
+<li>が、例年の自分の行動と照らし合わせてみると、いつもであれば聞いたセッションのフィードバックをしていた時間を、トークン探しに費やしていました</li>
+<li>そのため、聞いてすぐにフィードバックが送れず、ほとんどは全日程が終わった後に書くことになりました</li>
+<li>そこは、どちらを優先するかの参加者の問題なので、私の考え方次第ですね</li>
+</ul>
+
+<h3 id="セッションのバランス">セッションのバランス<a href="#セッションのバランス" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>これも感じ方次第なのですが、 iOS やその周辺技術以外のトークが比較的固まっている時間帯がありました
+
+<ul>
+<li>最終日 LT の後半</li>
+</ul></li>
+<li>全体からすると割合はそこまで多くなかったと思うのですが、印象的にそう見えてしまった感じがします</li>
+<li>でも、トークの題材を限定しすぎるよりも自分の知らなかったいろんな内容を知るのは楽しいです！</li>
+</ul>
+
+<h3 id="茶会の流動性">茶会の流動性<a href="#茶会の流動性" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>茶会は基本、着席でテーブルを囲んで話すスタイルでした</li>
+<li>そのため、人の流動性は少なく、多くの人との交流という点ではちょっともったいなかったです
+
+<ul>
+<li>意図して動かないというわけではなくて、座ってるとじっくり話し込んじゃって気付いたら時間が経過している</li>
+</ul></li>
+<li>どなたか言ってましたが、スタッフが途中でアナウンスをしてみてもいいのかなと思いました</li>
+</ul>
+
+<h1 id="次回への抱負">次回への抱負<a href="#次回への抱負" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<ul>
+<li>今回の私のトークは「試行錯誤してる」状態で終わってしまいました</li>
+<li>引き続き試すので、そこで得られた知見などをまたお話ししたいなと思ってます</li>
+<li>今回は参加できなかった、企業スポンサーとしてもまた帰って来るために組織もなんとかしたい…</li>
+</ul>
+
+<h1 id="参加したセッションについての一言感想">参加したセッションについての一言感想<a href="#参加したセッションについての一言感想" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>たくさん感想はあるのですが、ものすごい量になりそうなのでそれぞれ一言だけ感想を書きます。</p>
+
+<h2 id="day-0-前夜祭">day 0 - 前夜祭<a href="#day-0-前夜祭" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="普通に書くと即メモリーリーク-こんなに大変だけど俺はxamarin-iosを使い続けるぜ">普通に書くと即メモリーリーク！こんなに大変だけど俺はXamarin.iOSを使い続けるぜ！<a href="#普通に書くと即メモリーリーク-こんなに大変だけど俺はxamarin-iosを使い続けるぜ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>Xamarin.iOS は、何だかんだ言っても考慮することが多くてすっごく大変。でも技術や探究が好きな人には最高に楽しめそう</li>
+</ul>
+
+<h2 id="day-1">day 1<a href="#day-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="めくるめくシェーダアートの世界">めくるめくシェーダアートの世界<a href="#めくるめくシェーダアートの世界" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>難しそうなイメージがあったけど、簡単な処理であればすぐにでも試すことができそう。記憶の彼方にある（もうないかも）行列などを思い出すきっかけになる気がします</li>
+</ul>
+
+<h3 id="ランチセッション-ランチスポンサー-crew-様">ランチセッション（ランチスポンサー: CREW 様）<a href="#ランチセッション-ランチスポンサー-crew-様" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>ユーザからの 5 段階評価は基準がブレるので難しいのはすごく納得。「こんなことがあったら 4」みたいに、例示をするのは確かに良さそう</li>
+</ul>
+
+<h3 id="swiftクリーンコードアドベンチャー-日々の苦悩を乗り越え-確かな選択をするために">Swiftクリーンコードアドベンチャー　~日々の苦悩を乗り越え、確かな選択をするために~<a href="#swiftクリーンコードアドベンチャー-日々の苦悩を乗り越え-確かな選択をするために" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>丁寧な例示があったので、まずはなぞってやってみたい。 Swift では全然ジェネリクスを活用できてないので、それもキャッチアップしつつかな</li>
+</ul>
+
+<h3 id="画像処理における-uiimageとcgimageとciimageの効果的な使い分け">画像処理における、UIImageとCGImageとCIImageの効果的な使い分け<a href="#画像処理における-uiimageとcgimageとciimageの効果的な使い分け" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>UIImage しか使ってこなかった、かつカメラ機能なんていつ実装したかな勢なので、またやってみたい。リサイズは絶対必要になるし、そのときは今回の知見が役立ちそう</li>
+</ul>
+
+<h3 id="iosアプリのリジェクトリスクを早期に発見するための取り組み">iOSアプリのリジェクトリスクを早期に発見するための取り組み<a href="#iosアプリのリジェクトリスクを早期に発見するための取り組み" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>ipa ファイルの中身を詳しく見たことはなかったので、そこまでいろいろ情報が取れるとは思ってなかった。しかもそれをもとにチェックツールを作ってしまうとは。これは欲しい！</li>
+</ul>
+
+<h3 id="lt-track-a">LT - Track A<a href="#lt-track-a" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<h4 id="日本のサマータイムに苦しめられた話">日本のサマータイムに苦しめられた話<a href="#日本のサマータイムに苦しめられた話" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>サマータイム実施してた年の特定日時だけ特別対応が必要とか、すごく大変。これって、定常的にサマータイムやってる国の情報だったら問題ないのかな？</li>
+</ul>
+
+<h4 id="property-delegatesがもたらす新しいswiftプログラミング">Property Delegatesがもたらす新しいSwiftプログラミング<a href="#property-delegatesがもたらす新しいswiftプログラミング" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>この秋までに理解が必須な、新しい言語仕様。だけど理解が追いついてない。サンプルに挙げて頂いたコードを読み直そう</li>
+</ul>
+
+<h4 id="lldbデバッガで不具合の原因を特定して開発速度を上げよう">LLDBデバッガで不具合の原因を特定して開発速度を上げよう<a href="#lldbデバッガで不具合の原因を特定して開発速度を上げよう" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>po しか使ってなかった人のための技術。 LLDB のコマンド、いろいろ使おうと思いつつ今に至るので、これをきっかけにまずは発表にあった v とか使ってみよう</li>
+</ul>
+
+<h4 id="core-mlで実現する爆速のarサイズ計測">Core MLで実現する爆速のARサイズ計測<a href="#core-mlで実現する爆速のarサイズ計測" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>サイズ計測の精度を上げるのが大変そうだけど、それができたら本当に使いやすそう。撮影条件さえ整えば、このままでも実用に耐えられそう。こうやって実際に役立つ場面があると、すごく試したくなります</li>
+</ul>
+
+<h4 id="1ヶ月半でプッシュ通知許諾率を17-から40-にあげた話">1ヶ月半でプッシュ通知許諾率を17％から40％にあげた話<a href="#1ヶ月半でプッシュ通知許諾率を17-から40-にあげた話" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>まさに試行錯誤って感じでした。やっぱり、シンプルな方法はストレートに効いてくるのがわかりました</li>
+</ul>
+
+<h4 id="もし文系卒の女子エンジニアが-5年もののiosアプリにユニットテストを導入しようとしたら">もし文系卒の女子エンジニアが 5年もののiOSアプリにユニットテストを導入しようとしたら<a href="#もし文系卒の女子エンジニアが-5年もののiosアプリにユニットテストを導入しようとしたら" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>最初から壮大な夢を描いて完璧を求めるんじゃなくて、できるところからやることの重要さがよく伝わりました。私も、できるところからやろう</li>
+</ul>
+
+<h4 id="ar-quick-lookを家具ecサイトに導入した話">AR Quick Lookを家具ECサイトに導入した話<a href="#ar-quick-lookを家具ecサイトに導入した話" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>AR Quick Look は全く使ったことがなかったけど、意外と簡単に使えそう。やっぱり、ブラウザで AR ってユーザにとっては気軽だしいいよね！</li>
+</ul>
+
+<h4 id="個人開発のアプリが輝くために">個人開発のアプリが輝くために<a href="#個人開発のアプリが輝くために" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>アプリそのものが良くても、検索にヒットしないともったいない。その後の茶会で、実際にそういう例に遭遇してなるほど！と思いました</li>
+</ul>
+
+<h4 id="gitlabrunnerで始める自前ci環境">GitLabRunnerで始める自前CI環境<a href="#gitlabrunnerで始める自前ci環境" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>弊社も GitLab 立ててる（Mac ではないけど）ので、やってみたくなった。トレーニングで使わなくなった、ちょっと古い Mac で試してみようかな？</li>
+</ul>
+
+<h4 id="swiftでつくるファミコンエミュレータのススメ">Swiftでつくるファミコンエミュレータのススメ<a href="#swiftでつくるファミコンエミュレータのススメ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>Swift には unsigned があるから、エミュレータに適しているらしいです。それは俄然興味が湧きます。 Swift の夢が広がりますね</li>
+</ul>
+
+<h2 id="day-2">day 2<a href="#day-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="iosアプリに-意識-は宿るのか-ディープラーニングの先にある人工知能-ai">iOSアプリに「意識」は宿るのか？ディープラーニングの先にある人工知能（AI）<a href="#iosアプリに-意識-は宿るのか-ディープラーニングの先にある人工知能-ai" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>脳そのものについての説明が多く、生物学好きな私にはとても興味深い内容でした。 AI を理解するには、やはりそこまで学ぶ必要があるんですね</li>
+</ul>
+
+<h3 id="今こそwatchos">今こそwatchOS<a href="#今こそwatchos" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>通知の確認と Suica 以外、なかなか活用されない（あとは時間を見る） Apple Watch ですが、思ったよりできることが増えてました。あの画面上で、 3D モデルがグリグリ動くのはテンション上がりますね！</li>
+</ul>
+
+<h3 id="多言語対応と戦う-2019年版">多言語対応と戦う 2019年版<a href="#多言語対応と戦う-2019年版" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>多言語対応、いつも「どこまで分解するか」悩むけど、その辺りの指針もあっていい感じでした。でも実は多言語対応とかしてないので、そろそろやってみるかな</li>
+</ul>
+
+<h3 id="lt-track-a-b">LT - Track A + B<a href="#lt-track-a-b" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<h4 id="俺たちのarkitでめちゃめちゃ表情豊かなvtuber向け表情トラッカーを作るぞ">俺たちのARKitでめちゃめちゃ表情豊かなVTuber向け表情トラッカーを作るぞ<a href="#俺たちのarkitでめちゃめちゃ表情豊かなvtuber向け表情トラッカーを作るぞ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>顔のトラッキングで、数十個もの特徴点？があるのは知りませんでした。この辺の技術も、一度試しておきたいです</li>
+</ul>
+
+<h4 id="ios-12以下でdark-modeに対応した地獄の話">iOS 12以下でDark modeに対応した地獄の話<a href="#ios-12以下でdark-modeに対応した地獄の話" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>Dark Mode のことを考えているか？と言われたら No なので、その対応を考えさせられる内容でした。 Dark Mode にも対応した Type は使いやすいエディタなのでみんな使おう！</li>
+</ul>
+
+<h4 id="swiftのスタック変数とcpuレジスタの関係を読み解いた">Swiftのスタック変数とCPUレジスタの関係を読み解いた<a href="#swiftのスタック変数とcpuレジスタの関係を読み解いた" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>やっぱり低レイヤーの処理って、知っておいた方がいいのかな？とても楽しそうにお話しされてたので、触れてみたくなりました</li>
+</ul>
+
+<h4 id="モノレポで複数アプリをリリースする場合のgit運用戦略">モノレポで複数アプリをリリースする場合のGit運用戦略<a href="#モノレポで複数アプリをリリースする場合のgit運用戦略" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>複数アプリで共通するようなコードは、現時点ではあまり持ってないけど、将来のために試してみようかな？</li>
+</ul>
+
+<h4 id="swiftuiでの開発に向けた我々が出来る既存アプリのリファクタリング">SwiftUIでの開発に向けた我々が出来る既存アプリのリファクタリング<a href="#swiftuiでの開発に向けた我々が出来る既存アプリのリファクタリング" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>コンポーネントをしっかり分けておけば影響範囲は最小限に抑えられる、というお話でした。が、さて自分のコードを省みると…</li>
+</ul>
+
+<h4 id="arkitの壁認識で-壁にぶち当たった話">ARKitの壁認識で、壁にぶち当たった話<a href="#arkitの壁認識で-壁にぶち当たった話" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>ARKit の面白さと、特徴の少ない床や壁への対応の大変さがよくわかりました。スタンドを立てて、最後にそれを消せばいいとは。発想の転換ですね！</li>
+</ul>
+
+<h4 id="iosdcのプロポーサル判別器をつくろう">iOSDCのプロポーサル判別器をつくろう<a href="#iosdcのプロポーサル判別器をつくろう" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>プロポーザルの生成ではすごい文章がで出来上がっていました。いずれはこれらの技術の精度が上がると思うと、これは興味深いです</li>
+</ul>
+
+<h4 id="write-the-code-change-the-world-エンジニアと法律">Write the &ldquo;code&rdquo;, Change the world. 〜エンジニアと法律〜<a href="#write-the-code-change-the-world-エンジニアと法律" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>技術が正しく使われて発展しやすい環境を作るには、我々のような技術を理解した者の働きかけが必要なんですね。今まで考えもしませんでした</li>
+</ul>
+
+<h4 id="getting-started-with-swift-webassembly">Getting Started with Swift WebAssembly<a href="#getting-started-with-swift-webassembly" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>Swift がブラウザ上でも使えるようになると思うと、テンションが上がります。簡単には行かなさそうですが、望みはありそうで楽しみです</li>
+</ul>
+
+<h4 id="これデフォルトで作れないんだ-を解消した話">これデフォルトで作れないんだ！？を解消した話<a href="#これデフォルトで作れないんだ-を解消した話" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>デザイナーとエンジニア間の、認識の齟齬を解消する取り組みの話でした。仕組みとして取り入れて実際に改善するのが、やはり重要ですね</li>
+</ul>
+
+<h4 id="フィードやチャットのスクロール-を全力でなめらかにする">フィードやチャットのスクロールを全力でなめらかにする<a href="#フィードやチャットのスクロール-を全力でなめらかにする" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>テキストの内容でセルの高さをあらかじめ計算する、という内容でした。少しコード量は増えますが、パフォーマンスが改善するなら、やってみる価値はありそうですね</li>
+</ul>
+
+<h4 id="令和時代のゲームボーイ開発">令和時代のゲームボーイ開発 👾<a href="#令和時代のゲームボーイ開発" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ul>
+<li>ゲームボーイの実機で動くものが作れるのは、とても魅力的です。実装言語が Swift だったら、もっと良かったですね</li>
+</ul>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://yagamo-style.com/tags/iosdc">iOSDC</a></span><span class="tag"><a href="https://yagamo-style.com/tags/ios">iOS</a></span><span class="tag"><a href="https://yagamo-style.com/tags/swift">Swift</a></span><span class="tag"><a href="https://yagamo-style.com/tags/macos">macOS</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-09-08 10:57 &#43;0000</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title"></div>
+			<nav id="TableOfContents">
+<ul>
+<li><a href="#公式サイト-ハッシュタグなど">公式サイト、ハッシュタグなど</a></li>
+<li><a href="#イベント全体について">イベント全体について</a>
+<ul>
+<li><a href="#良かったこと">良かったこと</a>
+<ul>
+<li><a href="#公式アプリ">公式アプリ</a></li>
+<li><a href="#ネットワーク">ネットワーク</a></li>
+<li><a href="#映像技術">映像技術</a></li>
+<li><a href="#スピーカーディナーでの-1min-ピッチ">スピーカーディナーでの 1min ピッチ</a></li>
+<li><a href="#ルーキーズ-lt-練習会">ルーキーズ LT 練習会</a></li>
+<li><a href="#座席予約">座席予約</a></li>
+<li><a href="#オープニングパーティ-茶会-懇親会">オープニングパーティ、茶会、懇親会</a></li>
+</ul></li>
+<li><a href="#もっと良くできるかも">もっと良くできるかも</a>
+<ul>
+<li><a href="#iosdc-チャレンジ">iOSDC チャレンジ</a></li>
+<li><a href="#セッションのバランス">セッションのバランス</a></li>
+<li><a href="#茶会の流動性">茶会の流動性</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#次回への抱負">次回への抱負</a></li>
+<li><a href="#参加したセッションについての一言感想">参加したセッションについての一言感想</a>
+<ul>
+<li><a href="#day-0-前夜祭">day 0 - 前夜祭</a>
+<ul>
+<li><a href="#普通に書くと即メモリーリーク-こんなに大変だけど俺はxamarin-iosを使い続けるぜ">普通に書くと即メモリーリーク！こんなに大変だけど俺はXamarin.iOSを使い続けるぜ！</a></li>
+</ul></li>
+<li><a href="#day-1">day 1</a>
+<ul>
+<li><a href="#めくるめくシェーダアートの世界">めくるめくシェーダアートの世界</a></li>
+<li><a href="#ランチセッション-ランチスポンサー-crew-様">ランチセッション（ランチスポンサー: CREW 様）</a></li>
+<li><a href="#swiftクリーンコードアドベンチャー-日々の苦悩を乗り越え-確かな選択をするために">Swiftクリーンコードアドベンチャー　~日々の苦悩を乗り越え、確かな選択をするために~</a></li>
+<li><a href="#画像処理における-uiimageとcgimageとciimageの効果的な使い分け">画像処理における、UIImageとCGImageとCIImageの効果的な使い分け</a></li>
+<li><a href="#iosアプリのリジェクトリスクを早期に発見するための取り組み">iOSアプリのリジェクトリスクを早期に発見するための取り組み</a></li>
+<li><a href="#lt-track-a">LT - Track A</a>
+<ul>
+<li><a href="#日本のサマータイムに苦しめられた話">日本のサマータイムに苦しめられた話</a></li>
+<li><a href="#property-delegatesがもたらす新しいswiftプログラミング">Property Delegatesがもたらす新しいSwiftプログラミング</a></li>
+<li><a href="#lldbデバッガで不具合の原因を特定して開発速度を上げよう">LLDBデバッガで不具合の原因を特定して開発速度を上げよう</a></li>
+<li><a href="#core-mlで実現する爆速のarサイズ計測">Core MLで実現する爆速のARサイズ計測</a></li>
+<li><a href="#1ヶ月半でプッシュ通知許諾率を17-から40-にあげた話">1ヶ月半でプッシュ通知許諾率を17％から40％にあげた話</a></li>
+<li><a href="#もし文系卒の女子エンジニアが-5年もののiosアプリにユニットテストを導入しようとしたら">もし文系卒の女子エンジニアが 5年もののiOSアプリにユニットテストを導入しようとしたら</a></li>
+<li><a href="#ar-quick-lookを家具ecサイトに導入した話">AR Quick Lookを家具ECサイトに導入した話</a></li>
+<li><a href="#個人開発のアプリが輝くために">個人開発のアプリが輝くために</a></li>
+<li><a href="#gitlabrunnerで始める自前ci環境">GitLabRunnerで始める自前CI環境</a></li>
+<li><a href="#swiftでつくるファミコンエミュレータのススメ">Swiftでつくるファミコンエミュレータのススメ</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#day-2">day 2</a>
+<ul>
+<li><a href="#iosアプリに-意識-は宿るのか-ディープラーニングの先にある人工知能-ai">iOSアプリに「意識」は宿るのか？ディープラーニングの先にある人工知能（AI）</a></li>
+<li><a href="#今こそwatchos">今こそwatchOS</a></li>
+<li><a href="#多言語対応と戦う-2019年版">多言語対応と戦う 2019年版</a></li>
+<li><a href="#lt-track-a-b">LT - Track A + B</a>
+<ul>
+<li><a href="#俺たちのarkitでめちゃめちゃ表情豊かなvtuber向け表情トラッカーを作るぞ">俺たちのARKitでめちゃめちゃ表情豊かなVTuber向け表情トラッカーを作るぞ</a></li>
+<li><a href="#ios-12以下でdark-modeに対応した地獄の話">iOS 12以下でDark modeに対応した地獄の話</a></li>
+<li><a href="#swiftのスタック変数とcpuレジスタの関係を読み解いた">Swiftのスタック変数とCPUレジスタの関係を読み解いた</a></li>
+<li><a href="#モノレポで複数アプリをリリースする場合のgit運用戦略">モノレポで複数アプリをリリースする場合のGit運用戦略</a></li>
+<li><a href="#swiftuiでの開発に向けた我々が出来る既存アプリのリファクタリング">SwiftUIでの開発に向けた我々が出来る既存アプリのリファクタリング</a></li>
+<li><a href="#arkitの壁認識で-壁にぶち当たった話">ARKitの壁認識で、壁にぶち当たった話</a></li>
+<li><a href="#iosdcのプロポーサル判別器をつくろう">iOSDCのプロポーサル判別器をつくろう</a></li>
+<li><a href="#write-the-code-change-the-world-エンジニアと法律">Write the &ldquo;code&rdquo;, Change the world. 〜エンジニアと法律〜</a></li>
+<li><a href="#getting-started-with-swift-webassembly">Getting Started with Swift WebAssembly</a></li>
+<li><a href="#これデフォルトで作れないんだ-を解消した話">これデフォルトで作れないんだ！？を解消した話</a></li>
+<li><a href="#フィードやチャットのスクロール-を全力でなめらかにする">フィードやチャットのスクロールを全力でなめらかにする</a></li>
+<li><a href="#令和時代のゲームボーイ開発">令和時代のゲームボーイ開発 👾</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://yagamo-style.com/posts/iosdc2019day1/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://yagamo-style.com/">Hiroyuki Aoki</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://yagamo-style.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://yagamo-style.com/js/main.min.35ccbf1cdceb91e4c64c06b5d009d6e2977fafe56beda7762febd4e67528d2ac.js" integrity="sha256-Ncy/HNzrkeTGTAa10AnW4pd/r+Vr7ad2L+vU5nUo0qw="></script>
+
+</body>
+
+</html>

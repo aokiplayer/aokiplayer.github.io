@@ -6,10 +6,19 @@
     <description>Recent content on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sat, 07 Sep 2019 07:33:45 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 08 Sep 2019 19:57:25 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOSDC 2019 感想</title>
+      <link>https://yagamo-style.com/posts/iosdc2019day2/</link>
+      <pubDate>Sun, 08 Sep 2019 19:57:25 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/iosdc2019day2/</guid>
+      <description>2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&amp;rdquo;ブログ</description>
+    </item>
     
     <item>
       <title>iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/remotenotification02/</guid>
       <description>はじめに 前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました Push通知に必要な事前設定 Pus</description>
-    </item>
-    
-    <item>
-      <title>UIViewControllerのライフサイクルメソッド</title>
-      <link>https://yagamo-style.com/posts/viewcontrollerlifecycle/</link>
-      <pubDate>Tue, 21 May 2019 12:19:51 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/viewcontrollerlifecycle/</guid>
-      <description>はじめに iOSアプリを作成していて、どのタイミングでどのメソッドが呼ばれるんだっけ？となることは多いです 特に、画面遷移の際に困ることがありま</description>
     </item>
     
   </channel>

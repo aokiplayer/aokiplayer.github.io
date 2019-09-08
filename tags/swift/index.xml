@@ -6,10 +6,19 @@
     <description>Recent content in Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sat, 07 Sep 2019 07:33:45 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 08 Sep 2019 19:57:25 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOSDC 2019 感想</title>
+      <link>https://yagamo-style.com/posts/iosdc2019day2/</link>
+      <pubDate>Sun, 08 Sep 2019 19:57:25 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/iosdc2019day2/</guid>
+      <description>2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&amp;rdquo;ブログ</description>
+    </item>
     
     <item>
       <title>iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/remotenotification01/</guid>
       <description>はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説</description>
-    </item>
-    
-    <item>
-      <title>try! Swift Tokyo 2019 感想など</title>
-      <link>https://yagamo-style.com/posts/tryswifttokyo2019/</link>
-      <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/tryswifttokyo2019/</guid>
-      <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。 だ</description>
     </item>
     
   </channel>
