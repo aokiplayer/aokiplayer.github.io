@@ -5,8 +5,120 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Sun, 08 Sep 2019 19:57:25 +0900</lastBuildDate>
+		<lastBuildDate>Tue, 15 Oct 2019 13:22:13 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>asr restore による Mac の起動ボリュームのリストア</title>
+			<link>https://yagamo-style.com/posts/asr-restore-basic/</link>
+			<pubDate>Tue, 15 Oct 2019 13:22:13 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/asr-restore-basic/</guid>
+			<description>はじめに Apple 標準の asr コマンドを利用して、 Mac の起動ボリューム（デフォルトでは Macintosh HD）をリストアする方法です とはいえ、起動ボリュームか否かは関係な</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>Apple 標準の asr コマンドを利用して、 Mac の起動ボリューム（デフォルトでは Macintosh HD）をリストアする方法です</li>
+<li>とはいえ、起動ボリュームか否かは関係なく、どのボリュームでも扱い方は同じです
+
+<ul>
+<li>むしろ、起動可能なボリュームのイメージ作成の方にコツがある</li>
+<li>今回は、イメージ作成についての詳細には触れません</li>
+</ul></li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>MacBook Pro with T2 Security Chip (-2017)</li>
+<li>MacBook Pro without T2 Security Chip (2018-)</li>
+<li>macOS Mojave 10.14.6</li>
+</ul>
+
+<h1 id="asr-コマンド">asr コマンド</h1>
+
+<ul>
+<li>asr は、 Apple Software Restore の略であり、その名の通りリストアを目的としたコマンドです</li>
+<li>Apple がどこまで公式にサポートしているのかはわかりませんが、起動ボリューム自体もリストア可能です
+
+<ul>
+<li>ソースとなるディスクイメージの作成方法にコツがあったり、いろいろ苦労はありますが…</li>
+</ul></li>
+<li>主に利用するのは、 <code>asr restore</code> の形式です</li>
+</ul>
+
+<h2 id="asr-restore">asr restore</h2>
+
+<ul>
+<li><p><code>asr restore</code> は、以下のような形式で記述します</p>
+
+<pre><code>asr restore --source リカバリ元のディスクイメージやボリューム --target リカバリ先のディスクやボリューム --erase
+</code></pre></li>
+</ul>
+
+<h3 id="オプションの説明">オプションの説明</h3>
+
+<ul>
+<li><code>--source or -s</code>
+
+<ul>
+<li>リカバリ元のソースを指定</li>
+<li>ディスクイメージ でもいいし、それをマウントしたボリュームでも OK
+
+<ul>
+<li>DMG 形式はそのまま指定できるが、 Sparse Bundle などではマウントしなければ指定不可能</li>
+</ul></li>
+</ul></li>
+<li><code>--target or -t</code>
+
+<ul>
+<li>リカバリ先のターゲットを指定</li>
+<li><code>/Volume/...</code> のようにボリュームを指定しても、 <code>/disk/disk1s2</code> のようにディスクを指定する形式でも OK</li>
+</ul></li>
+<li><code>--erase</code> リストア先のデータを削除する</li>
+</ul>
+
+<h1 id="利用例">利用例</h1>
+
+<h2 id="トレーニング用に複数-mac-をリストアする">トレーニング用に複数 Mac をリストアする</h2>
+
+<ul>
+<li><a href="https://yagamo-style.com/posts/iosdc2019day1/">iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</a> でご紹介したように、トレーニング環境のセットアップに利用しています
+
+<ul>
+<li>全受講者の環境を、完全に揃えることができるメリットは大きいです</li>
+<li>iOSDC での発表時から、利用する方法は若干変わってます（T2 Security Chip 搭載の Mac への対応のため）</li>
+</ul></li>
+</ul>
+
+<h3 id="手順">手順</h3>
+
+<ol>
+<li>あらかじめ、全 Mac にパーティションを切っておく（ここでは Setup というパーティションとする）</li>
+<li><a href="https://bombich.com/">Carbon Copy Cloner</a> （以下、 CCC）を使って、リストアイメージを格納したディスクイメージを作成する（ここでは Setup.sparsebundle とする）
+
+<ul>
+<li>CCC を利用するのは、 Disk Utility で作成したイメージから戻すと bless に失敗して起動できず、その対処方法がわからなかったためです</li>
+<li>T2 Security Chip あり/なしの Mac 間では、同じイメージを使い回すことはできません</li>
+</ul></li>
+<li>イメージを全リストア対象の Mac の Setup パーティションにコピーする（残念ながらここは手作業）</li>
+<li><code>asr restore</code> でリストア（2,3 分で完了）</li>
+</ol>
+
+<h1 id="最後に">最後に</h1>
+
+<ul>
+<li>Apple としてはモノリシックイメージからのリストアは推奨していないものの、 asr コマンドについては WWDC 2019 のセッションで紹介しています
+
+<ul>
+<li><a href="https://developer.apple.com/videos/play/wwdc2019/710/">What&rsquo;s New in Apple File Systems</a></li>
+</ul></li>
+<li>APFS や T2 Security Chip との付き合い方は考える必要がありますが、学校やトレーニング企業ではイメージからのリストアは必須なので、今後も引き続き使い方を探っていきます</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>iOSDC 2019 に参加してきました</title>
