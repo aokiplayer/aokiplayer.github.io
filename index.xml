@@ -6,10 +6,19 @@
     <description>Recent content on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 15 Oct 2019 13:22:13 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2019 16:38:56 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる</title>
+      <link>https://yagamo-style.com/posts/adopt-under13-xcode11/</link>
+      <pubDate>Mon, 02 Dec 2019 16:38:56 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/adopt-under13-xcode11/</guid>
+      <description>はじめに Xcode 11 から、新規作成したプロジェクトの構成が変わりました User Interface を Swift UI と Storyboard から選択可能 SceneDelegate.swift が追加 Info.plist に、 SceneDelegate を利用するエントリが追加 iOS 13 以降のみ</description>
+    </item>
     
     <item>
       <title>asr restore による Mac の起動ボリュームのリストア</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/swiftuilist_beta/</guid>
       <description>はじめに WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます 検証環境 macOS 10.15 Catalina</description>
-    </item>
-    
-    <item>
-      <title>画面遷移（セグエ）のキャンセル</title>
-      <link>https://yagamo-style.com/posts/seguecancel/</link>
-      <pubDate>Sun, 26 May 2019 09:35:28 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/seguecancel/</guid>
-      <description>はじめに 画面遷移のタイミングで条件を判断し、場合によってはキャンセルするような動作が必要な場面があります ボタンなどからAction接続したメ</description>
     </item>
     
   </channel>

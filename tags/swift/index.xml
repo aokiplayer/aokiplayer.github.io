@@ -6,10 +6,19 @@
     <description>Recent content in Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sun, 08 Sep 2019 19:57:25 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2019 16:38:56 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる</title>
+      <link>https://yagamo-style.com/posts/adopt-under13-xcode11/</link>
+      <pubDate>Mon, 02 Dec 2019 16:38:56 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/adopt-under13-xcode11/</guid>
+      <description>はじめに Xcode 11 から、新規作成したプロジェクトの構成が変わりました User Interface を Swift UI と Storyboard から選択可能 SceneDelegate.swift が追加 Info.plist に、 SceneDelegate を利用するエントリが追加 iOS 13 以降のみ</description>
+    </item>
     
     <item>
       <title>iOSDC 2019 に参加してきました</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/viewcontrollerlifecycle/</guid>
       <description>はじめに iOSアプリを作成していて、どのタイミングでどのメソッドが呼ばれるんだっけ？となることは多いです 特に、画面遷移の際に困ることがありま</description>
-    </item>
-    
-    <item>
-      <title>iOSにおけるPush通知の基本1（通知の受信まで）</title>
-      <link>https://yagamo-style.com/posts/remotenotification01/</link>
-      <pubDate>Thu, 18 Apr 2019 09:30:15 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/remotenotification01/</guid>
-      <description>はじめに Push通知は、使い方によっては非常に効果的です 通知しすぎると、邪魔になってしまいますが ここでは、Push通知の基本的な実装方法を説</description>
     </item>
     
   </channel>

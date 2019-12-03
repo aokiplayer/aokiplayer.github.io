@@ -5,8 +5,173 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Tue, 15 Oct 2019 13:22:13 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 02 Dec 2019 16:38:56 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる</title>
+			<link>https://yagamo-style.com/posts/adopt-under13-xcode11/</link>
+			<pubDate>Mon, 02 Dec 2019 16:38:56 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/adopt-under13-xcode11/</guid>
+			<description>はじめに Xcode 11 から、新規作成したプロジェクトの構成が変わりました User Interface を Swift UI と Storyboard から選択可能 SceneDelegate.swift が追加 Info.plist に、 SceneDelegate を利用するエントリが追加 iOS 13 以降のみ</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>Xcode 11 から、新規作成したプロジェクトの構成が変わりました
+
+<ul>
+<li>User Interface を Swift UI と Storyboard から選択可能</li>
+<li>SceneDelegate.swift が追加</li>
+<li>Info.plist に、 SceneDelegate を利用するエントリが追加</li>
+</ul></li>
+<li>iOS 13 以降のみ対応させる場合にはそのままでよいのですが、多くの場合、 2 つ前くらいまでの iOS をサポートすると思います</li>
+<li>このままで Target のバージョンに iOS 13 未満を設定すると、エラーが発生して実行できません</li>
+<li>ここでは、その解決法を紹介します
+
+<ul>
+<li>方法は他にもあるようですが、これが Xcode のサポートを一番受けやすい方法だと思います</li>
+<li>なお、 Swift UI は iOS 13 以降対応なので、ここでは Storyboard を選択した前提とします</li>
+</ul></li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 11.2.1</li>
+<li>iOS 13.2.3, 12.3.1</li>
+<li>Swift 5</li>
+</ul>
+
+<h1 id="デフォルトの状態と実行確認">デフォルトの状態と実行確認</h1>
+
+<ul>
+<li>プロジェクトを作成すると、以下のような状態となっています
+<img src="/images/adopt-under-xcode11/xcode11_project.png" alt="xcode11_project" />
+<img src="/images/adopt-under-xcode11/scene_manifest.png" alt="scene_manifest" /></li>
+</ul>
+
+<h1 id="手順">手順</h1>
+
+<ol>
+<li>Build Target を iOS 13 未満に設定
+<img src="/images/adopt-under-xcode11/target_under_13.png" alt="target_under_13" /></li>
+<li>アプリを実行
+
+<ul>
+<li>ビルド失敗</li>
+</ul></li>
+<li>ビルドエラーメッセージを確認
+<img src="/images/adopt-under-xcode11/build_error_with_scene.png" alt="build_error_with_scene" /></li>
+
+<li><p><code>SceneDelegate</code> についてはクラス全体に、 <code>AppDelegate</code> については対象のインスタンスメソッドに <code>@available</code> を付加する修正候補を採用（前者はそもそも利用しないため）
+<img src="/images/adopt-under-xcode11/fix-it_correction.png" alt="fix-it_correction" /></p>
+
+<ul>
+<li><p>SceneDelegate.swift</p>
+
+<pre><code>import UIKit
+
+@available(iOS 13.0, *)
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+var window: UIWindow?
+
+〜省略〜
+
+}
+</code></pre></li>
+
+<li><p>AppDelegate.swift</p>
+
+<pre><code>import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+〜省略〜
+
+// MARK: UISceneSession Lifecycle
+
+@available(iOS 13.0, *)
+func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -&gt; UISceneConfiguration {
+    // Called when a new scene session is being created.
+    // Use this method to select a configuration to create the new scene with.
+    return UISceneConfiguration(name: &quot;Default Configuration&quot;, sessionRole: connectingSceneSession.role)
+}
+
+@available(iOS 13.0, *)
+func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set&lt;UISceneSession&gt;) {
+    // Called when the user discards a scene session.
+    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+}
+
+
+}
+
+</code></pre></li>
+</ul></li>
+
+<li><p>再度、アプリを実行</p>
+
+<ul>
+<li>実行できるが、画面は真っ黒</li>
+</ul></li>
+
+<li><p>Xcode のコンソールに、以下のようなメッセージが表示されているのを確認</p>
+
+<pre><code>2019-12-03 10:29:13.671826+0900 SampleProject[309:24561] [Application] The app delegate must implement the window property if it wants to use a main storyboard file.
+</code></pre>
+
+<ul>
+<li>ストーリーボードを利用するためには <code>AppDelegate</code> に <code>window</code> プロパティが必要とのメッセージ</li>
+<li>以前のバージョンの Xcode で作成したプロジェクトでは、宣言されていた</li>
+</ul></li>
+
+<li><p><code>AppDelegate</code> に、プロパティとして <code>var window: UIWindow?</code> を追加</p>
+
+<ul>
+<li><code>SceneDelegate</code> に記載されている内容を、そのまま移植すれば OK</li>
+
+<li><p>AppDelegate.swift</p>
+
+<pre><code>import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+var window: UIWindow?
+
+
+〜省略〜
+}
+</code></pre></li>
+</ul></li>
+
+<li><p>実行（Main.storyboard の最初のシーンが表示される）</p></li>
+</ol>
+
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>基本的には、 Xcode の修正候補に従って修正すれば問題ないです</li>
+<li>今回のサンプルは、 GitHub に置きました
+
+<ul>
+<li><a href="https://github.com/aokiplayer/Under13Xcode11Sample">aokiplayer/Under13Xcode11Sample</a></li>
+</ul></li>
+<li>これ以外に、今後は Swift UI とストーリーボードを混在させる必要が出てくると考えられます
+
+<ul>
+<li>Swift UI を使いたいが、 iOS 13 未満もサポートしたいパターン</li>
+</ul></li>
+<li>複数バージョンに対応させる方法は、調べておきましょう</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>asr restore による Mac の起動ボリュームのリストア</title>

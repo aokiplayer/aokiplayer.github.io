@@ -4,19 +4,36 @@
   
   <url>
     <loc>https://yagamo-style.com/posts/</loc>
-    <lastmod>2019-10-15T13:22:13+09:00</lastmod>
+    <lastmod>2019-12-02T16:38:56+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/swift/</loc>
+    <lastmod>2019-12-02T16:38:56+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://yagamo-style.com/tags/</loc>
-    <lastmod>2019-10-15T13:22:13+09:00</lastmod>
+    <lastmod>2019-12-02T16:38:56+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://yagamo-style.com/posts/adopt-under13-xcode11/</loc>
+    <lastmod>2019-12-02T16:38:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://yagamo-style.com/</loc>
-    <lastmod>2019-10-15T13:22:13+09:00</lastmod>
+    <lastmod>2019-12-02T16:38:56+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/ios/</loc>
+    <lastmod>2019-12-02T16:38:56+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -28,18 +45,6 @@
   <url>
     <loc>https://yagamo-style.com/tags/macos/</loc>
     <lastmod>2019-10-15T13:22:13+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/swift/</loc>
-    <lastmod>2019-09-08T19:57:25+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/ios/</loc>
-    <lastmod>2019-09-08T19:57:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
