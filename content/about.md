@@ -32,3 +32,10 @@ tags: [ "Profile" ]
 
 ## カンファレンス登壇
 - [[iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術](https://fortee.jp/iosdc-japan-2019/proposal/973963ea-c6b2-46aa-a15b-1b34af099c84)
+
+## その他登壇/出演情報
+- Schoo
+    - [【2017年版】Kotlinで始めるAndroidアプリ開発入門](https://schoo.jp/class/4427)
+- プログラミング少女
+    - [【アンプラグド・プログラミング前編】パソコンを使わないでプログラミングを学ぶ方法って！？ - YouTube](https://www.youtube.com/watch?v=qh-4Awo9whY)
+    - [【アンプラグド・プログラミング後編】iPadは誰の手に！？ARの道を早くゴールした方が勝ち！！ - YouTube](https://www.youtube.com/watch?v=VCE75M0QPMc)
