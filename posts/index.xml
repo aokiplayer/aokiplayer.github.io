@@ -5,8 +5,152 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Mon, 02 Dec 2019 16:38:56 +0900</lastBuildDate>
+		<lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Apple の iOS/Swift 認定資格を受験してみた</title>
+			<link>https://yagamo-style.com/posts/swift-exam-impression/</link>
+			<pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/swift-exam-impression/</guid>
+			<description>2018 年 11 月 26 日の Apple の Newsroom 記事 Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本) で述べられているように、</description>
+			<content type="html"><![CDATA[
+
+<p>2018 年 11 月 26 日の Apple の Newsroom 記事 <a href="https://www.apple.com/jp/newsroom/2018/11/apple-brings-coding-education-to-more-students-for-computer-science-education-week/">Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本)</a> で述べられているように、 Apple は主に学生をターゲットとした iOS および Swift の認定資格をリリースしました。</p>
+
+<blockquote>
+<p>このカリキュラムを履修した学生は、Swiftについての知識、アプリケーション開発ツール、アプリケーションのコアコンポーネントの知識について認定を受けることもできます。App Development with Swift Level 1認定試験は、世界中のCertiport認定試験センターを通じて実施されます。</p>
+</blockquote>
+
+<p>日本ではこれまで試験が配信されていませんでしたが、約 1 年後の 2019 年 12 月 10 日から、 Certiport の代理店である <a href="https://www.odyssey-com.co.jp/">オデッセイ コミュニケーションズ</a> から配信が開始されました。</p>
+
+<p>配信開始日の一番早い時間に受験し、日本での認定第一号として合格してきました。
+興味のある方もいらっしゃると思うので、 NDA に抵触しない程度に感想などをまとめてみます。</p>
+
+<p>なお、この記事は日本でのリリース当初（2019 年 12 月 10 日）の情報です。
+今後のアップデートで、変わる可能性がありますのでご注意ください。</p>
+
+<h1 id="試験の概要">試験の概要</h1>
+
+<p>詳しくは、<a href="https://www.odyssey-com.co.jp/app-dev-with-swift/">公式サイト</a>をご覧ください。</p>
+
+<h2 id="名称">名称</h2>
+
+<p>App Development with Swfit Level 1</p>
+
+<h2 id="試験の範囲">試験の範囲</h2>
+
+<p><a href="https://books.apple.com/jp/book/id1219117996">App Development with Swift</a>  の内容</p>
+
+<h2 id="出題数-時間">出題数/時間</h2>
+
+<p>45 問/50 分</p>
+
+<h2 id="受験料">受験料</h2>
+
+<p>一般 ¥9,800, 学生 ¥7,800</p>
+
+<h1 id="想定されるターゲット層">想定されるターゲット層</h1>
+
+<p>試験は、主に学生向けのプログラミング学習コンテンツ Everyone Can Code の 1 つとして Apple がリリースしている電子書籍 <a href="https://books.apple.com/jp/book/id1219117996">App Development with Swift</a> に沿った内容です。
+ですので、主なターゲットは学生のようです。
+受験料も、学生向けには低く設定されています。</p>
+
+<h1 id="試験の形式">試験の形式</h1>
+
+<h2 id="試験の言語">試験の言語</h2>
+
+<p>試験は、全て英語で出題されます。
+日本語での提供は、現時点では考えていないとのことでした。</p>
+
+<h2 id="出題形式">出題形式</h2>
+
+<p>基本的に、一般的なオンライン形式の IT 系試験と同じです。
+以下のパターンがあります。</p>
+
+<ul>
+<li>多岐選択式</li>
+<li>選択肢を回答欄にドラッグ</li>
+<li>画像の対象部分をクリックしてマーク</li>
+<li>キーワードを入力</li>
+</ul>
+
+<h2 id="出題の傾向">出題の傾向</h2>
+
+<h3 id="基本を押さえていれば解ける文法">基本を押さえていれば解ける文法</h3>
+
+<p>利用頻度がそれほど高くないものや、フレームワークを作るような人であれば使うが一般の開発者が使う頻度は低いようなもの、などは出題されません。
+よく使うもので、かつ最低限の文法を押さえていれば迷わず解けるものばかりです。</p>
+
+<h3 id="xcode-の画面構成の把握">Xcode の画面構成の把握</h3>
+
+<p>iOS アプリの開発では、 Xcode を利用することが必須です。
+そのためなのか、 Xcode のどこからどんな機能が利用できるのか？ということを問われます。</p>
+
+<p>ただし、受験時の最新であった Xcode 11 ではなかったです。
+おそらく、 電子書籍（現時点では Xcode 10  対応）のバージョンに合わせているのだと思われます。</p>
+
+<h1 id="感想">感想</h1>
+
+<h2 id="英語での出題に関して">英語での出題に関して</h2>
+
+<p>Twitter で見ていると「試験が英語だから心配」との声が聞こえてきます。
+が、私が受験した感じでは「全く問題ない」です。</p>
+
+<p>英語とはいえ、「正しい選択肢を選べ」「画面の正しい位置をクリックしてマークしろ」「ドラッグして選択肢を空欄に入れろ」程度です。
+あとは Swift や iOS に関する技術用語なので、それはわかるはずです（わからないなら、日本語でも合格できないです）。</p>
+
+<blockquote>
+<p>参考までに、私が以前に一度だけ受けた TOEIC のスコアは 280 点です（Writing: 140, Speaking:140）😑</p>
+</blockquote>
+
+<h2 id="難易度">難易度</h2>
+
+<p>難易度は決して高くないです。
+意地悪な問題は出ないので、 iOS アプリの開発をすでに行っている方であれば、問題なく合格できると思います。
+そうでなくても、入門書を 1 冊こなしていれば十分でしょう。</p>
+
+<p>ロジックをじっくり追うような問題はほとんど出ないので、時間も余裕があります。
+私は大体 20 分ちょっとで解き終わり、 10 分くらいで見直して終了しました。
+「英語を読むのがちょっと遅い」という方でも、時間は十分だと思います。</p>
+
+<h2 id="出題範囲">出題範囲</h2>
+
+<p><a href="https://books.apple.com/jp/book/id1219117996">App Development with Swift</a>  の範囲なので、広くはないです。
+携わっているアプリによっては、この本の中で使ってない機能などもあるかと思います。
+そこだけキャッチアップしておくと良いかな、と思います。</p>
+
+<p>例えば、以下の API や機能などは上記の電子書籍で扱っています。</p>
+
+<ul>
+<li>UITableViewController</li>
+<li>UIAlertController</li>
+<li>UIImagePickerController</li>
+<li>UIActivityViewController</li>
+<li>SFSafariViewController</li>
+<li>MFMailComposeViewController</li>
+<li>MFMessageComposeViewController</li>
+<li>JSONSerialization</li>
+<li>Codable</li>
+<li>JSONDecoder, JSONEncoder</li>
+<li>PropertyListEncoder, PropertyListDecoder</li>
+<li>FileManager</li>
+<li>URLSession</li>
+<li>NotificationCenter</li>
+</ul>
+
+<p>また、ビューコントローラの各ライフサイクルメソッドで何をするべきか、だったり Auto Layout の基本なども確認しておくと良いでしょう。</p>
+
+<h1 id="まとめ">まとめ</h1>
+
+<p>この試験は難易度的に「エンジニアの能力の証明」よりも「学び始めの人が基本を確認」するような用途に向いていると思います。
+<a href="https://books.apple.com/jp/book/id1219117996">App Development with Swift</a> のコンテンツは、思った以上に役に立つ内容が詰まっています。</p>
+
+<p>「開発には入っているけど、基本の抜けがないか心配」という方は、一度目を通してみると良いでしょう。
+その上で、せっかくなので試験も受けてみてはいかがでしょうか？</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる</title>

@@ -6,10 +6,19 @@
     <description>Recent content on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 02 Dec 2019 16:38:56 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apple の iOS/Swift 認定資格を受験してみた</title>
+      <link>https://yagamo-style.com/posts/swift-exam-impression/</link>
+      <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/swift-exam-impression/</guid>
+      <description>2018 年 11 月 26 日の Apple の Newsroom 記事 Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本) で述べられているように、</description>
+    </item>
     
     <item>
       <title>Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/about/</guid>
       <description>Hiroyuki Aoki トレーナー、インストラクター、トレーニングコンテンツ企画・開発 Swift, Kotlin, Java, iOS, Android, macOS, MDM Apple Certified Trainer（Apple 認定トレーナー） macOS Support Essentials (OS X Support Essentials)</description>
-    </item>
-    
-    <item>
-      <title>SwiftUIで一覧表示画面を作成する</title>
-      <link>https://yagamo-style.com/posts/swiftuilist_beta/</link>
-      <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/swiftuilist_beta/</guid>
-      <description>はじめに WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます 検証環境 macOS 10.15 Catalina</description>
     </item>
     
   </channel>
