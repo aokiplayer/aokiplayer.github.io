@@ -5,8 +5,192 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 02 Mar 2020 18:03:25 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある</title>
+			<link>https://yagamo-style.com/posts/default-modal-segue-xcode11/</link>
+			<pubDate>Mon, 02 Mar 2020 18:03:25 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/default-modal-segue-xcode11/</guid>
+			<description>はじめに iOS/iPadOS 13 から、モーダルで画面遷移した際は全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要が</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>iOS/iPadOS 13 から、モーダルで画面遷移した際は全画面ではなく少し小さい表示になります</li>
+<li>その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました</li>
+<li>その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません
+
+<ul>
+<li>もちろん、 unwind セグエメソッドも呼ばれません</li>
+<li>unwind セグエから戻っても、ライフサイクルメソッドは呼ばれません（unwind セグエメソッドは呼ばれる）</li>
+</ul></li>
+</ul>
+
+<h1 id="サンプル">サンプル</h1>
+
+<h2 id="画面レイアウト">画面レイアウト</h2>
+
+<p><img src="/images/default-modal-segue-xcode11/storyboard.png" alt="storyboard" /></p>
+
+<h2 id="new-default-シーンへのセグエ">New Default シーンへのセグエ</h2>
+
+<p><img src="/images/default-modal-segue-xcode11/segue_for_new_default.png" alt="segue_for_new_default" /></p>
+
+<ul>
+<li>Xcode 11 でのデフォルト設定</li>
+<li>Presentation  が Same as Destination</li>
+</ul>
+
+<h2 id="full-screen-シーンへのセグエ">Full Screen シーンへのセグエ</h2>
+
+<p><img src="/images/default-modal-segue-xcode11/segue_for_full_screen.png" alt="segue_for_full_screen" /></p>
+
+<ul>
+<li>Presentation を Full Screen に変更</li>
+<li>デフォルトと異なり、画面全体を覆う（iOS 12 までの Modal）</li>
+</ul>
+
+<h2 id="ソースコード">ソースコード</h2>
+
+<h3 id="viewcontroller-最初の画面">ViewController（最初の画面）</h3>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">UIKit</span>
+
+<span class="kd">class</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidDisappear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidAppear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">@IBAction</span> <span class="kd">func</span> <span class="nf">unwindToMain</span><span class="p">(</span><span class="kc">_</span> <span class="n">unwindSegue</span><span class="p">:</span> <span class="n">UIStoryboardSegue</span><span class="p">)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="s">&#34;Returned through unwind segue.&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="k">for</span> <span class="n">segue</span><span class="p">:</span> <span class="n">UIStoryboardSegue</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">Any</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">style</span><span class="p">:</span> <span class="nb">String</span>
+
+        <span class="k">switch</span> <span class="n">segue</span><span class="p">.</span><span class="n">destination</span><span class="p">.</span><span class="n">modalPresentationStyle</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">automatic</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;automatic&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">currentContext</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;currentContext&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">custom</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;custom&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">formSheet</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;formSheet&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">fullScreen</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;fullScreen&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="kr">none</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;none&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">overCurrentContext</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;none&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">overFullScreen</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;overFullScreen&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">pageSheet</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;pageSheet&#34;</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">popover</span><span class="p">:</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;popOver&#34;</span>
+        <span class="p">@</span><span class="n">unknown</span> <span class="k">default</span><span class="p">:</span>
+            <span class="bp">fatalError</span><span class="p">(</span><span class="s">&#34;Maybe there will be new case.&#34;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="bp">print</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="newdefaultvc-newdefault-ボタンから遷移する画面">NewDefaultVC（NewDefault ボタンから遷移する画面）</h3>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">UIKit</span>
+
+<span class="kd">class</span> <span class="nc">NewDefaultVC</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="k">for</span> <span class="n">segue</span><span class="p">:</span> <span class="n">UIStoryboardSegue</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">Any</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="kc">#file</span><span class="p">.</span><span class="n">components</span><span class="p">(</span><span class="n">separatedBy</span><span class="p">:</span> <span class="s">&#34;/&#34;</span><span class="p">).</span><span class="bp">last</span><span class="o">!</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-swift:FullScreenVC（FullScreenボタンから遷移する画面）" data-lang="swift:FullScreenVC（FullScreenボタンから遷移する画面）">import UIKit
+
+class FullScreenVC: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(#file.components(separatedBy: &#34;/&#34;).last!)
+    }
+}</code></pre></div>
+<h1 id="実行結果">実行結果</h1>
+
+<h2 id="new-default-ボタンで遷移-unwind-ボタンで戻る">New Default ボタンで遷移 -&gt; Unwind ボタンで戻る</h2>
+
+<pre><code>pageSheet
+NewDefaultVC.swift
+Returned through unwind segue.
+</code></pre>
+
+<ul>
+<li>unwind セグエメソッドは呼ばれていますが、戻ったシーンのライフサイクルメソッドが呼ばれていません</li>
+</ul>
+
+<h2 id="new-default-ボタンで遷移-画面上部からスワイプダウンで戻る">New Default ボタンで遷移 -&gt; 画面上部からスワイプダウンで戻る</h2>
+
+<pre><code>pageSheet
+</code></pre>
+
+<ul>
+<li>やはり、戻ったシーンのライフサイクルメソッドは呼ばれていません</li>
+<li>また、 unwind セグエを利用していないので、当然ですが unwind セグエメソッドも呼ばれていませんね
+
+<ul>
+<li>同様に、 New Default シーンの <code>prepare(for:sender)</code> も呼ばれていません</li>
+</ul></li>
+</ul>
+
+<h2 id="full-screen-ボタンで遷移-unwind-ボタンで戻る">Full Screen ボタンで遷移 -&gt; Unwind ボタンで戻る</h2>
+
+<pre><code>fullScreen
+viewWillDisappear(_:)
+viewDidDisappear(_:)
+FullScreenVC.swift
+Returned through unwind segue.
+viewWillAppear(_:)
+viewDidAppear(_:)
+</code></pre>
+
+<ul>
+<li>こちらは、 iOS 12 までと同じですね</li>
+<li>戻ったシーンのライフサイクルメソッドおよび nwind セグエメソッドの、どちらも呼ばれています</li>
+</ul>
+
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>iOS 13 から新しくなったデフォルトのモーダルの挙動は、ユーザにとっては「メインとは別の流れにいる」のを認識しやすいと思います</li>
+<li>また、スワイプダウンで戻れるので、操作としても直感的です</li>
+<li>ただ、「戻った際に何か処理をさせる」必要がある場合は要注意ですね</li>
+<li>今回のサンプルは、<a href="https://github.com/aokiplayer/ModalXcode11">aokiplayer/ModalXcode11</a> に置きました</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Apple の iOS/Swift 認定資格を受験してみた</title>

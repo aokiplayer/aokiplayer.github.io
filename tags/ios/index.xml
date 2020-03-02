@@ -6,10 +6,19 @@
     <description>Recent content in iOS on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2020 18:03:25 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある</title>
+      <link>https://yagamo-style.com/posts/default-modal-segue-xcode11/</link>
+      <pubDate>Mon, 02 Mar 2020 18:03:25 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/default-modal-segue-xcode11/</guid>
+      <description>はじめに iOS/iPadOS 13 から、モーダルで画面遷移した際は全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要が</description>
+    </item>
     
     <item>
       <title>Apple の iOS/Swift 認定資格を受験してみた</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/seguecancel/</guid>
       <description>はじめに 画面遷移のタイミングで条件を判断し、場合によってはキャンセルするような動作が必要な場面があります ボタンなどからAction接続したメ</description>
-    </item>
-    
-    <item>
-      <title>iOSにおけるPush通知の基本2（受信した通知の内容取得）</title>
-      <link>https://yagamo-style.com/posts/remotenotification02/</link>
-      <pubDate>Fri, 24 May 2019 10:52:57 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/remotenotification02/</guid>
-      <description>はじめに 前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました Push通知に必要な事前設定 Pus</description>
     </item>
     
   </channel>

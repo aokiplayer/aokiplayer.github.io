@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yagamo-style.com/posts/</loc>
+    <lastmod>2020-03-02T18:03:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/swift/</loc>
+    <lastmod>2020-03-02T18:03:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/</loc>
+    <lastmod>2020-03-02T18:03:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/</loc>
+    <lastmod>2020-03-02T18:03:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/tags/ios/</loc>
+    <lastmod>2020-03-02T18:03:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yagamo-style.com/posts/default-modal-segue-xcode11/</loc>
+    <lastmod>2020-03-02T18:03:25+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://yagamo-style.com/tags/apple/</loc>
     <lastmod>2019-12-20T16:56:23+09:00</lastmod>
     <priority>0</priority>
@@ -15,36 +50,6 @@
   
   <url>
     <loc>https://yagamo-style.com/tags/certification/</loc>
-    <lastmod>2019-12-20T16:56:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/posts/</loc>
-    <lastmod>2019-12-20T16:56:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/swift/</loc>
-    <lastmod>2019-12-20T16:56:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/</loc>
-    <lastmod>2019-12-20T16:56:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/</loc>
-    <lastmod>2019-12-20T16:56:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://yagamo-style.com/tags/ios/</loc>
     <lastmod>2019-12-20T16:56:23+09:00</lastmod>
     <priority>0</priority>
   </url>

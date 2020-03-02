@@ -6,10 +6,19 @@
     <description>Recent content on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2020 18:03:25 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある</title>
+      <link>https://yagamo-style.com/posts/default-modal-segue-xcode11/</link>
+      <pubDate>Mon, 02 Mar 2020 18:03:25 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/default-modal-segue-xcode11/</guid>
+      <description>はじめに iOS/iPadOS 13 から、モーダルで画面遷移した際は全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要が</description>
+    </item>
     
     <item>
       <title>Apple の iOS/Swift 認定資格を受験してみた</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/assetfolder/</guid>
       <description>はじめに Xcodeのアセットカタログ（デフォルトではAssets.xcassets）は、画像などのリソースを管理します アセットカタログ内で、</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://yagamo-style.com/about/</link>
-      <pubDate>Mon, 17 Jun 2019 09:30:59 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/about/</guid>
-      <description>Hiroyuki Aoki トレーナー、インストラクター、トレーニングコンテンツ企画・開発 Swift, Kotlin, Java, iOS, Android, macOS, MDM Apple Certified Trainer（Apple 認定トレーナー） macOS Support Essentials (OS X Support Essentials)</description>
     </item>
     
   </channel>
