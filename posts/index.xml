@@ -62,21 +62,26 @@
 <span class="kd">class</span> <span class="nc">ViewController</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
 
     <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
         <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
     <span class="p">}</span>
 
     <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewWillDisappear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewWillDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
         <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
     <span class="p">}</span>
 
     <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidDisappear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidDisappear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
         <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
     <span class="p">}</span>
 
     <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewWillAppear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewWillAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
         <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidAppear</span><span class="p">(</span><span class="kc">_</span> <span class="n">animated</span><span class="p">:</span> <span class="nb">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
         <span class="bp">print</span><span class="p">(</span><span class="kc">#function</span><span class="p">)</span>
     <span class="p">}</span>
 
