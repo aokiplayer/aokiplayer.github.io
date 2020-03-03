@@ -107,7 +107,8 @@ class NewDefaultVC: UIViewController {
 }
 ```
 
-```swift:FullScreenVC（FullScreenボタンから遷移する画面）
+### FullScreenVC（FullScreen ボタンから遷移する画面）
+```swift
 import UIKit
 
 class FullScreenVC: UIViewController {
