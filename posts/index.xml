@@ -14,13 +14,13 @@
 			<pubDate>Mon, 02 Mar 2020 18:03:25 +0900</pubDate>
 			
 			<guid>https://yagamo-style.com/posts/default-modal-segue-xcode11/</guid>
-			<description>はじめに iOS/iPadOS 13 から、モーダルで画面遷移した際は全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要が</description>
+			<description>はじめに iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶ</description>
 			<content type="html"><![CDATA[
 
 <h1 id="はじめに">はじめに</h1>
 
 <ul>
-<li>iOS/iPadOS 13 から、モーダルで画面遷移した際は全画面ではなく少し小さい表示になります</li>
+<li>iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります</li>
 <li>その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました</li>
 <li>その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません
 
