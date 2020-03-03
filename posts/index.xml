@@ -106,7 +106,7 @@
         <span class="k">case</span> <span class="p">.</span><span class="kr">none</span><span class="p">:</span>
             <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;none&#34;</span>
         <span class="k">case</span> <span class="p">.</span><span class="n">overCurrentContext</span><span class="p">:</span>
-            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;none&#34;</span>
+            <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;overCurrentContext&#34;</span>
         <span class="k">case</span> <span class="p">.</span><span class="n">overFullScreen</span><span class="p">:</span>
             <span class="n">style</span> <span class="p">=</span> <span class="s">&#34;overFullScreen&#34;</span>
         <span class="k">case</span> <span class="p">.</span><span class="n">pageSheet</span><span class="p">:</span>
