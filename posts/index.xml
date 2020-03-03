@@ -126,18 +126,20 @@
     <span class="kr">override</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="k">for</span> <span class="n">segue</span><span class="p">:</span> <span class="n">UIStoryboardSegue</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">Any</span><span class="p">?)</span> <span class="p">{</span>
         <span class="bp">print</span><span class="p">(</span><span class="kc">#file</span><span class="p">.</span><span class="n">components</span><span class="p">(</span><span class="n">separatedBy</span><span class="p">:</span> <span class="s">&#34;/&#34;</span><span class="p">).</span><span class="bp">last</span><span class="o">!</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-swift:FullScreenVC（FullScreenボタンから遷移する画面）" data-lang="swift:FullScreenVC（FullScreenボタンから遷移する画面）">import UIKit
+<span class="p">}</span></code></pre></div>
+<h3 id="fullscreenvc-fullscreen-ボタンから遷移する画面">FullScreenVC（FullScreen ボタンから遷移する画面）</h3>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">UIKit</span>
 
-class FullScreenVC: UIViewController {
+<span class="kd">class</span> <span class="nc">FullScreenVC</span><span class="p">:</span> <span class="n">UIViewController</span> <span class="p">{</span>
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+    <span class="p">}</span>
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(#file.components(separatedBy: &#34;/&#34;).last!)
-    }
-}</code></pre></div>
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">prepare</span><span class="p">(</span><span class="k">for</span> <span class="n">segue</span><span class="p">:</span> <span class="n">UIStoryboardSegue</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">Any</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="bp">print</span><span class="p">(</span><span class="kc">#file</span><span class="p">.</span><span class="n">components</span><span class="p">(</span><span class="n">separatedBy</span><span class="p">:</span> <span class="s">&#34;/&#34;</span><span class="p">).</span><span class="bp">last</span><span class="o">!</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 <h1 id="実行結果">実行結果</h1>
 
 <h2 id="new-default-ボタンで遷移-unwind-ボタンで戻る">New Default ボタンで遷移 -&gt; Unwind ボタンで戻る</h2>
