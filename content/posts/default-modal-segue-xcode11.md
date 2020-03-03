@@ -145,7 +145,7 @@ pageSheet
 
 - やはり、戻ったシーンのライフサイクルメソッドは呼ばれていません
 - また、 unwind セグエを利用していないので、当然ですが unwind セグエメソッドも呼ばれていませんね
-    - 同様に、 New Default シーンの `prepare(for:sender)` も呼ばれていません
+    - 同様に、 New Default シーンの `prepare(for:sender:)` も呼ばれていません
 
 ## Full Screen ボタンで遷移 -> Unwind ボタンで戻る
 ```
