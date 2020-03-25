@@ -13,8 +13,8 @@ tags: [ "macOS" ]
     - 今回は、イメージ作成についての詳細には触れません
 
 # 検証環境
-- MacBook Pro with T2 Security Chip (-2017)
-- MacBook Pro without T2 Security Chip (2018-)
+- MacBook Pro without T2 Security Chip (-2017)
+- MacBook Pro with T2 Security Chip (2018-)
 - macOS Mojave 10.14.6
 
 # asr コマンド
