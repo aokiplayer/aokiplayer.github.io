@@ -14,7 +14,7 @@
 
 <meta itemprop="datePublished" content="2020-07-16T08:39:32&#43;09:00" />
 <meta itemprop="dateModified" content="2020-07-16T08:39:32&#43;09:00" />
-<meta itemprop="wordCount" content="527">
+<meta itemprop="wordCount" content="539">
 
 
 
@@ -119,6 +119,8 @@
 <li>配列 <code>[Product]</code> を、 <code>Product</code> の要素である <code>category</code>（<code>Product.Category</code> 型）ごとにグループ化するサンプル</li>
 <li>変換後のディクショナリは <code>[Product.Category: [Product]]</code> 型</li>
 </ul>
+
+<h2 id="サンプルコード">サンプルコード<a href="#サンプルコード" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <div class="highlight"><pre class="chroma"><code class="language-swift:ArrayGrouping.playground" data-lang="swift:ArrayGrouping.playground">import Foundation
 
 struct Product: CustomStringConvertible {
@@ -178,7 +180,9 @@ groupedProducts.forEach {
             \($0.value)
         &#34;&#34;&#34;
     )
-}</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-zsh:出力結果" data-lang="zsh:出力結果">Elements of Array
+}</code></pre></div>
+<h2 id="出力結果">出力結果<a href="#出力結果" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-zsh:出力結果" data-lang="zsh:出力結果">Elements of Array
 ===========================================
 (Fried Potato, $24, food)
 (Water, $12, drink)
@@ -224,7 +228,11 @@ drink
 <ul>
 <li><a href="#dictionary-grouping-by">Dictionary(grouping: by:)</a></li>
 </ul></li>
-<li><a href="#コード例">コード例</a></li>
+<li><a href="#コード例">コード例</a>
+<ul>
+<li><a href="#サンプルコード">サンプルコード</a></li>
+<li><a href="#出力結果">出力結果</a></li>
+</ul></li>
 <li><a href="#まとめ">まとめ</a></li>
 </ul>
 </nav>

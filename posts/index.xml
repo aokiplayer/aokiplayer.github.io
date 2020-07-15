@@ -58,6 +58,8 @@
 <li>配列 <code>[Product]</code> を、 <code>Product</code> の要素である <code>category</code>（<code>Product.Category</code> 型）ごとにグループ化するサンプル</li>
 <li>変換後のディクショナリは <code>[Product.Category: [Product]]</code> 型</li>
 </ul>
+
+<h2 id="サンプルコード">サンプルコード</h2>
 <div class="highlight"><pre class="chroma"><code class="language-swift:ArrayGrouping.playground" data-lang="swift:ArrayGrouping.playground">import Foundation
 
 struct Product: CustomStringConvertible {
@@ -117,7 +119,9 @@ groupedProducts.forEach {
             \($0.value)
         &#34;&#34;&#34;
     )
-}</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-zsh:出力結果" data-lang="zsh:出力結果">Elements of Array
+}</code></pre></div>
+<h2 id="出力結果">出力結果</h2>
+<div class="highlight"><pre class="chroma"><code class="language-zsh:出力結果" data-lang="zsh:出力結果">Elements of Array
 ===========================================
 (Fried Potato, $24, food)
 (Water, $12, drink)
