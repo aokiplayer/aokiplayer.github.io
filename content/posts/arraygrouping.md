@@ -29,6 +29,7 @@ tags: [ "iOS", "Swift" ]
 - 配列 `[Product]` を、 `Product` の要素である `category`（`Product.Category` 型）ごとにグループ化するサンプル
 - 変換後のディクショナリは `[Product.Category: [Product]]` 型
 
+## サンプルコード
 ```swift:ArrayGrouping.playground
 import Foundation
 
@@ -92,6 +93,7 @@ groupedProducts.forEach {
 }
 ```
 
+## 出力結果
 ```zsh:出力結果
 
 Elements of Array
