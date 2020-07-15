@@ -5,8 +5,145 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Mon, 02 Mar 2020 18:03:25 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 16 Jul 2020 08:39:32 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>配列要素をグループ化したディクショナリの作成</title>
+			<link>https://yagamo-style.com/posts/arraygrouping/</link>
+			<pubDate>Thu, 16 Jul 2020 08:39:32 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/arraygrouping/</guid>
+			<description>はじめに テーブルビューやコレクションビューで、グループ化した表示はよく使います その場合、データソースとして二次元配列などを利用すると思います</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>テーブルビューやコレクションビューで、グループ化した表示はよく使います</li>
+<li>その場合、データソースとして二次元配列などを利用すると思います</li>
+<li>が、データソースが一次元配列だった場合は、少しデータの加工が必要ですよね</li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 11.5</li>
+<li>Swift 5.2</li>
+</ul>
+
+<h1 id="利用する機能">利用する機能</h1>
+
+<h2 id="dictionary-grouping-by">Dictionary(grouping: by:)</h2>
+
+<ul>
+<li>ディクショナリのイニシャライザ</li>
+<li><code>grouping</code>
+
+<ul>
+<li>元データとなる配列</li>
+<li><code>by</code> で指定した key ごとに、部分配列として分割される</li>
+</ul></li>
+<li><code>by</code>
+
+<ul>
+<li>グループ化したディクショナリの key となる値を返す関数</li>
+<li>引数は、配列の各要素</li>
+</ul></li>
+</ul>
+
+<h1 id="コード例">コード例</h1>
+
+<ul>
+<li>配列 <code>[Product]</code> を、 <code>Product</code> の要素である <code>category</code>（<code>Product.Category</code> 型）ごとにグループ化するサンプル</li>
+<li>変換後のディクショナリは <code>[Product.Category: [Product]]</code> 型</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-swift:ArrayGrouping.playground" data-lang="swift:ArrayGrouping.playground">import Foundation
+
+struct Product: CustomStringConvertible {
+    var description: String {
+        &#34;(\(self.name), $\(self.price), \(self.category))&#34;
+    }
+
+    var name: String
+    var price: Int
+    var category: Category
+
+    enum Category: String {
+        case food
+        case drink
+        case other
+    }
+}
+
+// Array of Product
+var products: [Product] = [
+    Product(name: &#34;Fried Potato&#34;, price: 24, category: .food),
+    Product(name: &#34;Water&#34;, price: 12, category: .drink),
+    Product(name: &#34;Dish&#34;, price: 40, category: .other),
+    Product(name: &#34;Chai&#34;, price: 5, category: .drink),
+    Product(name: &#34;Fork&#34;, price: 56, category: .other),
+    Product(name: &#34;Bread&#34;, price: 35, category: .food),
+    Product(name: &#34;Noodle&#34;, price: 80, category: .food),
+    Product(name: &#34;Coffee&#34;, price: 98, category: .drink),
+]
+
+print(
+    &#34;&#34;&#34;
+
+    Elements of Array
+    ===========================================
+    &#34;&#34;&#34;
+)
+products.forEach { print($0) }
+
+// Grouping by Category
+var groupedProducts: [Product.Category: [Product]] = Dictionary(
+    grouping: products,
+    by: { $0.category }
+)
+
+print(
+    &#34;&#34;&#34;
+
+    Grouping by Category
+    ===========================================
+    &#34;&#34;&#34;
+)
+groupedProducts.forEach {
+    print(
+        &#34;&#34;&#34;
+        \($0.key.rawValue)
+            \($0.value)
+        &#34;&#34;&#34;
+    )
+}</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-zsh:出力結果" data-lang="zsh:出力結果">Elements of Array
+===========================================
+(Fried Potato, $24, food)
+(Water, $12, drink)
+(Dish, $40, other)
+(Chai, $5, drink)
+(Fork, $56, other)
+(Bread, $35, food)
+(Noodle, $80, food)
+(Coffee, $98, drink)
+
+Grouping by Category
+===========================================
+food
+    [(Fried Potato, $24, food), (Bread, $35, food), (Noodle, $80, food)]
+other
+    [(Dish, $40, other), (Fork, $56, other)]
+drink
+    [(Water, $12, drink), (Chai, $5, drink), (Coffee, $98, drink)]</code></pre></div>
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>配列要素を任意のグループにまとめられるので、とても便利ですね</li>
+<li>今回のサンプルは <a href="https://github.com/aokiplayer/swift-sandbox/tree/master/ArrayGrouping">GitHub: aokiplayer/swift-sandbox/ArrayGrouping</a> に置きました</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある</title>
