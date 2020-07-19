@@ -5,8 +5,164 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Thu, 16 Jul 2020 08:39:32 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 20 Jul 2020 08:22:03 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>ディクショナリからタプルの配列を作成する</title>
+			<link>https://yagamo-style.com/posts/dictionary-to-array/</link>
+			<pubDate>Mon, 20 Jul 2020 08:22:03 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/dictionary-to-array/</guid>
+			<description>はじめに Swift には、連想配列的なデータ構造としてディクショナリがあります ディクショナリはデータの順序を保証しないので、そのままではテーブルビュー</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>Swift には、連想配列的なデータ構造としてディクショナリがあります</li>
+<li>ディクショナリはデータの順序を保証しないので、そのままではテーブルビューやコレクションビューのデータソースとして利用しにくいです</li>
+<li>その場合は、タプルの配列に変換すると上手く行きます</li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>Xcode 11.5</li>
+<li>Swift 5.2</li>
+</ul>
+
+<h1 id="利用する機能">利用する機能</h1>
+
+<h2 id="sorted-by">sorted(by:)</h2>
+
+<ul>
+<li>ディクショナリのメソッド</li>
+<li>引数に渡した関数 <code>by</code> がソート条件
+
+<ul>
+<li>関数 <code>by</code> の引数
+
+<ul>
+<li>2 つのタプル（それぞれディクショナリの n 番目の要素と n + 1 番目の要素に対応）</li>
+</ul></li>
+<li>関数 <code>by</code> の戻り値
+
+<ul>
+<li><code>Bool</code>（<code>false</code> なら並び替え）</li>
+</ul></li>
+</ul></li>
+<li>戻り値は <code>[(key: ディクショナリの key の型, value: ディクショナリの value の型)]</code>
+
+<ul>
+<li>つまり、ディクショナリとほぼ同じ構造を持った「タプルの配列」</li>
+</ul></li>
+</ul>
+
+<h1 id="コード例">コード例</h1>
+
+<ul>
+<li>以下はディクショナリ <code>[String: Int]</code> からタプルの配列 <code>[(key: String, value: Int)]</code> に変換する例です</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-swift:SortedDictionary.playground" data-lang="swift:SortedDictionary.playground">import Foundation
+
+var scores: [String: Int] = [
+    &#34;Steve Yamada&#34;: 34,
+    &#34;Jeff Takeshita&#34;: 87,
+    &#34;Mickey Yoshida&#34;: 100,
+    &#34;Charly Kinoshita&#34;: 53,
+    &#34;Anna Saito&#34;: 19,
+    &#34;Robert Suzuki&#34;: 97,
+    &#34;Erick Kawakami&#34;: 32,
+    &#34;John Miyabe&#34;: 64,
+    &#34;Gregory Goto&#34;: 76
+]
+
+print(&#34;&#34;&#34;
+
+    Ascending by key
+    ========================
+    &#34;&#34;&#34;)
+var sortedByNameAsc: [(key: String, value: Int)] = scores.sorted { $0.key &lt; $1.key }
+sortedByNameAsc.forEach { print(&#34;\($0.key): \($0.value)&#34;) }
+
+print(&#34;&#34;&#34;
+
+    Descending by key
+    ========================
+    &#34;&#34;&#34;)
+var sortedByNameDesc: [(key: String, value: Int)] = scores.sorted { $0.key &gt; $1.key }
+sortedByNameDesc.forEach { print(&#34;\($0.key): \($0.value)&#34;) }
+
+print(&#34;&#34;&#34;
+
+    Ascending by value
+    ========================
+    &#34;&#34;&#34;)
+var sortedByScoreAsc: [(key: String, value: Int)] = scores.sorted { $0.value &lt; $1.value }
+sortedByScoreAsc.forEach { print(&#34;\($0.value): \($0.key)&#34;) }
+
+print(&#34;&#34;&#34;
+
+    Descending by value
+    ========================
+    &#34;&#34;&#34;)
+var sortedByScoreDesc: [(key: String, value: Int)] = scores.sorted { $0.value &gt; $1.value }
+sortedByScoreDesc.forEach { print(&#34;\($0.value): \($0.key)&#34;) }</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-zsh:出力結果" data-lang="zsh:出力結果">Ascending by key
+========================
+Anna Saito: 19
+Charly Kinoshita: 53
+Erick Kawakami: 32
+Gregory Goto: 76
+Jeff Takeshita: 87
+John Miyabe: 64
+Mickey Yoshida: 100
+Robert Suzuki: 97
+Steve Yamada: 34
+
+Descending by key
+========================
+Steve Yamada: 34
+Robert Suzuki: 97
+Mickey Yoshida: 100
+John Miyabe: 64
+Jeff Takeshita: 87
+Gregory Goto: 76
+Erick Kawakami: 32
+Charly Kinoshita: 53
+Anna Saito: 19
+
+Ascending by value
+========================
+19: Anna Saito
+32: Erick Kawakami
+34: Steve Yamada
+53: Charly Kinoshita
+64: John Miyabe
+76: Gregory Goto
+87: Jeff Takeshita
+97: Robert Suzuki
+100: Mickey Yoshida
+
+Descending by value
+========================
+100: Mickey Yoshida
+97: Robert Suzuki
+87: Jeff Takeshita
+76: Gregory Goto
+64: John Miyabe
+53: Charly Kinoshita
+34: Steve Yamada
+32: Erick Kawakami
+19: Anna Saito</code></pre></div>
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>状況に応じたデータの形式変換をする方法を押さえておくと、いろいろ応用ができそうですね</li>
+<li>今回のサンプルは <a href="https://github.com/aokiplayer/swift-sandbox/tree/master/SortedDictionary">GitHub: aokiplayer/swift-sandbox/SortedDictionary</a> に置きました</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>配列要素をグループ化したディクショナリの作成</title>
