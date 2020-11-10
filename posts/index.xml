@@ -5,8 +5,172 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Mon, 20 Jul 2020 08:22:03 +0900</lastBuildDate>
+		<lastBuildDate>Tue, 10 Nov 2020 16:08:03 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>map と compactMap と flatMap</title>
+			<link>https://yagamo-style.com/posts/maps/</link>
+			<pubDate>Tue, 10 Nov 2020 16:08:03 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/maps/</guid>
+			<description>はじめに コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 map があります。 が、 map にも亜種があって混乱しがちなの</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<p>コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 <code>map</code> があります。
+が、 <code>map</code> にも亜種があって混乱しがちなので、整理しておきたいと思います。</p>
+
+<p>なお、この記事では配列を例としています。
+実際には、配列でもディクショナリでも Optional でも「入れ物」にあたるものは似たような操作が提供されています（全く同じではないですが）。</p>
+
+<h1 id="map-の種類">map の種類</h1>
+
+<h2 id="map">map</h2>
+
+<p>配列内の各要素を変換します。全要素を変換するので、変換前後で要素数は変わりません。</p>
+
+<p><img src="/images/maps/map.png" alt="map.png" /></p>
+
+<h2 id="compactmap">compactMap</h2>
+
+<p><code>map</code> と同じですが、要素のうち <code>nil</code> は除外し、 Optional は unwrap します。 <code>nil</code> を除外するため、 <code>map</code> と異なり変換前後で要素数が変わる（減る）場合もあります。</p>
+
+<p><img src="/images/maps/compactMap.png" alt="compactMap.png" /></p>
+
+<h2 id="flatmap">flatMap</h2>
+
+<p>配列がネストされている場合、内側の配列から要素を取り出して平坦な配列にします（二次元配列 -&gt; 一次元配列）。</p>
+
+<p><img src="/images/maps/flatMap1.png" alt="flatMap1.png" /></p>
+
+<p>内側の「配列という <strong>入れ物</strong> 」を「Optional という <strong>入れ物</strong> 」に見立てれば「Optional の内容を取り出した配列」を作成することになり、 <code>compactMap</code> と同じ動作となります。</p>
+
+<ul>
+<li><code>Array&lt;Array&lt;要素&gt;</code> -（変換）-&gt; <code>Array&lt;要素&gt;</code></li>
+<li><code>Array&lt;Optional&lt;要素&gt;</code> -（変換）-&gt; <code>Array&lt;要素&gt;</code></li>
+</ul>
+
+<p><img src="/images/maps/flatMap2.png" alt="flatMap2.png" /></p>
+
+<p><code>compactMap</code> が実装されていなかった Swift の初期のバージョンではこのような用途でも利用されていましたが、現在では deprecated です。素直に <code>compactMap</code> を使いましょう。</p>
+
+<h1 id="サンプル">サンプル</h1>
+
+<p><code>map</code>, <code>compactMap</code>, <code>flatMap</code> を利用したサンプルです。
+上記 4 つの図と比較しながら読んでみてください。</p>
+
+<h2 id="コード例">コード例</h2>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">Foundation</span>
+
+<span class="kd">enum</span> <span class="nc">Category</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">description</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">rawValue</span>
+    <span class="p">}</span>
+
+    <span class="k">case</span> <span class="n">personal</span>
+    <span class="k">case</span> <span class="n">business</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="nc">Item</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">description</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="s">&#34;&#34;&#34;
+</span><span class="s">        name: &#34;</span><span class="err">\</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="s">&#34;, price: </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">price</span><span class="si">)</span><span class="s">, categories: </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">        &#34;&#34;&#34;</span>
+    <span class="p">}</span>
+
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">let</span> <span class="nv">price</span><span class="p">:</span> <span class="nb">Int</span>
+    <span class="kd">let</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="n">Category</span><span class="p">]?</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">Item</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Suit&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[.</span><span class="n">business</span><span class="p">]),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Pen&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[.</span><span class="n">personal</span><span class="p">,</span> <span class="p">.</span><span class="n">business</span><span class="p">]),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Sea&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">99999</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="kc">nil</span><span class="p">),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Drink&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[.</span><span class="n">personal</span><span class="p">]),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Sky&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">99999</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span><span class="kc">nil</span><span class="p">),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Comic&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[.</span><span class="n">personal</span><span class="p">])</span>
+<span class="p">]</span>
+
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == Items ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="n">items</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// map transforms each element in an Array.</span>
+<span class="kd">let</span> <span class="nv">map</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="n">item</span> <span class="k">in</span>
+    <span class="n">item</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == map &#34;</span><span class="n">item</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span><span class="s">&#34; ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="bp">map</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// compactMap is a map that only collect non-nil values.</span>
+<span class="kd">let</span> <span class="nv">compact</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">compactMap</span> <span class="p">{</span> <span class="n">item</span> <span class="k">in</span>
+    <span class="n">item</span><span class="p">.</span><span class="n">categories</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == compactMap &#34;</span><span class="n">item</span><span class="p">.</span><span class="n">categories</span><span class="s">&#34; ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="n">compact</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// flatMap flattens the inner Array.</span>
+<span class="kd">let</span> <span class="nv">flat1</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">item</span> <span class="k">in</span>
+    <span class="n">item</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == flatMap &#34;</span><span class="n">item</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span><span class="s">&#34; ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="n">flat1</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// This type of flatMap is deprecated. You should use compactMap.</span>
+<span class="kd">let</span> <span class="nv">flat2</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">item</span> <span class="k">in</span>
+    <span class="n">item</span><span class="p">.</span><span class="n">categories</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == flatMap &#34;</span><span class="n">item</span><span class="p">.</span><span class="n">categories</span><span class="s">&#34; ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="n">flat2</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span></code></pre></div>
+<h2 id="実行結果">実行結果</h2>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="o">==</span> <span class="nv">Items</span> <span class="o">==========</span>
+<span class="o">[</span>name: <span class="s2">&#34;Suit&#34;</span>, price: <span class="m">15000</span>, categories: <span class="o">[</span>business<span class="o">]</span>
+, name: <span class="s2">&#34;Pen&#34;</span>, price: <span class="m">400</span>, categories: <span class="o">[</span>personal, business<span class="o">]</span>
+, name: <span class="s2">&#34;Sea&#34;</span>, price: <span class="m">99999</span>, categories: <span class="o">[]</span>
+, name: <span class="s2">&#34;Drink&#34;</span>, price: <span class="m">120</span>, categories: <span class="o">[</span>personal<span class="o">]</span>
+, name: <span class="s2">&#34;Sky&#34;</span>, price: <span class="m">99999</span>, categories: <span class="o">[]</span>
+, name: <span class="s2">&#34;Comic&#34;</span>, price: <span class="m">600</span>, categories: <span class="o">[</span>personal<span class="o">]</span>
+<span class="o">]</span>
+
+<span class="o">==</span> map <span class="s2">&#34;item.categories ?? []&#34;</span> <span class="o">==========</span>
+<span class="o">[[</span>business<span class="o">]</span>, <span class="o">[</span>personal, business<span class="o">]</span>, <span class="o">[]</span>, <span class="o">[</span>personal<span class="o">]</span>, <span class="o">[]</span>, <span class="o">[</span>personal<span class="o">]]</span>
+
+<span class="o">==</span> compactMap <span class="s2">&#34;item.categories&#34;</span> <span class="o">==========</span>
+<span class="o">[[</span>business<span class="o">]</span>, <span class="o">[</span>personal, business<span class="o">]</span>, <span class="o">[</span>personal<span class="o">]</span>, <span class="o">[</span>personal<span class="o">]]</span>
+
+<span class="o">==</span> flatMap <span class="s2">&#34;item.categories ?? []&#34;</span> <span class="o">==========</span>
+<span class="o">[</span>business, personal, business, personal, personal<span class="o">]</span>
+
+<span class="o">==</span> flatMap <span class="s2">&#34;item.categories&#34;</span> <span class="o">==========</span>
+<span class="o">[[</span>business<span class="o">]</span>, <span class="o">[</span>personal, business<span class="o">]</span>, <span class="o">[</span>personal<span class="o">]</span>, <span class="o">[</span>personal<span class="o">]]</span></code></pre></div>
+<h1 id="まとめ">まとめ</h1>
+
+<p><code>map</code> については、図で表すとわかりやすいですね。この辺りの操作は Combine フレームワークでもよく使われるので、使いこなせると開発がとても楽になると思います。</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>ディクショナリからタプルの配列を作成する</title>

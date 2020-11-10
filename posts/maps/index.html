@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="map と compactMap と flatMap">
+<meta itemprop="description" content="はじめに コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 map があります。 が、 map にも亜種があって混乱しがちなの">
+
+
+<meta itemprop="datePublished" content="2020-11-10T16:08:03&#43;09:00" />
+<meta itemprop="dateModified" content="2020-11-10T16:08:03&#43;09:00" />
+<meta itemprop="wordCount" content="992">
+
+
+
+<meta itemprop="keywords" content="iOS,Swift," />
+<meta property="og:title" content="map と compactMap と flatMap" />
+<meta property="og:description" content="はじめに コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 map があります。 が、 map にも亜種があって混乱しがちなの" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yagamo-style.com/posts/maps/" />
+<meta property="article:published_time" content="2020-11-10T16:08:03&#43;09:00"/>
+<meta property="article:modified_time" content="2020-11-10T16:08:03&#43;09:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="map と compactMap と flatMap"/>
+<meta name="twitter:description" content="はじめに コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 map があります。 が、 map にも亜種があって混乱しがちなの"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>map と compactMap と flatMap</title>
+	<link rel="stylesheet" href="https://yagamo-style.com/css/style.min.568c54a56780af2a70c45272522247710b69dbfc080b315211fb98381e3796f8.css" integrity="sha256-VoxUpWeArypwxFJyUiJHcQtp2/wICzFSEfuYOB43lvg=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://yagamo-style.com/">Yagamo Style</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://yagamo-style.com/posts/">Posts</a>
+				<a href="https://yagamo-style.com/about/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><span class="hdr-social hide-in-mobile"><a href="https://twitter.com/Solti" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/aokiplayer" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://yagamo-style.com/posts/">Posts</a></li>
+			<li><a href="https://yagamo-style.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Nov 10, 2020</span></div>
+				<h1>map と compactMap と flatMap</h1>
+			</header>
+			<div class="content">
+				
+
+<h1 id="はじめに">はじめに<a href="#はじめに" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 <code>map</code> があります。
+が、 <code>map</code> にも亜種があって混乱しがちなので、整理しておきたいと思います。</p>
+
+<p>なお、この記事では配列を例としています。
+実際には、配列でもディクショナリでも Optional でも「入れ物」にあたるものは似たような操作が提供されています（全く同じではないですが）。</p>
+
+<h1 id="map-の種類">map の種類<a href="#map-の種類" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<h2 id="map">map<a href="#map" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>配列内の各要素を変換します。全要素を変換するので、変換前後で要素数は変わりません。</p>
+
+<p><img src="/images/maps/map.png" alt="map.png" /></p>
+
+<h2 id="compactmap">compactMap<a href="#compactmap" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><code>map</code> と同じですが、要素のうち <code>nil</code> は除外し、 Optional は unwrap します。 <code>nil</code> を除外するため、 <code>map</code> と異なり変換前後で要素数が変わる（減る）場合もあります。</p>
+
+<p><img src="/images/maps/compactMap.png" alt="compactMap.png" /></p>
+
+<h2 id="flatmap">flatMap<a href="#flatmap" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>配列がネストされている場合、内側の配列から要素を取り出して平坦な配列にします（二次元配列 -&gt; 一次元配列）。</p>
+
+<p><img src="/images/maps/flatMap1.png" alt="flatMap1.png" /></p>
+
+<p>内側の「配列という <strong>入れ物</strong> 」を「Optional という <strong>入れ物</strong> 」に見立てれば「Optional の内容を取り出した配列」を作成することになり、 <code>compactMap</code> と同じ動作となります。</p>
+
+<ul>
+<li><code>Array&lt;Array&lt;要素&gt;</code> -（変換）-&gt; <code>Array&lt;要素&gt;</code></li>
+<li><code>Array&lt;Optional&lt;要素&gt;</code> -（変換）-&gt; <code>Array&lt;要素&gt;</code></li>
+</ul>
+
+<p><img src="/images/maps/flatMap2.png" alt="flatMap2.png" /></p>
+
+<p><code>compactMap</code> が実装されていなかった Swift の初期のバージョンではこのような用途でも利用されていましたが、現在では deprecated です。素直に <code>compactMap</code> を使いましょう。</p>
+
+<h1 id="サンプル">サンプル<a href="#サンプル" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p><code>map</code>, <code>compactMap</code>, <code>flatMap</code> を利用したサンプルです。
+上記 4 つの図と比較しながら読んでみてください。</p>
+
+<h2 id="コード例">コード例<a href="#コード例" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">import</span> <span class="nc">Foundation</span>
+
+<span class="kd">enum</span> <span class="nc">Category</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">description</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">rawValue</span>
+    <span class="p">}</span>
+
+    <span class="k">case</span> <span class="n">personal</span>
+    <span class="k">case</span> <span class="n">business</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="nc">Item</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">description</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="s">&#34;&#34;&#34;
+</span><span class="s">        name: &#34;</span><span class="err">\</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="s">&#34;, price: </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">price</span><span class="si">)</span><span class="s">, categories: </span><span class="si">\(</span><span class="kc">self</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">        &#34;&#34;&#34;</span>
+    <span class="p">}</span>
+
+    <span class="kd">let</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+    <span class="kd">let</span> <span class="nv">price</span><span class="p">:</span> <span class="nb">Int</span>
+    <span class="kd">let</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="n">Category</span><span class="p">]?</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nv">items</span><span class="p">:</span> <span class="p">[</span><span class="n">Item</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Suit&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">15000</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[.</span><span class="n">business</span><span class="p">]),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Pen&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[.</span><span class="n">personal</span><span class="p">,</span> <span class="p">.</span><span class="n">business</span><span class="p">]),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Sea&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">99999</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="kc">nil</span><span class="p">),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Drink&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[.</span><span class="n">personal</span><span class="p">]),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Sky&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">99999</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span><span class="kc">nil</span><span class="p">),</span>
+    <span class="n">Item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&#34;Comic&#34;</span><span class="p">,</span> <span class="n">price</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span> <span class="n">categories</span><span class="p">:</span> <span class="p">[.</span><span class="n">personal</span><span class="p">])</span>
+<span class="p">]</span>
+
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == Items ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="n">items</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// map transforms each element in an Array.</span>
+<span class="kd">let</span> <span class="nv">map</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="n">item</span> <span class="k">in</span>
+    <span class="n">item</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == map &#34;</span><span class="n">item</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span><span class="s">&#34; ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="bp">map</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// compactMap is a map that only collect non-nil values.</span>
+<span class="kd">let</span> <span class="nv">compact</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">compactMap</span> <span class="p">{</span> <span class="n">item</span> <span class="k">in</span>
+    <span class="n">item</span><span class="p">.</span><span class="n">categories</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == compactMap &#34;</span><span class="n">item</span><span class="p">.</span><span class="n">categories</span><span class="s">&#34; ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="n">compact</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// flatMap flattens the inner Array.</span>
+<span class="kd">let</span> <span class="nv">flat1</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">item</span> <span class="k">in</span>
+    <span class="n">item</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == flatMap &#34;</span><span class="n">item</span><span class="p">.</span><span class="n">categories</span> <span class="p">??</span> <span class="p">[]</span><span class="s">&#34; ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="n">flat1</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// This type of flatMap is deprecated. You should use compactMap.</span>
+<span class="kd">let</span> <span class="nv">flat2</span> <span class="p">=</span> <span class="n">items</span><span class="p">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">item</span> <span class="k">in</span>
+    <span class="n">item</span><span class="p">.</span><span class="n">categories</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="s">&#34;&#34;&#34;
+</span><span class="s">      == flatMap &#34;</span><span class="n">item</span><span class="p">.</span><span class="n">categories</span><span class="s">&#34; ==========
+</span><span class="s">      </span><span class="si">\(</span><span class="n">flat2</span><span class="si">)</span><span class="s">
+</span><span class="s">
+</span><span class="s">      &#34;&#34;&#34;</span>
+<span class="p">)</span></code></pre></div>
+<h2 id="実行結果">実行結果<a href="#実行結果" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh"><span class="o">==</span> <span class="nv">Items</span> <span class="o">==========</span>
+<span class="o">[</span>name: <span class="s2">&#34;Suit&#34;</span>, price: <span class="m">15000</span>, categories: <span class="o">[</span>business<span class="o">]</span>
+, name: <span class="s2">&#34;Pen&#34;</span>, price: <span class="m">400</span>, categories: <span class="o">[</span>personal, business<span class="o">]</span>
+, name: <span class="s2">&#34;Sea&#34;</span>, price: <span class="m">99999</span>, categories: <span class="o">[]</span>
+, name: <span class="s2">&#34;Drink&#34;</span>, price: <span class="m">120</span>, categories: <span class="o">[</span>personal<span class="o">]</span>
+, name: <span class="s2">&#34;Sky&#34;</span>, price: <span class="m">99999</span>, categories: <span class="o">[]</span>
+, name: <span class="s2">&#34;Comic&#34;</span>, price: <span class="m">600</span>, categories: <span class="o">[</span>personal<span class="o">]</span>
+<span class="o">]</span>
+
+<span class="o">==</span> map <span class="s2">&#34;item.categories ?? []&#34;</span> <span class="o">==========</span>
+<span class="o">[[</span>business<span class="o">]</span>, <span class="o">[</span>personal, business<span class="o">]</span>, <span class="o">[]</span>, <span class="o">[</span>personal<span class="o">]</span>, <span class="o">[]</span>, <span class="o">[</span>personal<span class="o">]]</span>
+
+<span class="o">==</span> compactMap <span class="s2">&#34;item.categories&#34;</span> <span class="o">==========</span>
+<span class="o">[[</span>business<span class="o">]</span>, <span class="o">[</span>personal, business<span class="o">]</span>, <span class="o">[</span>personal<span class="o">]</span>, <span class="o">[</span>personal<span class="o">]]</span>
+
+<span class="o">==</span> flatMap <span class="s2">&#34;item.categories ?? []&#34;</span> <span class="o">==========</span>
+<span class="o">[</span>business, personal, business, personal, personal<span class="o">]</span>
+
+<span class="o">==</span> flatMap <span class="s2">&#34;item.categories&#34;</span> <span class="o">==========</span>
+<span class="o">[[</span>business<span class="o">]</span>, <span class="o">[</span>personal, business<span class="o">]</span>, <span class="o">[</span>personal<span class="o">]</span>, <span class="o">[</span>personal<span class="o">]]</span></code></pre></div>
+<h1 id="まとめ">まとめ<a href="#まとめ" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p><code>map</code> については、図で表すとわかりやすいですね。この辺りの操作は Combine フレームワークでもよく使われるので、使いこなせると開発がとても楽になると思います。</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://yagamo-style.com/tags/ios">iOS</a></span><span class="tag"><a href="https://yagamo-style.com/tags/swift">Swift</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-11-10 07:08 &#43;0000</p>
+			</footer>
+		</article>
+		<aside id="toc">
+			<div class="toc-title"></div>
+			<nav id="TableOfContents">
+<ul>
+<li><a href="#はじめに">はじめに</a></li>
+<li><a href="#map-の種類">map の種類</a>
+<ul>
+<li><a href="#map">map</a></li>
+<li><a href="#compactmap">compactMap</a></li>
+<li><a href="#flatmap">flatMap</a></li>
+</ul></li>
+<li><a href="#サンプル">サンプル</a>
+<ul>
+<li><a href="#コード例">コード例</a></li>
+<li><a href="#実行結果">実行結果</a></li>
+</ul></li>
+<li><a href="#まとめ">まとめ</a></li>
+</ul>
+</nav>
+		</aside>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://yagamo-style.com/posts/dictionary-to-array/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>ディクショナリからタプルの配列を作成する</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://yagamo-style.com/">Hiroyuki Aoki</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://yagamo-style.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://yagamo-style.com/js/main.min.35ccbf1cdceb91e4c64c06b5d009d6e2977fafe56beda7762febd4e67528d2ac.js" integrity="sha256-Ncy/HNzrkeTGTAa10AnW4pd/r+Vr7ad2L+vU5nUo0qw="></script>
+
+</body>
+
+</html>
