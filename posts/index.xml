@@ -5,8 +5,264 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Tue, 10 Nov 2020 16:08:03 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 03 Dec 2020 13:30:07 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）</title>
+			<link>https://yagamo-style.com/posts/tableview-cell-configure14/</link>
+			<pubDate>Thu, 03 Dec 2020 13:30:07 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/tableview-cell-configure14/</guid>
+			<description>はじめに テーブルビューでは、カスタムセルを作成しなくてもデフォルトで提供されている 4 種類のスタイルが利用できました。 IB 上での Style 設定 対応する UITableViewCell.CellStyle</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<p>テーブルビューでは、カスタムセルを作成しなくてもデフォルトで提供されている 4 種類のスタイルが利用できました。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">IB 上での Style 設定</th>
+<th align="left">対応する <code>UITableViewCell.CellStyle</code> の定数</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Basic</td>
+<td align="left"><code>default</code></td>
+<td align="left">左端に <code>imageView</code> 、その隣に <code>textLabel</code></td>
+</tr>
+
+<tr>
+<td align="left">Right Detail</td>
+<td align="left"><code>value1</code></td>
+<td align="left">左端に <code>imageView</code> 、その隣に <code>textLabel</code>、右端に <code>detailTextLabel</code></td>
+</tr>
+
+<tr>
+<td align="left">Left Detail</td>
+<td align="left"><code>value2</code></td>
+<td align="left">左端に <code>textLabel</code>、またそのすぐ隣に <code>detailTextLabel</code></td>
+</tr>
+
+<tr>
+<td align="left">Subtitle</td>
+<td align="left"><code>subtitle</code></td>
+<td align="left">左端に <code>imageView</code> 、その隣の上段に <code>textLabel</code>、下段に <code>detailTextLabel</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>しかし、 iOS 14 では <code>textLabel</code> と <code>detailTextLabel</code>  、そして <code>imageView</code> も deprecated となっています。
+その代わりにセルの <code>defaultContentConfiguration()</code> で取得したオブジェクトに設定を行い、それを <code>contentConfiguration</code> プロパティに渡せと書いてあります。
+その辺りを、サンプルを書いて確認してみます。</p>
+
+<p>サンプルプロジェクトは、 <a href="https://github.com/aokiplayer/TableConfigureExample">GitHub</a> に置きました。</p>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>macOS 11.0.1 Big Sur</li>
+<li>Xcode 12.2</li>
+<li>iOS 14.2</li>
+</ul>
+
+<h1 id="サンプル">サンプル</h1>
+
+<h2 id="ストーリーボード">ストーリーボード</h2>
+
+<p>Example1 シーンではセルの Style を Left Detail に、 Example2 シーンではセルの Style を Custom に設定しています。
+<img src="/images/tableview-cell-configure14/storyboard.png" alt="storyboard" /></p>
+
+<h2 id="サンプルコード">サンプルコード</h2>
+
+<h3 id="example1-シーンのビューコントローラ">Example1 シーンのビューコントローラ</h3>
+
+<p>セルのスタイルは、 <code>defaultContentConfiguration()</code> によりデフォルトの設定を取得して利用しています。</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:Example1TableVC.swift" data-lang="swift:Example1TableVC.swift"><span class="kd">import</span> <span class="nc">UIKit</span>
+
+<span class="c1">// Table view controller for Example1 scene</span>
+<span class="kd">class</span> <span class="nc">Example1TableVC</span><span class="p">:</span> <span class="n">UITableViewController</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">items</span><span class="p">:[(</span><span class="n">product</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">String</span><span class="p">)]</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s">&#34;AAA&#34;</span><span class="p">,</span> <span class="s">&#34;aaa aaaaa aaaa&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;BBB&#34;</span><span class="p">,</span> <span class="s">&#34;bbb bbbbb bbbb&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;CCC&#34;</span><span class="p">,</span> <span class="s">&#34;ccc ccccc cccc&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;DDD&#34;</span><span class="p">,</span> <span class="s">&#34;ddd ddddd dddd&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;EEE&#34;</span><span class="p">,</span> <span class="s">&#34;eee eeeee eeee&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;FFF&#34;</span><span class="p">,</span> <span class="s">&#34;fff fffff ffff&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;GGG&#34;</span><span class="p">,</span> <span class="s">&#34;ggg ggggg gggg&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;HHH&#34;</span><span class="p">,</span> <span class="s">&#34;hhh hhhhh hhhh&#34;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> - Table view data source</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="kc">_</span> <span class="n">tableView</span><span class="p">:</span> <span class="n">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="n">section</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">count</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="kc">_</span> <span class="n">tableView</span><span class="p">:</span> <span class="n">UITableView</span><span class="p">,</span> <span class="n">cellForRowAt</span> <span class="n">indexPath</span><span class="p">:</span> <span class="n">IndexPath</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">UITableViewCell</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">cell</span> <span class="p">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">dequeueReusableCell</span><span class="p">(</span><span class="n">withIdentifier</span><span class="p">:</span> <span class="s">&#34;Ex1Cell&#34;</span><span class="p">,</span> <span class="k">for</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span>
+        
+        <span class="c1">// Use default settings</span>
+        <span class="kd">var</span> <span class="nv">content</span> <span class="p">=</span> <span class="n">cell</span><span class="p">.</span><span class="n">defaultContentConfiguration</span><span class="p">()</span>
+        
+        <span class="cp">#if</span> <span class="cp">DEBUG</span>
+        <span class="bp">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="cp">#endif</span>
+
+        <span class="n">content</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">items</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">].</span><span class="n">product</span>
+        <span class="n">content</span><span class="p">.</span><span class="n">secondaryText</span> <span class="p">=</span> <span class="n">items</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">].</span><span class="n">description</span>
+        <span class="n">content</span><span class="p">.</span><span class="n">image</span> <span class="p">=</span> <span class="n">UIImage</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;appletv&#34;</span><span class="p">)</span>
+        
+        <span class="c1">// Set content</span>
+        <span class="n">cell</span><span class="p">.</span><span class="n">contentConfiguration</span> <span class="p">=</span> <span class="n">content</span>
+
+        <span class="k">return</span> <span class="n">cell</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h3 id="example2-シーンのビューコントローラ">Example2 シーンのビューコントローラ</h3>
+
+<p>セルのスタイルは、奇数行には <code>UIListContentConfiguration.valueCell()</code> を、偶数行には <code>UIListContentConfiguration.subtitleCell()</code> を利用しています。</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:Example2TableVC.swift" data-lang="swift:Example2TableVC.swift"><span class="kd">import</span> <span class="nc">UIKit</span>
+
+<span class="c1">// Table view controller for Example2 scene</span>
+<span class="kd">class</span> <span class="nc">Example2TableVC</span><span class="p">:</span> <span class="n">UITableViewController</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">contents</span><span class="p">:</span> <span class="p">[</span><span class="n">UIListContentConfiguration</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="kd">var</span> <span class="nv">content</span><span class="p">:</span> <span class="n">UIListContentConfiguration</span> <span class="p">=</span> <span class="p">.</span><span class="n">valueCell</span><span class="p">()</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">textProperties</span><span class="p">.</span><span class="n">font</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemFont</span><span class="p">(</span><span class="n">ofSize</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">heavy</span><span class="p">)</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">textProperties</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemGreen</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">secondaryTextProperties</span><span class="p">.</span><span class="n">font</span> <span class="p">=</span> <span class="p">.</span><span class="n">monospacedSystemFont</span><span class="p">(</span><span class="n">ofSize</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">light</span><span class="p">)</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">secondaryTextProperties</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemOrange</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">imageProperties</span><span class="p">.</span><span class="n">tintColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemPurple</span>
+
+            <span class="k">return</span> <span class="n">content</span>
+        <span class="p">}(),</span>
+        <span class="p">{</span>
+            <span class="kd">var</span> <span class="nv">content</span><span class="p">:</span> <span class="n">UIListContentConfiguration</span> <span class="p">=</span> <span class="p">.</span><span class="n">subtitleCell</span><span class="p">()</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">textProperties</span><span class="p">.</span><span class="n">font</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemFont</span><span class="p">(</span><span class="n">ofSize</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">heavy</span><span class="p">)</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">textProperties</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemBlue</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">secondaryTextProperties</span><span class="p">.</span><span class="n">font</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemFont</span><span class="p">(</span><span class="n">ofSize</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="p">.</span><span class="n">light</span><span class="p">)</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">secondaryTextProperties</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemTeal</span>
+            <span class="n">content</span><span class="p">.</span><span class="n">imageProperties</span><span class="p">.</span><span class="n">tintColor</span> <span class="p">=</span> <span class="p">.</span><span class="n">systemRed</span>
+
+            <span class="k">return</span> <span class="n">content</span>
+        <span class="p">}()</span>
+    <span class="p">]</span>
+    
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">items</span><span class="p">:[(</span><span class="n">product</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">String</span><span class="p">)]</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s">&#34;AAA&#34;</span><span class="p">,</span> <span class="s">&#34;aaa aaaaa aaaa&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;BBB&#34;</span><span class="p">,</span> <span class="s">&#34;bbb bbbbb bbbb&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;CCC&#34;</span><span class="p">,</span> <span class="s">&#34;ccc ccccc cccc&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;DDD&#34;</span><span class="p">,</span> <span class="s">&#34;ddd ddddd dddd&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;EEE&#34;</span><span class="p">,</span> <span class="s">&#34;eee eeeee eeee&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;FFF&#34;</span><span class="p">,</span> <span class="s">&#34;fff fffff ffff&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;GGG&#34;</span><span class="p">,</span> <span class="s">&#34;ggg ggggg gggg&#34;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">&#34;HHH&#34;</span><span class="p">,</span> <span class="s">&#34;hhh hhhhh hhhh&#34;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="c1">// </span><span class="cs">MARK:</span><span class="c1"> - Table view data source</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="kc">_</span> <span class="n">tableView</span><span class="p">:</span> <span class="n">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="n">section</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">.</span><span class="bp">count</span>
+    <span class="p">}</span>
+
+    <span class="kr">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="kc">_</span> <span class="n">tableView</span><span class="p">:</span> <span class="n">UITableView</span><span class="p">,</span> <span class="n">cellForRowAt</span> <span class="n">indexPath</span><span class="p">:</span> <span class="n">IndexPath</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">UITableViewCell</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">cell</span> <span class="p">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">dequeueReusableCell</span><span class="p">(</span><span class="n">withIdentifier</span><span class="p">:</span> <span class="s">&#34;Ex2Cell&#34;</span><span class="p">,</span> <span class="k">for</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span>
+        
+        <span class="c1">// Set different UIListContentConfiguration for odd/even cell</span>
+        <span class="kd">var</span> <span class="nv">content</span> <span class="p">=</span> <span class="n">contents</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+        
+        <span class="cp">#if</span> <span class="cp">DEBUG</span>
+        <span class="bp">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="cp">#endif</span>
+
+        <span class="n">content</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">items</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">].</span><span class="n">product</span>
+        <span class="n">content</span><span class="p">.</span><span class="n">secondaryText</span> <span class="p">=</span> <span class="n">items</span><span class="p">[</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">].</span><span class="n">description</span>
+        <span class="n">content</span><span class="p">.</span><span class="n">image</span> <span class="p">=</span> <span class="n">UIImage</span><span class="p">(</span><span class="n">systemName</span><span class="p">:</span> <span class="s">&#34;iphone&#34;</span><span class="p">)</span>
+
+        <span class="c1">// Set content</span>
+        <span class="n">cell</span><span class="p">.</span><span class="n">contentConfiguration</span> <span class="p">=</span> <span class="n">content</span>
+
+        <span class="k">return</span> <span class="n">cell</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="実行結果">実行結果</h2>
+
+<p>Example1 シーンでは、 Left Detail を指定したにもかかわらず Right Detail 相当の表示となっています。また、フォントサイズなども IB 上の設定とは異なります。
+Example2 シーンでは、奇数行/偶数行で別々の設定が適用できています。</p>
+
+<p><img src="/images/tableview-cell-configure14/result.png" alt="result" /></p>
+
+<h1 id="interfacebuilder-上の-style-設定はどうなるの">InterfaceBuilder 上の Style 設定はどうなるの？</h1>
+
+<p>IB 上で Style を指定してもそのレイアウトになるとは限りません。実際に試してみたところ IB 上で設定した Style は、 <code>UIListContentConfiguration</code> では以下にマッピングされていました。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">IB 上での Style 設定</th>
+<th align="left"><code>UIListContentConfiguration</code> の Base Style</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Custom</td>
+<td align="left"><code>Cell</code></td>
+<td align="left">見た目は Subtitle 相当</td>
+</tr>
+
+<tr>
+<td align="left">Basic</td>
+<td align="left"><code>Cell</code></td>
+<td align="left">見た目は Subtitle 相当</td>
+</tr>
+
+<tr>
+<td align="left">Right Detail</td>
+<td align="left"><code>Value Cell</code></td>
+<td align="left">見た目はそのまま Right Detail 相当</td>
+</tr>
+
+<tr>
+<td align="left">Left Detail</td>
+<td align="left"><code>Value Cell</code></td>
+<td align="left">見た目は Right Detail 相当</td>
+</tr>
+
+<tr>
+<td align="left">Subtitle</td>
+<td align="left"><code>Subtitle Cell</code></td>
+<td align="left">見た目はそのまま Subtitle 相当</td>
+</tr>
+</tbody>
+</table>
+
+<p>Right Detail と Subtitle 以外は IB 上の見た目と実行時のレイアウトが異なるので注意が必要です。なお、 Right Detail, Subtitle でも、 IB 上で設定したフォントサイズなどは反映されません。
+あくまでも、セルのレイアウトはプログラム上でセルの <code>contentConfiguration</code> プロパティに対して設定する必要がありそうですね。</p>
+
+<h1 id="参考">参考</h1>
+
+<ul>
+<li><a href="https://developer.apple.com/documentation/uikit/uitableviewcell">UITableViewCell | Apple Developer Documentation</a></li>
+<li><a href="https://developer.apple.com/documentation/uikit/uitableviewheaderfooterview/3601063-defaultcontentconfiguration">defaultContentConfiguration() | Apple Developer Documentation</a></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>map と compactMap と flatMap</title>
