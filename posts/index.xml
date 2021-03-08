@@ -5,8 +5,212 @@
 		<description>Recent content in Posts on Yagamo Style</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ja-JP</language>
-		<lastBuildDate>Thu, 03 Dec 2020 13:30:07 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 08 Mar 2021 10:17:14 +0900</lastBuildDate>
 		<atom:link href="https://yagamo-style.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>ネストした JSON をフラットな構造体にマッピングする</title>
+			<link>https://yagamo-style.com/posts/codable-container/</link>
+			<pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
+			
+			<guid>https://yagamo-style.com/posts/codable-container/</guid>
+			<description>はじめに Swift では Encodable, Decodableプロトコルと JSONEncoder, JSONDecoder を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂 が、ネストした JSON を扱う</description>
+			<content type="html"><![CDATA[
+
+<h1 id="はじめに">はじめに</h1>
+
+<ul>
+<li>Swift では <code>Encodable</code>, <code>Decodable</code>プロトコルと <code>JSONEncoder</code>, <code>JSONDecoder</code> を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂</li>
+<li>が、ネストした JSON を扱う場合には Swift 側の対応する型（構造体を使うことが多い）も同じ構造にネストする必要があります😔</li>
+<li>公開されている Web API では、何階層にもネストしてる JSON も多いので、ネストした階層分だけ構造体を定義するのは面倒ですし、扱いづらくなります</li>
+<li>そのような場合には、以下の 2 つを実装すると解決できます
+
+<ul>
+<li><code>Encodable</code> のメソッド <code>encode(to:)</code></li>
+<li><code>Decodable</code> のイニシャライザ <code>init(from:)</code></li>
+</ul></li>
+<li>定義は少し面倒ですが、一度作成してしまえばとても使いやすくなります</li>
+</ul>
+
+<h1 id="検証環境">検証環境</h1>
+
+<ul>
+<li>macOS Big Sur 11.2.1</li>
+<li>Xcode 12.4</li>
+</ul>
+
+<h1 id="サンプル">サンプル</h1>
+<div class="highlight"><pre class="chroma"><code class="language-json:解析対象のJSON" data-lang="json:解析対象のJSON">{
+    &#34;user_name&#34;: &#34;山田二郎&#34;,
+    &#34;scores&#34;: [
+        { &#34;score&#34;: 65 },
+        { &#34;score&#34;: 24 }
+    ]
+}</code></pre></div>
+<p>上記の JSON は、構造として全体を表す <code>{}</code> の中に、 <code>&quot;scores&quot;</code> 部分が配列となっており、その要素が <code>{}</code> となっています。
+つまり、「オブジェクト」-&gt;「配列」-&gt;「オブジェクト」の 3 階層です。
+配列は Swift で <code>Array</code> 型が定義されているので、自分で用意する必要があるのは 2 つの構造体であることがわかります。</p>
+
+<h1 id="json-に対応させた構造体-基本">JSON に対応させた構造体（基本）</h1>
+
+<p>この JSON の階層に単純に対応させるなら、以下のような 2 つの構造体が必要となります。</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:JSONの階層に素直に対応させた構造体" data-lang="swift:JSONの階層に素直に対応させた構造体">// JSONと対応させるPerson型（Codableに準拠）
+struct Person: Codable {
+    let name: String
+    let scores: [Score]
+
+    /// SwiftのプロパティとJSONのキーをマッピング
+    enum CodingKeys: String, CodingKey {
+        // case Swift側の名前 = &#34;JSON側のキー&#34;
+        case name = &#34;user_name&#34;
+        case scores
+    }
+}
+
+// Personのプロパティとして利用する型（Codableに準拠）
+struct Score: Codable {
+    let score: Int
+}</code></pre></div>
+<p>しかし、 <code>&quot;scores&quot;</code> 部分は属性が <code>&quot;score&quot;</code> しかないため、整数の配列にしておいた方が扱いやすそうです。</p>
+
+<h1 id="jsonに対応させた構造体-階層構造を変更">JSONに対応させた構造体（階層構造を変更）</h1>
+
+<h2 id="クラス定義">クラス定義</h2>
+
+<p>こんな感じで、 1 階層浅くしたら使いやすそうですね。
+<code>&quot;scores&quot;</code> は <code>Int</code> の配列であるため、定義する型は <code>Person</code> のみです。
+上のサンプルにある、 <code>Score</code> 型は定義する必要はありません。</p>
+
+<p>階層ごとの <code>CodingKeys</code> だけは用意しておきましょう。名前は任意です。</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift:JSONと異なる階層構造の構造体" data-lang="swift:JSONと異なる階層構造の構造体">// JSONに対応する構造体
+struct Person: Codable {
+    let name: String
+    let scores: [Int]
+
+    // トップレベルの属性に対応するCodingKeys
+    enum CodingKeys: String, CodingKey {
+        case name = &#34;user_name&#34;
+        case scores
+    }
+    
+    // ネストしたJSONの属性に対応するCodingKeys
+    enum ScoresCodingKeys: String, CodingKey {
+        case score
+    }
+}</code></pre></div>
+<p>このままでは、 JSON と形が異なるため相互変換ができません。
+エクステンションで、カスタムデコード用のイニシャライザとカスタムエンコード用のメソッドを追加してみましょう。</p>
+
+<h2 id="カスタムデコード用の追加実装">カスタムデコード用の追加実装</h2>
+<div class="highlight"><pre class="chroma"><code class="language-swift:カスタムデコード用のイニシャライザ" data-lang="swift:カスタムデコード用のイニシャライザ">extension Person {
+    init(from decoder: Decoder) throws {
+        // CodingKeysを指定し、JSON直下の属性（&#34;user_name&#34;と&#34;scores&#34;にあたる部分）に対するコンテナを取得
+        let rootContainer = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // JSONのキー&#34;user_name&#34;にあたる部分の値を取得
+        let name = try rootContainer.decode(String.self, forKey: .name)
+        
+        // ネストしたオブジェクト（キー&#34;scores&#34;）の配列部分（配列なので中身の各要素にはキーがない）のコンテナを取得
+        var arrayContainer = try rootContainer.nestedUnkeyedContainer(forKey: .scores)
+
+        var scores: [Int] = []
+
+        // 配列の要素の最後になるまで繰り返し
+        while !arrayContainer.isAtEnd {
+            // ネストした部分のCodingKeys（ここではScoresCodingKeys）を指定し配列内のオブジェクト部分のコンテナを取得
+            let scoreContainer = try arrayContainer.nestedContainer(keyedBy: ScoresCodingKeys.self)
+            
+            // JSONのキー&#34;score&#34;にあたる部分の値を取得
+            let score = try scoreContainer.decode(Int.self, forKey: .score)
+
+            // 取得した値を配列に追加
+            scores.append(score)
+        }
+
+        // 取得した値をメンバワイズイニシャライザに渡して初期化
+        self.init(name: name, scores: scores)
+    }
+}</code></pre></div>
+<h3 id="実装のポイント-json-構造体">実装のポイント（JSON -&gt; 構造体）</h3>
+
+<ul>
+<li>イニシャライザの引数である <code>Decoder</code> を利用する
+
+<ul>
+<li>解析は、この <code>Decoder</code> を通して行います</li>
+</ul></li>
+<li><code>Decoder</code> の <code>container(keyedBy:)</code> に <code>CodingKeys</code> を渡して、該当部分のコンテナを取得
+
+<ul>
+<li><code>CodingKeys</code> が JSON のキー（と、それに対応する構造体のプロパティ名）を保持しているため、そのコンテナを通して値を取得できるようになります</li>
+</ul></li>
+<li>コンテナからは <code>decode(_:forKey:)</code> で <code>CodingKeys</code> に定義したキーを渡して、該当部分の値を取得
+
+<ul>
+<li>コンテナには <code>container(keyedBy:)</code> で <code>CodingKeys</code> が渡っているため、そこに定義したキーで値を取得できます</li>
+</ul></li>
+<li>ネストした部分のコンテナは、上位階層のコンテナから <code>nestedContainer(keyedBy:)</code> や <code>nestedUnkeyedContainer(forKey:)</code> で取得
+
+<ul>
+<li>通常の属性の場合は <code>nestedContainer(keyedBy:)</code> を利用しますが、値が配列の場合には中の各要素にキーがないため、 <code>nestedUnkeyedContainer(forKey:)</code> を利用します</li>
+</ul></li>
+<li><code>nestedContainer(keyedBy:)</code> を呼び出すごとに、内部的なカーソルが次へ移動する
+
+<ul>
+<li>コンテナの <code>isAtEnd</code> を条件としてループを回せば、要素の回数だけループを回せます</li>
+<li>そのためループ内で、<code>nestedContainer(keyedBy:)</code> を呼び忘れると無限ループに陥るので注意が必要です</li>
+</ul></li>
+</ul>
+
+<h2 id="カスタムエンコード用の実装">カスタムエンコード用の実装</h2>
+<div class="highlight"><pre class="chroma"><code class="language-swift:カスタムエンコード用のメソッド" data-lang="swift:カスタムエンコード用のメソッド">extension Person {
+    // カスタムでエンコードするためのメソッド
+    func encode(to encoder: Encoder) throws {
+        // CodingKeysを指定し、JSON直下の属性（&#34;user_name&#34;と&#34;scores&#34;にあたる部分）に対するコンテナを取得
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        // JSONのキー&#34;name&#34;にあたる部分をエンコード
+        try container.encode(self.name, forKey: .name)
+
+        // ネストしたオブジェクト（キー&#34;scores&#34;）の配列部分（配列なので中身の各要素にはキーがない）のコンテナを取得
+        var scoresContainer = container.nestedUnkeyedContainer(forKey: .scores)
+
+        // scores配列をループし、各要素をエンコード
+        for score in scores {
+            // ネストした部分のCodingKeys（ここではScoresCodingKeys）を指定し配列内のオブジェクト部分のコンテナを取得
+            var arrayContainer = scoresContainer.nestedContainer(keyedBy: ScoresCodingKeys.self)
+
+            // JSONのキー&#34;score&#34;にあたる部分をエンコード
+            try arrayContainer.encode(score, forKey: .score)
+        }
+    }
+}</code></pre></div>
+<h3 id="実装のポイント-構造体-json">実装のポイント（構造体 -&gt; JSON）</h3>
+
+<ul>
+<li>基本的な考え方は、デコードの際と同じです</li>
+<li>JSON と構造体の構造を注意深く比較し、上の階層から順に処理していけばできると思います</li>
+</ul>
+
+<h1 id="まとめ">まとめ</h1>
+
+<ul>
+<li>階層に合わせて構造体を複数定義しても問題ないですが、フラットな構造の方が扱いやすいですよね</li>
+<li>記述量は増えますが、利用する場面のことを考えると、最初に手間をかけておくメリットは十分にあると思います</li>
+<li>サンプルは <a href="https://github.com/aokiplayer/swift-sandbox/tree/master/CodableContainer">GitHub</a> に置きました</li>
+</ul>
+
+<h1 id="参考サイト">参考サイト</h1>
+
+<ul>
+<li><a href="https://developer.apple.com/documentation/foundation/archives_and_serialization/using_json_with_custom_types">Using JSON with Custom Types | Apple Developer Documentation</a>
+
+<ul>
+<li>Playground が用意されているので、動かしながら理解できます</li>
+</ul></li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）</title>

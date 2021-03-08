@@ -6,10 +6,19 @@
     <description>Recent content in iOS on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 03 Dec 2020 13:30:07 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 08 Mar 2021 10:17:14 +0900</lastBuildDate>
     
 	<atom:link href="https://yagamo-style.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ネストした JSON をフラットな構造体にマッピングする</title>
+      <link>https://yagamo-style.com/posts/codable-container/</link>
+      <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/posts/codable-container/</guid>
+      <description>はじめに Swift では Encodable, Decodableプロトコルと JSONEncoder, JSONDecoder を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂 が、ネストした JSON を扱う</description>
+    </item>
     
     <item>
       <title>iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）</title>
@@ -90,15 +99,6 @@
       
       <guid>https://yagamo-style.com/posts/iosdc2019day1/</guid>
       <description>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します で書いていましたが、ルーキーズ LT に登壇してきました。 普段からトレーニングで話してはいますが、全くの別物</description>
-    </item>
-    
-    <item>
-      <title>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します</title>
-      <link>https://yagamo-style.com/posts/iosdc2019pre/</link>
-      <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/posts/iosdc2019pre/</guid>
-      <description>2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。 昨年までは個人サポーター（およびスポンサー企業の社員）として参加して</description>
     </item>
     
   </channel>
