@@ -5,7 +5,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cibuilds/hugo:0.55.6
+      - image: cibuilds/hugo:0.94.1
     working_directory: ~/project
     steps:
       - checkout

@@ -6,31 +6,31 @@ toc: true
 categories: [ "Technical" ]
 tags: [ "iOS", "Swift" ]
 ---
-# はじめに
+## はじめに
 - iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります
 - その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました
 - その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません
     - もちろん、 unwind セグエメソッドも呼ばれません
     - unwind セグエから戻っても、ライフサイクルメソッドは呼ばれません（unwind セグエメソッドは呼ばれる）
 
-# サンプル
-## 画面レイアウト
-![storyboard](/images/default-modal-segue-xcode11/storyboard.png)
+## サンプル
+### 画面レイアウト
+![storyboard](/images/default-modal-segue-xcode11/storyboard.png?width=25pc)
 
-## New Default シーンへのセグエ
-![segue_for_new_default](/images/default-modal-segue-xcode11/segue_for_new_default.png)
+### New Default シーンへのセグエ
+![segue_for_new_default](/images/default-modal-segue-xcode11/segue_for_new_default.png?width=25pc)
 
 - Xcode 11 でのデフォルト設定
 - Presentation  が Same as Destination
 
-## Full Screen シーンへのセグエ
-![segue_for_full_screen](/images/default-modal-segue-xcode11/segue_for_full_screen.png)
+### Full Screen シーンへのセグエ
+![segue_for_full_screen](/images/default-modal-segue-xcode11/segue_for_full_screen.png?width=25pc)
 
 - Presentation を Full Screen に変更
 - デフォルトと異なり、画面全体を覆う（iOS 12 までの Modal）
 
-## ソースコード
-### ViewController（最初の画面）
+### ソースコード
+#### ViewController（最初の画面）
 ```swift
 import UIKit
 
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
 }
 ```
 
-### NewDefaultVC（NewDefault ボタンから遷移する画面）
+#### NewDefaultVC（NewDefault ボタンから遷移する画面）
 ```swift
 import UIKit
 
@@ -112,7 +112,7 @@ class NewDefaultVC: UIViewController {
 }
 ```
 
-### FullScreenVC（FullScreen ボタンから遷移する画面）
+#### FullScreenVC（FullScreen ボタンから遷移する画面）
 ```swift
 import UIKit
 
@@ -128,8 +128,8 @@ class FullScreenVC: UIViewController {
 }
 ```
 
-# 実行結果
-## New Default ボタンで遷移 -> Unwind ボタンで戻る
+## 実行結果
+### New Default ボタンで遷移 -> Unwind ボタンで戻る
 ```
 pageSheet
 NewDefaultVC.swift
@@ -138,7 +138,7 @@ Returned through unwind segue.
 
 - unwind セグエメソッドは呼ばれていますが、戻ったシーンのライフサイクルメソッドが呼ばれていません
 
-## New Default ボタンで遷移 -> 画面上部からスワイプダウンで戻る
+### New Default ボタンで遷移 -> 画面上部からスワイプダウンで戻る
 ```
 pageSheet
 ```
@@ -147,7 +147,7 @@ pageSheet
 - また、 unwind セグエを利用していないので、当然ですが unwind セグエメソッドも呼ばれていませんね
     - 同様に、 New Default シーンの `prepare(for:sender:)` も呼ばれていません
 
-## Full Screen ボタンで遷移 -> Unwind ボタンで戻る
+### Full Screen ボタンで遷移 -> Unwind ボタンで戻る
 ```
 fullScreen
 viewWillDisappear(_:)
@@ -161,7 +161,7 @@ viewDidAppear(_:)
 - こちらは、 iOS 12 までと同じですね
 - 戻ったシーンのライフサイクルメソッドおよび unwind セグエメソッドの、どちらも呼ばれています
 
-# まとめ
+## まとめ
 - iOS 13 から新しくなったデフォルトのモーダルの挙動は、ユーザにとっては「メインとは別の流れにいる」のを認識しやすいと思います
 - また、スワイプダウンで戻れるので、操作としても直感的です
 - ただ、「戻った際に何か処理をさせる」必要がある場合は要注意ですね

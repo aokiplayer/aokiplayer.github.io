@@ -6,7 +6,7 @@ toc: true
 tags: [ "iOS", "Swift" ]
 ---
 
-# はじめに
+## はじめに
 - Swift では `Encodable`, `Decodable`プロトコルと `JSONEncoder`, `JSONDecoder` を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂
 - が、ネストした JSON を扱う場合には Swift 側の対応する型（構造体を使うことが多い）も同じ構造にネストする必要があります😔
 - 公開されている Web API では、何階層にもネストしてる JSON も多いので、ネストした階層分だけ構造体を定義するのは面倒ですし、扱いづらくなります
@@ -15,11 +15,11 @@ tags: [ "iOS", "Swift" ]
     - `Decodable` のイニシャライザ `init(from:)`
 - 定義は少し面倒ですが、一度作成してしまえばとても使いやすくなります
 
-# 検証環境
+## 検証環境
 - macOS Big Sur 11.2.1
 - Xcode 12.4
 
-# サンプル
+## サンプル
 ```json:解析対象のJSON
 {
     "user_name": "山田二郎",
@@ -34,7 +34,7 @@ tags: [ "iOS", "Swift" ]
 つまり、「オブジェクト」->「配列」->「オブジェクト」の 3 階層です。
 配列は Swift で `Array` 型が定義されているので、自分で用意する必要があるのは 2 つの構造体であることがわかります。
 
-# JSON に対応させた構造体（基本）
+## JSON に対応させた構造体（基本）
 この JSON の階層に単純に対応させるなら、以下のような 2 つの構造体が必要となります。
 
 ```swift:JSONの階層に素直に対応させた構造体
@@ -59,8 +59,8 @@ struct Score: Codable {
 
 しかし、 `"scores"` 部分は属性が `"score"` しかないため、整数の配列にしておいた方が扱いやすそうです。
 
-# JSONに対応させた構造体（階層構造を変更）
-## クラス定義
+## JSONに対応させた構造体（階層構造を変更）
+### クラス定義
 こんな感じで、 1 階層浅くしたら使いやすそうですね。
 `"scores"` は `Int` の配列であるため、定義する型は `Person` のみです。
 上のサンプルにある、 `Score` 型は定義する必要はありません。
@@ -89,7 +89,7 @@ struct Person: Codable {
 このままでは、 JSON と形が異なるため相互変換ができません。
 エクステンションで、カスタムデコード用のイニシャライザとカスタムエンコード用のメソッドを追加してみましょう。
 
-## カスタムデコード用の追加実装
+### カスタムデコード用の追加実装
 ```swift:カスタムデコード用のイニシャライザ
 extension Person {
     init(from decoder: Decoder) throws {
@@ -122,7 +122,7 @@ extension Person {
 }
 ```
 
-### 実装のポイント（JSON -> 構造体）
+#### 実装のポイント（JSON -> 構造体）
 - イニシャライザの引数である `Decoder` を利用する
     - 解析は、この `Decoder` を通して行います
 - `Decoder` の `container(keyedBy:)` に `CodingKeys` を渡して、該当部分のコンテナを取得
@@ -135,7 +135,7 @@ extension Person {
     - コンテナの `isAtEnd` を条件としてループを回せば、要素の回数だけループを回せます
     - そのためループ内で、`nestedContainer(keyedBy:)` を呼び忘れると無限ループに陥るので注意が必要です
 
-## カスタムエンコード用の実装
+### カスタムエンコード用の実装
 ```swift:カスタムエンコード用のメソッド
 extension Person {
     // カスタムでエンコードするためのメソッド
@@ -161,15 +161,15 @@ extension Person {
 }
 ```
 
-### 実装のポイント（構造体 -> JSON）
+#### 実装のポイント（構造体 -> JSON）
 - 基本的な考え方は、デコードの際と同じです
 - JSON と構造体の構造を注意深く比較し、上の階層から順に処理していけばできると思います
 
-# まとめ
+## まとめ
 - 階層に合わせて構造体を複数定義しても問題ないですが、フラットな構造の方が扱いやすいですよね
 - 記述量は増えますが、利用する場面のことを考えると、最初に手間をかけておくメリットは十分にあると思います
 - サンプルは [GitHub](https://github.com/aokiplayer/swift-sandbox/tree/master/CodableContainer) に置きました
 
-# 参考サイト
+## 参考サイト
 - [Using JSON with Custom Types | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/archives_and_serialization/using_json_with_custom_types)
     - Playground が用意されているので、動かしながら理解できます

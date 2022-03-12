@@ -6,17 +6,17 @@ toc: true
 tags: [ "iOS", "Swift" ]
 ---
 
-# はじめに
+## はじめに
 - Swift には、連想配列的なデータ構造としてディクショナリがあります
 - ディクショナリはデータの順序を保証しないので、そのままではテーブルビューやコレクションビューのデータソースとして利用しにくいです
 - その場合は、タプルの配列に変換すると上手く行きます
 
-# 検証環境
+## 検証環境
 - Xcode 11.5
 - Swift 5.2
 
-# 利用する機能
-## sorted(by:)
+## 利用する機能
+### sorted(by:)
 - ディクショナリのメソッド
 - 引数に渡した関数 `by` がソート条件
     - 関数 `by` の引数
@@ -26,7 +26,7 @@ tags: [ "iOS", "Swift" ]
 - 戻り値は `[(key: ディクショナリの key の型, value: ディクショナリの value の型)]`
     - つまり、ディクショナリとほぼ同じ構造を持った「タプルの配列」
 
-# コード例
+## コード例
 - 以下はディクショナリ `[String: Int]` からタプルの配列 `[(key: String, value: Int)]` に変換する例です
 
 ```swift:SortedDictionary.playground
@@ -127,6 +127,6 @@ Descending by value
 32: Erick Kawakami
 19: Anna Saito
 ```
-# まとめ
+## まとめ
 - 状況に応じたデータの形式変換をする方法を押さえておくと、いろいろ応用ができそうですね
 - 今回のサンプルは [GitHub: aokiplayer/swift-sandbox/SortedDictionary](https://github.com/aokiplayer/swift-sandbox/tree/master/SortedDictionary) に置きました

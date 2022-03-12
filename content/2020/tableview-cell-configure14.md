@@ -8,7 +8,7 @@ toc: true
 tags: [ "iOS", "Swift" ]
 ---
 
-# はじめに
+## はじめに
 テーブルビューでは、カスタムセルを作成しなくてもデフォルトで提供されている 4 種類のスタイルが利用できました。
 
 | IB 上での Style 設定 | 対応する `UITableViewCell.CellStyle` の定数 | 説明 |
@@ -24,18 +24,18 @@ tags: [ "iOS", "Swift" ]
 
 サンプルプロジェクトは、 [GitHub](https://github.com/aokiplayer/TableConfigureExample) に置きました。
 
-# 検証環境
+## 検証環境
 - macOS 11.0.1 Big Sur
 - Xcode 12.2
 - iOS 14.2
 
-# サンプル
-## ストーリーボード
+## サンプル
+### ストーリーボード
 Example1 シーンではセルの Style を Left Detail に、 Example2 シーンではセルの Style を Custom に設定しています。
-![storyboard](/images/tableview-cell-configure14/storyboard.png)
+![storyboard](/images/tableview-cell-configure14/storyboard.png?width=25pc)
 
-## サンプルコード
-### Example1 シーンのビューコントローラ
+### サンプルコード
+#### Example1 シーンのビューコントローラ
 セルのスタイルは、 `defaultContentConfiguration()` によりデフォルトの設定を取得して利用しています。
 
 ```swift:Example1TableVC.swift
@@ -86,7 +86,7 @@ class Example1TableVC: UITableViewController {
 }
 ```
 
-### Example2 シーンのビューコントローラ
+#### Example2 シーンのビューコントローラ
 セルのスタイルは、奇数行には `UIListContentConfiguration.valueCell()` を、偶数行には `UIListContentConfiguration.subtitleCell()` を利用しています。
 
 ```swift:Example2TableVC.swift
@@ -160,13 +160,13 @@ class Example2TableVC: UITableViewController {
 }
 ```
 
-## 実行結果
+### 実行結果
 Example1 シーンでは、 Left Detail を指定したにもかかわらず Right Detail 相当の表示となっています。また、フォントサイズなども IB 上の設定とは異なります。
 Example2 シーンでは、奇数行/偶数行で別々の設定が適用できています。
 
-![result](/images/tableview-cell-configure14/result.png)
+![result](/images/tableview-cell-configure14/result.png?width=25pc)
 
-# InterfaceBuilder 上の Style 設定はどうなるの？
+## InterfaceBuilder 上の Style 設定はどうなるの？
 IB 上で Style を指定してもそのレイアウトになるとは限りません。実際に試してみたところ IB 上で設定した Style は、 `UIListContentConfiguration` では以下にマッピングされていました。
 
 | IB 上での Style 設定 | `UIListContentConfiguration` の Base Style | 備考 |
@@ -180,6 +180,6 @@ IB 上で Style を指定してもそのレイアウトになるとは限りま�
 Right Detail と Subtitle 以外は IB 上の見た目と実行時のレイアウトが異なるので注意が必要です。なお、 Right Detail, Subtitle でも、 IB 上で設定したフォントサイズなどは反映されません。
 あくまでも、セルのレイアウトはプログラム上でセルの `contentConfiguration` プロパティに対して設定する必要がありそうですね。
 
-# 参考
+## 参考
 - [UITableViewCell | Apple Developer Documentation](https://developer.apple.com/documentation/uikit/uitableviewcell)
 - [defaultContentConfiguration() | Apple Developer Documentation](https://developer.apple.com/documentation/uikit/uitableviewheaderfooterview/3601063-defaultcontentconfiguration)

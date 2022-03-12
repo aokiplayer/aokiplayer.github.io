@@ -6,23 +6,23 @@ toc: true
 tags: [ "iOS", "Swift", "SwiftUI" ]
 ---
 
-# はじめに
+## はじめに
 - WWDC 2019で発表された目玉として、SwiftUIがあります
 - 今回は、少しだけSwiftUIを触ってみたのでメモしてみます
 
-# 検証環境
+## 検証環境
 - macOS 10.15 Catalina beta
 - Xcode 11 beta
 - iOS 13 beta
 - Swift 5.1
 - iPad Pro 10.5 inch
 
-# ストーリーボードは？
+## ストーリーボードは？
 - これまで、レイアウトは基本的にストーリーボードで行ってきました
 - ストーリーボードは決して悪いものではなく、まず画面の作成を始める際にはとても扱いやすいです
 - ただし、ビューの数が増えたり、複雑なレイアウトをしようとすると非常に管理が難しいのも事実です
 
-# コードでレイアウトを行うSwiftUI
+## コードでレイアウトを行うSwiftUI
 - Flutterなどでは、画面をコード上で宣言的に記述できます
 - 最近は、この形式をとるものが増えています
 - SwiftUIも、コードから宣言的なレイアウトを行います
@@ -30,12 +30,12 @@ tags: [ "iOS", "Swift", "SwiftUI" ]
   - プレビューの方法がないため、ビルドして実行しないと確認できない
   - 手続的に記述するため、実際のレイアウトがイメージしにくい
 
-# SwiftUIで作成した一覧画面のサンプル
-## 画面イメージ
+## SwiftUIで作成した一覧画面のサンプル
+### 画面イメージ
 
 ![background_modes](/images/swiftuilist_beta/list_preview.png)
 
-## 実装ファイル
+### 実装ファイル
 - 実装したのは、以下のファイルです
 
 | ファイル | 説明 |
@@ -46,7 +46,7 @@ tags: [ "iOS", "Swift", "SwiftUI" ]
 | FoodList.swift | 表の全体を表すビュー。FoodDataSourceからデータを取得し、各行のFoodRowを生成する |
 | ContentView.swift | 最初に表示されるビュー。この中でFoodListを読み込む |
 
-### FoodModel.swift
+#### FoodModel.swift
 ```swift:FoodModel.swift
 import Foundation
 
@@ -59,7 +59,7 @@ struct FoodModel: Codable {
 }
 ```
 
-### FoodDataSource.swift
+#### FoodDataSource.swift
 ```swift:FoodDataSource.swift
 import Combine
 import SwiftUI
@@ -84,7 +84,7 @@ class FoodDataSource: BindableObject {
 }
 ```
 
-### FoodRow.swift
+#### FoodRow.swift
 ```swift:FoodRow.swift
 import SwiftUI
 
@@ -121,7 +121,7 @@ struct FoodRow_Previews : PreviewProvider {
 #endif
 ```
 
-### FoodList.swift
+#### FoodList.swift
 ```swift:FoodList.swift
 import SwiftUI
 
@@ -147,7 +147,7 @@ struct FoodList_Previews : PreviewProvider {
 #endif
 ```
 
-### ContentView.swift
+#### ContentView.swift
 ```swift:ContentView.swift
 import SwiftUI
 
@@ -166,18 +166,18 @@ struct ContentView_Previews : PreviewProvider {
 #endif
 ```
 
-# まとめ
-## よかった点
+## まとめ
+### よかった点
 - ちょっとした画面の作成であれば、SwiftUIはとても簡単に思えました
 - macOS 10.15 Catalina上であれば、ライブビューでレイアウトだけでなく動作がすぐ確認できるのが良いです
 
-## 難しく感じた点
+### 難しく感じた点
 - ストーリーボードを利用していた際と、ビュー階層のイメージが異なるのでまだ戸惑っています
 - また、思った通りにレイアウトができず苦労しています
 
-# サンプルプロジェクト
+## サンプルプロジェクト
 - 今回作成したサンプルコードは、GitHubに置きました
     - [aokiplayer/SwiftUITableSample](https://github.com/aokiplayer/SwiftUITableSample)
 
-# 参考
+## 参考
 - [SwiftUI Tutorials | Apple Developer Documentation](https://developer.apple.com/tutorials/swiftui)

@@ -6,7 +6,7 @@ toc: true
 tags: [ "iOS", "Swift" ]
 ---
 
-# はじめに
+## はじめに
 - Xcode 11 から、新規作成したプロジェクトの構成が変わりました
     - User Interface を Swift UI と Storyboard から選択可能
     - SceneDelegate.swift が追加
@@ -17,27 +17,27 @@ tags: [ "iOS", "Swift" ]
     - 方法は他にもあるようですが、これが Xcode のサポートを一番受けやすい方法だと思います
     - なお、 Swift UI は iOS 13 以降対応なので、ここでは Storyboard を選択した前提とします
 
-# 検証環境
+## 検証環境
 - Xcode 11.2.1
 - iOS 13.2.3, 12.3.1
 - Swift 5
 
-# デフォルトの状態と実行確認
+## デフォルトの状態と実行確認
 - プロジェクトを作成すると、以下のような状態となっています
     ![xcode11_project](/images/adopt-under-xcode11/xcode11_project.png)
     ![scene_manifest](/images/adopt-under-xcode11/scene_manifest.png)
 
-# 手順
-## Build Target を iOS 13 未満に設定
+## 手順
+### Build Target を iOS 13 未満に設定
 ![target_under_13](/images/adopt-under-xcode11/target_under_13.png)
 
-## アプリを実行
+### アプリを実行
 - ビルドに失敗する
 
-## ビルドエラーメッセージを確認
+### ビルドエラーメッセージを確認
 ![build_error_with_scene](/images/adopt-under-xcode11/build_error_with_scene.png)
 
-## エラーのアイコンをクリックし、修正内容を選択
+### エラーのアイコンをクリックし、修正内容を選択
 ![fix-it_correction](/images/adopt-under-xcode11/fix-it_correction.png)
 
 - `SceneDelegate`
@@ -91,10 +91,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ```
 
-## 再度、アプリを実行
+### 再度、アプリを実行
 - 実行できるが、画面は真っ黒
 
-## Xcode のコンソールを確認
+### Xcode のコンソールを確認
 - 以下のようなメッセージが表示されている
 
 ```
@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 - ストーリーボードを利用するためには `AppDelegate` に `window` プロパティが必要とのメッセージ
 - 以前のバージョンの Xcode で作成したプロジェクトでは、宣言されていた
 
-## `AppDelegate` に `window` プロパティを追加
+### `AppDelegate` に `window` プロパティを追加
 - `SceneDelegate` に記載されている内容を、そのまま移植すれば OK
 - 修正結果（AppDelegate.swift）
 
@@ -121,10 +121,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-## 実行して、動作することを確認
+### 実行して、動作することを確認
 - Main.storyboard の最初のシーンが表示される
 
-# まとめ
+## まとめ
 - 基本的には、 Xcode の修正候補に従って修正すれば問題ないです
 - 今回のサンプルは、 GitHub に置きました
     - [aokiplayer/Under13Xcode11Sample](https://github.com/aokiplayer/Under13Xcode11Sample)

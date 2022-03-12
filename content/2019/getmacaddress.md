@@ -6,27 +6,27 @@ toc: true
 tags: ["Mac", "Shell Script"] 
 ---
 
-# はじめに
+## はじめに
 - トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります
 - 未認証のデバイスを接続させないため、MACアドレスでフィルタリングを掛ける目的です
 - 手作業で取得するのは辛いので、シェルスクリプトを用意しました
 - あとで集約する際のために、ファイル名にはMacのSerial Numberを付けるようにしました
 
-# 検証環境
+## 検証環境
 - macOS 10.14.6 Mojave
 
-# シェルスクリプトの内容
+## シェルスクリプトの内容
 ```shell:getMACaddr.sh
 #!/bin/sh
 
-# GET Serial Number of this Mac
+## GET Serial Number of this Mac
 SERIAL=`ioreg -l | awk '/IOPlatformSerialNumber/ { if (gsub(/"/, "")) print $4 }'`
 
-# Write MAC address of primary WiFi interfce in "{SERIAL NUMBER}.txt" on this user's Desktop
+## Write MAC address of primary WiFi interfce in "{SERIAL NUMBER}.txt" on this user's Desktop
 ifconfig en0 ether | awk '/ether/ { print $2 }' > ~/Desktop/${SERIAL}.txt
 ```
 
-##  Serial Numberを取得して、変数に代入
+###  Serial Numberを取得して、変数に代入
 ```shell
 SERIAL=`ioreg -l | awk '/IOPlatformSerialNumber/ { if (gsub(/"/, "")) print $4 }'`
 ```
@@ -39,7 +39,7 @@ SERIAL=`ioreg -l | awk '/IOPlatformSerialNumber/ { if (gsub(/"/, "")) print $4 }
     - スペースで区切った4つ目のフィールドを出力
         - `C0XXXXXXXXXX`
 
-## WiFiインターフェイスのMACアドレスを取得し、ファイルに書き込み
+### WiFiインターフェイスのMACアドレスを取得し、ファイルに書き込み
 ```shell
 ifconfig en0 ether | awk '/ether/ { print $2 }' > ~/Desktop/${SERIAL}.txt
 ```
@@ -51,7 +51,7 @@ ifconfig en0 ether | awk '/ether/ { print $2 }' > ~/Desktop/${SERIAL}.txt
         - `XX:XX:XX:XX:XX:XX`
 - デスクトップ上の、ファイル名`{Serial Number}.txt`のファイルに書き込み
 
-# 最後に
+## 最後に
 - awkとか正規表現とか、いまだに苦手です
 - 「こう書いたほうがいいよ」などあれば、教えてください！
 - 作成したシェルスクリプト は、[aokiplayer/scripts](https://github.com/aokiplayer/scripts)に置きました

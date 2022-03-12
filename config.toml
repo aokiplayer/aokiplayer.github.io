@@ -2,72 +2,87 @@ baseURL = "https://yagamo-style.com/"
 languageCode = "ja-JP"
 defaultContentLanguage = "ja"
 title = "Yagamo Style"
-theme = "hermit"
-# enableGitInfo = true
-pygmentsCodefences  = true
-pygmentsUseClasses  = true
-hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
-rssLimit = 10  # Maximum number of items in the RSS feed.
-# copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
-enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
-# googleAnalytics = "UA-123-45"
-# disqusShortname = "yourdiscussshortname"
 
-[author]
-  name = "Hiroyuki Aoki"
+# 適用するテーマの名前
+theme = "hugo-theme-learn"
 
-[blackfriday]
-  # hrefTargetBlank = true
-  # noreferrerLinks = true
-  # nofollowLinks = true
-
-[taxonomies]
-  tag = "tags"
-  # Categories are disabled by default.
+# テーマのディレクトリ（ルートからの相対パス）
+themesdir = "themes"
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
+# Prefix URL to edit current page. Will display an "Edit this page" button on top right hand corner of every page.
+# Useful to give opportunity to people to create merge request for your doc.
+# See the config.toml file from this documentation site to have an example.
+#editURL = ""
 
-  # Metadata mostly used in document's head
-  # description = ""
-  # images = [""]
-  themeColor = "#494f5c"
+# Author of the site, will be used in meta information. [不明] 著者
+author = "Hiroyuki Aoki"
 
-  homeSubtitle = "技術メモとかイベントレポートとか"
-  # footerCopyright = ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-  # footerCopyright = ' &#183; yagamo-style.com'
-  # bgImg = ""  # Homepage background-image URL
+# Description of the site, will be used in meta information. [不明] ページの説明
+description = "技術メモとかイベントレポートとか"
 
-  # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  # gitUrl = "https://github.com/username/repository/commit/"
+# Shows a checkmark for visited pages on the menu. 訪問済みページのチェック表示
+showVisitedLinks = false
 
-  # Toggling this option needs to rebuild SCSS, requires Hugo extended version
-  justifyContent = false  # Set "text-align: justify" to `.content`.
+# Disable search function. It will hide search bar. メニューの検索ボックス表示
+disableSearch = false
 
-  # Add custom css
-  # customCSS = ["css/foo.css", "css/bar.css"]
+# Javascript and CSS cache are automatically busted when new version of site is generated.
+# Set this to true to disable this behavior (some proxies don't handle well this optimization). ページ更新時の JS や CSS のキャッシュ破棄
+disableAssetsBusting = false
 
-  # Social Icons
-  # Check https://github.com/Track3/hermit#social-icons for more info.
-  [[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/Solti"
+# Set this to true to disable copy-to-clipboard button for inline code. インラインコードのクリップボードへのコピー機能（コードブロックではなく）
+disableInlineCopyToClipBoard = true
 
-  [[params.social]]
-    name = "github"
-    url = "https://github.com/aokiplayer"
+# A title for shortcuts in menu is set by default. Set this to true to disable it. これを true にしないとメニューに「更に」という日本語が出てくる
+disableShortcutsTitle = true
+
+# If set to false, a Home button will appear below the search bar on the menu.
+# It is redirecting to the landing page of the current language if specified. (Default is "/"). Home ボタンの表示
+disableLandingPageButton = false
+
+# When using mulitlingual website, disable the switch language button. 言語切り替えボタン
+# disableLanguageSwitchingButton = false
+
+# Hide breadcrumbs in the header and only show the current page title. ページ上部のパンくずリスト
+disableBreadcrumb = false
+
+# If set to true, prevents Hugo from including the mermaid module if not needed (will reduce load times and traffic). mermade のインクルードしないかどうか
+disableMermaid = false
+
+# Specifies the remote location of the mermaid js. mermaid モジュールの URL
+customMermaidURL = "https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"
+
+# Hide Next and Previous page buttons normally displayed full height beside content. ページ左右の次へリンク
+disableNextPrev = true
+
+# Order sections in menu by "weight" or "title". Default to "weight". メニューでのコンテンツの並び順
+ordersectionsby = "weight"
+
+# Change default color scheme with a variant one. Can be "red", "blue", "green". テーマカラー（少ないね）
+themeVariant = "blue"
+
+# Provide a list of custom css files to load relative from the `static/` folder in the site root. カスタム CSS ファイルのパス
+# custom_css = ["css/foo.css", "css/bar.css"]
+
+# Change the title separator. Default to "::". [不明] タイトルのセパレータ
+# titleSeparator = "-"
+
+# テーマとは別のスタイルを当てる
+# custom_css = ["css/custom.css"]
+
+# ページ横断の検索
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
 
 [menu]
+[[menu.shortcuts]]
+name = "<i class='fas fa-tags'></i> Tags"
+url = "/tags"
+weight = 10
 
-  [[menu.main]]
-    name = "Posts"
-    url = "posts/"
-    weight = 10
-
-  [[menu.main]]
-    name = "About"
-    url = "about/"
-    weight = 20
+[[menu.shortcuts]] 
+name = "<i class='fab fa-github'></i> GitHub"
+# identifier = "ds"
+url = "https://github.com/aokiplayer"
+weight = 50

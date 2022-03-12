@@ -7,7 +7,7 @@ categories: [ "Technical" ]
 tags: [ "iOS", "Swift" ]
 ---
 
-# はじめに
+## はじめに
 - Push通知は、使い方によっては非常に効果的です
     - 通知しすぎると、邪魔になってしまいますが
 - ここでは、Push通知の基本的な実装方法を説明します
@@ -15,13 +15,13 @@ tags: [ "iOS", "Swift" ]
     - ローカル通知にも、同じフレームワークを利用します
     - 昔と違って、ひとつのフレームワークで両方に対応できていいですね
 
-# 検証環境
+## 検証環境
 - Xcode 10.2
 - iOS 12.2
 - Swift 5
 - iPod touch 6th generation
 
-# 必要なもの
+## 必要なもの
 - Apple Developer Programのアカウント
     - [Apple Developer](https://developer.apple.com/account/)サイト上で、以下の確認・作成が必要なため
         - Team ID
@@ -42,14 +42,14 @@ tags: [ "iOS", "Swift" ]
         UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}
         ```
 
-# 事前準備（Apple Developerサイト上）
-## Team IDの確認
+## 事前準備（Apple Developerサイト上）
+### Team IDの確認
 1. [Apple Developer](https://developer.apple.com/account/)サイトにログイン
 2. 左側のMembershipを選択して、Membership Detailsに表示されたTeam IDをメモしておく
 
     ![team_id](/images/remotenotification01/team_id.png)
 
-## Authentication Keyの作成とダウンロード
+### Authentication Keyの作成とダウンロード
 1. [Apple Developer](https://developer.apple.com/account/)サイトにログイン
 2. 左側のCertificates, IDs & Profilesを選択
 3. 表示された画面で左側のKeysからAllを選択、右上の+をクリックしてキーを作成
@@ -67,7 +67,7 @@ tags: [ "iOS", "Swift" ]
 
     ![download_key](/images/remotenotification01/download_key.png)
 
-# 主なコンポーネント
+## 主なコンポーネント
 | コンポーネント | 説明 |
 |:--|:--|
 | UNUserNotificationCenter | 通知関連の機能を管理する |
@@ -78,8 +78,8 @@ tags: [ "iOS", "Swift" ]
 | UNMutableNotificationContent | 通知する内容 |
 | UNPushNotificationTrigger | APNsから送信された通知に関するトリガー |
 
-# 実装手順
-## プロジェクトの設定
+## 実装手順
+### プロジェクトの設定
 1. アプリケーションTARGETのSigningから、Teamを選択
     - Apple Developer Programに登録済みのアカウントに紐付いている必要性あり
     - 無料アカウントのTeamでは、Push Notificationが利用できない
@@ -89,7 +89,7 @@ tags: [ "iOS", "Swift" ]
 
     ![capabilities](/images/remotenotification01/capabilities.png)
 
-## プッシュ通知の登録
+### プッシュ通知の登録
 - ここから先は、すべてAppDelegate.swift内に記述します
     - アプリの起動時に処理するのと、`UIApplicationDelegate`のコールバックが必要になるためです
 
@@ -164,7 +164,7 @@ tags: [ "iOS", "Swift" ]
     ```console:コンソール出力例
     Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37
     ```
-# ここまでの実装（AppDelegate.swift）
+## ここまでの実装（AppDelegate.swift）
 
 ```swift:AppDelegate.swift
 import UIKit
@@ -209,7 +209,7 @@ extension AppDelegate {
 }
 ```
 
-# Push通知の受信テスト
+## Push通知の受信テスト
 - Push通知が受信できることをテストしてみます
 - 今回は[onmyway133/PushNotifications](https://github.com/onmyway133/PushNotifications)を利用するので、インストールしておいてください
 
@@ -253,7 +253,7 @@ extension AppDelegate {
 
     ![push_receive](/images/remotenotification01/push_receive.png)
 
-# まとめ
+## まとめ
 - 単純にPush通知を受信して、アプリを開くだけならこれだけの実装で済みます
 - また、以下のような実装も可能です
     - 通知にボタン（アクション）を追加して、タップした際に処理を実行する
@@ -264,7 +264,7 @@ extension AppDelegate {
 - 今回作成したサンプルコードは、GitHubに置きました
     - [aokiplayer/MinimalRemoteNotificationSample](https://github.com/aokiplayer/MinimalRemoteNotificationSample)
 
-# 参考
+## 参考
 - [UserNotifications | Apple Developer Documentation](https://developer.apple.com/documentation/usernotifications)
 - [Push Notifications Tutorial: Getting Started | raywenderlich.com](https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started)
 

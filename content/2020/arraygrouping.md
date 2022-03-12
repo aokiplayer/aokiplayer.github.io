@@ -6,17 +6,17 @@ toc: true
 tags: [ "iOS", "Swift" ]
 ---
 
-# はじめに
+## はじめに
 - テーブルビューやコレクションビューで、グループ化した表示はよく使います
 - その場合、データソースとして二次元配列などを利用すると思います
 - が、データソースが一次元配列だった場合は、少しデータの加工が必要ですよね
 
-# 検証環境
+## 検証環境
 - Xcode 11.5
 - Swift 5.2
 
-# 利用する機能
-## Dictionary(grouping: by:)
+## 利用する機能
+### Dictionary(grouping: by:)
 - ディクショナリのイニシャライザ
 - `grouping`
     - 元データとなる配列
@@ -25,11 +25,11 @@ tags: [ "iOS", "Swift" ]
     - グループ化したディクショナリの key となる値を返す関数
     - 引数は、配列の各要素
 
-# コード例
+## コード例
 - 配列 `[Product]` を、 `Product` の要素である `category`（`Product.Category` 型）ごとにグループ化するサンプル
 - 変換後のディクショナリは `[Product.Category: [Product]]` 型
 
-## サンプルコード
+### サンプルコード
 ```swift:ArrayGrouping.playground
 import Foundation
 
@@ -93,7 +93,7 @@ groupedProducts.forEach {
 }
 ```
 
-## 出力結果
+### 出力結果
 ```zsh:出力結果
 
 Elements of Array
@@ -117,6 +117,6 @@ drink
     [(Water, $12, drink), (Chai, $5, drink), (Coffee, $98, drink)]
 ```
 
-# まとめ
+## まとめ
 - 配列要素を任意のグループにまとめられるので、とても便利ですね
 - 今回のサンプルは [GitHub: aokiplayer/swift-sandbox/ArrayGrouping](https://github.com/aokiplayer/swift-sandbox/tree/master/ArrayGrouping) に置きました
