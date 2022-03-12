@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell Script on Yagamo Style</title>
@@ -6,18 +6,14 @@
     <description>Recent content in Shell Script on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 02 Aug 2019 21:49:24 +0900</lastBuildDate>
-    
-	<atom:link href="https://yagamo-style.com/tags/shell-script/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 02 Aug 2019 21:49:24 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/shell-script/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MACアドレスを取得してファイルに書き出すシェルスクリプト</title>
-      <link>https://yagamo-style.com/posts/getmacaddress/</link>
+      <link>https://yagamo-style.com/2019/getmacaddress/</link>
       <pubDate>Fri, 02 Aug 2019 21:49:24 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/posts/getmacaddress/</guid>
-      <description>はじめに トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります 未認証の</description>
+      <guid>https://yagamo-style.com/2019/getmacaddress/</guid>
+      <description>はじめに  トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります 未認証のデバイスを接続させないため、MACアドレスでフィルタリングを掛ける目的です 手作業で取得するのは辛いので、シェルスクリプトを用意しました あとで集約する際のために、ファイル名にはMacのSerial Numberを付けるようにしました  検証環境  macOS 10.14.6 Mojave  シェルスクリプトの内容 #!/bin/sh  ## GET Serial Number of this Mac SERIAL=`ioreg -l | awk &amp;#39;/IOPlatformSerialNumber/ { if (gsub(/&amp;#34;/, &amp;#34;&amp;#34;)) print $4 }&amp;#39;`  ## Write MAC address of primary WiFi interfce in &amp;#34;{SERIAL NUMBER}.txt&amp;#34; on this user&amp;#39;s Desktop ifconfig en0 ether | awk &amp;#39;/ether/ { print $2 }&amp;#39; &amp;gt; ~/Desktop/${SERIAL}.txt Serial Numberを取得して、変数に代入 SERIAL=`ioreg -l | awk &amp;#39;/IOPlatformSerialNumber/ { if (gsub(/&amp;#34;/, &amp;#34;&amp;#34;)) print $4 }&amp;#39;`  ioregで、ハードウェアデバイスとドライバの情報を取得 awkを利用して、以下の処理を実行  IOPlatformSerialNumberを含む行だけを抽出  　| &amp;quot;IOPlatformSerialNumber&amp;quot; = &amp;quot;C0XXXXXXXXXX&amp;quot;   &amp;quot;を除去する  　| IOPlatformSerialNumber = C0XXXXXXXXXX   スペースで区切った4つ目のフィールドを出力  C0XXXXXXXXXX      WiFiインターフェイスのMACアドレスを取得し、ファイルに書き込み ifconfig en0 ether | awk &amp;#39;/ether/ { print $2 }&amp;#39; &amp;gt; ~/Desktop/${SERIAL}.</description>
     </item>
     
   </channel>

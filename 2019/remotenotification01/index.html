@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="ja" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.94.1" />
+    <meta name="description" content="技術メモとかイベントレポートとか">
+<meta name="author" content="Hiroyuki Aoki">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>iOSにおけるPush通知の基本1（通知の受信まで） :: Yagamo Style</title>
+
+    
+    <link href="/css/nucleus.css?1647090701" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1647090701" rel="stylesheet">
+    <link href="/css/hybrid.css?1647090701" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1647090701" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1647090701" rel="stylesheet">
+    <link href="/css/auto-complete.css?1647090701" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1647090701" rel="stylesheet">
+    <link href="/css/theme.css?1647090701" rel="stylesheet">
+    <link href="/css/tabs.css?1647090701" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1647090701" rel="stylesheet">
+    
+    <link href="/css/theme-blue.css?1647090701" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1647090701"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2019/remotenotification01/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/">
+<img src="/images/logo.png">
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="検索...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1647090701"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1647090701"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/yagamo-style.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1647090701"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2022/" title="2022" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2022/">
+          2022
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2021/" title="2021" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2021/">
+          2021
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2021/codable-container/" title="ネストした JSON をフラットな構造体にマッピングする" class="dd-item ">
+        <a href="/2021/codable-container/">
+        ネストした JSON をフラットな構造体にマッピングする
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2020/" title="2020" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2020/">
+          2020
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/tableview-cell-configure14/" title="iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）" class="dd-item ">
+        <a href="/2020/tableview-cell-configure14/">
+        iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/maps/" title="map と compactMap と flatMap" class="dd-item ">
+        <a href="/2020/maps/">
+        map と compactMap と flatMap
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/dictionary-to-array/" title="ディクショナリからタプルの配列を作成する" class="dd-item ">
+        <a href="/2020/dictionary-to-array/">
+        ディクショナリからタプルの配列を作成する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/arraygrouping/" title="配列要素をグループ化したディクショナリの作成" class="dd-item ">
+        <a href="/2020/arraygrouping/">
+        配列要素をグループ化したディクショナリの作成
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/default-modal-segue-xcode11/" title="iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある" class="dd-item ">
+        <a href="/2020/default-modal-segue-xcode11/">
+        iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2019/" title="2019" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/2019/">
+          2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/swift-exam-impression/" title="Apple の iOS/Swift 認定資格を受験してみた" class="dd-item ">
+        <a href="/2019/swift-exam-impression/">
+        Apple の iOS/Swift 認定資格を受験してみた
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/adopt-under13-xcode11/" title="Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる" class="dd-item ">
+        <a href="/2019/adopt-under13-xcode11/">
+        Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/asr-restore-basic/" title="asr restore による Mac の起動ボリュームのリストア" class="dd-item ">
+        <a href="/2019/asr-restore-basic/">
+        asr restore による Mac の起動ボリュームのリストア
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/iosdc2019day2/" title="iOSDC 2019 に参加してきました" class="dd-item ">
+        <a href="/2019/iosdc2019day2/">
+        iOSDC 2019 に参加してきました
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/iosdc2019day1/" title="iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました" class="dd-item ">
+        <a href="/2019/iosdc2019day1/">
+        iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/iosdc2019pre/" title="iOSDC 2019 に Mac の環境構築の内容で LT 登壇します" class="dd-item ">
+        <a href="/2019/iosdc2019pre/">
+        iOSDC 2019 に Mac の環境構築の内容で LT 登壇します
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/getmacaddress/" title="MACアドレスを取得してファイルに書き出すシェルスクリプト" class="dd-item ">
+        <a href="/2019/getmacaddress/">
+        MACアドレスを取得してファイルに書き出すシェルスクリプト
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/delegate/" title="簡単なdelegateのサンプル" class="dd-item ">
+        <a href="/2019/delegate/">
+        簡単なdelegateのサンプル
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/assetfolder/" title="Asset Catalogで同じ名前の別画像を利用する" class="dd-item ">
+        <a href="/2019/assetfolder/">
+        Asset Catalogで同じ名前の別画像を利用する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/swiftuilist_beta/" title="SwiftUIで一覧表示画面を作成する" class="dd-item ">
+        <a href="/2019/swiftuilist_beta/">
+        SwiftUIで一覧表示画面を作成する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/seguecancel/" title="画面遷移（セグエ）のキャンセル" class="dd-item ">
+        <a href="/2019/seguecancel/">
+        画面遷移（セグエ）のキャンセル
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/remotenotification02/" title="iOSにおけるPush通知の基本2（受信した通知の内容取得）" class="dd-item ">
+        <a href="/2019/remotenotification02/">
+        iOSにおけるPush通知の基本2（受信した通知の内容取得）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/viewcontrollerlifecycle/" title="UIViewControllerのライフサイクルメソッド" class="dd-item ">
+        <a href="/2019/viewcontrollerlifecycle/">
+        UIViewControllerのライフサイクルメソッド
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/remotenotification01/" title="iOSにおけるPush通知の基本1（通知の受信まで）" class="dd-item active">
+        <a href="/2019/remotenotification01/">
+        iOSにおけるPush通知の基本1（通知の受信まで）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/tryswifttokyo2019/" title="try! Swift Tokyo 2019 感想など" class="dd-item ">
+        <a href="/2019/tryswifttokyo2019/">
+        try! Swift Tokyo 2019 感想など
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2018/" title="2018" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2018/">
+          2018
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2018/iosdc2018/" title="iOSDC 2018 感想など" class="dd-item ">
+        <a href="/2018/iosdc2018/">
+        iOSDC 2018 感想など
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://yagamo-style.com/tags"><i class='fas fa-tags'></i> Tags</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/aokiplayer"><i class='fab fa-github'></i> GitHub</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Yagamo Style</a> > <a href='/2019/'>2019</a> > iOSにおけるPush通知の基本1（通知の受信まで）
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#検証環境">検証環境</a></li>
+    <li><a href="#必要なもの">必要なもの</a></li>
+    <li><a href="#事前準備apple-developerサイト上">事前準備（Apple Developerサイト上）</a>
+      <ul>
+        <li><a href="#team-idの確認">Team IDの確認</a></li>
+        <li><a href="#authentication-keyの作成とダウンロード">Authentication Keyの作成とダウンロード</a></li>
+      </ul>
+    </li>
+    <li><a href="#主なコンポーネント">主なコンポーネント</a></li>
+    <li><a href="#実装手順">実装手順</a>
+      <ul>
+        <li><a href="#プロジェクトの設定">プロジェクトの設定</a></li>
+        <li><a href="#プッシュ通知の登録">プッシュ通知の登録</a></li>
+      </ul>
+    </li>
+    <li><a href="#ここまでの実装appdelegateswift">ここまでの実装（AppDelegate.swift）</a></li>
+    <li><a href="#push通知の受信テスト">Push通知の受信テスト</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/ios">iOS</a>
+
+  <a class="tag-link" href="/tags/swift">Swift</a>
+
+</div>
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              iOSにおけるPush通知の基本1（通知の受信まで）
+            </h1>
+          
+
+        
+
+
+<h2 id="はじめに">はじめに</h2>
+<ul>
+<li>Push通知は、使い方によっては非常に効果的です
+<ul>
+<li>通知しすぎると、邪魔になってしまいますが</li>
+</ul>
+</li>
+<li>ここでは、Push通知の基本的な実装方法を説明します</li>
+<li>Push通知の実装には、UserNotificationsフレームワークを利用します
+<ul>
+<li>ローカル通知にも、同じフレームワークを利用します</li>
+<li>昔と違って、ひとつのフレームワークで両方に対応できていいですね</li>
+</ul>
+</li>
+</ul>
+<h2 id="検証環境">検証環境</h2>
+<ul>
+<li>Xcode 10.2</li>
+<li>iOS 12.2</li>
+<li>Swift 5</li>
+<li>iPod touch 6th generation</li>
+</ul>
+<h2 id="必要なもの">必要なもの</h2>
+<ul>
+<li>Apple Developer Programのアカウント
+<ul>
+<li><a href="https://developer.apple.com/account/">Apple Developer</a>サイト上で、以下の確認・作成が必要なため
+<ul>
+<li>Team ID</li>
+<li>Authentication Key</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>APNs（Apple Push Notification Service）に対応した、Push通知を送信するサーバ
+<ul>
+<li><a href="https://firebase.google.com/">Firebase</a>とか<a href="https://azure.microsoft.com/">Microsoft Azure</a>とか、いろいろなサービスが対応してます</li>
+<li>テストするだけなら、APNsに対応したいろいろなツールがあります
+<ul>
+<li><a href="https://github.com/Dwarven/PushMeBaby">Dwarven/PushMeBaby</a></li>
+<li><a href="https://github.com/onmyway133/PushNotifications">onmyway133/PushNotifications</a></li>
+</ul>
+</li>
+<li>APNsは、その名のとおりAppleのPush通知サービスです
+<ul>
+<li>Push通知の送信は、必ずこのサービスを経由します</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>iPhoneやiPadなどの実デバイス
+<ul>
+<li>
+<p>シミュレータではPush通知が利用できないため</p>
+</li>
+<li>
+<p>シミュレータでPush通知の登録をしようとすると、コンソールに以下のようなメッセージが出力されます</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Failed to register: Error Domain=NSCocoaErrorDomain Code=3010 &#34;remote notifications are not supported in the simulator&#34; 
+</span></span><span style="display:flex;"><span>UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="事前準備apple-developerサイト上">事前準備（Apple Developerサイト上）</h2>
+<h3 id="team-idの確認">Team IDの確認</h3>
+<ol>
+<li>
+<p><a href="https://developer.apple.com/account/">Apple Developer</a>サイトにログイン</p>
+</li>
+<li>
+<p>左側のMembershipを選択して、Membership Detailsに表示されたTeam IDをメモしておく</p>
+<p><img src="/images/remotenotification01/team_id.png" alt="team_id"></p>
+</li>
+</ol>
+<h3 id="authentication-keyの作成とダウンロード">Authentication Keyの作成とダウンロード</h3>
+<ol>
+<li>
+<p><a href="https://developer.apple.com/account/">Apple Developer</a>サイトにログイン</p>
+</li>
+<li>
+<p>左側のCertificates, IDs &amp; Profilesを選択</p>
+</li>
+<li>
+<p>表示された画面で左側のKeysからAllを選択、右上の+をクリックしてキーを作成</p>
+<ul>
+<li>Nameには、キーに設定する任意の名前を入力</li>
+<li>Apple Push Notification service (APNs)にチェック</li>
+</ul>
+<p><img src="/images/remotenotification01/create_key.png" alt="create_key"></p>
+</li>
+<li>
+<p>作成したら、Downloadをクリックしてキーをダウンロード</p>
+<ul>
+<li><strong>キーは一度しかダウンロードできません。セキュアな場所に確実に保存してください</strong></li>
+<li>このキーは、Push通知を行うサーバに設定する</li>
+<li>キーは、<code>AuthKey_XXXXXXXXXX.p8</code>という名前でダウンロードされる</li>
+<li><code>XXXXXXXXXX</code>の部分がKey ID</li>
+<li>Key IDもメモしておく</li>
+</ul>
+<p><img src="/images/remotenotification01/download_key.png" alt="download_key"></p>
+</li>
+</ol>
+<h2 id="主なコンポーネント">主なコンポーネント</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">コンポーネント</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">UNUserNotificationCenter</td>
+<td style="text-align:left">通知関連の機能を管理する</td>
+</tr>
+<tr>
+<td style="text-align:left">UNNotificationRequest</td>
+<td style="text-align:left">通知の内容や、配送のトリガーを内包する</td>
+</tr>
+<tr>
+<td style="text-align:left">UNNotificationAction</td>
+<td style="text-align:left">通知内で表示されるボタン</td>
+</tr>
+<tr>
+<td style="text-align:left">UNNotificationCategory</td>
+<td style="text-align:left">通知の方法や表示されるアクションの設定をまとめたもの</td>
+</tr>
+<tr>
+<td style="text-align:left">UNNotificationSettings</td>
+<td style="text-align:left">通知の設定情報を保持</td>
+</tr>
+<tr>
+<td style="text-align:left">UNMutableNotificationContent</td>
+<td style="text-align:left">通知する内容</td>
+</tr>
+<tr>
+<td style="text-align:left">UNPushNotificationTrigger</td>
+<td style="text-align:left">APNsから送信された通知に関するトリガー</td>
+</tr>
+</tbody>
+</table>
+<h2 id="実装手順">実装手順</h2>
+<h3 id="プロジェクトの設定">プロジェクトの設定</h3>
+<ol>
+<li>
+<p>アプリケーションTARGETのSigningから、Teamを選択</p>
+<ul>
+<li>Apple Developer Programに登録済みのアカウントに紐付いている必要性あり</li>
+<li>無料アカウントのTeamでは、Push Notificationが利用できない</li>
+</ul>
+<p><img src="/images/remotenotification01/signing_team.png" alt="signing_team"></p>
+</li>
+<li>
+<p>アプリケーションTARGETのCapabilitiesから、Push NotificationsをONにする</p>
+<p><img src="/images/remotenotification01/capabilities.png" alt="capabilities"></p>
+</li>
+</ol>
+<h3 id="プッシュ通知の登録">プッシュ通知の登録</h3>
+<ul>
+<li>ここから先は、すべてAppDelegate.swift内に記述します
+<ul>
+<li>アプリの起動時に処理するのと、<code>UIApplicationDelegate</code>のコールバックが必要になるためです</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>
+<p>UserNotificationsフレームワークを利用するので、インポート</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UserNotifications</span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 01. import</span>
+</span></span></code></pre></div></li>
+<li>
+<p>ユーザに対して、通知の許可依頼を行う</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication,
+</span></span><span style="display:flex;"><span>                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 02. request to user</span>
+</span></span><span style="display:flex;"><span>    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> granted <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 〜省略〜</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>ユーザが通知を許可していた場合は、APNsへ登録</p>
+<ul>
+<li>
+<p>**「どのデバイスにインストールされたどのアプリか」**を登録する</p>
+</li>
+<li>
+<p>これにより、APNsは対象を特定して通知を発行できるようになる</p>
+</li>
+<li>
+<p>この結果として、一意に識別するトークンが返される</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 02. request to user</span>
+</span></span><span style="display:flex;"><span>UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">guard</span> granted <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 03. register to APNs</span>
+</span></span><span style="display:flex;"><span>    DispatchQueue.main.async {
+</span></span><span style="display:flex;"><span>        UIApplication.shared.registerForRemoteNotifications()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>APNsへの登録後に呼び出されるコールバックを実装（<code>UIApplicationDelegate</code>のメソッド）</p>
+<ul>
+<li>成功時: <code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>
+<ul>
+<li>先述したトークンは第2引数に渡される</li>
+<li>このトークンを、Push通知を送信するサービスに登録する必要がある
+<ul>
+<li>今回はテストとしてmacOS上のプログラムからPush通知を送信するので、トークンをログ出力しておく</li>
+<li>外部のサービスへトークンを登録する方法は、各サービスのドキュメントを参照してください</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>失敗時: <code>application(_:didFailToRegisterForRemoteNotificationsWithError:)</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Callback for Remote Notification</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">AppDelegate</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 04-1. succeeded to register to APNs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication,
+</span></span><span style="display:flex;"><span>                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Data -&gt; Token string</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> tokenBytes = deviceToken.map { (byte: UInt8) <span style="color:#66d9ef">in</span> String(format: <span style="color:#e6db74">&#34;%02.2hhx&#34;</span>, byte) }
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Device token: </span><span style="color:#e6db74">\(</span>tokenBytes.joined<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> failed to register to APNs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication,
+</span></span><span style="display:flex;"><span>                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Failed to register to APNs: </span><span style="color:#e6db74">\(</span>error<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます</p>
+<ul>
+<li>もちろん、実運用上はこの手順は不要です</li>
+<li>実際には、<code>application(_:didRegisterForRemoteNotificationsWithDeviceToken:)</code>内で外部サービスにトークンを登録する処理が必要になります</li>
+</ul>
+<pre tabindex="0"><code class="language-console:コンソール出力例" data-lang="console:コンソール出力例">Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37
+</code></pre></li>
+</ol>
+<h2 id="ここまでの実装appdelegateswift">ここまでの実装（AppDelegate.swift）</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UserNotifications</span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 01. import</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">@UIApplicationMain</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppDelegate</span>: UIResponder, UIApplicationDelegate {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> window: UIWindow?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication,
+</span></span><span style="display:flex;"><span>                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 02. request to user</span>
+</span></span><span style="display:flex;"><span>        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">guard</span> granted <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 03. register to APNs</span>
+</span></span><span style="display:flex;"><span>            DispatchQueue.main.async {
+</span></span><span style="display:flex;"><span>                UIApplication.shared.registerForRemoteNotifications()
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Callback for Remote Notification</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">AppDelegate</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 04-1. succeeded to register to APNs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication,
+</span></span><span style="display:flex;"><span>                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Data -&gt; Token string</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> tokenBytes = deviceToken.map { (byte: UInt8) <span style="color:#66d9ef">in</span> String(format: <span style="color:#e6db74">&#34;%02.2hhx&#34;</span>, byte) }
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Device token: </span><span style="color:#e6db74">\(</span>tokenBytes.joined<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> failed to register to APNs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication,
+</span></span><span style="display:flex;"><span>                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Failed to register to APNs: </span><span style="color:#e6db74">\(</span>error<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="push通知の受信テスト">Push通知の受信テスト</h2>
+<ul>
+<li>Push通知が受信できることをテストしてみます</li>
+<li>今回は<a href="https://github.com/onmyway133/PushNotifications">onmyway133/PushNotifications</a>を利用するので、インストールしておいてください</li>
+</ul>
+<ol>
+<li>
+<p>Push通知の送信準備（PushNotificationsアプリ）</p>
+<p><img src="/images/remotenotification01/push_tool.png" alt="push_tool"></p>
+</li>
+<li>
+<p>iOSを選択</p>
+<ul>
+<li>
+<p>Authentication -&gt; TOKEN</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">項目</th>
+<th style="text-align:left">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SELECT P8</td>
+<td style="text-align:left">ダウンロードしておいたAuthentication Keyを選択</td>
+</tr>
+<tr>
+<td style="text-align:left">Enter key id</td>
+<td style="text-align:left">メモしておいたKey IDを入力</td>
+</tr>
+<tr>
+<td style="text-align:left">Enter team id</td>
+<td style="text-align:left">メモしておいたTeam IDを入力</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Body</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">項目</th>
+<th style="text-align:left">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Enter bundle id</td>
+<td style="text-align:left">アプリのBundle Identifierを入力</td>
+</tr>
+<tr>
+<td style="text-align:left">Enter device token</td>
+<td style="text-align:left">メモしておいたトークンを入力</td>
+</tr>
+<tr>
+<td style="text-align:left">Enter message</td>
+<td style="text-align:left">Push通知のメッセージとなるJSONを入力</td>
+</tr>
+</tbody>
+</table>
+<pre tabindex="0"><code class="language-json:JSON" data-lang="json:JSON">{
+    &#34;aps&#34;: {
+        &#34;alert&#34;: &#34;Minimal message&#34;,
+        &#34;sound&#34;: &#34;default&#34;
+    }
+}
+</code></pre></li>
+<li>
+<p>Environment</p>
+<ul>
+<li>Sandboxにチェック</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Push通知の送信</p>
+<ul>
+<li>Sendボタンをクリックすると、Push通知が送信されます</li>
+</ul>
+</li>
+<li>
+<p>Push通知の受信確認</p>
+<ul>
+<li>通知は、アプリが表示されていない状態（以下の状態）で受信した場合に表示されます
+<ul>
+<li>アプリが起動していて、Backgroud状態</li>
+<li>アプリが起動していない</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/remotenotification01/push_receive.png" alt="push_receive"></p>
+</li>
+</ol>
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>単純にPush通知を受信して、アプリを開くだけならこれだけの実装で済みます</li>
+<li>また、以下のような実装も可能です
+<ul>
+<li>通知にボタン（アクション）を追加して、タップした際に処理を実行する</li>
+<li>アプリが起動していない状態でも、アプリを起こしてタスクをバックグラウンドで実行させる</li>
+</ul>
+</li>
+<li>通知にはUserNotificationsフレームワークを利用するので、以下の点を除いてローカル通知もほぼ同様の実装で受信できます
+<ul>
+<li>APNsへの登録がない（デバイスの中で完結するため）</li>
+<li>通知を送信する処理の実装が必要</li>
+</ul>
+</li>
+<li>今回作成したサンプルコードは、GitHubに置きました
+<ul>
+<li><a href="https://github.com/aokiplayer/MinimalRemoteNotificationSample">aokiplayer/MinimalRemoteNotificationSample</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://developer.apple.com/documentation/usernotifications">UserNotifications | Apple Developer Documentation</a></li>
+<li><a href="https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started">Push Notifications Tutorial: Getting Started | raywenderlich.com</a></li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1647090702"></script>
+    <script src="/js/perfect-scrollbar.min.js?1647090702"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1647090702"></script>
+    <script src="/js/jquery.sticky.js?1647090702"></script>
+    <script src="/js/featherlight.min.js?1647090702"></script>
+    <script src="/js/highlight.pack.js?1647090702"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1647090702"></script>
+    <script src="/js/learn.js?1647090702"></script>
+    <script src="/js/hugo-learn.js?1647090702"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

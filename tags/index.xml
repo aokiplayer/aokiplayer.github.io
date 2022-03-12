@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Yagamo Style</title>
@@ -6,10 +6,15 @@
     <description>Recent content in Tags on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 08 Mar 2021 10:17:14 +0900</lastBuildDate>
-    
-	<atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 08 Mar 2021 10:17:14 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS</title>
+      <link>https://yagamo-style.com/tags/ios/</link>
+      <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/ios/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Swift</title>
@@ -17,15 +22,6 @@
       <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/swift/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOS</title>
-      <link>https://yagamo-style.com/tags/ios/</link>
-      <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/ios/</guid>
       <description></description>
     </item>
     
@@ -84,20 +80,20 @@
     </item>
     
     <item>
-      <title>Profile</title>
-      <link>https://yagamo-style.com/tags/profile/</link>
-      <pubDate>Mon, 17 Jun 2019 09:30:59 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/profile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>SwiftUI</title>
       <link>https://yagamo-style.com/tags/swiftui/</link>
       <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/swiftui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>try! Swift</title>
+      <link>https://yagamo-style.com/tags/try-swift/</link>
+      <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/try-swift/</guid>
       <description></description>
     </item>
     

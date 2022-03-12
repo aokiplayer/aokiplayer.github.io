@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>try! Swift on Yagamo Style</title>
@@ -6,18 +6,16 @@
     <description>Recent content in try! Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 17 Apr 2019 19:16:50 +0900</lastBuildDate>
-    
-	<atom:link href="https://yagamo-style.com/tags/try-swift/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 17 Apr 2019 19:16:50 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/try-swift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>try! Swift Tokyo 2019 感想など</title>
-      <link>https://yagamo-style.com/posts/tryswifttokyo2019/</link>
+      <link>https://yagamo-style.com/2019/tryswifttokyo2019/</link>
       <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/posts/tryswifttokyo2019/</guid>
-      <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。 だ</description>
+      <guid>https://yagamo-style.com/2019/tryswifttokyo2019/</guid>
+      <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。
+だいぶ時間が経ってしまったけど、感想を少し書いてみます。
+公式サイト、ハッシュタグなど  https://www.tryswift.co/events/2019/tokyo/jp/ @tryswiftconf #tryswiftconf  ここが良かった スポンサーとして 知名度が少し上がってきた  Java 系ではそれなりに知名度がある弊社ですが、モバイル系のカンファレンスに継続して参加することでこちらでも知名度が少しずつ上がってきました。 いろいろな方から、声を掛けて頂けました。  商品をお見せするのが大事  今回はマーケティングチームのアイディアで、主に私の執筆したトレーニングテキストのサンプルを展示しました。 実際に手に取ってご覧頂くことで、以下の効果が得られました。  弊社の業務やトレーニング内容をイメージ頂けた -&amp;gt; 参加者の皆様との会話のきっかけとなった たくさんのご意見を頂けた  「市販書籍よりもわかりやすい」「ここに書いてるのよりも、こっちのライブラリを使ったほうがいい」 「テキストを売って欲しい」「現場に出る前の教育に使いたい」      エンジニアとして 世界的なエンジニアに直接聞ける  私は IBM Kitura を使い始めているのですが、せっかく Kitura の開発チームが来日されていたので、うまくいかない点を思い切って質問してみました。  その上で、Kituraのドキュメント自体に誤りがあることなどを発見できました。 &amp;lt;- 貢献できた！   セッション自体はあとで動画がアップロードされますが、質問はその場でしかできないので、貴重な経験でした。 英語は、できなくてもこわくないです（もちろん、できた方がいいけど）。  言いたいことがはっきりしていれば、文法を多少誤っていたり単語が出てこなかったりしても伝わります。 カンファレンス前日の Global Communication Workshop for try! Swift で、背中を押してもらえた気がします。    今後に向けて  個人・企業ともスポンサーは続けていきたいです。 参加して良かった！で終わらせない。今は IBM Kitura ブースで頂いた本（抽選に当たりました）も使いながら Kitura を学習してます。  </description>
     </item>
     
   </channel>

@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="ja" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.94.1" />
+    <meta name="description" content="技術メモとかイベントレポートとか">
+<meta name="author" content="Hiroyuki Aoki">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Apple の iOS/Swift 認定資格を受験してみた :: Yagamo Style</title>
+
+    
+    <link href="/css/nucleus.css?1647090701" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1647090701" rel="stylesheet">
+    <link href="/css/hybrid.css?1647090701" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1647090701" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1647090701" rel="stylesheet">
+    <link href="/css/auto-complete.css?1647090701" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1647090701" rel="stylesheet">
+    <link href="/css/theme.css?1647090701" rel="stylesheet">
+    <link href="/css/tabs.css?1647090701" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1647090701" rel="stylesheet">
+    
+    <link href="/css/theme-blue.css?1647090701" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1647090701"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2019/swift-exam-impression/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/">
+<img src="/images/logo.png">
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="検索...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1647090701"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1647090701"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/yagamo-style.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1647090701"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2022/" title="2022" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2022/">
+          2022
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2021/" title="2021" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2021/">
+          2021
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2021/codable-container/" title="ネストした JSON をフラットな構造体にマッピングする" class="dd-item ">
+        <a href="/2021/codable-container/">
+        ネストした JSON をフラットな構造体にマッピングする
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2020/" title="2020" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2020/">
+          2020
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/tableview-cell-configure14/" title="iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）" class="dd-item ">
+        <a href="/2020/tableview-cell-configure14/">
+        iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/maps/" title="map と compactMap と flatMap" class="dd-item ">
+        <a href="/2020/maps/">
+        map と compactMap と flatMap
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/dictionary-to-array/" title="ディクショナリからタプルの配列を作成する" class="dd-item ">
+        <a href="/2020/dictionary-to-array/">
+        ディクショナリからタプルの配列を作成する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/arraygrouping/" title="配列要素をグループ化したディクショナリの作成" class="dd-item ">
+        <a href="/2020/arraygrouping/">
+        配列要素をグループ化したディクショナリの作成
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/default-modal-segue-xcode11/" title="iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある" class="dd-item ">
+        <a href="/2020/default-modal-segue-xcode11/">
+        iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2019/" title="2019" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/2019/">
+          2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/swift-exam-impression/" title="Apple の iOS/Swift 認定資格を受験してみた" class="dd-item active">
+        <a href="/2019/swift-exam-impression/">
+        Apple の iOS/Swift 認定資格を受験してみた
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/adopt-under13-xcode11/" title="Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる" class="dd-item ">
+        <a href="/2019/adopt-under13-xcode11/">
+        Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/asr-restore-basic/" title="asr restore による Mac の起動ボリュームのリストア" class="dd-item ">
+        <a href="/2019/asr-restore-basic/">
+        asr restore による Mac の起動ボリュームのリストア
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/iosdc2019day2/" title="iOSDC 2019 に参加してきました" class="dd-item ">
+        <a href="/2019/iosdc2019day2/">
+        iOSDC 2019 に参加してきました
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/iosdc2019day1/" title="iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました" class="dd-item ">
+        <a href="/2019/iosdc2019day1/">
+        iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/iosdc2019pre/" title="iOSDC 2019 に Mac の環境構築の内容で LT 登壇します" class="dd-item ">
+        <a href="/2019/iosdc2019pre/">
+        iOSDC 2019 に Mac の環境構築の内容で LT 登壇します
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/getmacaddress/" title="MACアドレスを取得してファイルに書き出すシェルスクリプト" class="dd-item ">
+        <a href="/2019/getmacaddress/">
+        MACアドレスを取得してファイルに書き出すシェルスクリプト
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/delegate/" title="簡単なdelegateのサンプル" class="dd-item ">
+        <a href="/2019/delegate/">
+        簡単なdelegateのサンプル
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/assetfolder/" title="Asset Catalogで同じ名前の別画像を利用する" class="dd-item ">
+        <a href="/2019/assetfolder/">
+        Asset Catalogで同じ名前の別画像を利用する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/swiftuilist_beta/" title="SwiftUIで一覧表示画面を作成する" class="dd-item ">
+        <a href="/2019/swiftuilist_beta/">
+        SwiftUIで一覧表示画面を作成する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/seguecancel/" title="画面遷移（セグエ）のキャンセル" class="dd-item ">
+        <a href="/2019/seguecancel/">
+        画面遷移（セグエ）のキャンセル
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/remotenotification02/" title="iOSにおけるPush通知の基本2（受信した通知の内容取得）" class="dd-item ">
+        <a href="/2019/remotenotification02/">
+        iOSにおけるPush通知の基本2（受信した通知の内容取得）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/viewcontrollerlifecycle/" title="UIViewControllerのライフサイクルメソッド" class="dd-item ">
+        <a href="/2019/viewcontrollerlifecycle/">
+        UIViewControllerのライフサイクルメソッド
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/remotenotification01/" title="iOSにおけるPush通知の基本1（通知の受信まで）" class="dd-item ">
+        <a href="/2019/remotenotification01/">
+        iOSにおけるPush通知の基本1（通知の受信まで）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/tryswifttokyo2019/" title="try! Swift Tokyo 2019 感想など" class="dd-item ">
+        <a href="/2019/tryswifttokyo2019/">
+        try! Swift Tokyo 2019 感想など
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2018/" title="2018" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2018/">
+          2018
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2018/iosdc2018/" title="iOSDC 2018 感想など" class="dd-item ">
+        <a href="/2018/iosdc2018/">
+        iOSDC 2018 感想など
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://yagamo-style.com/tags"><i class='fas fa-tags'></i> Tags</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/aokiplayer"><i class='fab fa-github'></i> GitHub</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Yagamo Style</a> > <a href='/2019/'>2019</a> > Apple の iOS/Swift 認定資格を受験してみた
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#試験の概要">試験の概要</a>
+      <ul>
+        <li><a href="#名称">名称</a></li>
+        <li><a href="#試験の範囲">試験の範囲</a></li>
+        <li><a href="#出題数時間">出題数/時間</a></li>
+        <li><a href="#受験料">受験料</a></li>
+      </ul>
+    </li>
+    <li><a href="#想定されるターゲット層">想定されるターゲット層</a></li>
+    <li><a href="#試験の形式">試験の形式</a>
+      <ul>
+        <li><a href="#試験の言語">試験の言語</a></li>
+        <li><a href="#出題形式">出題形式</a></li>
+        <li><a href="#出題の傾向">出題の傾向</a></li>
+      </ul>
+    </li>
+    <li><a href="#感想">感想</a>
+      <ul>
+        <li><a href="#英語での出題に関して">英語での出題に関して</a></li>
+        <li><a href="#難易度">難易度</a></li>
+        <li><a href="#出題範囲">出題範囲</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/ios">iOS</a>
+
+  <a class="tag-link" href="/tags/swift">Swift</a>
+
+  <a class="tag-link" href="/tags/apple">Apple</a>
+
+  <a class="tag-link" href="/tags/certification">Certification</a>
+
+</div>
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Apple の iOS/Swift 認定資格を受験してみた
+            </h1>
+          
+
+        
+
+
+<p>2018 年 11 月 26 日の Apple の Newsroom 記事 <a href="https://www.apple.com/jp/newsroom/2018/11/apple-brings-coding-education-to-more-students-for-computer-science-education-week/">Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本)</a> で述べられているように、 Apple は主に学生をターゲットとした iOS および Swift の認定資格をリリースしました。</p>
+<blockquote>
+<p>このカリキュラムを履修した学生は、Swiftについての知識、アプリケーション開発ツール、アプリケーションのコアコンポーネントの知識について認定を受けることもできます。App Development with Swift Level 1認定試験は、世界中のCertiport認定試験センターを通じて実施されます。</p>
+</blockquote>
+<p>日本ではこれまで試験が配信されていませんでしたが、約 1 年後の 2019 年 12 月 10 日から、 Certiport の代理店である <a href="https://www.odyssey-com.co.jp/">オデッセイ コミュニケーションズ</a> から配信が開始されました。</p>
+<p>配信開始日の一番早い時間に受験し、日本での認定第一号として合格してきました。
+興味のある方もいらっしゃると思うので、 NDA に抵触しない程度に感想などをまとめてみます。</p>
+<p>なお、この記事は日本でのリリース当初（2019 年 12 月 10 日）の情報です。
+今後のアップデートで、変わる可能性がありますのでご注意ください。</p>
+<h2 id="試験の概要">試験の概要</h2>
+<p>詳しくは、<a href="https://www.odyssey-com.co.jp/app-dev-with-swift/">公式サイト</a>をご覧ください。</p>
+<h3 id="名称">名称</h3>
+<p>App Development with Swfit Level 1</p>
+<h3 id="試験の範囲">試験の範囲</h3>
+<p><a href="https://books.apple.com/jp/book/id1219117996">App Development with Swift</a>  の内容</p>
+<h3 id="出題数時間">出題数/時間</h3>
+<p>45 問/50 分</p>
+<h3 id="受験料">受験料</h3>
+<p>一般 ¥9,800, 学生 ¥7,800</p>
+<h2 id="想定されるターゲット層">想定されるターゲット層</h2>
+<p>試験は、主に学生向けのプログラミング学習コンテンツ Everyone Can Code の 1 つとして Apple がリリースしている電子書籍 <a href="https://books.apple.com/jp/book/id1219117996">App Development with Swift</a> に沿った内容です。
+ですので、主なターゲットは学生のようです。
+受験料も、学生向けには低く設定されています。</p>
+<h2 id="試験の形式">試験の形式</h2>
+<h3 id="試験の言語">試験の言語</h3>
+<p>試験は、全て英語で出題されます。
+日本語での提供は、現時点では考えていないとのことでした。</p>
+<h3 id="出題形式">出題形式</h3>
+<p>基本的に、一般的なオンライン形式の IT 系試験と同じです。
+以下のパターンがあります。</p>
+<ul>
+<li>多岐選択式</li>
+<li>選択肢を回答欄にドラッグ</li>
+<li>画像の対象部分をクリックしてマーク</li>
+<li>キーワードを入力</li>
+</ul>
+<h3 id="出題の傾向">出題の傾向</h3>
+<h4 id="基本を押さえていれば解ける文法">基本を押さえていれば解ける文法</h4>
+<p>利用頻度がそれほど高くないものや、フレームワークを作るような人であれば使うが一般の開発者が使う頻度は低いようなもの、などは出題されません。
+よく使うもので、かつ最低限の文法を押さえていれば迷わず解けるものばかりです。</p>
+<h4 id="xcode-の画面構成の把握">Xcode の画面構成の把握</h4>
+<p>iOS アプリの開発では、 Xcode を利用することが必須です。
+そのためなのか、 Xcode のどこからどんな機能が利用できるのか？ということを問われます。</p>
+<p>ただし、受験時の最新であった Xcode 11 ではなかったです。
+おそらく、 電子書籍（現時点では Xcode 10  対応）のバージョンに合わせているのだと思われます。</p>
+<h2 id="感想">感想</h2>
+<h3 id="英語での出題に関して">英語での出題に関して</h3>
+<p>Twitter で見ていると「試験が英語だから心配」との声が聞こえてきます。
+が、私が受験した感じでは「全く問題ない」です。</p>
+<p>英語とはいえ、「正しい選択肢を選べ」「画面の正しい位置をクリックしてマークしろ」「ドラッグして選択肢を空欄に入れろ」程度です。
+あとは Swift や iOS に関する技術用語なので、それはわかるはずです（わからないなら、日本語でも合格できないです）。</p>
+<blockquote>
+<p>参考までに、私が以前に一度だけ受けた TOEIC のスコアは 280 点です（Writing: 140, Speaking:140）😑</p>
+</blockquote>
+<h3 id="難易度">難易度</h3>
+<p>難易度は決して高くないです。
+意地悪な問題は出ないので、 iOS アプリの開発をすでに行っている方であれば、問題なく合格できると思います。
+そうでなくても、入門書を 1 冊こなしていれば十分でしょう。</p>
+<p>ロジックをじっくり追うような問題はほとんど出ないので、時間も余裕があります。
+私は大体 20 分ちょっとで解き終わり、 10 分くらいで見直して終了しました。
+「英語を読むのがちょっと遅い」という方でも、時間は十分だと思います。</p>
+<h3 id="出題範囲">出題範囲</h3>
+<p><a href="https://books.apple.com/jp/book/id1219117996">App Development with Swift</a>  の範囲なので、広くはないです。
+携わっているアプリによっては、この本の中で使ってない機能などもあるかと思います。
+そこだけキャッチアップしておくと良いかな、と思います。</p>
+<p>例えば、以下の API や機能などは上記の電子書籍で扱っています。</p>
+<ul>
+<li>UITableViewController</li>
+<li>UIAlertController</li>
+<li>UIImagePickerController</li>
+<li>UIActivityViewController</li>
+<li>SFSafariViewController</li>
+<li>MFMailComposeViewController</li>
+<li>MFMessageComposeViewController</li>
+<li>JSONSerialization</li>
+<li>Codable</li>
+<li>JSONDecoder, JSONEncoder</li>
+<li>PropertyListEncoder, PropertyListDecoder</li>
+<li>FileManager</li>
+<li>URLSession</li>
+<li>NotificationCenter</li>
+</ul>
+<p>また、ビューコントローラの各ライフサイクルメソッドで何をするべきか、だったり Auto Layout の基本なども確認しておくと良いでしょう。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>この試験は難易度的に「エンジニアの能力の証明」よりも「学び始めの人が基本を確認」するような用途に向いていると思います。
+<a href="https://books.apple.com/jp/book/id1219117996">App Development with Swift</a> のコンテンツは、思った以上に役に立つ内容が詰まっています。</p>
+<p>「開発には入っているけど、基本の抜けがないか心配」という方は、一度目を通してみると良いでしょう。
+その上で、せっかくなので試験も受けてみてはいかがでしょうか？</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1647090701"></script>
+    <script src="/js/perfect-scrollbar.min.js?1647090701"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1647090701"></script>
+    <script src="/js/jquery.sticky.js?1647090701"></script>
+    <script src="/js/featherlight.min.js?1647090701"></script>
+    <script src="/js/highlight.pack.js?1647090701"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1647090701"></script>
+    <script src="/js/learn.js?1647090701"></script>
+    <script src="/js/hugo-learn.js?1647090701"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SwiftUI on Yagamo Style</title>
@@ -6,18 +6,14 @@
     <description>Recent content in SwiftUI on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 14 Jun 2019 13:16:59 +0900</lastBuildDate>
-    
-	<atom:link href="https://yagamo-style.com/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 14 Jun 2019 13:16:59 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SwiftUIで一覧表示画面を作成する</title>
-      <link>https://yagamo-style.com/posts/swiftuilist_beta/</link>
+      <link>https://yagamo-style.com/2019/swiftuilist_beta/</link>
       <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/posts/swiftuilist_beta/</guid>
-      <description>はじめに WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます 検証環境 macOS 10.15 Catalina</description>
+      <guid>https://yagamo-style.com/2019/swiftuilist_beta/</guid>
+      <description>はじめに  WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます  検証環境  macOS 10.15 Catalina beta Xcode 11 beta iOS 13 beta Swift 5.1 iPad Pro 10.5 inch  ストーリーボードは？  これまで、レイアウトは基本的にストーリーボードで行ってきました ストーリーボードは決して悪いものではなく、まず画面の作成を始める際にはとても扱いやすいです ただし、ビューの数が増えたり、複雑なレイアウトをしようとすると非常に管理が難しいのも事実です  コードでレイアウトを行うSwiftUI  Flutterなどでは、画面をコード上で宣言的に記述できます 最近は、この形式をとるものが増えています SwiftUIも、コードから宣言的なレイアウトを行います これまでもコードのみで画面を作成できましたが、以下のような問題を抱えていました  プレビューの方法がないため、ビルドして実行しないと確認できない 手続的に記述するため、実際のレイアウトがイメージしにくい    SwiftUIで作成した一覧画面のサンプル 画面イメージ 実装ファイル  実装したのは、以下のファイルです     ファイル 説明     FoodModel.swift 表の1行分を表すデータモデル   FoodDataSource.swift 表示するデータを提供する   FoodRow.swift 表の各行を表すビュー。FoodListから利用される   FoodList.</description>
     </item>
     
   </channel>

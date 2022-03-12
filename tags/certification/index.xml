@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Certification on Yagamo Style</title>
@@ -6,18 +6,21 @@
     <description>Recent content in Certification on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate>
-    
-	<atom:link href="https://yagamo-style.com/tags/certification/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/certification/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apple の iOS/Swift 認定資格を受験してみた</title>
-      <link>https://yagamo-style.com/posts/swift-exam-impression/</link>
+      <link>https://yagamo-style.com/2019/swift-exam-impression/</link>
       <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/posts/swift-exam-impression/</guid>
-      <description>2018 年 11 月 26 日の Apple の Newsroom 記事 Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本) で述べられているように、</description>
+      <guid>https://yagamo-style.com/2019/swift-exam-impression/</guid>
+      <description>2018 年 11 月 26 日の Apple の Newsroom 記事 Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本) で述べられているように、 Apple は主に学生をターゲットとした iOS および Swift の認定資格をリリースしました。
+ このカリキュラムを履修した学生は、Swiftについての知識、アプリケーション開発ツール、アプリケーションのコアコンポーネントの知識について認定を受けることもできます。App Development with Swift Level 1認定試験は、世界中のCertiport認定試験センターを通じて実施されます。
+ 日本ではこれまで試験が配信されていませんでしたが、約 1 年後の 2019 年 12 月 10 日から、 Certiport の代理店である オデッセイ コミュニケーションズ から配信が開始されました。
+配信開始日の一番早い時間に受験し、日本での認定第一号として合格してきました。 興味のある方もいらっしゃると思うので、 NDA に抵触しない程度に感想などをまとめてみます。
+なお、この記事は日本でのリリース当初（2019 年 12 月 10 日）の情報です。 今後のアップデートで、変わる可能性がありますのでご注意ください。
+試験の概要 詳しくは、公式サイトをご覧ください。
+名称 App Development with Swfit Level 1
+試験の範囲 App Development with Swift の内容</description>
     </item>
     
   </channel>
