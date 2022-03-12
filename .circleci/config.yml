@@ -16,7 +16,7 @@ jobs:
               git config --global user.email "aokiplayer@icloud.com"
       - add_ssh_keys:
           fingerprints:
-              - "de:0d:3f:0b:55:74:25:10:00:02:55:e0:e4:a3:8e:6f"
+              - "4a:b5:45:63:6a:ca:cf:67:f5:9e:b5:ee:09:94:e9:d7"
       - run:
           name: "Build"
           command: |
