@@ -3,7 +3,7 @@ title: "ネストした JSON をフラットな構造体にマッピングする
 date: 2021-03-08T10:17:14+09:00
 draft: false
 toc: true
-tags: [ "iOS", "Swift" ]
+tags: [ "iOS", "Swift", "JSON" ]
 ---
 
 ## はじめに
