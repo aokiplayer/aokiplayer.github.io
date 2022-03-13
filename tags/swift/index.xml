@@ -6,7 +6,16 @@
     <description>Recent content in Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 08 Mar 2021 10:17:14 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Mar 2022 22:38:43 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>プロパティが nil の場合もエンコード先の JSON に属性を出力する</title>
+      <link>https://yagamo-style.com/2022/json-with-null-value/</link>
+      <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/json-with-null-value/</guid>
+      <description>はじめに  JSON の解析をカスタマイズする方法については [ネストした JSON をフラットな構造体にマッピングする] で書きました 「Codable なオブジェクトに nil 値があると、 JSON ではその属性自体が省略されてしまう挙動を変えられないのか？」という質問を受講者から頂いたので、ここに記載しておきます  検証環境  macOS Big Sur 11.6 Xcode 13.2.1  サンプルコード 通常の挙動（nil を含む属性が出力されない） // JSON と対応させる Person 型（Codable に準拠） struct Person: Codable { let name: String let age: Int? // nil を許容 } let encoder = JSONEncoder() let yamada = Person(name: &amp;#34;山田二郎&amp;#34;, age: 53) let kawada = Person(name: &amp;#34;川田吾郎&amp;#34;, age: nil) let yamadaData = try! encoder.encode(yamada) let kawadaData = try!</description>
+    </item>
+    
     <item>
       <title>ネストした JSON をフラットな構造体にマッピングする</title>
       <link>https://yagamo-style.com/2021/codable-container/</link>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JSON on Yagamo Style</title>
+    <link>https://yagamo-style.com/tags/json/</link>
+    <description>Recent content in JSON on Yagamo Style</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Sat, 12 Mar 2022 22:38:43 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>プロパティが nil の場合もエンコード先の JSON に属性を出力する</title>
+      <link>https://yagamo-style.com/2022/json-with-null-value/</link>
+      <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/json-with-null-value/</guid>
+      <description>はじめに  JSON の解析をカスタマイズする方法については [ネストした JSON をフラットな構造体にマッピングする] で書きました 「Codable なオブジェクトに nil 値があると、 JSON ではその属性自体が省略されてしまう挙動を変えられないのか？」という質問を受講者から頂いたので、ここに記載しておきます  検証環境  macOS Big Sur 11.6 Xcode 13.2.1  サンプルコード 通常の挙動（nil を含む属性が出力されない） // JSON と対応させる Person 型（Codable に準拠） struct Person: Codable { let name: String let age: Int? // nil を許容 } let encoder = JSONEncoder() let yamada = Person(name: &amp;#34;山田二郎&amp;#34;, age: 53) let kawada = Person(name: &amp;#34;川田吾郎&amp;#34;, age: nil) let yamadaData = try! encoder.encode(yamada) let kawadaData = try!</description>
+    </item>
+    
+    <item>
+      <title>ネストした JSON をフラットな構造体にマッピングする</title>
+      <link>https://yagamo-style.com/2021/codable-container/</link>
+      <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2021/codable-container/</guid>
+      <description>はじめに  Swift では Encodable, Decodableプロトコルと JSONEncoder, JSONDecoder を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂 が、ネストした JSON を扱う場合には Swift 側の対応する型（構造体を使うことが多い）も同じ構造にネストする必要があります😔 公開されている Web API では、何階層にもネストしてる JSON も多いので、ネストした階層分だけ構造体を定義するのは面倒ですし、扱いづらくなります そのような場合には、以下の 2 つを実装すると解決できます  Encodable のメソッド encode(to:) Decodable のイニシャライザ init(from:)   定義は少し面倒ですが、一度作成してしまえばとても使いやすくなります  検証環境  macOS Big Sur 11.2.1 Xcode 12.4  サンプル { &amp;#34;user_name&amp;#34;: &amp;#34;山田二郎&amp;#34;, &amp;#34;scores&amp;#34;: [ { &amp;#34;score&amp;#34;: 65 }, { &amp;#34;score&amp;#34;: 24 } ] } 上記の JSON は、構造として全体を表す {} の中に、 &amp;quot;scores&amp;quot; 部分が配列となっており、その要素が {} となっています。 つまり、「オブジェクト」-&amp;gt;「配列」-&amp;gt;「オブジェクト」の 3 階層です。 配列は Swift で Array 型が定義されているので、自分で用意する必要があるのは 2 つの構造体であることがわかります。</description>
+    </item>
+    
+  </channel>
+</rss>
