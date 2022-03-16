@@ -1,3 +1,5 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
 {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }}">
 <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.ogimage }}">
