@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="ja" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.94.1" />
+    <meta name="description" content="技術メモとかイベントレポートとか">
+<meta name="author" content="Hiroyuki Aoki">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました :: Yagamo Style</title>
+
+    
+    <link href="/css/nucleus.css?1647430911" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1647430911" rel="stylesheet">
+    <link href="/css/hybrid.css?1647430911" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1647430911" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1647430911" rel="stylesheet">
+    <link href="/css/auto-complete.css?1647430911" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1647430911" rel="stylesheet">
+    <link href="/css/theme.css?1647430911" rel="stylesheet">
+    <link href="/css/tabs.css?1647430911" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1647430911" rel="stylesheet">
+    
+    <link href="/css/theme-blue.css?1647430911" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1647430911"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2019/09/07/iosdc2019day1/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/">
+<img src="/images/logo.png">
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="検索...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1647430911"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1647430911"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/yagamo-style.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1647430911"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2022/" title="2022" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2022/">
+          2022
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2022/03/16/git-unusual-filename/" title="いつも忘れる Git の設定（日本語ファイル名を正しく表示）" class="dd-item ">
+        <a href="/2022/03/16/git-unusual-filename/">
+        いつも忘れる Git の設定（日本語ファイル名を正しく表示）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2022/03/12/json-with-null-value/" title="プロパティが nil の場合もエンコード先の JSON に属性を出力する" class="dd-item ">
+        <a href="/2022/03/12/json-with-null-value/">
+        プロパティが nil の場合もエンコード先の JSON に属性を出力する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2021/" title="2021" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2021/">
+          2021
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2021/03/08/codable-container/" title="ネストした JSON をフラットな構造体にマッピングする" class="dd-item ">
+        <a href="/2021/03/08/codable-container/">
+        ネストした JSON をフラットな構造体にマッピングする
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2020/" title="2020" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2020/">
+          2020
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/12/03/tableview-cell-configure14/" title="iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）" class="dd-item ">
+        <a href="/2020/12/03/tableview-cell-configure14/">
+        iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/11/10/maps/" title="map と compactMap と flatMap" class="dd-item ">
+        <a href="/2020/11/10/maps/">
+        map と compactMap と flatMap
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/07/20/dictionary-to-array/" title="ディクショナリからタプルの配列を作成する" class="dd-item ">
+        <a href="/2020/07/20/dictionary-to-array/">
+        ディクショナリからタプルの配列を作成する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/07/16/arraygrouping/" title="配列要素をグループ化したディクショナリの作成" class="dd-item ">
+        <a href="/2020/07/16/arraygrouping/">
+        配列要素をグループ化したディクショナリの作成
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/03/02/default-modal-segue-xcode11/" title="iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある" class="dd-item ">
+        <a href="/2020/03/02/default-modal-segue-xcode11/">
+        iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2019/" title="2019" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/2019/">
+          2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/12/20/swift-exam-impression/" title="Apple の iOS/Swift 認定資格を受験してみた" class="dd-item ">
+        <a href="/2019/12/20/swift-exam-impression/">
+        Apple の iOS/Swift 認定資格を受験してみた
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/12/02/adopt-under13-xcode11/" title="Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる" class="dd-item ">
+        <a href="/2019/12/02/adopt-under13-xcode11/">
+        Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/10/15/asr-restore-basic/" title="asr restore による Mac の起動ボリュームのリストア" class="dd-item ">
+        <a href="/2019/10/15/asr-restore-basic/">
+        asr restore による Mac の起動ボリュームのリストア
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/09/08/iosdc2019day2/" title="iOSDC 2019 に参加してきました" class="dd-item ">
+        <a href="/2019/09/08/iosdc2019day2/">
+        iOSDC 2019 に参加してきました
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/09/07/iosdc2019day1/" title="iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました" class="dd-item active">
+        <a href="/2019/09/07/iosdc2019day1/">
+        iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/09/03/iosdc2019pre/" title="iOSDC 2019 に Mac の環境構築の内容で LT 登壇します" class="dd-item ">
+        <a href="/2019/09/03/iosdc2019pre/">
+        iOSDC 2019 に Mac の環境構築の内容で LT 登壇します
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/08/02/getmacaddress/" title="MACアドレスを取得してファイルに書き出すシェルスクリプト" class="dd-item ">
+        <a href="/2019/08/02/getmacaddress/">
+        MACアドレスを取得してファイルに書き出すシェルスクリプト
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/07/02/delegate/" title="簡単なdelegateのサンプル" class="dd-item ">
+        <a href="/2019/07/02/delegate/">
+        簡単なdelegateのサンプル
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/06/21/assetfolder/" title="Asset Catalogで同じ名前の別画像を利用する" class="dd-item ">
+        <a href="/2019/06/21/assetfolder/">
+        Asset Catalogで同じ名前の別画像を利用する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/06/14/swiftuilist_beta/" title="SwiftUIで一覧表示画面を作成する" class="dd-item ">
+        <a href="/2019/06/14/swiftuilist_beta/">
+        SwiftUIで一覧表示画面を作成する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/05/26/seguecancel/" title="画面遷移（セグエ）のキャンセル" class="dd-item ">
+        <a href="/2019/05/26/seguecancel/">
+        画面遷移（セグエ）のキャンセル
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/05/24/remotenotification02/" title="iOSにおけるPush通知の基本2（受信した通知の内容取得）" class="dd-item ">
+        <a href="/2019/05/24/remotenotification02/">
+        iOSにおけるPush通知の基本2（受信した通知の内容取得）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/05/21/viewcontrollerlifecycle/" title="UIViewControllerのライフサイクルメソッド" class="dd-item ">
+        <a href="/2019/05/21/viewcontrollerlifecycle/">
+        UIViewControllerのライフサイクルメソッド
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/04/18/remotenotification01/" title="iOSにおけるPush通知の基本1（通知の受信まで）" class="dd-item ">
+        <a href="/2019/04/18/remotenotification01/">
+        iOSにおけるPush通知の基本1（通知の受信まで）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/04/17/tryswifttokyo2019/" title="try! Swift Tokyo 2019 感想など" class="dd-item ">
+        <a href="/2019/04/17/tryswifttokyo2019/">
+        try! Swift Tokyo 2019 感想など
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2018/" title="2018" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2018/">
+          2018
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2018/09/15/iosdc2018/" title="iOSDC 2018 感想など" class="dd-item ">
+        <a href="/2018/09/15/iosdc2018/">
+        iOSDC 2018 感想など
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://yagamo-style.com/tags"><i class='fas fa-tags'></i> Tags</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/aokiplayer"><i class='fab fa-github'></i> GitHub</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Yagamo Style</a> > <a href='/2019/'>2019</a> > iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#公式サイトハッシュタグなど">公式サイト、ハッシュタグなど</a></li>
+    <li><a href="#発表スライド">発表スライド</a></li>
+    <li><a href="#モチベーション">モチベーション</a></li>
+    <li><a href="#話したこと">話したこと</a></li>
+    <li><a href="#紹介した技術">紹介した技術</a>
+      <ul>
+        <li><a href="#apple-の提供する機能">Apple の提供する機能</a></li>
+        <li><a href="#サードパーティの機能">サードパーティの機能</a></li>
+      </ul>
+    </li>
+    <li><a href="#登壇した感想">登壇した感想</a></li>
+    <li><a href="#勉強会会場機材お貸ししてます">勉強会会場&amp;機材お貸ししてます</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/iosdc">iOSDC</a>
+
+  <a class="tag-link" href="/tags/ios">iOS</a>
+
+  <a class="tag-link" href="/tags/swift">Swift</a>
+
+  <a class="tag-link" href="/tags/macos">macOS</a>
+
+</div>
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました
+            </h1>
+          
+
+        
+
+
+<p><a href="/2019/09/03/iosdc2019pre/">iOSDC 2019 に Mac の環境構築の内容で LT 登壇します</a> で書いていましたが、ルーキーズ LT に登壇してきました。
+普段からトレーニングで話してはいますが、全くの別物なのでずっと緊張してました。</p>
+<p>若干のミス（残り時間を間違えて、 15  秒余らせたまま最後の部分を省略してしまった）はあったものの、お伝えできたかなと思います。</p>
+<h2 id="公式サイトハッシュタグなど">公式サイト、ハッシュタグなど</h2>
+<ul>
+<li><a href="https://iosdc.jp/2019/">https://iosdc.jp/2019/</a></li>
+<li><a href="https://twitter.com/iosdcjp">@iosdcjp</a></li>
+<li><a href="https://twitter.com/hashtag/iosdc?src=hash">#iosdc</a></li>
+</ul>
+<h2 id="発表スライド">発表スライド</h2>
+<p>Speaker Deck に上げたので、ぜひご覧ください。</p>
+<ul>
+<li><a href="https://speakerdeck.com/aokiplayer/macos-restore-history">完全に同じ開発環境を素早く用意できる（もしくはできない）技術</a></li>
+</ul>
+<h2 id="モチベーション">モチベーション</h2>
+<p>トレーニングの環境作成って、とても気をつかいます。特に、 Mac を使うトレーニングの場合、多くの受講者が Windows しか触ったことがないです。
+そのため、トレーナーがデモしている環境と、受講者の環境にちょっとでも差があると、受講者はとても戸惑います。
+なので、環境は少しの違いもなく揃えておく必要があります。</p>
+<p>ただし、全部手作業で行うのは効率的ではなく、ミスも発生します。それに、セットアップ自体は技術に長けた我々トレーナーではなく、別の部隊です。なので、技術的に難しい手順は踏ませられません。</p>
+<h2 id="話したこと">話したこと</h2>
+<p>いかにミスを防ぎ、大量の Mac を素早く正確にセットアップするかという点について、これまで取ってきた様々な手法についてお話ししました。
+現在、残念ながら以前と比較して手間のかかる方式で行わざるを得ず、まだ模索している状況です。
+それも含め、現状をお伝えしました。</p>
+<h2 id="紹介した技術">紹介した技術</h2>
+<h3 id="apple-の提供する機能">Apple の提供する機能</h3>
+<h4 id="netrestore">NetRestore</h4>
+<ul>
+<li>macOS Server の 1 機能として提供されていました
+<ul>
+<li>Apple の「モノリシックイメージからのリストアは推奨しない」方針により、現在は利用できません</li>
+<li>macOS Server にはまだ機能が残っていますが、 GUI の画面は削除されました</li>
+<li>2018 年以降（T2 Security Chip搭載）の Mac ではネットワークブート機能が削除されたため、 NetRestore が機能したとしても、各 Mac からは NetRestore イメージにはアクセスできません</li>
+</ul>
+</li>
+<li>事前に作成しておいたシステムイメージと完全に同じ環境がリストアできます</li>
+<li>とても素早い（リストア開始から完了まで 5,6 分）</li>
+</ul>
+<h4 id="time-machine">Time Machine</h4>
+<ul>
+<li>履歴を持ったバックアップを取れる機能です</li>
+<li>基本的に、同じバックアップから複数の Mac をリストアすることは前提にしていません
+<ul>
+<li>そのためか、複数の Mac から同時にリストアできません</li>
+</ul>
+</li>
+<li>Time Machine からのリストアは、 NetRestore のようなブロックコピーではないので時間がかかります</li>
+</ul>
+<h4 id="mdmmobile-device-management">MDM(Mobile Device Management)</h4>
+<ul>
+<li>社内で iOS を集中管理する際などに利用しますが、 macOS にも対応しています</li>
+<li>Configuration Profile に設定を記述し、それをサーバからプッシュすることで設定を強制します</li>
+<li>Apple Business Manager(ABM) と連携することで、 VPP(Volume Purchase Program) で購入した App Store のアプリのインストールを各クライアントに強制できます
+<ul>
+<li>ただし、 App Store にある最新のアプリがインストールされるため、「チームで Xcode のバージョンを固定している」場合などには別の策を取る必要があります</li>
+</ul>
+</li>
+<li>ABM は、 VPP と DEP を統合したものです
+<ul>
+<li>VPP(Volume Purchase Program)</li>
+<li>DEP(Device Enrollment Program)</li>
+</ul>
+</li>
+</ul>
+<h4 id="asrapple-software-restore">ASR(Apple Software Restore)</h4>
+<ul>
+<li>今回紹介した技術の中では NetRestore 以外唯一、インストールではなくイメージのコピーを行う技術
+<ul>
+<li>なので、リストアは速いです（数分）</li>
+<li>ただし、イメージは各 Mac に個別にコピーしておく必要があります</li>
+</ul>
+</li>
+<li>Disk Utility を利用してシステムのイメージを DMG ファイルとして作成し、それをもとに macOS Recovery 上でコマンドラインからリストアします</li>
+<li>macOS 10.14 Mojave まではうまく動作したのですが、 10.14.1 以降必ず失敗するので、断念しました
+<ul>
+<li>原因は追い切れていないので、場合によってはまた利用できるかもしれません</li>
+</ul>
+</li>
+</ul>
+<h3 id="サードパーティの機能">サードパーティの機能</h3>
+<h4 id="autodmg">AutoDMG</h4>
+<ul>
+<li>現在、暫定的に利用している機能です</li>
+<li>macOS のインストーラをカスタマイズし、/Applications へ配置したいアプリケーションなどはあらかじめ仕込んでおくことができます
+<ul>
+<li>通常手順での Xcode のインストールなどは非常に時間がかかる（ダウンロード、 xip の展開）ので、その時間をなくすことができます</li>
+<li>そのため、「クリーンインストールして、アプリを手動インストール」よりはだいぶマシです</li>
+</ul>
+</li>
+<li>各種設定はできない（クリーンインストールと同じで、 macOS インストール後のユーザの作成から先は手作業）ので、 Configuration Profile やシェルスクリプト で対応しています</li>
+<li>macOS の設定を行うコマンドとしては、以下などを利用しています
+<ul>
+<li>defaults コマンド
+<ul>
+<li>ユーザの設定を管理するコマンド</li>
+</ul>
+</li>
+<li>scutil コマンド
+<ul>
+<li>システムの設定を管理するコマンド</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="登壇した感想">登壇した感想</h2>
+<p>内容的にあまり刺さる方はいないだろうな、とは思っていましたが、 Twitter や対面で感想を頂くことができました。
+誰か 1 人でも、役に立った（もしくは面白かった）と思って頂けたなら、話した意味はあったのかな、と思います。</p>
+<p>また、特にルーキーズ LT では、事前に運営側主催で練習会を開いて頂き、アドバイスも頂けました。
+その際に、練習会参加者同士の繋がりも生まれ、良い仲間ができました。</p>
+<p>運営側、そしてルーキーズ仲間には本当に感謝しています。もちろん、私の LT を聞いて頂いた皆さま、このポストを読んで下さった皆さま、ありがとうございます。</p>
+<p>本当に iOSDC は楽しいので、次はあなたもぜひトークに応募してみてください！</p>
+<h2 id="勉強会会場機材お貸ししてます">勉強会会場&amp;機材お貸ししてます</h2>
+<p>都内で勉強会を開きたい方、ご連絡ください！
+セミナールームだけではなく、 MacBook Pro や iPad などもご利用頂けます。
+try! Swift のワークショップでご利用頂いた実績もあります。どうぞ、お気軽に声をかけてください。</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1647430911"></script>
+    <script src="/js/perfect-scrollbar.min.js?1647430911"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1647430911"></script>
+    <script src="/js/jquery.sticky.js?1647430911"></script>
+    <script src="/js/featherlight.min.js?1647430911"></script>
+    <script src="/js/highlight.pack.js?1647430911"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1647430911"></script>
+    <script src="/js/learn.js?1647430911"></script>
+    <script src="/js/hugo-learn.js?1647430911"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

@@ -9,38 +9,38 @@
     <lastBuildDate>Sat, 12 Mar 2022 22:38:43 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>プロパティが nil の場合もエンコード先の JSON に属性を出力する</title>
-      <link>https://yagamo-style.com/2022/json-with-null-value/</link>
+      <link>https://yagamo-style.com/2022/03/12/json-with-null-value/</link>
       <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2022/json-with-null-value/</guid>
+      <guid>https://yagamo-style.com/2022/03/12/json-with-null-value/</guid>
       <description>はじめに  JSON の解析をカスタマイズする方法については [ネストした JSON をフラットな構造体にマッピングする] で書きました 「Codable なオブジェクトに nil 値があると、 JSON ではその属性自体が省略されてしまう挙動を変えられないのか？」という質問を受講者から頂いたので、ここに記載しておきます  検証環境  macOS Big Sur 11.6 Xcode 13.2.1  サンプルコード 通常の挙動（nil を含む属性が出力されない） // JSON と対応させる Person 型（Codable に準拠） struct Person: Codable { let name: String let age: Int? // nil を許容 } let encoder = JSONEncoder() let yamada = Person(name: &amp;#34;山田二郎&amp;#34;, age: 53) let kawada = Person(name: &amp;#34;川田吾郎&amp;#34;, age: nil) let yamadaData = try! encoder.encode(yamada) let kawadaData = try!</description>
     </item>
     
     <item>
       <title>ネストした JSON をフラットな構造体にマッピングする</title>
-      <link>https://yagamo-style.com/2021/codable-container/</link>
+      <link>https://yagamo-style.com/2021/03/08/codable-container/</link>
       <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2021/codable-container/</guid>
+      <guid>https://yagamo-style.com/2021/03/08/codable-container/</guid>
       <description>はじめに  Swift では Encodable, Decodableプロトコルと JSONEncoder, JSONDecoder を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂 が、ネストした JSON を扱う場合には Swift 側の対応する型（構造体を使うことが多い）も同じ構造にネストする必要があります😔 公開されている Web API では、何階層にもネストしてる JSON も多いので、ネストした階層分だけ構造体を定義するのは面倒ですし、扱いづらくなります そのような場合には、以下の 2 つを実装すると解決できます  Encodable のメソッド encode(to:) Decodable のイニシャライザ init(from:)   定義は少し面倒ですが、一度作成してしまえばとても使いやすくなります  検証環境  macOS Big Sur 11.2.1 Xcode 12.4  サンプル { &amp;#34;user_name&amp;#34;: &amp;#34;山田二郎&amp;#34;, &amp;#34;scores&amp;#34;: [ { &amp;#34;score&amp;#34;: 65 }, { &amp;#34;score&amp;#34;: 24 } ] } 上記の JSON は、構造として全体を表す {} の中に、 &amp;quot;scores&amp;quot; 部分が配列となっており、その要素が {} となっています。 つまり、「オブジェクト」-&amp;gt;「配列」-&amp;gt;「オブジェクト」の 3 階層です。 配列は Swift で Array 型が定義されているので、自分で用意する必要があるのは 2 つの構造体であることがわかります。</description>
     </item>
     
     <item>
       <title>iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）</title>
-      <link>https://yagamo-style.com/2020/tableview-cell-configure14/</link>
+      <link>https://yagamo-style.com/2020/12/03/tableview-cell-configure14/</link>
       <pubDate>Thu, 03 Dec 2020 13:30:07 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2020/tableview-cell-configure14/</guid>
+      <guid>https://yagamo-style.com/2020/12/03/tableview-cell-configure14/</guid>
       <description>はじめに テーブルビューでは、カスタムセルを作成しなくてもデフォルトで提供されている 4 種類のスタイルが利用できました。
    IB 上での Style 設定 対応する UITableViewCell.CellStyle の定数 説明     Basic default 左端に imageView 、その隣に textLabel   Right Detail value1 左端に imageView 、その隣に textLabel、右端に detailTextLabel   Left Detail value2 左端に textLabel、またそのすぐ隣に detailTextLabel   Subtitle subtitle 左端に imageView 、その隣の上段に textLabel、下段に detailTextLabel    しかし、 iOS 14 では textLabel と detailTextLabel 、そして imageView も deprecated となっています。 その代わりにセルの defaultContentConfiguration() で取得したオブジェクトに設定を行い、それを contentConfiguration プロパティに渡せと書いてあります。 その辺りを、サンプルを書いて確認してみます。</description>
     </item>
     
     <item>
       <title>map と compactMap と flatMap</title>
-      <link>https://yagamo-style.com/2020/maps/</link>
+      <link>https://yagamo-style.com/2020/11/10/maps/</link>
       <pubDate>Tue, 10 Nov 2020 16:08:03 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2020/maps/</guid>
+      <guid>https://yagamo-style.com/2020/11/10/maps/</guid>
       <description>はじめに コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 map があります。 が、 map にも亜種があって混乱しがちなので、整理しておきたいと思います。
 なお、この記事では配列を例としています。 実際には、配列でもディクショナリでも Optional でも「入れ物」にあたるものは似たような操作が提供されています（全く同じではないですが）。
 map の種類 map 配列内の各要素を変換します。全要素を変換するので、変換前後で要素数は変わりません。
@@ -54,37 +54,37 @@ flatMap 配列がネストされている場合、内側の配列から要素を
     
     <item>
       <title>ディクショナリからタプルの配列を作成する</title>
-      <link>https://yagamo-style.com/2020/dictionary-to-array/</link>
+      <link>https://yagamo-style.com/2020/07/20/dictionary-to-array/</link>
       <pubDate>Mon, 20 Jul 2020 08:22:03 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2020/dictionary-to-array/</guid>
+      <guid>https://yagamo-style.com/2020/07/20/dictionary-to-array/</guid>
       <description>はじめに  Swift には、連想配列的なデータ構造としてディクショナリがあります ディクショナリはデータの順序を保証しないので、そのままではテーブルビューやコレクションビューのデータソースとして利用しにくいです その場合は、タプルの配列に変換すると上手く行きます  検証環境  Xcode 11.5 Swift 5.2  利用する機能 sorted(by:)  ディクショナリのメソッド 引数に渡した関数 by がソート条件  関数 by の引数  2 つのタプル（それぞれディクショナリの n 番目の要素と n + 1 番目の要素に対応）   関数 by の戻り値  Bool（false なら並び替え）     戻り値は [(key: ディクショナリの key の型, value: ディクショナリの value の型)]  つまり、ディクショナリとほぼ同じ構造を持った「タプルの配列」    コード例  以下はディクショナリ [String: Int] からタプルの配列 [(key: String, value: Int)] に変換する例です  import Foundation var scores: [String: Int] = [ &amp;#34;Steve Yamada&amp;#34;: 34, &amp;#34;Jeff Takeshita&amp;#34;: 87, &amp;#34;Mickey Yoshida&amp;#34;: 100, &amp;#34;Charly Kinoshita&amp;#34;: 53, &amp;#34;Anna Saito&amp;#34;: 19, &amp;#34;Robert Suzuki&amp;#34;: 97, &amp;#34;Erick Kawakami&amp;#34;: 32, &amp;#34;John Miyabe&amp;#34;: 64, &amp;#34;Gregory Goto&amp;#34;: 76 ] print(&amp;#34;&amp;#34;&amp;#34; Ascending by key ======================== &amp;#34;&amp;#34;&amp;#34;) var sortedByNameAsc: [(key: String, value: Int)] = scores.</description>
     </item>
     
     <item>
       <title>配列要素をグループ化したディクショナリの作成</title>
-      <link>https://yagamo-style.com/2020/arraygrouping/</link>
+      <link>https://yagamo-style.com/2020/07/16/arraygrouping/</link>
       <pubDate>Thu, 16 Jul 2020 08:39:32 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2020/arraygrouping/</guid>
+      <guid>https://yagamo-style.com/2020/07/16/arraygrouping/</guid>
       <description>はじめに  テーブルビューやコレクションビューで、グループ化した表示はよく使います その場合、データソースとして二次元配列などを利用すると思います が、データソースが一次元配列だった場合は、少しデータの加工が必要ですよね  検証環境  Xcode 11.5 Swift 5.2  利用する機能 Dictionary(grouping: by:)  ディクショナリのイニシャライザ grouping  元データとなる配列 by で指定した key ごとに、部分配列として分割される   by  グループ化したディクショナリの key となる値を返す関数 引数は、配列の各要素    コード例  配列 [Product] を、 Product の要素である category（Product.Category 型）ごとにグループ化するサンプル 変換後のディクショナリは [Product.Category: [Product]] 型  サンプルコード import Foundation struct Product: CustomStringConvertible { var description: String { &amp;#34;(\(self.name), $\(self.price), \(self.category))&amp;#34; } var name: String var price: Int var category: Category enum Category: String { case food case drink case other } } // Array of Product var products: [Product] = [ Product(name: &amp;#34;Fried Potato&amp;#34;, price: 24, category: .</description>
     </item>
     
     <item>
       <title>iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある</title>
-      <link>https://yagamo-style.com/2020/default-modal-segue-xcode11/</link>
+      <link>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/</link>
       <pubDate>Mon, 02 Mar 2020 18:03:25 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2020/default-modal-segue-xcode11/</guid>
+      <guid>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/</guid>
       <description>はじめに  iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません  もちろん、 unwind セグエメソッドも呼ばれません unwind セグエから戻っても、ライフサイクルメソッドは呼ばれません（unwind セグエメソッドは呼ばれる）    サンプル 画面レイアウト New Default シーンへのセグエ  Xcode 11 でのデフォルト設定 Presentation が Same as Destination  Full Screen シーンへのセグエ  Presentation を Full Screen に変更 デフォルトと異なり、画面全体を覆う（iOS 12 までの Modal）  ソースコード ViewController（最初の画面） import UIKit  class ViewController: UIViewController {   override func viewDidLoad() {  super.viewDidLoad()  print(#function)  }   override func viewWillDisappear(_ animated: Bool) {  super.</description>
     </item>
     
     <item>
       <title>Apple の iOS/Swift 認定資格を受験してみた</title>
-      <link>https://yagamo-style.com/2019/swift-exam-impression/</link>
+      <link>https://yagamo-style.com/2019/12/20/swift-exam-impression/</link>
       <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/swift-exam-impression/</guid>
+      <guid>https://yagamo-style.com/2019/12/20/swift-exam-impression/</guid>
       <description>2018 年 11 月 26 日の Apple の Newsroom 記事 Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本) で述べられているように、 Apple は主に学生をターゲットとした iOS および Swift の認定資格をリリースしました。
  このカリキュラムを履修した学生は、Swiftについての知識、アプリケーション開発ツール、アプリケーションのコアコンポーネントの知識について認定を受けることもできます。App Development with Swift Level 1認定試験は、世界中のCertiport認定試験センターを通じて実施されます。
  日本ではこれまで試験が配信されていませんでしたが、約 1 年後の 2019 年 12 月 10 日から、 Certiport の代理店である オデッセイ コミュニケーションズ から配信が開始されました。
@@ -97,19 +97,19 @@ flatMap 配列がネストされている場合、内側の配列から要素を
     
     <item>
       <title>Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる</title>
-      <link>https://yagamo-style.com/2019/adopt-under13-xcode11/</link>
+      <link>https://yagamo-style.com/2019/12/02/adopt-under13-xcode11/</link>
       <pubDate>Mon, 02 Dec 2019 16:38:56 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/adopt-under13-xcode11/</guid>
+      <guid>https://yagamo-style.com/2019/12/02/adopt-under13-xcode11/</guid>
       <description>はじめに  Xcode 11 から、新規作成したプロジェクトの構成が変わりました  User Interface を Swift UI と Storyboard から選択可能 SceneDelegate.swift が追加 Info.plist に、 SceneDelegate を利用するエントリが追加   iOS 13 以降のみ対応させる場合にはそのままでよいのですが、多くの場合、 2 つ前くらいまでの iOS をサポートすると思います このままで Target のバージョンに iOS 13 未満を設定すると、エラーが発生して実行できません ここでは、その解決法を紹介します  方法は他にもあるようですが、これが Xcode のサポートを一番受けやすい方法だと思います なお、 Swift UI は iOS 13 以降対応なので、ここでは Storyboard を選択した前提とします    検証環境  Xcode 11.2.1 iOS 13.2.3, 12.3.1 Swift 5  デフォルトの状態と実行確認  プロジェクトを作成すると、以下のような状態となっています   手順 Build Target を iOS 13 未満に設定 アプリを実行  ビルドに失敗する  ビルドエラーメッセージを確認 エラーのアイコンをクリックし、修正内容を選択   SceneDelegate</description>
     </item>
     
     <item>
       <title>iOSDC 2019 に参加してきました</title>
-      <link>https://yagamo-style.com/2019/iosdc2019day2/</link>
+      <link>https://yagamo-style.com/2019/09/08/iosdc2019day2/</link>
       <pubDate>Sun, 08 Sep 2019 19:57:25 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/iosdc2019day2/</guid>
+      <guid>https://yagamo-style.com/2019/09/08/iosdc2019day2/</guid>
       <description>2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&amp;ldquo;ブログを書くまでが iOSDC&amp;rdquo;）。
 私自身の登壇に関しては、前回のエントリ iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました をぜひご覧ください。
 ここでは、それ以外について振り返りたいと思います。
@@ -119,10 +119,10 @@ flatMap 配列がネストされている場合、内側の配列から要素を
     
     <item>
       <title>iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</title>
-      <link>https://yagamo-style.com/2019/iosdc2019day1/</link>
+      <link>https://yagamo-style.com/2019/09/07/iosdc2019day1/</link>
       <pubDate>Sat, 07 Sep 2019 07:33:45 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/iosdc2019day1/</guid>
+      <guid>https://yagamo-style.com/2019/09/07/iosdc2019day1/</guid>
       <description>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します で書いていましたが、ルーキーズ LT に登壇してきました。 普段からトレーニングで話してはいますが、全くの別物なのでずっと緊張してました。
 若干のミス（残り時間を間違えて、 15 秒余らせたまま最後の部分を省略してしまった）はあったものの、お伝えできたかなと思います。
 公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  発表スライド Speaker Deck に上げたので、ぜひご覧ください。
@@ -134,29 +134,29 @@ flatMap 配列がネストされている場合、内側の配列から要素を
     
     <item>
       <title>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します</title>
-      <link>https://yagamo-style.com/2019/iosdc2019pre/</link>
+      <link>https://yagamo-style.com/2019/09/03/iosdc2019pre/</link>
       <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/iosdc2019pre/</guid>
+      <guid>https://yagamo-style.com/2019/09/03/iosdc2019pre/</guid>
       <description>2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。 昨年までは個人サポーター（およびスポンサー企業の社員）として参加していましたが、今年は LT に登壇します！ なので、スピーカー兼個人サポーターとしての参加です（今期から、弊社は技術系のカンファレンスにスポンサーを出さない方針になってしまいました…）。
 公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  私（Hiroyuki Aoki）について  株式会社カサレアルで、研修のトレーナーをしています iOS や Android アプリ開発コースも担当していますが、国内唯一の Apple 認定トレーナーとして macOS のシステム管理コースなども担当しています  ちなみに、カサレアルは国内唯一の Apple 認定トレーニングプロバイダーです Apple の macOS 認定資格（Apple Certified Support Professional）の試験も、弊社で受験可能です   業務を行う中で得た知見から、今回の LT では Mac の環境構築に関する内容を話します  こんなことを話します 完全に同じ開発環境を素早く用意できる（もしくはできない）技術  弊社では、トレーニングで利用するために、たくさんの Mac を全部同じ状態にセットアップしています 手作業で設定すると、ちょっとずつ設定がズレてしまい、受講者に同じ体験をして頂くことができません そのため、素早く・簡単に・完全に同じ状態の Mac をセットアップする必要性があります 以前は利用できた方法が使えなくなったりと一筋縄では行かないのですが、これまでどうやってきて今後どうして行くのか、お話しします  私の登壇は 9 月 6 日の 16:35 、 Track Aの LT 前半の最後です。 アプリの開発技術ではないですが、 Mac の設定も奥が深くて楽しいですよ！ それに、みなさんの普段の Mac 環境準備にも、もしかしたら役に立つ情報があるかも知れません。</description>
     </item>
     
     <item>
       <title>簡単なdelegateのサンプル</title>
-      <link>https://yagamo-style.com/2019/delegate/</link>
+      <link>https://yagamo-style.com/2019/07/02/delegate/</link>
       <pubDate>Tue, 02 Jul 2019 11:34:30 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/delegate/</guid>
+      <guid>https://yagamo-style.com/2019/07/02/delegate/</guid>
       <description>はじめに  iOSアプリでは、delegateが非常によく利用されます トレーニングで紹介していると、初めての人には「delegateオブジェクトに用意したコールバックメソッドが自動的に呼ばれる」ことの理解が難しいように感じました そこで、ごく簡単なサンプルを利用してdelegateの仕組みを紹介してみます  検証環境  Xcode 10.2 Swift 5  サンプルコード delegateを利用するクラスとdelegateプロトコル  まずは、delegateを利用するMyClassクラスの定義とdelegateであるMyDelegateプロトコルの定義です MyClassのshow(text:)を呼ぶと、自身のプロパティとして保持するdelegateのonShowCalled(withText:)を呼ぶ実装となっています  class MyClass {  var delegate: MyDelegate?   func show(text: String) {  self.delegate?.onShowCalled(withText: text)  } }  protocol MyDelegate {  func onShowCalled(withText text: String) } delegateに準拠したクラス  delegateはプロトコルなので、利用する際にはそのプロトコルに準拠して内容を実装したクラスが必要です MyAdopted1とMyAdopted2の2つを用意し、それぞれ実装の異なるonShowCalled(withText:)を用意しています  class MyAdopted1: MyDelegate {  func onShowCalled(withText text: String) {  print(&amp;#34;MyAdopted1: \(text)&amp;#34;)  } }  class MyAdopted2: MyDelegate {  func onShowCalled(withText text: String) {  print(&amp;#34;\(text)from MyAdopted2!</description>
     </item>
     
     <item>
       <title>Asset Catalogで同じ名前の別画像を利用する</title>
-      <link>https://yagamo-style.com/2019/assetfolder/</link>
+      <link>https://yagamo-style.com/2019/06/21/assetfolder/</link>
       <pubDate>Fri, 21 Jun 2019 09:09:14 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/assetfolder/</guid>
+      <guid>https://yagamo-style.com/2019/06/21/assetfolder/</guid>
       <description>はじめに  Xcodeのアセットカタログ（デフォルトではAssets.xcassets）は、画像などのリソースを管理します アセットカタログ内で、フォルダ分けも可能です その際、別のフォルダに同じ名前の画像を置きたくなることもあります その場合の扱い方です  検証環境  Xcode 10.2.1 iOS 12.2 Swift 5  フォルダにNamespaceを付与する デフォルトの状態（Namespaceなし）  この画像の例では、birdという画像がforestフォルダとseaフォルダの両方に配置されています ですが、デフォルトの状態ではフォルダ名は無視されるので、これらの画像にはbirdという名前でアクセスすることになり、区別ができません  フォルダ名付きでのアクセス（Namespaceあり）   アセットカタログ内でフォルダを選択し、Attributes InspectorからProvides Namespaceにチェックを入れると、そのフォルダ名がNamespaceとして利用されます
  フォルダの色も黄色から水色に変わっていますね    この画像の例では、それぞれforest/birdとsea/birdという名前で区別されます
   こんな感じで、コード内でもInterface Builderでも参照できます
@@ -165,29 +165,29 @@ imageView.image = index == 0 ? UIImage(named: &amp;#34;forest/bird&amp;#34;) : U
     
     <item>
       <title>SwiftUIで一覧表示画面を作成する</title>
-      <link>https://yagamo-style.com/2019/swiftuilist_beta/</link>
+      <link>https://yagamo-style.com/2019/06/14/swiftuilist_beta/</link>
       <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/swiftuilist_beta/</guid>
+      <guid>https://yagamo-style.com/2019/06/14/swiftuilist_beta/</guid>
       <description>はじめに  WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます  検証環境  macOS 10.15 Catalina beta Xcode 11 beta iOS 13 beta Swift 5.1 iPad Pro 10.5 inch  ストーリーボードは？  これまで、レイアウトは基本的にストーリーボードで行ってきました ストーリーボードは決して悪いものではなく、まず画面の作成を始める際にはとても扱いやすいです ただし、ビューの数が増えたり、複雑なレイアウトをしようとすると非常に管理が難しいのも事実です  コードでレイアウトを行うSwiftUI  Flutterなどでは、画面をコード上で宣言的に記述できます 最近は、この形式をとるものが増えています SwiftUIも、コードから宣言的なレイアウトを行います これまでもコードのみで画面を作成できましたが、以下のような問題を抱えていました  プレビューの方法がないため、ビルドして実行しないと確認できない 手続的に記述するため、実際のレイアウトがイメージしにくい    SwiftUIで作成した一覧画面のサンプル 画面イメージ 実装ファイル  実装したのは、以下のファイルです     ファイル 説明     FoodModel.swift 表の1行分を表すデータモデル   FoodDataSource.swift 表示するデータを提供する   FoodRow.swift 表の各行を表すビュー。FoodListから利用される   FoodList.</description>
     </item>
     
     <item>
       <title>画面遷移（セグエ）のキャンセル</title>
-      <link>https://yagamo-style.com/2019/seguecancel/</link>
+      <link>https://yagamo-style.com/2019/05/26/seguecancel/</link>
       <pubDate>Sun, 26 May 2019 09:35:28 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/seguecancel/</guid>
+      <guid>https://yagamo-style.com/2019/05/26/seguecancel/</guid>
       <description>はじめに  画面遷移のタイミングで条件を判断し、場合によってはキャンセルするような動作が必要な場面があります ボタンなどからAction接続したメソッド内でperformSegue(withIdentifier:sender:)を利用する場合や、addTarget(_:action:for:)でアクションを登録した場合であれば、その際に条件判断を行うこともできます  しかし、ボタンからセグエを直接引いて画面遷移する場合であれば、無条件に画面遷移してしまいます   ここでは、後者の場合に画面遷移の判断とキャンセルの方法について紹介します  検証環境  Xcode 10.2 iOS 12.2 Swift 5  利用するメソッド  UIViewControllerのshouldPerformSegue(withIdentifier:sender:)を利用します  このメソッドをオーバーライドします 動きとしては、trueを返した場合は画面遷移を実行、falseの場合はキャンセルとなります    サンプルプログラム 動作   NEXTボタンからセグエを引いてあり、スイッチがONの場合のみ画面遷移を行うプログラムです
   サンプルコード import UIKit  class ViewController: UIViewController {   @IBOutlet weak var moveSwitch: UISwitch!   override func viewDidLoad() {  super.viewDidLoad()  }   override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -&amp;gt; Bool {  super.</description>
     </item>
     
     <item>
       <title>iOSにおけるPush通知の基本2（受信した通知の内容取得）</title>
-      <link>https://yagamo-style.com/2019/remotenotification02/</link>
+      <link>https://yagamo-style.com/2019/05/24/remotenotification02/</link>
       <pubDate>Fri, 24 May 2019 10:52:57 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/remotenotification02/</guid>
+      <guid>https://yagamo-style.com/2019/05/24/remotenotification02/</guid>
       <description>はじめに  前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました  Push通知に必要な事前設定 Push通知のユーザへの利用許可依頼 Push通知の送信テスト   これだけでも、受け取った通知をタップしてアプリを起動することができます 今回は、通知に含まれる内容（ペイロード）を取得する方法を説明します  検証環境  Xcode 10.2 iOS 12.2 Swift 5 iPod touch 6th generation  通知に対するコールバックメソッド   通知を受け取ると、UIApplicationDelegateの以下のコールバックメソッドが呼ばれます
   呼ばれるコールバックメソッドとそのタイミングは、アプリの実行状態により決定されます
    事前状態 タイミング メソッド     未起動 通知のタップにより起動 application(_:didFinishLaunchingWithOptions:)   Foreground 通知を受信 application(_:didReceiveRemoteNotification:fetchCompletionHandler:)   Background 通知のタップによりForeground application(_:didReceiveRemoteNotification:fetchCompletionHandler:)      これらのコールバック内で、通知のペイロード（通知に含まれるデータ）を取得して処理を行います
@@ -197,10 +197,10 @@ imageView.image = index == 0 ? UIImage(named: &amp;#34;forest/bird&amp;#34;) : U
     
     <item>
       <title>UIViewControllerのライフサイクルメソッド</title>
-      <link>https://yagamo-style.com/2019/viewcontrollerlifecycle/</link>
+      <link>https://yagamo-style.com/2019/05/21/viewcontrollerlifecycle/</link>
       <pubDate>Tue, 21 May 2019 12:19:51 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/viewcontrollerlifecycle/</guid>
+      <guid>https://yagamo-style.com/2019/05/21/viewcontrollerlifecycle/</guid>
       <description>はじめに  iOSアプリを作成していて、どのタイミングでどのメソッドが呼ばれるんだっけ？となることは多いです 特に、画面遷移の際に困ることがあります なので、非常に単純なサンプルを作成しておきました  各メソッド内で、コンソール出力をしているのみです    検証環境  Xcode 10.2 iOS 12.2 Swift 5  サンプルプロジェクト  aokiplayer/ViewControllerLifeCycleSample  サンプルの画面構成   画面はストーリーボードで作成しています
   A, Bの2画面があり、以下のように遷移します（Aが初期画面）
  A -&amp;gt; Bは、単純にPresent Modallyなセグエで遷移 B -&amp;gt; Aは、unwindセグエで遷移    コンソール出力例 アプリ起動（Aを表示）  レイアウト系が2度呼ばれています  レイアウトは、様々なタイミングで呼ばれるのでこのように複数回呼ばれる可能性があるためです  boundsが変更されたり、サブビューが追加されたりしても呼ばれます   Auto Layoutの制約を明示的に設定せず、Autoresizing maskをAuto Layoutに変換した場合などは1度しか呼ばれなかったりします    A: init(coder:) A: loadView() A: viewDidLoad() A: viewWillAppear(_:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewDidAppear(_:) 画面を回転（A画面表示中）  レイアウトを組み直す必要が発生するので、こんな感じですね  A: viewWillTransition(to:with:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() HOMEボタンを押す（A画面表示中）  画面は表示されなくなりますが、実際にはいずれのコールバックも呼ばれていません  このあたりの挙動は、Androidとは異なりますね（Androidではこのタイミングでもコールバック呼ばれる）    HOME画面でアイコンをタップ（上記の操作後）  非表示状態からの復帰ですが、いずれのコールバックも呼ばれていません  これも、Androidの場合はコールバックが呼ばれますね    Bへ遷移（Present Modallyセグエ）  ポイントはAのprepare(for:sender:)のタイミングです  ここで必要なデータの受け渡しを行いますが、BのviewDidLoad()よりも前です そのため、この時点ではBの持っているビューはnilであり、データを渡そうとすると実行時エラーとなります     B: init(coder:) A: prepare(for:sender:)  B: loadView()  B: viewDidLoad() A: viewWillDisappear(_:)  B: viewWillAppear(_:)  B: viewWillLayoutSubviews()  B: viewDidLayoutSubviews() A: viewWillLayoutSubviews() A: viewDidLayoutSubviews()  B: viewWillLayoutSubviews()  B: viewDidLayoutSubviews()  B: viewDidAppear(_:) A: viewDidDisappear(_:) Aへ戻る（unwindセグエ）  unwindセグエで戻る際も、prepare(for:sender:)は呼ばれています   B: prepare(for:sender:) A: unwindToFirst(_:)  B: viewWillDisappear(_:) A: viewWillAppear(_:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewDidAppear(_:)  B: viewDidDisappear(_:)  B: deinit A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() まとめ  初心者の陥りやすい点としては、prepare(for:sender:)内でのデータの受け渡しです 「遷移先画面のビューはまだnil」という点は、しっかり認識しておきましょう  </description>
@@ -208,20 +208,20 @@ imageView.image = index == 0 ? UIImage(named: &amp;#34;forest/bird&amp;#34;) : U
     
     <item>
       <title>iOSにおけるPush通知の基本1（通知の受信まで）</title>
-      <link>https://yagamo-style.com/2019/remotenotification01/</link>
+      <link>https://yagamo-style.com/2019/04/18/remotenotification01/</link>
       <pubDate>Thu, 18 Apr 2019 09:30:15 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/remotenotification01/</guid>
+      <guid>https://yagamo-style.com/2019/04/18/remotenotification01/</guid>
       <description>はじめに  Push通知は、使い方によっては非常に効果的です  通知しすぎると、邪魔になってしまいますが   ここでは、Push通知の基本的な実装方法を説明します Push通知の実装には、UserNotificationsフレームワークを利用します  ローカル通知にも、同じフレームワークを利用します 昔と違って、ひとつのフレームワークで両方に対応できていいですね    検証環境  Xcode 10.2 iOS 12.2 Swift 5 iPod touch 6th generation  必要なもの  Apple Developer Programのアカウント  Apple Developerサイト上で、以下の確認・作成が必要なため  Team ID Authentication Key     APNs（Apple Push Notification Service）に対応した、Push通知を送信するサーバ  FirebaseとかMicrosoft Azureとか、いろいろなサービスが対応してます テストするだけなら、APNsに対応したいろいろなツールがあります  Dwarven/PushMeBaby onmyway133/PushNotifications   APNsは、その名のとおりAppleのPush通知サービスです  Push通知の送信は、必ずこのサービスを経由します     iPhoneやiPadなどの実デバイス   シミュレータではPush通知が利用できないため
   シミュレータでPush通知の登録をしようとすると、コンソールに以下のようなメッセージが出力されます</description>
     </item>
     
     <item>
       <title>try! Swift Tokyo 2019 感想など</title>
-      <link>https://yagamo-style.com/2019/tryswifttokyo2019/</link>
+      <link>https://yagamo-style.com/2019/04/17/tryswifttokyo2019/</link>
       <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/tryswifttokyo2019/</guid>
+      <guid>https://yagamo-style.com/2019/04/17/tryswifttokyo2019/</guid>
       <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。
 だいぶ時間が経ってしまったけど、感想を少し書いてみます。
 公式サイト、ハッシュタグなど  https://www.tryswift.co/events/2019/tokyo/jp/ @tryswiftconf #tryswiftconf  ここが良かった スポンサーとして 知名度が少し上がってきた  Java 系ではそれなりに知名度がある弊社ですが、モバイル系のカンファレンスに継続して参加することでこちらでも知名度が少しずつ上がってきました。 いろいろな方から、声を掛けて頂けました。  商品をお見せするのが大事  今回はマーケティングチームのアイディアで、主に私の執筆したトレーニングテキストのサンプルを展示しました。 実際に手に取ってご覧頂くことで、以下の効果が得られました。  弊社の業務やトレーニング内容をイメージ頂けた -&amp;gt; 参加者の皆様との会話のきっかけとなった たくさんのご意見を頂けた  「市販書籍よりもわかりやすい」「ここに書いてるのよりも、こっちのライブラリを使ったほうがいい」 「テキストを売って欲しい」「現場に出る前の教育に使いたい」      エンジニアとして 世界的なエンジニアに直接聞ける  私は IBM Kitura を使い始めているのですが、せっかく Kitura の開発チームが来日されていたので、うまくいかない点を思い切って質問してみました。  その上で、Kituraのドキュメント自体に誤りがあることなどを発見できました。 &amp;lt;- 貢献できた！   セッション自体はあとで動画がアップロードされますが、質問はその場でしかできないので、貴重な経験でした。 英語は、できなくてもこわくないです（もちろん、できた方がいいけど）。  言いたいことがはっきりしていれば、文法を多少誤っていたり単語が出てこなかったりしても伝わります。 カンファレンス前日の Global Communication Workshop for try! Swift で、背中を押してもらえた気がします。    今後に向けて  個人・企業ともスポンサーは続けていきたいです。 参加して良かった！で終わらせない。今は IBM Kitura ブースで頂いた本（抽選に当たりました）も使いながら Kitura を学習してます。  </description>
@@ -229,10 +229,10 @@ imageView.image = index == 0 ? UIImage(named: &amp;#34;forest/bird&amp;#34;) : U
     
     <item>
       <title>iOSDC 2018 感想など</title>
-      <link>https://yagamo-style.com/2018/iosdc2018/</link>
+      <link>https://yagamo-style.com/2018/09/15/iosdc2018/</link>
       <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2018/iosdc2018/</guid>
+      <guid>https://yagamo-style.com/2018/09/15/iosdc2018/</guid>
       <description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年からブーススポンサーをやってるので、そっちにも顔を出してました。
 公式サイト、ハッシュタグなど  https://iosdc.jp/2018/ @iosdcjp #iosdc iOSDC 2018 セッション資料まとめ  今年は 8/30-9/2 の開催でしたが、 8/30-31 は残念ながら iOSDE に登壇していたので iOSDC には 9/1,2 のみ参加です（名前が紛らわしい）。
 セッションは高度な内容から日常で使える tips 、入門者向けの内容まで幅広く、どのレベルのエンジニアでも学びの得られる門戸の広いカンファレンスでした。特に後者はカンファレンスでは蔑ろにされることが多い気がするけど、いろんなエンジニアが学べて交流できるのって大事だなと思ってます（なので来年もそっち系でトーク応募します）。

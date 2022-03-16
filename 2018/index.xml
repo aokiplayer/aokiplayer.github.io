@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 15 Sep 2018 21:32:57 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2018/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOSDC 2018 感想など</title>
-      <link>https://yagamo-style.com/2018/iosdc2018/</link>
+      <link>https://yagamo-style.com/2018/09/15/iosdc2018/</link>
       <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2018/iosdc2018/</guid>
+      <guid>https://yagamo-style.com/2018/09/15/iosdc2018/</guid>
       <description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年からブーススポンサーをやってるので、そっちにも顔を出してました。
 公式サイト、ハッシュタグなど  https://iosdc.jp/2018/ @iosdcjp #iosdc iOSDC 2018 セッション資料まとめ  今年は 8/30-9/2 の開催でしたが、 8/30-31 は残念ながら iOSDE に登壇していたので iOSDC には 9/1,2 のみ参加です（名前が紛らわしい）。
 セッションは高度な内容から日常で使える tips 、入門者向けの内容まで幅広く、どのレベルのエンジニアでも学びの得られる門戸の広いカンファレンスでした。特に後者はカンファレンスでは蔑ろにされることが多い気がするけど、いろんなエンジニアが学べて交流できるのって大事だなと思ってます（なので来年もそっち系でトーク応募します）。

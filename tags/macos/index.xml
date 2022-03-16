@@ -9,19 +9,19 @@
     <lastBuildDate>Tue, 15 Oct 2019 13:22:13 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>asr restore による Mac の起動ボリュームのリストア</title>
-      <link>https://yagamo-style.com/2019/asr-restore-basic/</link>
+      <link>https://yagamo-style.com/2019/10/15/asr-restore-basic/</link>
       <pubDate>Tue, 15 Oct 2019 13:22:13 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/asr-restore-basic/</guid>
+      <guid>https://yagamo-style.com/2019/10/15/asr-restore-basic/</guid>
       <description>はじめに  Apple 標準の asr コマンドを利用して、 Mac の起動ボリューム（デフォルトでは Macintosh HD）をリストアする方法です とはいえ、起動ボリュームか否かは関係なく、どのボリュームでも扱い方は同じです  むしろ、起動可能なボリュームのイメージ作成の方にコツがある 今回は、イメージ作成についての詳細には触れません    検証環境  MacBook Pro without T2 Security Chip (-2017) MacBook Pro with T2 Security Chip (2018-) macOS Mojave 10.14.6  asr コマンド  asr は、 Apple Software Restore の略であり、その名の通りリストアを目的としたコマンドです Apple がどこまで公式にサポートしているのかはわかりませんが、起動ボリューム自体もリストア可能です  ソースとなるディスクイメージの作成方法にコツがあったり、いろいろ苦労はありますが…   主に利用するのは、 asr restore の形式です  asr restore  asr restore は、以下のような形式で記述します  asr restore --source リカバリ元のディスクイメージやボリューム --target リカバリ先のディスクやボリューム --erase オプションの説明  --source or -s  リカバリ元のソースを指定 ディスクイメージ でもいいし、それをマウントしたボリュームでも OK  DMG 形式はそのまま指定できるが、 Sparse Bundle などではマウントしなければ指定不可能     --target or -t  リカバリ先のターゲットを指定 /Volume/.</description>
     </item>
     
     <item>
       <title>iOSDC 2019 に参加してきました</title>
-      <link>https://yagamo-style.com/2019/iosdc2019day2/</link>
+      <link>https://yagamo-style.com/2019/09/08/iosdc2019day2/</link>
       <pubDate>Sun, 08 Sep 2019 19:57:25 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/iosdc2019day2/</guid>
+      <guid>https://yagamo-style.com/2019/09/08/iosdc2019day2/</guid>
       <description>2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&amp;ldquo;ブログを書くまでが iOSDC&amp;rdquo;）。
 私自身の登壇に関しては、前回のエントリ iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました をぜひご覧ください。
 ここでは、それ以外について振り返りたいと思います。
@@ -31,10 +31,10 @@
     
     <item>
       <title>iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</title>
-      <link>https://yagamo-style.com/2019/iosdc2019day1/</link>
+      <link>https://yagamo-style.com/2019/09/07/iosdc2019day1/</link>
       <pubDate>Sat, 07 Sep 2019 07:33:45 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/iosdc2019day1/</guid>
+      <guid>https://yagamo-style.com/2019/09/07/iosdc2019day1/</guid>
       <description>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します で書いていましたが、ルーキーズ LT に登壇してきました。 普段からトレーニングで話してはいますが、全くの別物なのでずっと緊張してました。
 若干のミス（残り時間を間違えて、 15 秒余らせたまま最後の部分を省略してしまった）はあったものの、お伝えできたかなと思います。
 公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  発表スライド Speaker Deck に上げたので、ぜひご覧ください。
@@ -46,10 +46,10 @@
     
     <item>
       <title>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します</title>
-      <link>https://yagamo-style.com/2019/iosdc2019pre/</link>
+      <link>https://yagamo-style.com/2019/09/03/iosdc2019pre/</link>
       <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/iosdc2019pre/</guid>
+      <guid>https://yagamo-style.com/2019/09/03/iosdc2019pre/</guid>
       <description>2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。 昨年までは個人サポーター（およびスポンサー企業の社員）として参加していましたが、今年は LT に登壇します！ なので、スピーカー兼個人サポーターとしての参加です（今期から、弊社は技術系のカンファレンスにスポンサーを出さない方針になってしまいました…）。
 公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  私（Hiroyuki Aoki）について  株式会社カサレアルで、研修のトレーナーをしています iOS や Android アプリ開発コースも担当していますが、国内唯一の Apple 認定トレーナーとして macOS のシステム管理コースなども担当しています  ちなみに、カサレアルは国内唯一の Apple 認定トレーニングプロバイダーです Apple の macOS 認定資格（Apple Certified Support Professional）の試験も、弊社で受験可能です   業務を行う中で得た知見から、今回の LT では Mac の環境構築に関する内容を話します  こんなことを話します 完全に同じ開発環境を素早く用意できる（もしくはできない）技術  弊社では、トレーニングで利用するために、たくさんの Mac を全部同じ状態にセットアップしています 手作業で設定すると、ちょっとずつ設定がズレてしまい、受講者に同じ体験をして頂くことができません そのため、素早く・簡単に・完全に同じ状態の Mac をセットアップする必要性があります 以前は利用できた方法が使えなくなったりと一筋縄では行かないのですが、これまでどうやってきて今後どうして行くのか、お話しします  私の登壇は 9 月 6 日の 16:35 、 Track Aの LT 前半の最後です。 アプリの開発技術ではないですが、 Mac の設定も奥が深くて楽しいですよ！ それに、みなさんの普段の Mac 環境準備にも、もしかしたら役に立つ情報があるかも知れません。</description>
     </item>

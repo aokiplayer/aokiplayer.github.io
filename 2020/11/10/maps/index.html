@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="ja" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.94.1" />
+    <meta name="description" content="技術メモとかイベントレポートとか">
+<meta name="author" content="Hiroyuki Aoki">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>map と compactMap と flatMap :: Yagamo Style</title>
+
+    
+    <link href="/css/nucleus.css?1647430911" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1647430911" rel="stylesheet">
+    <link href="/css/hybrid.css?1647430911" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1647430911" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1647430911" rel="stylesheet">
+    <link href="/css/auto-complete.css?1647430911" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1647430911" rel="stylesheet">
+    <link href="/css/theme.css?1647430911" rel="stylesheet">
+    <link href="/css/tabs.css?1647430911" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1647430911" rel="stylesheet">
+    
+    <link href="/css/theme-blue.css?1647430911" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1647430911"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2020/11/10/maps/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/">
+<img src="/images/logo.png">
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="検索...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1647430911"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1647430911"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/yagamo-style.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1647430911"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2022/" title="2022" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2022/">
+          2022
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2022/03/16/git-unusual-filename/" title="いつも忘れる Git の設定（日本語ファイル名を正しく表示）" class="dd-item ">
+        <a href="/2022/03/16/git-unusual-filename/">
+        いつも忘れる Git の設定（日本語ファイル名を正しく表示）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2022/03/12/json-with-null-value/" title="プロパティが nil の場合もエンコード先の JSON に属性を出力する" class="dd-item ">
+        <a href="/2022/03/12/json-with-null-value/">
+        プロパティが nil の場合もエンコード先の JSON に属性を出力する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2021/" title="2021" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2021/">
+          2021
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2021/03/08/codable-container/" title="ネストした JSON をフラットな構造体にマッピングする" class="dd-item ">
+        <a href="/2021/03/08/codable-container/">
+        ネストした JSON をフラットな構造体にマッピングする
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2020/" title="2020" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/2020/">
+          2020
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/12/03/tableview-cell-configure14/" title="iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）" class="dd-item ">
+        <a href="/2020/12/03/tableview-cell-configure14/">
+        iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/11/10/maps/" title="map と compactMap と flatMap" class="dd-item active">
+        <a href="/2020/11/10/maps/">
+        map と compactMap と flatMap
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/07/20/dictionary-to-array/" title="ディクショナリからタプルの配列を作成する" class="dd-item ">
+        <a href="/2020/07/20/dictionary-to-array/">
+        ディクショナリからタプルの配列を作成する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/07/16/arraygrouping/" title="配列要素をグループ化したディクショナリの作成" class="dd-item ">
+        <a href="/2020/07/16/arraygrouping/">
+        配列要素をグループ化したディクショナリの作成
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2020/03/02/default-modal-segue-xcode11/" title="iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある" class="dd-item ">
+        <a href="/2020/03/02/default-modal-segue-xcode11/">
+        iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2019/" title="2019" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2019/">
+          2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/12/20/swift-exam-impression/" title="Apple の iOS/Swift 認定資格を受験してみた" class="dd-item ">
+        <a href="/2019/12/20/swift-exam-impression/">
+        Apple の iOS/Swift 認定資格を受験してみた
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/12/02/adopt-under13-xcode11/" title="Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる" class="dd-item ">
+        <a href="/2019/12/02/adopt-under13-xcode11/">
+        Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/10/15/asr-restore-basic/" title="asr restore による Mac の起動ボリュームのリストア" class="dd-item ">
+        <a href="/2019/10/15/asr-restore-basic/">
+        asr restore による Mac の起動ボリュームのリストア
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/09/08/iosdc2019day2/" title="iOSDC 2019 に参加してきました" class="dd-item ">
+        <a href="/2019/09/08/iosdc2019day2/">
+        iOSDC 2019 に参加してきました
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/09/07/iosdc2019day1/" title="iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました" class="dd-item ">
+        <a href="/2019/09/07/iosdc2019day1/">
+        iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/09/03/iosdc2019pre/" title="iOSDC 2019 に Mac の環境構築の内容で LT 登壇します" class="dd-item ">
+        <a href="/2019/09/03/iosdc2019pre/">
+        iOSDC 2019 に Mac の環境構築の内容で LT 登壇します
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/08/02/getmacaddress/" title="MACアドレスを取得してファイルに書き出すシェルスクリプト" class="dd-item ">
+        <a href="/2019/08/02/getmacaddress/">
+        MACアドレスを取得してファイルに書き出すシェルスクリプト
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/07/02/delegate/" title="簡単なdelegateのサンプル" class="dd-item ">
+        <a href="/2019/07/02/delegate/">
+        簡単なdelegateのサンプル
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/06/21/assetfolder/" title="Asset Catalogで同じ名前の別画像を利用する" class="dd-item ">
+        <a href="/2019/06/21/assetfolder/">
+        Asset Catalogで同じ名前の別画像を利用する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/06/14/swiftuilist_beta/" title="SwiftUIで一覧表示画面を作成する" class="dd-item ">
+        <a href="/2019/06/14/swiftuilist_beta/">
+        SwiftUIで一覧表示画面を作成する
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/05/26/seguecancel/" title="画面遷移（セグエ）のキャンセル" class="dd-item ">
+        <a href="/2019/05/26/seguecancel/">
+        画面遷移（セグエ）のキャンセル
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/05/24/remotenotification02/" title="iOSにおけるPush通知の基本2（受信した通知の内容取得）" class="dd-item ">
+        <a href="/2019/05/24/remotenotification02/">
+        iOSにおけるPush通知の基本2（受信した通知の内容取得）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/05/21/viewcontrollerlifecycle/" title="UIViewControllerのライフサイクルメソッド" class="dd-item ">
+        <a href="/2019/05/21/viewcontrollerlifecycle/">
+        UIViewControllerのライフサイクルメソッド
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/04/18/remotenotification01/" title="iOSにおけるPush通知の基本1（通知の受信まで）" class="dd-item ">
+        <a href="/2019/04/18/remotenotification01/">
+        iOSにおけるPush通知の基本1（通知の受信まで）
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/04/17/tryswifttokyo2019/" title="try! Swift Tokyo 2019 感想など" class="dd-item ">
+        <a href="/2019/04/17/tryswifttokyo2019/">
+        try! Swift Tokyo 2019 感想など
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2018/" title="2018" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2018/">
+          2018
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2018/09/15/iosdc2018/" title="iOSDC 2018 感想など" class="dd-item ">
+        <a href="/2018/09/15/iosdc2018/">
+        iOSDC 2018 感想など
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://yagamo-style.com/tags"><i class='fas fa-tags'></i> Tags</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/aokiplayer"><i class='fab fa-github'></i> GitHub</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Yagamo Style</a> > <a href='/2020/'>2020</a> > map と compactMap と flatMap
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#map-の種類">map の種類</a>
+      <ul>
+        <li><a href="#map">map</a></li>
+        <li><a href="#compactmap">compactMap</a></li>
+        <li><a href="#flatmap">flatMap</a></li>
+      </ul>
+    </li>
+    <li><a href="#サンプル">サンプル</a>
+      <ul>
+        <li><a href="#コード例">コード例</a></li>
+        <li><a href="#実行結果">実行結果</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/ios">iOS</a>
+
+  <a class="tag-link" href="/tags/swift">Swift</a>
+
+</div>
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              map と compactMap と flatMap
+            </h1>
+          
+
+        
+
+
+<h2 id="はじめに">はじめに</h2>
+<p>コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 <code>map</code> があります。
+が、 <code>map</code> にも亜種があって混乱しがちなので、整理しておきたいと思います。</p>
+<p>なお、この記事では配列を例としています。
+実際には、配列でもディクショナリでも Optional でも「入れ物」にあたるものは似たような操作が提供されています（全く同じではないですが）。</p>
+<h2 id="map-の種類">map の種類</h2>
+<h3 id="map">map</h3>
+<p>配列内の各要素を変換します。全要素を変換するので、変換前後で要素数は変わりません。</p>
+<p><img src="/images/maps/map.png?width=25pc" alt="map.png?width=25pc"></p>
+<h3 id="compactmap">compactMap</h3>
+<p><code>map</code> と同じですが、要素のうち <code>nil</code> は除外し、 Optional は unwrap します。 <code>nil</code> を除外するため、 <code>map</code> と異なり変換前後で要素数が変わる（減る）場合もあります。</p>
+<p><img src="/images/maps/compactMap.png?width=25pc" alt="compactMap.png?width=25pc"></p>
+<h3 id="flatmap">flatMap</h3>
+<p>配列がネストされている場合、内側の配列から要素を取り出して平坦な配列にします（二次元配列 -&gt; 一次元配列）。</p>
+<p><img src="/images/maps/flatMap1.png?width=25pc" alt="flatMap1.png?width=25pc"></p>
+<p>内側の「配列という <strong>入れ物</strong> 」を「Optional という <strong>入れ物</strong> 」に見立てれば「Optional の内容を取り出した配列」を作成することになり、 <code>compactMap</code> と同じ動作となります。</p>
+<ul>
+<li><code>Array&lt;Array&lt;要素&gt;</code> -（変換）-&gt; <code>Array&lt;要素&gt;</code></li>
+<li><code>Array&lt;Optional&lt;要素&gt;</code> -（変換）-&gt; <code>Array&lt;要素&gt;</code></li>
+</ul>
+<p><img src="/images/maps/flatMap2.png?width=25pc" alt="flatMap2.png?width=25pc"></p>
+<p><code>compactMap</code> が実装されていなかった Swift の初期のバージョンではこのような用途でも利用されていましたが、現在では deprecated です。素直に <code>compactMap</code> を使いましょう。</p>
+<h2 id="サンプル">サンプル</h2>
+<p><code>map</code>, <code>compactMap</code>, <code>flatMap</code> を利用したサンプルです。
+上記 4 つの図と比較しながら読んでみてください。</p>
+<h3 id="コード例">コード例</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Foundation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Category</span>: String, CustomStringConvertible {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> description: String {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.rawValue
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> personal
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> business
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Item</span>: CustomStringConvertible {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> description: String {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        name: &#34;</span><span style="color:#960050;background-color:#1e0010">\</span>(<span style="color:#66d9ef">self</span>.name)<span style="color:#e6db74">&#34;, price: </span><span style="color:#e6db74">\(</span><span style="color:#66d9ef">self</span>.price<span style="color:#e6db74">)</span><span style="color:#e6db74">, categories: </span><span style="color:#e6db74">\(</span><span style="color:#66d9ef">self</span>.categories ?? []<span style="color:#e6db74">)</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> name: String
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> price: Int
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> categories: [Category]?
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> items: [Item] = [
+</span></span><span style="display:flex;"><span>    Item(name: <span style="color:#e6db74">&#34;Suit&#34;</span>, price: <span style="color:#ae81ff">15000</span>, categories: [.business]),
+</span></span><span style="display:flex;"><span>    Item(name: <span style="color:#e6db74">&#34;Pen&#34;</span>, price: <span style="color:#ae81ff">400</span>, categories: [.personal, .business]),
+</span></span><span style="display:flex;"><span>    Item(name: <span style="color:#e6db74">&#34;Sea&#34;</span>, price: <span style="color:#ae81ff">99999</span>, categories: <span style="color:#66d9ef">nil</span>),
+</span></span><span style="display:flex;"><span>    Item(name: <span style="color:#e6db74">&#34;Drink&#34;</span>, price: <span style="color:#ae81ff">120</span>, categories: [.personal]),
+</span></span><span style="display:flex;"><span>    Item(name: <span style="color:#e6db74">&#34;Sky&#34;</span>, price: <span style="color:#ae81ff">99999</span>, categories:<span style="color:#66d9ef">nil</span>),
+</span></span><span style="display:flex;"><span>    Item(name: <span style="color:#e6db74">&#34;Comic&#34;</span>, price: <span style="color:#ae81ff">600</span>, categories: [.personal])
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      == Items ==========
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      </span><span style="color:#e6db74">\(</span>items<span style="color:#e6db74">)</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// map transforms each element in an Array.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> map = items.map { item <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>    item.categories ?? []
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      == map &#34;</span>item.categories ?? []<span style="color:#e6db74">&#34; ==========
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      </span><span style="color:#e6db74">\(</span>map<span style="color:#e6db74">)</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// compactMap is a map that only collect non-nil values.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> compact = items.compactMap { item <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>    item.categories
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      == compactMap &#34;</span>item.categories<span style="color:#e6db74">&#34; ==========
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      </span><span style="color:#e6db74">\(</span>compact<span style="color:#e6db74">)</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// flatMap flattens the inner Array.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> flat1 = items.flatMap { item <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>    item.categories ?? []
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      == flatMap &#34;</span>item.categories ?? []<span style="color:#e6db74">&#34; ==========
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      </span><span style="color:#e6db74">\(</span>flat1<span style="color:#e6db74">)</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// This type of flatMap is deprecated. You should use compactMap.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> flat2 = items.flatMap { item <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>    item.categories
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      == flatMap &#34;</span>item.categories<span style="color:#e6db74">&#34; ==========
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      </span><span style="color:#e6db74">\(</span>flat2<span style="color:#e6db74">)</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="実行結果">実行結果</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#f92672">==</span> Items <span style="color:#f92672">==========</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>name: <span style="color:#e6db74">&#34;Suit&#34;</span>, price: 15000, categories: <span style="color:#f92672">[</span>business<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>, name: <span style="color:#e6db74">&#34;Pen&#34;</span>, price: 400, categories: <span style="color:#f92672">[</span>personal, business<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>, name: <span style="color:#e6db74">&#34;Sea&#34;</span>, price: 99999, categories: <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>, name: <span style="color:#e6db74">&#34;Drink&#34;</span>, price: 120, categories: <span style="color:#f92672">[</span>personal<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>, name: <span style="color:#e6db74">&#34;Sky&#34;</span>, price: 99999, categories: <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>, name: <span style="color:#e6db74">&#34;Comic&#34;</span>, price: 600, categories: <span style="color:#f92672">[</span>personal<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span> map <span style="color:#e6db74">&#34;item.categories ?? []&#34;</span> <span style="color:#f92672">==========</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[[</span>business<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>personal, business<span style="color:#f92672">]</span>, <span style="color:#f92672">[]</span>, <span style="color:#f92672">[</span>personal<span style="color:#f92672">]</span>, <span style="color:#f92672">[]</span>, <span style="color:#f92672">[</span>personal<span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span> compactMap <span style="color:#e6db74">&#34;item.categories&#34;</span> <span style="color:#f92672">==========</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[[</span>business<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>personal, business<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>personal<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>personal<span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span> flatMap <span style="color:#e6db74">&#34;item.categories ?? []&#34;</span> <span style="color:#f92672">==========</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>business, personal, business, personal, personal<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span> flatMap <span style="color:#e6db74">&#34;item.categories&#34;</span> <span style="color:#f92672">==========</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[[</span>business<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>personal, business<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>personal<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>personal<span style="color:#f92672">]]</span>
+</span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
+<p><code>map</code> については、図で表すとわかりやすいですね。この辺りの操作は Combine フレームワークでもよく使われるので、使いこなせると開発がとても楽になると思います。</p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1647430911"></script>
+    <script src="/js/perfect-scrollbar.min.js?1647430911"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1647430911"></script>
+    <script src="/js/jquery.sticky.js?1647430911"></script>
+    <script src="/js/featherlight.min.js?1647430911"></script>
+    <script src="/js/highlight.pack.js?1647430911"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1647430911"></script>
+    <script src="/js/learn.js?1647430911"></script>
+    <script src="/js/hugo-learn.js?1647430911"></script>
+    
+        
+            <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

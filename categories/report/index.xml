@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 17 Apr 2019 19:16:50 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/categories/report/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>try! Swift Tokyo 2019 感想など</title>
-      <link>https://yagamo-style.com/2019/tryswifttokyo2019/</link>
+      <link>https://yagamo-style.com/2019/04/17/tryswifttokyo2019/</link>
       <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2019/tryswifttokyo2019/</guid>
+      <guid>https://yagamo-style.com/2019/04/17/tryswifttokyo2019/</guid>
       <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。
 だいぶ時間が経ってしまったけど、感想を少し書いてみます。
 公式サイト、ハッシュタグなど  https://www.tryswift.co/events/2019/tokyo/jp/ @tryswiftconf #tryswiftconf  ここが良かった スポンサーとして 知名度が少し上がってきた  Java 系ではそれなりに知名度がある弊社ですが、モバイル系のカンファレンスに継続して参加することでこちらでも知名度が少しずつ上がってきました。 いろいろな方から、声を掛けて頂けました。  商品をお見せするのが大事  今回はマーケティングチームのアイディアで、主に私の執筆したトレーニングテキストのサンプルを展示しました。 実際に手に取ってご覧頂くことで、以下の効果が得られました。  弊社の業務やトレーニング内容をイメージ頂けた -&amp;gt; 参加者の皆様との会話のきっかけとなった たくさんのご意見を頂けた  「市販書籍よりもわかりやすい」「ここに書いてるのよりも、こっちのライブラリを使ったほうがいい」 「テキストを売って欲しい」「現場に出る前の教育に使いたい」      エンジニアとして 世界的なエンジニアに直接聞ける  私は IBM Kitura を使い始めているのですが、せっかく Kitura の開発チームが来日されていたので、うまくいかない点を思い切って質問してみました。  その上で、Kituraのドキュメント自体に誤りがあることなどを発見できました。 &amp;lt;- 貢献できた！   セッション自体はあとで動画がアップロードされますが、質問はその場でしかできないので、貴重な経験でした。 英語は、できなくてもこわくないです（もちろん、できた方がいいけど）。  言いたいことがはっきりしていれば、文法を多少誤っていたり単語が出てこなかったりしても伝わります。 カンファレンス前日の Global Communication Workshop for try! Swift で、背中を押してもらえた気がします。    今後に向けて  個人・企業ともスポンサーは続けていきたいです。 参加して良かった！で終わらせない。今は IBM Kitura ブースで頂いた本（抽選に当たりました）も使いながら Kitura を学習してます。  </description>
@@ -20,10 +20,10 @@
     
     <item>
       <title>iOSDC 2018 感想など</title>
-      <link>https://yagamo-style.com/2018/iosdc2018/</link>
+      <link>https://yagamo-style.com/2018/09/15/iosdc2018/</link>
       <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2018/iosdc2018/</guid>
+      <guid>https://yagamo-style.com/2018/09/15/iosdc2018/</guid>
       <description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年からブーススポンサーをやってるので、そっちにも顔を出してました。
 公式サイト、ハッシュタグなど  https://iosdc.jp/2018/ @iosdcjp #iosdc iOSDC 2018 セッション資料まとめ  今年は 8/30-9/2 の開催でしたが、 8/30-31 は残念ながら iOSDE に登壇していたので iOSDC には 9/1,2 のみ参加です（名前が紛らわしい）。
 セッションは高度な内容から日常で使える tips 、入門者向けの内容まで幅広く、どのレベルのエンジニアでも学びの得られる門戸の広いカンファレンスでした。特に後者はカンファレンスでは蔑ろにされることが多い気がするけど、いろんなエンジニアが学べて交流できるのって大事だなと思ってます（なので来年もそっち系でトーク応募します）。
