@@ -1,10 +1,11 @@
----
-title: "いつも忘れる Git の設定（日本語ファイル名を正しく表示）"
-date: 2022-03-16T14:59:46+09:00
-draft: false
-toc: true
-tags: [ "Git" ]
----
++++
+title = "いつも忘れる Git の設定（日本語ファイル名を正しく表示）"
+date = "2022-03-16T14:59:46+09:00"
+draft = false
+toc = true
+tags = [ "Git" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます

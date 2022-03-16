@@ -1,10 +1,11 @@
----
-title: "配列要素をグループ化したディクショナリの作成"
-date: 2020-07-16T08:39:32+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift" ]
----
++++
+title = "配列要素をグループ化したディクショナリの作成"
+date = "2020-07-16T08:39:32+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - テーブルビューやコレクションビューで、グループ化した表示はよく使います

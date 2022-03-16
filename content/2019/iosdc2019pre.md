@@ -5,6 +5,7 @@ draft = false
 toc = true
 tags = [ "iOSDC", "iOS", "Swift", "macOS" ]
 aliases = [ "/posts/iosdc2019pre/" ]
+ogimage = "images/open_graph_logo.png"
 +++
 
 2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。

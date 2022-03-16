@@ -1,10 +1,11 @@
----
-title: "プロパティが nil の場合もエンコード先の JSON に属性を出力する"
-date: 2022-03-12T22:38:43+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift", "JSON" ]
----
++++
+title = "プロパティが nil の場合もエンコード先の JSON に属性を出力する"
+date = "2022-03-12T22:38:43+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift", "JSON" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - JSON の解析をカスタマイズする方法については [[ネストした JSON をフラットな構造体にマッピングする]]({{< ref "/2021/codable-container.md">}}) で書きました

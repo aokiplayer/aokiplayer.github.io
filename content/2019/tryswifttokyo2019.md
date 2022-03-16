@@ -1,11 +1,12 @@
----
-title: "try! Swift Tokyo 2019 感想など"
-date: 2019-04-17T19:16:50+09:00
-draft: false
-toc: true
-categories: ["Report"]
-tags: ["try! Swift", "iOS", "Swift"]
----
++++
+title = "try! Swift Tokyo 2019 感想など"
+date = "2019-04-17T19:16:50+09:00"
+draft = false
+toc = true
+categories = ["Report"]
+tags = ["try! Swift", "iOS", "Swift"]
+ogimage = "images/open_graph_logo.png"
++++
 
 try! Swift Tokyo 2019 に参加してきました。
 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。

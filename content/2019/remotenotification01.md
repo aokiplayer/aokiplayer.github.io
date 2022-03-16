@@ -1,11 +1,12 @@
----
-title: "iOSにおけるPush通知の基本1（通知の受信まで）"
-date: 2019-04-18T09:30:15+09:00
-draft: false
-toc: true
-categories: [ "Technical" ]
-tags: [ "iOS", "Swift" ]
----
++++
+title = "iOSにおけるPush通知の基本1（通知の受信まで）"
+date = "2019-04-18T09:30:15+09:00"
+draft = false
+toc = true
+categories = [ "Technical" ]
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - Push通知は、使い方によっては非常に効果的です

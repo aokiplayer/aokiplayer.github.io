@@ -1,10 +1,11 @@
----
-title: "ディクショナリからタプルの配列を作成する"
-date: 2020-07-20T08:22:03+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift" ]
----
++++
+title = "ディクショナリからタプルの配列を作成する"
+date = "2020-07-20T08:22:03+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - Swift には、連想配列的なデータ構造としてディクショナリがあります

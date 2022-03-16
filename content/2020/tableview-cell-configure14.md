@@ -1,12 +1,11 @@
----
-title: "iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）"
-date: 2020-12-03T13:30:07+09:00
-draft: false
-toc: true
-images:
-toc: true
-tags: [ "iOS", "Swift" ]
----
++++
+title = "iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）"
+date = "2020-12-03T13:30:07+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 テーブルビューでは、カスタムセルを作成しなくてもデフォルトで提供されている 4 種類のスタイルが利用できました。

@@ -1,10 +1,11 @@
----
-title: "asr restore による Mac の起動ボリュームのリストア"
-date: 2019-10-15T13:22:13+09:00
-draft: false
-toc: true
-tags: [ "macOS" ]
----
++++
+title = "asr restore による Mac の起動ボリュームのリストア"
+date = "2019-10-15T13:22:13+09:00"
+draft = false
+toc = true
+tags = [ "macOS" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - Apple 標準の asr コマンドを利用して、 Mac の起動ボリューム（デフォルトでは Macintosh HD）をリストアする方法です

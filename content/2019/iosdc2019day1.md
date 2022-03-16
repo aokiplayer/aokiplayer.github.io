@@ -5,6 +5,7 @@ draft = false
 toc = true
 tags = [ "iOSDC", "iOS", "Swift", "macOS" ]
 aliases = [ "/posts/iosdc2019day1/" ]
+ogimage = "images/open_graph_logo.png"
 +++
 
 [iOSDC 2019 に Mac の環境構築の内容で LT 登壇します]({{< ref "/2019/iosdc2019pre.md">}}) で書いていましたが、ルーキーズ LT に登壇してきました。

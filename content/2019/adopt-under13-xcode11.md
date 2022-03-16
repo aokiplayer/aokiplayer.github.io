@@ -1,10 +1,11 @@
----
-title: "Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる"
-date: 2019-12-02T16:38:56+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift" ]
----
++++
+title = "Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる"
+date = "2019-12-02T16:38:56+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - Xcode 11 から、新規作成したプロジェクトの構成が変わりました

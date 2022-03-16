@@ -1,10 +1,11 @@
----
-title: "Apple の iOS/Swift 認定資格を受験してみた"
-date: 2019-12-20T16:56:23+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift", "Apple", "Certification" ]
----
++++
+title = "Apple の iOS/Swift 認定資格を受験してみた"
+date = "2019-12-20T16:56:23+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift", "Apple", "Certification" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 2018 年 11 月 26 日の Apple の Newsroom 記事 [Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本)](https://www.apple.com/jp/newsroom/2018/11/apple-brings-coding-education-to-more-students-for-computer-science-education-week/) で述べられているように、 Apple は主に学生をターゲットとした iOS および Swift の認定資格をリリースしました。
 

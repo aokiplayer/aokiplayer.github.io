@@ -1,10 +1,11 @@
----
-title: "Asset Catalogで同じ名前の別画像を利用する"
-date: 2019-06-21T09:09:14+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift" ]
----
++++
+title = "Asset Catalogで同じ名前の別画像を利用する"
+date = "2019-06-21T09:09:14+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - Xcodeのアセットカタログ（デフォルトではAssets.xcassets）は、画像などのリソースを管理します

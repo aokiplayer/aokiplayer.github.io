@@ -1,10 +1,11 @@
----
-title: "iOSにおけるPush通知の基本2（受信した通知の内容取得）"
-date: 2019-05-24T10:52:57+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift" ]
----
++++
+title = "iOSにおけるPush通知の基本2（受信した通知の内容取得）"
+date = "2019-05-24T10:52:57+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - 前の記事 [[iOSにおけるPush通知の基本1（通知の受信まで）]]({{< ref "/2019/remotenotification01.md">}}) では、以下のところまで紹介しました

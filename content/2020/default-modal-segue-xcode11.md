@@ -1,11 +1,13 @@
----
-title: "iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある"
-date: 2020-03-02T18:03:25+09:00
-draft: false
-toc: true
-categories: [ "Technical" ]
-tags: [ "iOS", "Swift" ]
----
++++
+title = "iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある"
+date = "2020-03-02T18:03:25+09:00"
+draft = false
+toc = true
+categories = [ "Technical" ]
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
+
 ## はじめに
 - iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります
 - その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました

@@ -1,10 +1,11 @@
----
-title: "map と compactMap と flatMap"
-date: 2020-11-10T16:08:03+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift" ]
----
++++
+title = "map と compactMap と flatMap"
+date = "2020-11-10T16:08:03+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 `map` があります。

@@ -6,6 +6,7 @@ toc = true
 categories = [ "Report" ]
 tags = [ "iOSDC", "iOS", "Swift" ]
 aliases = [ "/posts/iosdc2018/" ]
+ogimage = "images/open_graph_logo.png"
 +++
 
 今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。

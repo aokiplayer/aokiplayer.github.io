@@ -1,10 +1,11 @@
----
-title: "画面遷移（セグエ）のキャンセル"
-date: 2019-05-26T09:35:28+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift" ]
----
++++
+title = "画面遷移（セグエ）のキャンセル"
+date = "2019-05-26T09:35:28+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - 画面遷移のタイミングで条件を判断し、場合によってはキャンセルするような動作が必要な場面があります

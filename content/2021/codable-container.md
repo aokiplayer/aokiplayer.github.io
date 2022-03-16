@@ -1,10 +1,11 @@
----
-title: "ネストした JSON をフラットな構造体にマッピングする"
-date: 2021-03-08T10:17:14+09:00
-draft: false
-toc: true
-tags: [ "iOS", "Swift", "JSON" ]
----
++++
+title = "ネストした JSON をフラットな構造体にマッピングする"
+date = "2021-03-08T10:17:14+09:00"
+draft = false
+toc = true
+tags = [ "iOS", "Swift", "JSON" ]
+ogimage = "images/open_graph_logo.png"
++++
 
 ## はじめに
 - Swift では `Encodable`, `Decodable`プロトコルと `JSONEncoder`, `JSONDecoder` を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂
