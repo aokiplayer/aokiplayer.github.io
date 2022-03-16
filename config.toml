@@ -86,3 +86,10 @@ name = "<i class='fab fa-github'></i> GitHub"
 # identifier = "ds"
 url = "https://github.com/aokiplayer"
 weight = 50
+
+[permalinks]
+2022 = '/:year/:month/:day/:filename/'
+2021 = '/:year/:month/:day/:filename/'
+2020 = '/:year/:month/:day/:filename/'
+2019 = '/:year/:month/:day/:filename/'
+2018 = '/:year/:month/:day/:filename/'
