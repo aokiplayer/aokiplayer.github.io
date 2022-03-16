@@ -42,6 +42,27 @@
 	"content": ""
 },
 {
+	"uri": "https://yagamo-style.com/tags/git/",
+	"title": "Git",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/2022/git-unusual-filename/",
+	"title": "いつも忘れる Git の設定（日本語ファイル名を正しく表示）",
+	"tags": ["Git"],
+	"description": "",
+	"content": "はじめに  この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます  Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね  これを設定しておく（グローバルでやっちゃってもいいとは思うけど）  git config --local core.quotepath false 参考  Git の man より  core.quotePath  Commands that output paths (e.g. ls-files, diff), will quote \u0026#34;unusual\u0026#34; characters in the  pathname by enclosing the pathname in double-quotes and escaping those characters with  backslashes in the same way C escapes control characters (e.g. \\t for TAB, \\n for LF, \\\\ for  backslash) or bytes with values larger than 0x80 (e.g. octal \\302\\265 for \u0026#34;micro\u0026#34; in UTF-8). If  this variable is set to false, bytes higher than 0x80 are not considered \u0026#34;unusual\u0026#34; any more.  Double-quotes, backslash and control characters are always escaped regardless of the setting of  this variable. A simple space character is not considered \u0026#34;unusual\u0026#34;. Many commands can output  pathnames completely verbatim using the -z option. The default value is true. "
+},
+{
 	"uri": "https://yagamo-style.com/tags/ios/",
 	"title": "iOS",
 	"tags": [],
@@ -58,13 +79,6 @@
 {
 	"uri": "https://yagamo-style.com/tags/swift/",
 	"title": "Swift",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/",
-	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""

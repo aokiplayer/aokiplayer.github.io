@@ -6,7 +6,16 @@
     <description>Recent content in 2022 on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sat, 12 Mar 2022 22:38:43 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2022/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Mar 2022 14:59:46 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>いつも忘れる Git の設定（日本語ファイル名を正しく表示）</title>
+      <link>https://yagamo-style.com/2022/git-unusual-filename/</link>
+      <pubDate>Wed, 16 Mar 2022 14:59:46 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/git-unusual-filename/</guid>
+      <description>はじめに  この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます  Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね  これを設定しておく（グローバルでやっちゃってもいいとは思うけど）  git config --local core.quotepath false 参考  Git の man より  core.quotePath  Commands that output paths (e.g. ls-files, diff), will quote &amp;#34;unusual&amp;#34; characters in the  pathname by enclosing the pathname in double-quotes and escaping those characters with  backslashes in the same way C escapes control characters (e.g. \t for TAB, \n for LF, \\ for  backslash) or bytes with values larger than 0x80 (e.</description>
+    </item>
+    
     <item>
       <title>プロパティが nil の場合もエンコード先の JSON に属性を出力する</title>
       <link>https://yagamo-style.com/2022/json-with-null-value/</link>

@@ -9,25 +9,25 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Mac :: Yagamo Style</title>
+    <title>いつも忘れる Git の設定（日本語ファイル名を正しく表示） :: Yagamo Style</title>
 
     
-    <link href="/css/nucleus.css?1647410788" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1647410788" rel="stylesheet">
-    <link href="/css/hybrid.css?1647410788" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1647410788" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1647410788" rel="stylesheet">
-    <link href="/css/auto-complete.css?1647410788" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1647410788" rel="stylesheet">
-    <link href="/css/theme.css?1647410788" rel="stylesheet">
-    <link href="/css/tabs.css?1647410788" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1647410788" rel="stylesheet">
+    <link href="/css/nucleus.css?1647410787" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1647410787" rel="stylesheet">
+    <link href="/css/hybrid.css?1647410787" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1647410787" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1647410787" rel="stylesheet">
+    <link href="/css/auto-complete.css?1647410787" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1647410787" rel="stylesheet">
+    <link href="/css/theme.css?1647410787" rel="stylesheet">
+    <link href="/css/tabs.css?1647410787" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1647410787" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1647410788" rel="stylesheet">
+    <link href="/css/theme-blue.css?1647410787" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1647410788"></script>
+    <script src="/js/jquery-3.3.1.min.js?1647410787"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/mac/">
+  <body class="" data-url="/2022/git-unusual-filename/">
     <nav id="sidebar" class="">
 
 
@@ -60,14 +60,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1647410788"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1647410788"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1647410787"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1647410787"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/yagamo-style.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1647410788"></script>
+<script type="text/javascript" src="/js/search.js?1647410787"></script>
 
     
   </div>
@@ -96,7 +96,7 @@
   
     
     <li data-nav-id="/2022/" title="2022" class="dd-item
-        
+        parent
         
         
         ">
@@ -122,7 +122,7 @@
  
   
     
-      <li data-nav-id="/2022/git-unusual-filename/" title="いつも忘れる Git の設定（日本語ファイル名を正しく表示）" class="dd-item ">
+      <li data-nav-id="/2022/git-unusual-filename/" title="いつも忘れる Git の設定（日本語ファイル名を正しく表示）" class="dd-item active">
         <a href="/2022/git-unusual-filename/">
         いつも忘れる Git の設定（日本語ファイル名を正しく表示）
         
@@ -824,7 +824,7 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > <a href='/tags/'>Tags</a> > Mac
+            <a href='/'>Yagamo Style</a> > <a href='/2022/'>2022</a> > いつも忘れる Git の設定（日本語ファイル名を正しく表示）
           
         
           
@@ -837,7 +837,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#git-でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね">Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -847,32 +853,50 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/git">Git</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                tag ::
-              
-              Mac
+              いつも忘れる Git の設定（日本語ファイル名を正しく表示）
             </h1>
           
 
         
 
 
-
-
-
+<h2 id="はじめに">はじめに</h2>
 <ul>
-	
-		<li><a href="/2019/getmacaddress/">MACアドレスを取得してファイルに書き出すシェルスクリプト</a></li>
-	
+<li>この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます</li>
 </ul>
+<h2 id="git-でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね">Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね</h2>
+<ul>
+<li>これを設定しておく（グローバルでやっちゃってもいいとは思うけど）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>git config --local core.quotepath false
+</span></span></code></pre></div><h2 id="参考">参考</h2>
+<ul>
+<li>Git の man より</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>core.quotePath
+</span></span><span style="display:flex;"><span>           Commands that output paths <span style="color:#f92672">(</span>e.g.  ls-files, diff<span style="color:#f92672">)</span>, will quote <span style="color:#e6db74">&#34;unusual&#34;</span> characters in the
+</span></span><span style="display:flex;"><span>           pathname by enclosing the pathname in double-quotes and escaping those characters with
+</span></span><span style="display:flex;"><span>           backslashes in the same way C escapes control characters <span style="color:#f92672">(</span>e.g.  <span style="color:#ae81ff">\t</span> <span style="color:#66d9ef">for</span> TAB, <span style="color:#ae81ff">\n</span> <span style="color:#66d9ef">for</span> LF, <span style="color:#ae81ff">\\</span> <span style="color:#66d9ef">for</span>
+</span></span><span style="display:flex;"><span>           backslash<span style="color:#f92672">)</span> or bytes with values larger than 0x80 <span style="color:#f92672">(</span>e.g. octal <span style="color:#ae81ff">\3</span>02<span style="color:#ae81ff">\2</span><span style="color:#ae81ff">65</span> <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#34;micro&#34;</span> in UTF-8<span style="color:#f92672">)</span>. If
+</span></span><span style="display:flex;"><span>           this variable is set to false, bytes higher than 0x80 are not considered <span style="color:#e6db74">&#34;unusual&#34;</span> any more.
+</span></span><span style="display:flex;"><span>           Double-quotes, backslash and control characters are always escaped regardless of the setting of
+</span></span><span style="display:flex;"><span>           this variable. A simple space character is not considered <span style="color:#e6db74">&#34;unusual&#34;</span>. Many commands can output
+</span></span><span style="display:flex;"><span>           pathnames completely verbatim using the -z option. The default value is true.
+</span></span></code></pre></div>
 
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1326,6 +1350,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1338,6 +1363,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1354,6 +1380,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1406,3 +1435,4 @@
 
   </body>
 </html>
+
