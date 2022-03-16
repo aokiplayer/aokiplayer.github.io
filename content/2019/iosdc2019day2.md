@@ -1,10 +1,11 @@
----
-title: "iOSDC 2019 に参加してきました"
-date: 2019-09-08T19:57:25+09:00
-draft: false
-toc: true
-tags: [ "iOSDC", "iOS", "Swift", "macOS" ]
----
++++
+title =  "iOSDC 2019 に参加してきました"
+date = "2019-09-08T19:57:25+09:00"
+draft = false
+toc = true
+tags = [ "iOSDC", "iOS", "Swift", "macOS" ]
+aliases = [ "/posts/iosdc2019day2/" ]
++++
 
 2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（"ブログを書くまでが iOSDC"）。
 

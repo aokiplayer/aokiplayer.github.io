@@ -1,11 +1,12 @@
----
-title: "iOSDC 2018 感想など"
-date: 2018-09-15T21:32:57+09:00
-draft: false
-toc: true
-categories: [ "Report" ]
-tags: [ "iOSDC", "iOS", "Swift" ]
----
++++
+title = "iOSDC 2018 感想など"
+date = "2018-09-15T21:32:57+09:00"
+draft = false
+toc = true
+categories = [ "Report" ]
+tags = [ "iOSDC", "iOS", "Swift" ]
+aliases = [ "/posts/iosdc2018/" ]
++++
 
 今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。
 あと、[弊社](https://www.casareal.co.jp/)は昨年からブーススポンサーをやってるので、そっちにも顔を出してました。

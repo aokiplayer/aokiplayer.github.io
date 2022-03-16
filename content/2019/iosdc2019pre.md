@@ -1,10 +1,11 @@
----
-title: "iOSDC 2019 に Mac の環境構築の内容で LT 登壇します"
-date: 2019-09-03T13:14:41+09:00
-draft: false
-toc: true
-tags: [ "iOSDC", "iOS", "Swift", "macOS" ]
----
++++
+title = "iOSDC 2019 に Mac の環境構築の内容で LT 登壇します"
+date = "2019-09-03T13:14:41+09:00"
+draft = false
+toc = true
+tags = [ "iOSDC", "iOS", "Swift", "macOS" ]
+aliases = [ "/posts/iosdc2019pre/" ]
++++
 
 2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。
 昨年までは個人サポーター（およびスポンサー企業の社員）として参加していましたが、今年は LT に登壇します！
