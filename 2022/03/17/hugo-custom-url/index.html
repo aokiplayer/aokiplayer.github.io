@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/tags/mac/">
-<meta property="og:title" content="Mac">
-<meta property="og:image" content="https://yagamo-style.com/">
+<meta property="og:url" content="https://yagamo-style.com/2022/03/17/hugo-custom-url/">
+<meta property="og:title" content="Hugo で各記事の URL をカスタマイズ">
+<meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Mac :: Yagamo Style</title>
+    <title>Hugo で各記事の URL をカスタマイズ :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1647479756" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/mac/">
+  <body class="" data-url="/2022/03/17/hugo-custom-url/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2022/" title="2022" class="dd-item
-        
+        parent
         
         
         ">
@@ -124,7 +124,7 @@
  
   
     
-      <li data-nav-id="/2022/03/17/hugo-custom-url/" title="Hugo で各記事の URL をカスタマイズ" class="dd-item ">
+      <li data-nav-id="/2022/03/17/hugo-custom-url/" title="Hugo で各記事の URL をカスタマイズ" class="dd-item active">
         <a href="/2022/03/17/hugo-custom-url/">
         Hugo で各記事の URL をカスタマイズ
         
@@ -847,7 +847,7 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > <a href='/tags/'>Tags</a> > Mac
+            <a href='/'>Yagamo Style</a> > <a href='/2022/'>2022</a> > Hugo で各記事の URL をカスタマイズ
           
         
           
@@ -860,7 +860,19 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#検証環境">検証環境</a></li>
+    <li><a href="#カスタム-url-の指定permalinks-の設定">カスタム URL の指定（Permalinks の設定）</a>
+      <ul>
+        <li><a href="#サンプル">サンプル</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -870,32 +882,67 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/hugo">Hugo</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                tag ::
-              
-              Mac
+              Hugo で各記事の URL をカスタマイズ
             </h1>
           
 
         
 
 
-
-
-
+<h2 id="はじめに">はじめに</h2>
 <ul>
-	
-		<li><a href="/2019/08/02/getmacaddress/">MACアドレスを取得してファイルに書き出すシェルスクリプト</a></li>
-	
+<li>静的サイトジェネレータの <a href="https://gohugo.io/">Hugo</a> では、記事の URL 階層はデフォルトではディレクトリ階層と一致します</li>
+<li>ですが、場合によっては変更したい場合があります
+<ul>
+<li>ブログ記事などでは、たとえば <code>/diary/2020/04/19</code> のような形式にしたい場合もあるでしょう</li>
+<li>そのためにディレクトリを細かく設定していくのは面倒です</li>
+</ul>
+</li>
+<li>その際に、必要な設定について記載します</li>
+</ul>
+<h2 id="検証環境">検証環境</h2>
+<ul>
+<li>hugo v0.93.3</li>
+</ul>
+<h2 id="カスタム-url-の指定permalinks-の設定">カスタム URL の指定（Permalinks の設定）</h2>
+<ul>
+<li><code>config.toml</code> に <code>[permalinks]</code> 項目を追加することで、記事のパスを自由に設定できます</li>
+</ul>
+<h3 id="サンプル">サンプル</h3>
+<pre tabindex="0"><code class="language-toml:config.toml（抜粋）" data-lang="toml:config.toml（抜粋）">[permalinks]
+  posts = &#39;/:year/:month/:day/:filename/&#39;
+</code></pre><ul>
+<li>上記の例では、 <code>contents/posts</code> に配置された各記事の URL は <code>2020/04/19/拡張子を除いた記事のファイル名/</code> となります
+<ul>
+<li>出力イメージは、この記事の URL をご覧ください</li>
+</ul>
+</li>
+<li><code>:year</code> のような設定値は他にも用意されているので、必要に応じて公式サイトで確認すると良いでしょう</li>
+</ul>
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>URL を物理的なディレクトリ階層と分けられれば、記事の管理がグッと楽になります</li>
+<li>また、途中でディレクトリ階層を変更しても、記事の URL が変わらないのがありがたいですね</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://gohugo.io/content-management/urls/">URL Management | Hugo</a></li>
 </ul>
 
 
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1349,6 +1396,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1361,6 +1409,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1377,6 +1426,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1445,3 +1497,4 @@
 
   </body>
 </html>
+
