@@ -4,6 +4,7 @@ date = "2020-07-20T08:22:03+09:00"
 draft = false
 toc = true
 tags = [ "iOS", "Swift" ]
+aliases = [ "/posts/dictionary-to-array/" ]
 ogimage = "images/open_graph_logo.png"
 +++
 

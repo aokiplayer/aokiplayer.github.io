@@ -4,6 +4,7 @@ date = "2020-07-16T08:39:32+09:00"
 draft = false
 toc = true
 tags = [ "iOS", "Swift" ]
+aliases = [ "/posts/arraygrouping/" ]
 ogimage = "images/open_graph_logo.png"
 +++
 
