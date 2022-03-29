@@ -6,7 +6,16 @@
     <description>Recent content in 2022 on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 17 Mar 2022 09:50:39 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2022/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Mar 2022 10:19:02 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo で記事の URL にエイリアスを設定する</title>
+      <link>https://yagamo-style.com/2022/03/29/hugo-url-aliases/</link>
+      <pubDate>Tue, 29 Mar 2022 10:19:02 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/03/29/hugo-url-aliases/</guid>
+      <description>はじめに  静的サイトジェネレータ Hugo の設定のお話です 記事が増えると、 Web サイトを整理したくなりますよね。また、 URL を後から変えたくなることもあります。 ただ、そうするとどこかからリンクされているページであればリンク切れを起こしてしまい、全部修正して回る羽目になります 自分のサイト内のリンクであればそれでもいいかも知れませんが、サイト外からリンクされている場合にはそういう訳にもいかないでしょう そのような場合は、記事にエイリアスを設定すれば解決します  検証環境  hugo v0.93.3  エイリアスの設定  ページヘッダの Front Matter に aliases を記載することで、通常の URL に加えて、エイリアスによるアクセスが可能となります 実際には、エイリアスにアクセスすると本来の URL にリダイレクトされます  +++ title = &amp;#34;iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました&amp;#34; date = &amp;#34;2019-09-07T07:33:45+09:00&amp;#34; draft = false toc = true tags = [ &amp;#34;iOSDC&amp;#34;, &amp;#34;iOS&amp;#34;, &amp;#34;Swift&amp;#34;, &amp;#34;macOS&amp;#34; ] aliases = [ &amp;#34;/posts/iosdc2019day1/&amp;#34; ] ogimage = &amp;#34;images/open_graph_logo.png&amp;#34; +++ [iOSDC 2019 に Mac の環境構築の内容で LT 登壇します](/2019/09/03/iosdc2019pre/) で書いていましたが…  上記の記事に設定される本来のパスは /2019/09/07/iosdc2019day1/ ですが、 /posts/iosdc2019day1/ でもアクセスできます 実際にアクセスして、動作を確認してみてください  まとめ  一度公開した Web ページの URL を変えるのは、いろいろと面倒です  でもやりたくなっちゃう   そんな時は、この記事のようにエイリアスで対応しましょう  参考  URL Management | Hugo  </description>
+    </item>
+    
     <item>
       <title>Hugo で各記事の URL をカスタマイズ</title>
       <link>https://yagamo-style.com/2022/03/17/hugo-custom-url/</link>

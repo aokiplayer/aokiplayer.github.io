@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/2019/07/02/delegate/">
-<meta property="og:title" content="簡単なdelegateのサンプル">
+<meta property="og:url" content="https://yagamo-style.com/2022/03/29/hugo-url-aliases/">
+<meta property="og:title" content="Hugo で記事の URL にエイリアスを設定する">
 <meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>簡単なdelegateのサンプル :: Yagamo Style</title>
+    <title>Hugo で記事の URL にエイリアスを設定する :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1648523164" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2019/07/02/delegate/">
+  <body class="" data-url="/2022/03/29/hugo-url-aliases/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2022/" title="2022" class="dd-item
-        
+        parent
         
         
         ">
@@ -124,7 +124,7 @@
  
   
     
-      <li data-nav-id="/2022/03/29/hugo-url-aliases/" title="Hugo で記事の URL にエイリアスを設定する" class="dd-item ">
+      <li data-nav-id="/2022/03/29/hugo-url-aliases/" title="Hugo で記事の URL にエイリアスを設定する" class="dd-item active">
         <a href="/2022/03/29/hugo-url-aliases/">
         Hugo で記事の URL にエイリアスを設定する
         
@@ -410,7 +410,7 @@
   
     
     <li data-nav-id="/2019/" title="2019" class="dd-item
-        parent
+        
         
         
         ">
@@ -583,7 +583,7 @@
  
   
     
-      <li data-nav-id="/2019/07/02/delegate/" title="簡単なdelegateのサンプル" class="dd-item active">
+      <li data-nav-id="/2019/07/02/delegate/" title="簡単なdelegateのサンプル" class="dd-item ">
         <a href="/2019/07/02/delegate/">
         簡単なdelegateのサンプル
         
@@ -868,7 +868,7 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > <a href='/2019/'>2019</a> > 簡単なdelegateのサンプル
+            <a href='/'>Yagamo Style</a> > <a href='/2022/'>2022</a> > Hugo で記事の URL にエイリアスを設定する
           
         
           
@@ -885,14 +885,9 @@
   <ul>
     <li><a href="#はじめに">はじめに</a></li>
     <li><a href="#検証環境">検証環境</a></li>
-    <li><a href="#サンプルコード">サンプルコード</a>
-      <ul>
-        <li><a href="#delegateを利用するクラスとdelegateプロトコル">delegateを利用するクラスとdelegateプロトコル</a></li>
-        <li><a href="#delegateに準拠したクラス">delegateに準拠したクラス</a></li>
-        <li><a href="#delegateを指定">delegateを指定</a></li>
-      </ul>
-    </li>
+    <li><a href="#エイリアスの設定">エイリアスの設定</a></li>
     <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
     </div>
@@ -906,9 +901,7 @@
         
 <div class="tags">
 
-  <a class="tag-link" href="/tags/ios">iOS</a>
-
-  <a class="tag-link" href="/tags/swift">Swift</a>
+  <a class="tag-link" href="/tags/hugo">Hugo</a>
 
 </div>
 
@@ -918,7 +911,7 @@
           
             <h1>
               
-              簡単なdelegateのサンプル
+              Hugo で記事の URL にエイリアスを設定する
             </h1>
           
 
@@ -927,71 +920,48 @@
 
 <h2 id="はじめに">はじめに</h2>
 <ul>
-<li>iOSアプリでは、delegateが非常によく利用されます</li>
-<li>トレーニングで紹介していると、初めての人には「delegateオブジェクトに用意したコールバックメソッドが自動的に呼ばれる」ことの理解が難しいように感じました</li>
-<li>そこで、ごく簡単なサンプルを利用してdelegateの仕組みを紹介してみます</li>
+<li>静的サイトジェネレータ <a href="https://gohugo.io/">Hugo</a> の設定のお話です</li>
+<li>記事が増えると、 Web サイトを整理したくなりますよね。また、 URL を後から変えたくなることもあります。</li>
+<li>ただ、そうするとどこかからリンクされているページであればリンク切れを起こしてしまい、全部修正して回る羽目になります</li>
+<li>自分のサイト内のリンクであればそれでもいいかも知れませんが、サイト外からリンクされている場合にはそういう訳にもいかないでしょう</li>
+<li>そのような場合は、記事にエイリアスを設定すれば解決します</li>
 </ul>
 <h2 id="検証環境">検証環境</h2>
 <ul>
-<li>Xcode 10.2</li>
-<li>Swift 5</li>
+<li>hugo v0.93.3</li>
 </ul>
-<h2 id="サンプルコード">サンプルコード</h2>
-<h3 id="delegateを利用するクラスとdelegateプロトコル">delegateを利用するクラスとdelegateプロトコル</h3>
+<h2 id="エイリアスの設定">エイリアスの設定</h2>
 <ul>
-<li>まずは、delegateを利用するMyClassクラスの定義とdelegateであるMyDelegateプロトコルの定義です</li>
-<li>MyClassの<code>show(text:)</code>を呼ぶと、自身のプロパティとして保持するdelegateの<code>onShowCalled(withText:)</code>を呼ぶ実装となっています</li>
+<li>ページヘッダの Front Matter に <code>aliases</code> を記載することで、通常の URL に加えて、エイリアスによるアクセスが可能となります</li>
+<li>実際には、エイリアスにアクセスすると本来の URL にリダイレクトされます</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClass</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> delegate: MyDelegate?
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">show</span>(text: String) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.delegate?.onShowCalled(withText: text)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">MyDelegate</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onShowCalled</span>(withText text: String)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="delegateに準拠したクラス">delegateに準拠したクラス</h3>
-<ul>
-<li>delegateはプロトコルなので、利用する際にはそのプロトコルに準拠して内容を実装したクラスが必要です</li>
-<li>MyAdopted1とMyAdopted2の2つを用意し、それぞれ実装の異なる<code>onShowCalled(withText:)</code>を用意しています</li>
+<pre tabindex="0"><code class="language-toml:iosdc2019day1.md（抜粋）" data-lang="toml:iosdc2019day1.md（抜粋）">+++
+title = &#34;iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました&#34;
+date = &#34;2019-09-07T07:33:45+09:00&#34;
+draft = false
+toc = true
+tags = [ &#34;iOSDC&#34;, &#34;iOS&#34;, &#34;Swift&#34;, &#34;macOS&#34; ]
+aliases = [ &#34;/posts/iosdc2019day1/&#34; ]
+ogimage = &#34;images/open_graph_logo.png&#34;
++++
+
+[iOSDC 2019 に Mac の環境構築の内容で LT 登壇します](/2019/09/03/iosdc2019pre/) で書いていましたが…
+</code></pre><ul>
+<li>上記の記事に設定される本来のパスは <a href="/2019/09/07/iosdc2019day1/">/2019/09/07/iosdc2019day1/</a> ですが、 <a href="/posts/iosdc2019day1/">/posts/iosdc2019day1/</a> でもアクセスできます</li>
+<li>実際にアクセスして、動作を確認してみてください</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAdopted1</span>: MyDelegate {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onShowCalled</span>(withText text: String) {
-</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;MyAdopted1: </span><span style="color:#e6db74">\(</span>text<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAdopted2</span>: MyDelegate {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onShowCalled</span>(withText text: String) {
-</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>text<span style="color:#e6db74">)</span><span style="color:#e6db74"> from MyAdopted2!&#34;</span>)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="delegateを指定">delegateを指定</h3>
+<h2 id="まとめ">まとめ</h2>
 <ul>
-<li>MyClassのインスタンスに、上記のMyAdopted1およびMyAdopted2をdelegateとして指定します</li>
-<li>MyClassの<code>show(text:)</code>を呼ぶと、delegateとして指定したオブジェクトの<code>onShowCalled(withText:)</code>が実行されているのがわかります</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> anObject1 = MyClass()
-</span></span><span style="display:flex;"><span>anObject1.delegate = MyAdopted1()
-</span></span><span style="display:flex;"><span>anObject1.show(text: <span style="color:#e6db74">&#34;Hello&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> anObject2 = MyClass()
-</span></span><span style="display:flex;"><span>anObject2.delegate = MyAdopted2()
-</span></span><span style="display:flex;"><span>anObject2.show(text: <span style="color:#e6db74">&#34;Hello&#34;</span>)
-</span></span></code></pre></div><pre tabindex="0"><code class="language-terminal" data-lang="terminal">MyAdopted1: Hello
-Hello from MyAdopted2!
-</code></pre><h2 id="まとめ">まとめ</h2>
+<li>一度公開した Web ページの URL を変えるのは、いろいろと面倒です
 <ul>
-<li>普段、プログラマは上記の「delegateに準拠したクラスの作成」と、「delegateを指定」部分を書くことが多いと思います</li>
-<li>delegateを利用するクラスを一度実装してみることで、delegateの仕組みについての理解が深まるのでおすすめです</li>
-<li>今回作成したサンプルコードは、GitHubに置きました
-<ul>
-<li><a href="https://github.com/aokiplayer/DelegateSample">aokiplayer/DelegateSample</a></li>
+<li>でもやりたくなっちゃう</li>
 </ul>
 </li>
+<li>そんな時は、この記事のようにエイリアスで対応しましょう</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://gohugo.io/content-management/urls/">URL Management | Hugo</a></li>
 </ul>
 
 
@@ -1065,7 +1035,6 @@ Hello from MyAdopted2!
             
                 
                     
-                    
                 
                 
 
@@ -1078,9 +1047,6 @@ Hello from MyAdopted2!
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1194,7 +1160,6 @@ Hello from MyAdopted2!
             
                 
                     
-                    
                 
                 
 
@@ -1210,9 +1175,6 @@ Hello from MyAdopted2!
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1457,6 +1419,7 @@ Hello from MyAdopted2!
             
                 
                     
+                    
                 
                 
 
@@ -1469,6 +1432,7 @@ Hello from MyAdopted2!
             
             
                 
+                    
                     
                 
                 
@@ -1485,6 +1449,9 @@ Hello from MyAdopted2!
             
             
                 
+                    
+                        
+                        
                     
                 
                 
