@@ -1,5 +1,5 @@
 +++
-title = "Hugo で各記事の URL をカスタマイズ"
+title = "Hugo で記事の URL をカスタマイズ"
 date = "2022-03-17T09:50:39+09:00"
 draft = false
 tags = [ "Hugo" ]
