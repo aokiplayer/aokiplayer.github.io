@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2019-06-17T09:30:59+09:00
+date: 2022-09-09T09:30:59+09:00
 draft: false
 toc: true
 tags: []
@@ -11,6 +11,7 @@ tags: []
 - Swift, Kotlin, Java, iOS, Android, macOS, MDM
 
 ## Apple Certified Trainer（Apple 認定トレーナー）
+- 2015-
 - macOS Support Essentials (OS X Support Essentials)
 - iOS Deployment Essentials
 - Introduction to Swift
@@ -18,9 +19,11 @@ tags: []
 - App Development with Swift
 
 ## Apple Professional Learning Provider
+- 2019-2022
 - 学校の先生向けに、授業にアプリケーションやプログラミングを導入する支援を行います
 
 ## Apple Teacher
+- 2019-
 - Apple Teacher
 - Apple Teacher Swift Playgrounds
 
