@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 29 Mar 2022 10:19:02 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Sep 2022 11:25:14 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS</title>
+      <link>https://yagamo-style.com/tags/ios/</link>
+      <pubDate>Sat, 10 Sep 2022 11:25:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iOSDC</title>
+      <link>https://yagamo-style.com/tags/iosdc/</link>
+      <pubDate>Sat, 10 Sep 2022 11:25:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/iosdc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>https://yagamo-style.com/tags/swift/</link>
+      <pubDate>Sat, 10 Sep 2022 11:25:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/swift/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Hugo</title>
       <link>https://yagamo-style.com/tags/hugo/</link>
@@ -26,29 +53,11 @@
     </item>
     
     <item>
-      <title>iOS</title>
-      <link>https://yagamo-style.com/tags/ios/</link>
-      <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/ios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>JSON</title>
       <link>https://yagamo-style.com/tags/json/</link>
       <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/json/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Swift</title>
-      <link>https://yagamo-style.com/tags/swift/</link>
-      <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/swift/</guid>
       <description></description>
     </item>
     
@@ -76,15 +85,6 @@
       <pubDate>Tue, 15 Oct 2019 13:22:13 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/macos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOSDC</title>
-      <link>https://yagamo-style.com/tags/iosdc/</link>
-      <pubDate>Sun, 08 Sep 2019 19:57:25 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/iosdc/</guid>
       <description></description>
     </item>
     

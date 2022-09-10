@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://yagamo-style.com/</loc>
-    <lastmod>2022-03-29T10:19:02+09:00</lastmod>
+    <lastmod>2022-09-10T11:25:14+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2018/</loc>
     <lastmod>2018-09-15T21:32:57+09:00</lastmod>
@@ -18,7 +18,22 @@
     <lastmod>2021-03-08T10:17:14+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2022/</loc>
-    <lastmod>2022-03-29T10:19:02+09:00</lastmod>
+    <lastmod>2022-09-10T11:25:14+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/ios/</loc>
+    <lastmod>2022-09-10T11:25:14+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/iosdc/</loc>
+    <lastmod>2022-09-10T11:25:14+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/2022/09/10/iosdc2021/</loc>
+    <lastmod>2022-09-10T11:25:14+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/swift/</loc>
+    <lastmod>2022-09-10T11:25:14+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/</loc>
+    <lastmod>2022-09-10T11:25:14+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/about/</loc>
     <lastmod>2022-09-09T09:30:59+09:00</lastmod>
@@ -27,9 +42,6 @@
     <lastmod>2022-03-29T10:19:02+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2022/03/29/hugo-url-aliases/</loc>
-    <lastmod>2022-03-29T10:19:02+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/</loc>
     <lastmod>2022-03-29T10:19:02+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2022/03/17/hugo-custom-url/</loc>
@@ -41,13 +53,7 @@
     <loc>https://yagamo-style.com/2022/03/16/git-unusual-filename/</loc>
     <lastmod>2022-03-16T14:59:46+09:00</lastmod>
   </url><url>
-    <loc>https://yagamo-style.com/tags/ios/</loc>
-    <lastmod>2022-03-12T22:38:43+09:00</lastmod>
-  </url><url>
     <loc>https://yagamo-style.com/tags/json/</loc>
-    <lastmod>2022-03-12T22:38:43+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/swift/</loc>
     <lastmod>2022-03-12T22:38:43+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2022/03/12/json-with-null-value/</loc>
@@ -94,9 +100,6 @@
   </url><url>
     <loc>https://yagamo-style.com/tags/macos/</loc>
     <lastmod>2019-10-15T13:22:13+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/iosdc/</loc>
-    <lastmod>2019-09-08T19:57:25+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2019/09/08/iosdc2019day2/</loc>
     <lastmod>2019-09-08T19:57:25+09:00</lastmod>

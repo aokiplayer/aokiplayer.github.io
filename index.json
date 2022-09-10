@@ -42,6 +42,41 @@
 	"content": ""
 },
 {
+	"uri": "https://yagamo-style.com/tags/ios/",
+	"title": "iOS",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/iosdc/",
+	"title": "iOSDC",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/2022/09/10/iosdc2021/",
+	"title": "iOSDC Japan 2021 参加レポート - ベストフィードバッカー賞を頂きました",
+	"tags": ["iOSDC", "iOS", "Swift"],
+	"description": "",
+	"content": "iOSDC Japan 2022 が、今日から始まりますね。 そんな中、昨年のレポートをいま書いてます。昨年のレポートが終わらないと、今年のイベントが始まりませんからね！\n本レポートでは、セッション内容などの感想には触れません。 私からみなさんに伝えたいのは「ほんの少しでもいいので、スピーカーには感想を伝えよう」だけです。\nありがたいことに、ベストフィードバッカー賞を頂いたので、その点について書いてみたいと思います。\n公式サイト、ハッシュタグなど  https://iosdc.jp/2021/ @iosdcjp #iosdc  モチベーション iOSDC Japan に登壇してイベントを堪能した 2020 年。 しかし、2020 年は私自身に不幸()があり、辛い日々を過ごしていて参加する元気もなく、1,2 セッション覗いただけとなりました。\nその反動で、2021 年は「とにかくセッションをたくさん聞きたい」という気持ちでいっぱいでした。\n私はいかにベストフィードバッカー賞を頂いたのか モチベーションでも書いたように、とにかくたくさんのセッションを聞きたい気持ちが大きかったので、こんな過ごし方をしてました。\n セッションを聞く 次のセッションまでの間は、聞けなかったセッションをニコニコ動画の「追っかけ再生」 その日のクロージング後も「追っかけ再生」 翌日の開始までの間も「追っかけ再生」  こんな感じでした。結果として、全体の 3/4 くらいのセッションは期間中に聞いたのではないかと思います。オンライン参加ならではですね。 もちろん、ただ聞き流すのではなく\n 気づきはメモなども取りながら 楽しかったという気持ちを忘れないうちにフィードバック  を大切にしていました。そのためか、ベストフィードバッカー賞を頂くことができました。\n賞品は Grid 社の AppleWatch の壁掛けです。カッコイイ！\nこんなフィードバックでもいいのかな？ いざフィードバックしようとしても、みなさん気になるのが\n 一言だけのフィードバックなんてもらっても、嬉しくないのでは 自分には内容が難しくて理解できなかったのに、フィードバックしたら申し訳ない 全然的外れなことを書いて、がっかりされないだろうか  などだと思います。\n結論から言うと、そんなことは全くないです。 私は普段から仕事で登壇していますし、iOSDC Japan でも一度登壇していますが、「言葉でフィードバックをもらう」のはどんな些細なものでも嬉しいです（ネガティブなものも含めて）。\n私はあまり人に話しかけるのが得意ではない（カンファレンスの懇親会でもボッチ率が高い）ですし、同じ気持ちの方も多いのではないかと思います。 なら、まずは文字で感想を伝えてみましょう！\n最後に 今日からの iOSDC Japan 2022 は、久しぶりにオフラインも復活です。 文字でのフィードバックだけでなく、ぜひスピーカーの方々に直接感想を伝えてみましょう。文字でも嬉しいですが、直接だともっと嬉しいものですよ。\n"
+},
+{
+	"uri": "https://yagamo-style.com/tags/swift/",
+	"title": "Swift",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://yagamo-style.com/about/",
 	"title": "About",
 	"tags": [],
@@ -61,13 +96,6 @@
 	"tags": ["Hugo"],
 	"description": "",
 	"content": "はじめに  静的サイトジェネレータ Hugo の設定のお話です 記事が増えると、 Web サイトを整理したくなりますよね。また、 URL を後から変えたくなることもあります。 ただ、そうするとどこかからリンクされているページであればリンク切れを起こしてしまい、全部修正して回る羽目になります 自分のサイト内のリンクであればそれでもいいかも知れませんが、サイト外からリンクされている場合にはそういう訳にもいかないでしょう そのような場合は、記事にエイリアスを設定すれば解決します  検証環境  hugo v0.93.3  エイリアスの設定  ページヘッダの Front Matter に aliases を記載することで、通常の URL に加えて、エイリアスによるアクセスが可能となります 実際には、エイリアスにアクセスすると本来の URL にリダイレクトされます  +++ title = \u0026#34;iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました\u0026#34; date = \u0026#34;2019-09-07T07:33:45+09:00\u0026#34; draft = false toc = true tags = [ \u0026#34;iOSDC\u0026#34;, \u0026#34;iOS\u0026#34;, \u0026#34;Swift\u0026#34;, \u0026#34;macOS\u0026#34; ] aliases = [ \u0026#34;/posts/iosdc2019day1/\u0026#34; ] ogimage = \u0026#34;images/open_graph_logo.png\u0026#34; +++ [iOSDC 2019 に Mac の環境構築の内容で LT 登壇します](/2019/09/03/iosdc2019pre/) で書いていましたが…  上記の記事に設定される本来のパスは /2019/09/07/iosdc2019day1/ ですが、 /posts/iosdc2019day1/ でもアクセスできます 実際にアクセスして、動作を確認してみてください  まとめ  一度公開した Web ページの URL を変えるのは、いろいろと面倒です  でもやりたくなっちゃう   そんな時は、この記事のようにエイリアスで対応しましょう  参考  URL Management | Hugo  "
-},
-{
-	"uri": "https://yagamo-style.com/tags/",
-	"title": "Tags",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://yagamo-style.com/2022/03/17/hugo-custom-url/",
@@ -91,22 +119,8 @@
 	"content": "はじめに  この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます  Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね  これを設定しておく（グローバルでやっちゃってもいいとは思うけど）  git config --local core.quotepath false 参考  Git の man より  core.quotePath  Commands that output paths (e.g. ls-files, diff), will quote \u0026#34;unusual\u0026#34; characters in the  pathname by enclosing the pathname in double-quotes and escaping those characters with  backslashes in the same way C escapes control characters (e.g. \\t for TAB, \\n for LF, \\\\ for  backslash) or bytes with values larger than 0x80 (e.g. octal \\302\\265 for \u0026#34;micro\u0026#34; in UTF-8). If  this variable is set to false, bytes higher than 0x80 are not considered \u0026#34;unusual\u0026#34; any more.  Double-quotes, backslash and control characters are always escaped regardless of the setting of  this variable. A simple space character is not considered \u0026#34;unusual\u0026#34;. Many commands can output  pathnames completely verbatim using the -z option. The default value is true. "
 },
 {
-	"uri": "https://yagamo-style.com/tags/ios/",
-	"title": "iOS",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "https://yagamo-style.com/tags/json/",
 	"title": "JSON",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/swift/",
-	"title": "Swift",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -212,13 +226,6 @@
 {
 	"uri": "https://yagamo-style.com/tags/macos/",
 	"title": "macOS",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/iosdc/",
-	"title": "iOSDC",
 	"tags": [],
 	"description": "",
 	"content": ""
