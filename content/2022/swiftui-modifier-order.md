@@ -128,6 +128,8 @@ Text("border -> frame -> padding")
 
 ですが、あくまでも「モディファイアで設定した結果のビューを返す」という意識があれば、ひとつのモディファイアを実行した結果のビューがその時点で返っているので、最初に ``border()`` を持ってくると期待した結果にならないことがわかりますね。
 
+作成したサンプルは、[GitHub: aokiplayer/swift-sandbox/ModifierOrder](https://github.com/aokiplayer/swift-sandbox/tree/master/ModifierOrder) に置きました。
+
 ## 参考
 [Why modifier order matters - a free Hacking with iOS: SwiftUI Edition tutorial](https://www.hackingwithswift.com/books/ios-swiftui/why-modifier-order-matters)
 
