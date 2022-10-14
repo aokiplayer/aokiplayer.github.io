@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/2020/07/20/dictionary-to-array/">
-<meta property="og:title" content="ディクショナリからタプルの配列を作成する">
+<meta property="og:url" content="https://yagamo-style.com/2022/10/14/swiftui-modifier-order/">
+<meta property="og:title" content="SwiftUI のモディファイアの順序による結果の相違">
 <meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>ディクショナリからタプルの配列を作成する :: Yagamo Style</title>
+    <title>SwiftUI のモディファイアの順序による結果の相違 :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1665717893" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2020/07/20/dictionary-to-array/">
+  <body class="" data-url="/2022/10/14/swiftui-modifier-order/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2022/" title="2022" class="dd-item
-        
+        parent
         
         
         ">
@@ -124,7 +124,7 @@
  
   
     
-      <li data-nav-id="/2022/10/14/swiftui-modifier-order/" title="SwiftUI のモディファイアの順序による結果の相違" class="dd-item ">
+      <li data-nav-id="/2022/10/14/swiftui-modifier-order/" title="SwiftUI のモディファイアの順序による結果の相違" class="dd-item active">
         <a href="/2022/10/14/swiftui-modifier-order/">
         SwiftUI のモディファイアの順序による結果の相違
         
@@ -334,7 +334,7 @@
   
     
     <li data-nav-id="/2020/" title="2020" class="dd-item
-        parent
+        
         
         
         ">
@@ -402,7 +402,7 @@
  
   
     
-      <li data-nav-id="/2020/07/20/dictionary-to-array/" title="ディクショナリからタプルの配列を作成する" class="dd-item active">
+      <li data-nav-id="/2020/07/20/dictionary-to-array/" title="ディクショナリからタプルの配列を作成する" class="dd-item ">
         <a href="/2020/07/20/dictionary-to-array/">
         ディクショナリからタプルの配列を作成する
         
@@ -931,7 +931,7 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > <a href='/2020/'>2020</a> > ディクショナリからタプルの配列を作成する
+            <a href='/'>Yagamo Style</a> > <a href='/2022/'>2022</a> > SwiftUI のモディファイアの順序による結果の相違
           
         
           
@@ -948,13 +948,15 @@
   <ul>
     <li><a href="#はじめに">はじめに</a></li>
     <li><a href="#検証環境">検証環境</a></li>
-    <li><a href="#利用する機能">利用する機能</a>
+    <li><a href="#実験">実験</a>
       <ul>
-        <li><a href="#sortedby">sorted(by:)</a></li>
+        <li><a href="#サンプルコード">サンプルコード</a></li>
+        <li><a href="#結果">結果</a></li>
+        <li><a href="#考察">考察</a></li>
       </ul>
     </li>
-    <li><a href="#コード例">コード例</a></li>
     <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
     </div>
@@ -972,6 +974,8 @@
 
   <a class="tag-link" href="/tags/swift">Swift</a>
 
+  <a class="tag-link" href="/tags/swiftui">SwiftUI</a>
+
 </div>
 
         </div>
@@ -980,7 +984,7 @@
           
             <h1>
               
-              ディクショナリからタプルの配列を作成する
+              SwiftUI のモディファイアの順序による結果の相違
             </h1>
           
 
@@ -988,142 +992,115 @@
 
 
 <h2 id="はじめに">はじめに</h2>
-<ul>
-<li>Swift には、連想配列的なデータ構造としてディクショナリがあります</li>
-<li>ディクショナリはデータの順序を保証しないので、そのままではテーブルビューやコレクションビューのデータソースとして利用しにくいです</li>
-<li>その場合は、タプルの配列に変換すると上手く行きます</li>
-</ul>
+<p>SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。
+時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。</p>
+<p>簡単に扱えるモディファイアですが、順序には注意する必要があります。</p>
 <h2 id="検証環境">検証環境</h2>
 <ul>
-<li>Xcode 11.5</li>
-<li>Swift 5.2</li>
+<li>macOS Monterey 12.6</li>
+<li>Xcode 14.0.0</li>
 </ul>
-<h2 id="利用する機能">利用する機能</h2>
-<h3 id="sortedby">sorted(by:)</h3>
-<ul>
-<li>ディクショナリのメソッド</li>
-<li>引数に渡した関数 <code>by</code> がソート条件
-<ul>
-<li>関数 <code>by</code> の引数
-<ul>
-<li>2 つのタプル（それぞれディクショナリの n 番目の要素と n + 1 番目の要素に対応）</li>
-</ul>
-</li>
-<li>関数 <code>by</code> の戻り値
-<ul>
-<li><code>Bool</code>（<code>false</code> なら並び替え）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>戻り値は <code>[(key: ディクショナリの key の型, value: ディクショナリの value の型)]</code>
-<ul>
-<li>つまり、ディクショナリとほぼ同じ構造を持った「タプルの配列」</li>
-</ul>
-</li>
-</ul>
-<h2 id="コード例">コード例</h2>
-<ul>
-<li>以下はディクショナリ <code>[String: Int]</code> からタプルの配列 <code>[(key: String, value: Int)]</code> に変換する例です</li>
-</ul>
-<pre tabindex="0"><code class="language-swift:SortedDictionary.playground" data-lang="swift:SortedDictionary.playground">import Foundation
-
-var scores: [String: Int] = [
-    &#34;Steve Yamada&#34;: 34,
-    &#34;Jeff Takeshita&#34;: 87,
-    &#34;Mickey Yoshida&#34;: 100,
-    &#34;Charly Kinoshita&#34;: 53,
-    &#34;Anna Saito&#34;: 19,
-    &#34;Robert Suzuki&#34;: 97,
-    &#34;Erick Kawakami&#34;: 32,
-    &#34;John Miyabe&#34;: 64,
-    &#34;Gregory Goto&#34;: 76
-]
-
-print(&#34;&#34;&#34;
-
-    Ascending by key
-    ========================
-    &#34;&#34;&#34;)
-var sortedByNameAsc: [(key: String, value: Int)] = scores.sorted { $0.key &lt; $1.key }
-sortedByNameAsc.forEach { print(&#34;\($0.key): \($0.value)&#34;) }
-
-print(&#34;&#34;&#34;
-
-    Descending by key
-    ========================
-    &#34;&#34;&#34;)
-var sortedByNameDesc: [(key: String, value: Int)] = scores.sorted { $0.key &gt; $1.key }
-sortedByNameDesc.forEach { print(&#34;\($0.key): \($0.value)&#34;) }
-
-print(&#34;&#34;&#34;
-
-    Ascending by value
-    ========================
-    &#34;&#34;&#34;)
-var sortedByScoreAsc: [(key: String, value: Int)] = scores.sorted { $0.value &lt; $1.value }
-sortedByScoreAsc.forEach { print(&#34;\($0.value): \($0.key)&#34;) }
-
-print(&#34;&#34;&#34;
-
-    Descending by value
-    ========================
-    &#34;&#34;&#34;)
-var sortedByScoreDesc: [(key: String, value: Int)] = scores.sorted { $0.value &gt; $1.value }
-sortedByScoreDesc.forEach { print(&#34;\($0.value): \($0.key)&#34;) }
-</code></pre><pre tabindex="0"><code class="language-zsh:出力結果" data-lang="zsh:出力結果">
-Ascending by key
-========================
-Anna Saito: 19
-Charly Kinoshita: 53
-Erick Kawakami: 32
-Gregory Goto: 76
-Jeff Takeshita: 87
-John Miyabe: 64
-Mickey Yoshida: 100
-Robert Suzuki: 97
-Steve Yamada: 34
-
-Descending by key
-========================
-Steve Yamada: 34
-Robert Suzuki: 97
-Mickey Yoshida: 100
-John Miyabe: 64
-Jeff Takeshita: 87
-Gregory Goto: 76
-Erick Kawakami: 32
-Charly Kinoshita: 53
-Anna Saito: 19
-
-Ascending by value
-========================
-19: Anna Saito
-32: Erick Kawakami
-34: Steve Yamada
-53: Charly Kinoshita
-64: John Miyabe
-76: Gregory Goto
-87: Jeff Takeshita
-97: Robert Suzuki
-100: Mickey Yoshida
-
-Descending by value
-========================
-100: Mickey Yoshida
-97: Robert Suzuki
-87: Jeff Takeshita
-76: Gregory Goto
-64: John Miyabe
-53: Charly Kinoshita
-34: Steve Yamada
-32: Erick Kawakami
-19: Anna Saito
-</code></pre><h2 id="まとめ">まとめ</h2>
-<ul>
-<li>状況に応じたデータの形式変換をする方法を押さえておくと、いろいろ応用ができそうですね</li>
-<li>今回のサンプルは <a href="https://github.com/aokiplayer/swift-sandbox/tree/master/SortedDictionary">GitHub: aokiplayer/swift-sandbox/SortedDictionary</a> に置きました</li>
-</ul>
+<h2 id="実験">実験</h2>
+<p><code>Text</code> に、<code>frame()</code>, <code>padding()</code>, <code>border()</code> の 3 つのモディファイアを設定してみます。
+設定順序の組み合わせは 3! 通りあります。</p>
+<h3 id="サンプルコード">サンプルコード</h3>
+<p>それぞれ、枠線を付けた同じサイズの <code>VStack</code> 内に上記 3 つのモディファイアの順序を変えた <code>Text</code> を配置しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        VStack {
+</span></span><span style="display:flex;"><span>            Text(<span style="color:#e6db74">&#34;モディファイアの順序&#34;</span>)
+</span></span><span style="display:flex;"><span>                .font(.title)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Text(<span style="color:#e6db74">&#34;frame -&gt; border -&gt; padding&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .frame(width: <span style="color:#ae81ff">300</span>, height: <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>                    .border(.red, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>                    .padding()
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .frame(width: <span style="color:#ae81ff">350</span>, height: <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>            .border(.indigo, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Text(<span style="color:#e6db74">&#34;frame -&gt; padding -&gt; border&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .frame(width: <span style="color:#ae81ff">300</span>, height: <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>                    .padding()
+</span></span><span style="display:flex;"><span>                    .border(.red, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .frame(width: <span style="color:#ae81ff">350</span>, height: <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>            .border(.indigo, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Text(<span style="color:#e6db74">&#34;border -&gt; frame -&gt; padding&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .border(.red, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>                    .frame(width: <span style="color:#ae81ff">300</span>, height: <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>                    .padding()
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .frame(width: <span style="color:#ae81ff">350</span>, height: <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>            .border(.indigo, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Text(<span style="color:#e6db74">&#34;border -&gt; padding -&gt; frame&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .border(.red, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>                    .padding()
+</span></span><span style="display:flex;"><span>                    .frame(width: <span style="color:#ae81ff">300</span>, height: <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .frame(width: <span style="color:#ae81ff">350</span>, height: <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>            .border(.indigo, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Text(<span style="color:#e6db74">&#34;padding -&gt; frame -&gt; border&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .padding()
+</span></span><span style="display:flex;"><span>                    .frame(width: <span style="color:#ae81ff">300</span>, height: <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>                    .border(.red, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .frame(width: <span style="color:#ae81ff">350</span>, height: <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>            .border(.indigo, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Text(<span style="color:#e6db74">&#34;padding -&gt; border -&gt; frame&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .padding()
+</span></span><span style="display:flex;"><span>                    .border(.red, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>                    .frame(width: <span style="color:#ae81ff">300</span>, height: <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .frame(width: <span style="color:#ae81ff">350</span>, height: <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>            .border(.indigo, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView_Previews</span>: PreviewProvider {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
+</span></span><span style="display:flex;"><span>        ContentView()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="結果">結果</h3>
+<p><img src="/images/swiftui-modifier-order/modifier-order.png?width=25pc" alt="modifier-order.png?width=25pc"></p>
+<h3 id="考察">考察</h3>
+<p><code>border()</code> を最初に設定しているものは、後から設定される <code>frame()</code> や <code>padding()</code> の設定値を知らないので、テキストがちょうど収まるサイズに枠線が引かれていることがわかります。</p>
+<p>これは、モディファイアが「そのモディファイアの適用結果のビューを返す」メソッドであるためです。
+つまり、以下のコードでは</p>
+<ol>
+<li>まずはサイズが設定されていない <code>Text</code>（固有サイズとして文字列がちょうど収まるサイズ）に、枠線を設定</li>
+<li>ビューのサイズを幅 300, 高さ 60 に設定</li>
+<li>ビューの外側に、標準サイズの余白を設定</li>
+</ol>
+<p>という流れとなっています。
+そのため、ビューのサイズを設定しているにもかからわず、枠線がそれよりも狭い範囲に引かれているように見えてしまいます。
+ですが、「その時点のビューのサイズ」に対しては正しく枠線が設定されていたということになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>Text(<span style="color:#e6db74">&#34;border -&gt; frame -&gt; padding&#34;</span>)
+</span></span><span style="display:flex;"><span>    .border(.red, width: <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    .frame(width: <span style="color:#ae81ff">300</span>, height: <span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>    .padding()
+</span></span></code></pre></div><p><img src="/images/swiftui-modifier-order/border-first.png?width=25pc" alt="border-first.png?width=25pc"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>モディファイアは「単にビューに設定を追加するもの」と考えてしまうと順序は関係ないように思えてしまいます。</p>
+<p>ですが、あくまでも「モディファイアで設定した結果のビューを返す」という意識があれば、ひとつのモディファイアを実行した結果のビューがその時点で返っているので、最初に <code>border()</code> を持ってくると期待した結果にならないことがわかりますね。</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://www.hackingwithswift.com/books/ios-swiftui/why-modifier-order-matters">Why modifier order matters - a free Hacking with iOS: SwiftUI Edition tutorial</a></p>
+<p>上記のサイトは、この記事を書いた後に気付きました。
+最後に掲載されている、<code>padding()</code> と <code>background()</code> を何度も呼び出すことでサイズの異なる塗りつぶしを重ねるサンプルを実行してみると、この「モディファイアで設定した結果のビューを返す」のイメージがわかりやすいと思います。</p>
 
 
 <footer class="footline">
@@ -1452,7 +1429,6 @@ Descending by value
             
                 
                     
-                    
                 
                 
 
@@ -1466,8 +1442,21 @@ Descending by value
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -1500,26 +1489,6 @@ Descending by value
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1588,6 +1557,7 @@ Descending by value
             
                 
                     
+                    
                 
                 
 
@@ -1600,6 +1570,7 @@ Descending by value
             
             
                 
+                    
                     
                 
                 
@@ -1616,6 +1587,9 @@ Descending by value
             
             
                 
+                    
+                        
+                        
                     
                 
                 

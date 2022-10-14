@@ -6,7 +6,20 @@
     <description>Recent content in Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 12 Sep 2022 23:46:19 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Oct 2022 10:17:36 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SwiftUI のモディファイアの順序による結果の相違</title>
+      <link>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</link>
+      <pubDate>Fri, 14 Oct 2022 10:17:36 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</guid>
+      <description>はじめに SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。 時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。
+簡単に扱えるモディファイアですが、順序には注意する必要があります。
+検証環境  macOS Monterey 12.6 Xcode 14.0.0  実験 Text に、frame(), padding(), border() の 3 つのモディファイアを設定してみます。 設定順序の組み合わせは 3! 通りあります。
+サンプルコード それぞれ、枠線を付けた同じサイズの VStack 内に上記 3 つのモディファイアの順序を変えた Text を配置しています。
+import SwiftUI  struct ContentView: View {  var body: some View {  VStack {  Text(&amp;#34;モディファイアの順序&amp;#34;)  .font(.title)   VStack {  Text(&amp;#34;frame -&amp;gt; border -&amp;gt; padding&amp;#34;)  .frame(width: 300, height: 60)  .border(.red, width: 3)  .</description>
+    </item>
+    
     <item>
       <title>iOSDC Japan 2022 参加レポート</title>
       <link>https://yagamo-style.com/2022/09/12/iosdc2022/</link>

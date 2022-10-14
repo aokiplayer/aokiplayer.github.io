@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://yagamo-style.com/</loc>
-    <lastmod>2022-09-12T23:46:19+09:00</lastmod>
+    <lastmod>2022-10-14T10:17:36+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2018/</loc>
     <lastmod>2018-09-15T21:32:57+09:00</lastmod>
@@ -18,21 +18,27 @@
     <lastmod>2021-03-08T10:17:14+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2022/</loc>
-    <lastmod>2022-09-12T23:46:19+09:00</lastmod>
+    <lastmod>2022-10-14T10:17:36+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/tags/ios/</loc>
-    <lastmod>2022-09-12T23:46:19+09:00</lastmod>
+    <lastmod>2022-10-14T10:17:36+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/swift/</loc>
+    <lastmod>2022-10-14T10:17:36+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/swiftui/</loc>
+    <lastmod>2022-10-14T10:17:36+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</loc>
+    <lastmod>2022-10-14T10:17:36+09:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/</loc>
+    <lastmod>2022-10-14T10:17:36+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/tags/iosdc/</loc>
     <lastmod>2022-09-12T23:46:19+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2022/09/12/iosdc2022/</loc>
-    <lastmod>2022-09-12T23:46:19+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/swift/</loc>
-    <lastmod>2022-09-12T23:46:19+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/</loc>
     <lastmod>2022-09-12T23:46:19+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2022/09/10/iosdc2021/</loc>
@@ -127,9 +133,6 @@
   </url><url>
     <loc>https://yagamo-style.com/2019/06/21/assetfolder/</loc>
     <lastmod>2019-06-21T09:09:14+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/swiftui/</loc>
-    <lastmod>2019-06-14T13:16:59+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2019/06/14/swiftuilist_beta/</loc>
     <lastmod>2019-06-14T13:16:59+09:00</lastmod>
