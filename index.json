@@ -56,8 +56,22 @@
 	"content": ""
 },
 {
+	"uri": "https://yagamo-style.com/2022/10/26/type-erasure/",
+	"title": "Swift の型消去（Type Erasure）",
+	"tags": ["iOS", "Swift", "SwiftUI"],
+	"description": "",
+	"content": "はじめに SwiftUI をしっかり理解しようとすると、これまで意識しなくて良かった多くの言語機能を知る必要があり、なかなか苦労します。 その 1 つとして、型消去（Type Erasure）があります。 ずっとわかったようなわからないような感じだったので、腰を据えて調べてみました。 まだこれについては自信がないので、ご指摘などあれば GitHub から頂けるとうれしいです。\nサンプルは GitHub に置きました。\n前提: プロトコルに関する制約事項 Swift では、associatedtype を持つプロトコルは、型宣言に利用できません。 以下のコードでは、最下部で Store 型の変数を宣言しようとしていますが、コンパイルが通りません。 これは、Store の持つ associatedtype の型が確定しないためです。\n// お店で扱う商品の種類 struct Drug {  var item: String }  /** 何らかのお店を表すプロトコル. 商品の種類は associatedtype により柔軟に指定できるようにしている. */ protocol Store {  associatedtype T   var kind: T { get }  func kindsOfStore() -\u0026gt; T }  /** 具体的なお店（マツモトキヨシ）. associatedtype は Drug として確定. */ class MatsumotoKiyoshi: Store {  var kind: Drug   init(kind: Drug) {  self.kind = kind  }   func kindsOfStore() -\u0026gt; Drug {  return kind  } }  /** 具体的なお店（赤ひげ） associatedtype は Drug として確定. */ class AkaHige: Store {  var kind: Drug   init(kind: Drug) {  self.kind = kind  }   func kindsOfStore() -\u0026gt; Drug {  return kind  } }  /** MatsumotoKiyoshi は Store プロトコルに準拠しているので問題なさそうだが、 associatedtype を持つのでこの宣言はできない. */ var myStore1: Store = MatsumotoKiyoshi(kind: Drug(item: \u0026#34;絆創膏\u0026#34;)) 型消去による解決 associatedtype を持ったオブジェクトを別の型にラップして、associatedtype をジェネリクスで表現できるようにしてみます。こうすることで、Store プロトコル型ではないものの、型宣言からは MatsumotoKiyoshi という具体的な型の情報を消去し、抽象的な AnyStore 型として表現できるようになります。\n/** AnyStore は、Store に準拠したクラスの associatedtype をジェネリクスとして持つ. */ class AnyStore\u0026lt;T\u0026gt;: Store {  // kind の型は、イニシャライザで決まる.  var kind: T   /** 引数として、Store に準拠したオブジェクトを受け取る. where 句で、AnyStore の associatedtype T を引数で受け取ったオブジェクトの T と同じ型としている. */  init\u0026lt;S: Store\u0026gt;(store: S) where T == S.T {  self.kind = store.kind  }   func kindsOfStore() -\u0026gt; T {  return kind  } }  /** 具体型である MatsumotoKiyoshi ではなく、抽象型である AnyStore 型として宣言できている. このように、型消去により具体型情報を消去できていることがわかる. */ var myStore2: AnyStore\u0026lt;Drug\u0026gt;  myStore2 = AnyStore(store: MatsumotoKiyoshi(kind: Drug(item: \u0026#34;絆創膏\u0026#34;))) print(myStore2.kindsOfStore()) 以下のように、配列の宣言としてももちろん利用可能です。\n/** Store に準拠し、associatedtype として Drug を持つオブジェクトを格納できる配列. 型消去により、`MatsumotoKiyoshi` だけでなく `AkaHige` も格納可能. */ var stores: [AnyStore\u0026lt;Drug\u0026gt;]  stores = [  AnyStore(store: MatsumotoKiyoshi(kind: Drug(item: \u0026#34;歯ブラシ\u0026#34;))),  AnyStore(store: AkaHige(kind: Drug(item: \u0026#34;毒マムシドリンク\u0026#34;))), ]  for store in stores {  print(store.kindsOfStore()) } まとめ 実際には、Swift 5.1 で導入された Opaque Types により変数の宣言時に some Store のように表現できるようになりました。 しかし、Opaque Types のままでは抽象型なので利用できない場面（たとえば、配列の宣言に [some Store] とは書けない）があります。この場合には、[AnyStore\u0026lt;Drug\u0026gt;] と記述する必要があります。\nSwiftUI における View 型は、associatedtype を持っているため Opaque Types により some View のように記述します。この View の型消去を行うためのラッパーとして、SwiftUI には AnyView 型が定義されています。\n型消去の仕組み自体は気にしなくても SwiftUI で画面は記述できますが、仕組みを知っておく必要はあるでしょう。 それにより、Opaque Types が何のために存在しているのかも、理解が深まると思います。\n補足 Swift 5.6 では、some に続いて any キーワードが導入されました。 some Store は「 何らかの Store 準拠型」ですが、any Store は「 任意の Store 準拠型」を表します。\nそのため、以下のような宣言も可能です。\n//var someStores: [some Store] // NG var anyStores: [any Store] // OK 参考  「型として」・「制約として」のプロトコルの使い分け | Heart of Swift 型消去の話で出てきたポケモンの例題を理解する #tryswiftconf - Qiita tana000のブログ : 一周遅れのSwift型消去、解説：付属型消去、代替型生成 - livedoor Blog（ブログ） Opaque 型(Opaque Types) · The Swift Programming Language日本語版 swift-evolution/0335-existential-any.md at main · apple/swift-evolution Swift 5.6 の any について \u0026amp; some との違い  "
+},
+{
 	"uri": "https://yagamo-style.com/tags/swiftui/",
 	"title": "SwiftUI",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/",
+	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -68,13 +82,6 @@
 	"tags": ["iOS", "Swift", "SwiftUI"],
 	"description": "",
 	"content": "はじめに SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。 時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。\n簡単に扱えるモディファイアですが、順序には注意する必要があります。\n検証環境  macOS Monterey 12.6 Xcode 14.0.0  実験 Text に、frame(), padding(), border() の 3 つのモディファイアを設定してみます。 設定順序の組み合わせは 3! 通りあります。\nサンプルコード それぞれ、枠線を付けた同じサイズの VStack 内に上記 3 つのモディファイアの順序を変えた Text を配置しています。\nimport SwiftUI  struct ContentView: View {  var body: some View {  VStack {  Text(\u0026#34;モディファイアの順序\u0026#34;)  .font(.title)   VStack {  Text(\u0026#34;frame -\u0026gt; border -\u0026gt; padding\u0026#34;)  .frame(width: 300, height: 60)  .border(.red, width: 3)  .padding()  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;frame -\u0026gt; padding -\u0026gt; border\u0026#34;)  .frame(width: 300, height: 60)  .padding()  .border(.red, width: 3)  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;border -\u0026gt; frame -\u0026gt; padding\u0026#34;)  .border(.red, width: 3)  .frame(width: 300, height: 60)  .padding()  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;border -\u0026gt; padding -\u0026gt; frame\u0026#34;)  .border(.red, width: 3)  .padding()  .frame(width: 300, height: 60)  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;padding -\u0026gt; frame -\u0026gt; border\u0026#34;)  .padding()  .frame(width: 300, height: 60)  .border(.red, width: 3)  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;padding -\u0026gt; border -\u0026gt; frame\u0026#34;)  .padding()  .border(.red, width: 3)  .frame(width: 300, height: 60)  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)  }  } }  struct ContentView_Previews: PreviewProvider {  static var previews: some View {  ContentView()  } } 結果 考察 border() を最初に設定しているものは、後から設定される frame() や padding() の設定値を知らないので、テキストがちょうど収まるサイズに枠線が引かれていることがわかります。\nこれは、モディファイアが「そのモディファイアの適用結果のビューを返す」メソッドであるためです。 つまり、以下のコードでは\n まずはサイズが設定されていない Text（固有サイズとして文字列がちょうど収まるサイズ）に、枠線を設定 ビューのサイズを幅 300, 高さ 60 に設定 ビューの外側に、標準サイズの余白を設定  という流れとなっています。 そのため、ビューのサイズを設定しているにもかからわず、枠線がそれよりも狭い範囲に引かれているように見えてしまいます。 ですが、「その時点のビューのサイズ」に対しては正しく枠線が設定されていたということになります。\nText(\u0026#34;border -\u0026gt; frame -\u0026gt; padding\u0026#34;)  .border(.red, width: 3)  .frame(width: 300, height: 60)  .padding() まとめ モディファイアは「単にビューに設定を追加するもの」と考えてしまうと順序は関係ないように思えてしまいます。\nですが、あくまでも「モディファイアで設定した結果のビューを返す」という意識があれば、ひとつのモディファイアを実行した結果のビューがその時点で返っているので、最初に border() を持ってくると期待した結果にならないことがわかりますね。\n作成したサンプルは、GitHub: aokiplayer/swift-sandbox/ModifierOrder に置きました。\n参考 Why modifier order matters - a free Hacking with iOS: SwiftUI Edition tutorial\n上記のサイトは、この記事を書いた後に気付きました。 最後に掲載されている、padding() と background() を何度も呼び出すことでサイズの異なる塗りつぶしを重ねるサンプルを実行してみると、この「モディファイアで設定した結果のビューを返す」のイメージがわかりやすいと思います。\n"
-},
-{
-	"uri": "https://yagamo-style.com/tags/",
-	"title": "Tags",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://yagamo-style.com/tags/iosdc/",

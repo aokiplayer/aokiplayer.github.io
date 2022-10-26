@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/tags/json/">
-<meta property="og:title" content="JSON">
-<meta property="og:image" content="https://yagamo-style.com/">
+<meta property="og:url" content="https://yagamo-style.com/2022/10/26/type-erasure/">
+<meta property="og:title" content="Swift の型消去（Type Erasure）">
+<meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>JSON :: Yagamo Style</title>
+    <title>Swift の型消去（Type Erasure） :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1666761396" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/json/">
+  <body class="" data-url="/2022/10/26/type-erasure/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2022/" title="2022" class="dd-item
-        
+        parent
         
         
         ">
@@ -124,7 +124,7 @@
  
   
     
-      <li data-nav-id="/2022/10/26/type-erasure/" title="Swift の型消去（Type Erasure）" class="dd-item ">
+      <li data-nav-id="/2022/10/26/type-erasure/" title="Swift の型消去（Type Erasure）" class="dd-item active">
         <a href="/2022/10/26/type-erasure/">
         Swift の型消去（Type Erasure）
         
@@ -952,7 +952,7 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > <a href='/tags/'>Tags</a> > JSON
+            <a href='/'>Yagamo Style</a> > <a href='/2022/'>2022</a> > Swift の型消去（Type Erasure）
           
         
           
@@ -965,7 +965,19 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#前提-プロトコルに関する制約事項">前提: プロトコルに関する制約事項</a></li>
+    <li><a href="#型消去による解決">型消去による解決</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#補足">補足</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -975,34 +987,162 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/ios">iOS</a>
+
+  <a class="tag-link" href="/tags/swift">Swift</a>
+
+  <a class="tag-link" href="/tags/swiftui">SwiftUI</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                tag ::
-              
-              JSON
+              Swift の型消去（Type Erasure）
             </h1>
           
 
         
 
 
-
-
-
+<h2 id="はじめに">はじめに</h2>
+<p>SwiftUI をしっかり理解しようとすると、これまで意識しなくて良かった多くの言語機能を知る必要があり、なかなか苦労します。
+その 1 つとして、型消去（Type Erasure）があります。
+ずっとわかったようなわからないような感じだったので、腰を据えて調べてみました。
+まだこれについては自信がないので、ご指摘などあれば GitHub から頂けるとうれしいです。</p>
+<p>サンプルは <a href="https://github.com/aokiplayer/swift-sandbox/tree/master/TypeErasure.playground">GitHub</a> に置きました。</p>
+<h2 id="前提-プロトコルに関する制約事項">前提: プロトコルに関する制約事項</h2>
+<p>Swift では、<code>associatedtype</code> を持つプロトコルは、型宣言に利用できません。
+以下のコードでは、最下部で <code>Store</code> 型の変数を宣言しようとしていますが、コンパイルが通りません。
+これは、<code>Store</code> の持つ <code>associatedtype</code> の型が確定しないためです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// お店で扱う商品の種類</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Drug</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> item: String
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> 何らかのお店を表すプロトコル.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> 商品の種類は associatedtype により柔軟に指定できるようにしている.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">Store</span> {
+</span></span><span style="display:flex;"><span>    associatedtype T
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> kind: T { <span style="color:#66d9ef">get</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">kindsOfStore</span>() -&gt; T
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> 具体的なお店（マツモトキヨシ）.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> associatedtype は Drug として確定.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MatsumotoKiyoshi</span>: Store {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> kind: Drug
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">init</span>(kind: Drug) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.kind = kind
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">kindsOfStore</span>() -&gt; Drug {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> kind
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> 具体的なお店（赤ひげ）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> associatedtype は Drug として確定.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AkaHige</span>: Store {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> kind: Drug
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">init</span>(kind: Drug) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.kind = kind
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">kindsOfStore</span>() -&gt; Drug {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> kind
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> MatsumotoKiyoshi は Store プロトコルに準拠しているので問題なさそうだが、
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> associatedtype を持つのでこの宣言はできない.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> myStore1: Store = MatsumotoKiyoshi(kind: Drug(item: <span style="color:#e6db74">&#34;絆創膏&#34;</span>))
+</span></span></code></pre></div><h2 id="型消去による解決">型消去による解決</h2>
+<p><code>associatedtype</code> を持ったオブジェクトを別の型にラップして、<code>associatedtype</code> をジェネリクスで表現できるようにしてみます。こうすることで、<code>Store</code> プロトコル型ではないものの、型宣言からは <code>MatsumotoKiyoshi</code> という具体的な型の情報を消去し、抽象的な <code>AnyStore</code> 型として表現できるようになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> AnyStore は、Store に準拠したクラスの associatedtype をジェネリクスとして持つ.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AnyStore</span>&lt;T&gt;: Store {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// kind の型は、イニシャライザで決まる.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> kind: T
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     引数として、Store に準拠したオブジェクトを受け取る.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     where 句で、AnyStore の associatedtype T を引数で受け取ったオブジェクトの
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     T と同じ型としている.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">init</span>&lt;S: Store&gt;(store: S) <span style="color:#66d9ef">where</span> T == S.T {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.kind = store.kind
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">kindsOfStore</span>() -&gt; T {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> kind
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> 具体型である MatsumotoKiyoshi ではなく、抽象型である AnyStore 型として宣言できている.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> このように、型消去により具体型情報を消去できていることがわかる.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> myStore2: AnyStore&lt;Drug&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>myStore2 = AnyStore(store: MatsumotoKiyoshi(kind: Drug(item: <span style="color:#e6db74">&#34;絆創膏&#34;</span>)))
+</span></span><span style="display:flex;"><span>print(myStore2.kindsOfStore())
+</span></span></code></pre></div><p>以下のように、配列の宣言としてももちろん利用可能です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> Store に準拠し、associatedtype として Drug を持つオブジェクトを格納できる配列.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> 型消去により、`MatsumotoKiyoshi` だけでなく `AkaHige` も格納可能.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> stores: [AnyStore&lt;Drug&gt;]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>stores = [
+</span></span><span style="display:flex;"><span>    AnyStore(store: MatsumotoKiyoshi(kind: Drug(item: <span style="color:#e6db74">&#34;歯ブラシ&#34;</span>))),
+</span></span><span style="display:flex;"><span>    AnyStore(store: AkaHige(kind: Drug(item: <span style="color:#e6db74">&#34;毒マムシドリンク&#34;</span>))),
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> store <span style="color:#66d9ef">in</span> stores {
+</span></span><span style="display:flex;"><span>    print(store.kindsOfStore())
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>実際には、Swift 5.1 で導入された Opaque Types により変数の宣言時に <code>some Store</code> のように表現できるようになりました。
+しかし、Opaque Types のままでは抽象型なので利用できない場面（たとえば、配列の宣言に <code>[some Store]</code> とは書けない）があります。この場合には、<code>[AnyStore&lt;Drug&gt;]</code> と記述する必要があります。</p>
+<p>SwiftUI における <code>View</code> 型は、<code>associatedtype</code> を持っているため Opaque Types により <code>some View</code> のように記述します。この <code>View</code> の型消去を行うためのラッパーとして、SwiftUI には <code>AnyView</code> 型が定義されています。</p>
+<p>型消去の仕組み自体は気にしなくても SwiftUI で画面は記述できますが、仕組みを知っておく必要はあるでしょう。
+それにより、Opaque Types が何のために存在しているのかも、理解が深まると思います。</p>
+<h3 id="補足">補足</h3>
+<p>Swift 5.6 では、<code>some</code> に続いて <code>any</code> キーワードが導入されました。
+<code>some Store</code> は「 <strong>何らかの</strong>  <code>Store</code> 準拠型」ですが、<code>any Store</code> は「 <strong>任意の</strong>  <code>Store</code> 準拠型」を表します。</p>
+<p>そのため、以下のような宣言も可能です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">//var someStores: [some Store]    // NG</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> anyStores: [any Store]      <span style="color:#75715e">// OK</span>
+</span></span></code></pre></div><h2 id="参考">参考</h2>
 <ul>
-	
-		<li><a href="/2022/03/12/json-with-null-value/">プロパティが nil の場合もエンコード先の JSON に属性を出力する</a></li>
-	
-		<li><a href="/2021/03/08/codable-container/">ネストした JSON をフラットな構造体にマッピングする</a></li>
-	
+<li><a href="https://heart-of-swift.github.io/protocol-oriented-programming/protocols-as-types-or-constraints.html">「型として」・「制約として」のプロトコルの使い分け | Heart of Swift</a></li>
+<li><a href="https://qiita.com/S_Shimotori/items/458a50d8f8e54e39de59">型消去の話で出てきたポケモンの例題を理解する #tryswiftconf - Qiita</a></li>
+<li><a href="http://blog.livedoor.jp/tana000/archives/1949478.html">tana000のブログ : 一周遅れのSwift型消去、解説：付属型消去、代替型生成 - livedoor Blog（ブログ）</a></li>
+<li><a href="https://www.swiftlangjp.com/language-guide/opaque-types.html">Opaque 型(Opaque Types) · The Swift Programming Language日本語版</a></li>
+<li><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0335-existential-any.md">swift-evolution/0335-existential-any.md at main · apple/swift-evolution</a></li>
+<li><a href="https://zenn.dev/fsh/articles/0fffd249fd54ca">Swift 5.6 の any について &amp; some との違い</a></li>
 </ul>
 
 
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1456,6 +1596,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1468,6 +1609,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1484,6 +1626,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1632,3 +1777,4 @@
 
   </body>
 </html>
+

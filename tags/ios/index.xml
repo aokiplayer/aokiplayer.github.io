@@ -6,7 +6,19 @@
     <description>Recent content in iOS on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 14 Oct 2022 10:17:36 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 14:03:56 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift の型消去（Type Erasure）</title>
+      <link>https://yagamo-style.com/2022/10/26/type-erasure/</link>
+      <pubDate>Wed, 26 Oct 2022 14:03:56 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/10/26/type-erasure/</guid>
+      <description>はじめに SwiftUI をしっかり理解しようとすると、これまで意識しなくて良かった多くの言語機能を知る必要があり、なかなか苦労します。 その 1 つとして、型消去（Type Erasure）があります。 ずっとわかったようなわからないような感じだったので、腰を据えて調べてみました。 まだこれについては自信がないので、ご指摘などあれば GitHub から頂けるとうれしいです。
+サンプルは GitHub に置きました。
+前提: プロトコルに関する制約事項 Swift では、associatedtype を持つプロトコルは、型宣言に利用できません。 以下のコードでは、最下部で Store 型の変数を宣言しようとしていますが、コンパイルが通りません。 これは、Store の持つ associatedtype の型が確定しないためです。
+// お店で扱う商品の種類 struct Drug {  var item: String }  /** 何らかのお店を表すプロトコル. 商品の種類は associatedtype により柔軟に指定できるようにしている. */ protocol Store {  associatedtype T   var kind: T { get }  func kindsOfStore() -&amp;gt; T }  /** 具体的なお店（マツモトキヨシ）. associatedtype は Drug として確定. */ class MatsumotoKiyoshi: Store {  var kind: Drug   init(kind: Drug) {  self.</description>
+    </item>
+    
     <item>
       <title>SwiftUI のモディファイアの順序による結果の相違</title>
       <link>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</link>
