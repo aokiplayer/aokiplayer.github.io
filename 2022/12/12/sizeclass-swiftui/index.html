@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/categories/">
-<meta property="og:title" content="Categories">
-<meta property="og:image" content="https://yagamo-style.com/">
+<meta property="og:url" content="https://yagamo-style.com/2022/12/12/sizeclass-swiftui/">
+<meta property="og:title" content="SwiftUI でサイズクラスに対応する">
+<meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Categories :: Yagamo Style</title>
+    <title>SwiftUI でサイズクラスに対応する :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1670792918" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/categories/">
+  <body class="" data-url="/2022/12/12/sizeclass-swiftui/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2022/" title="2022" class="dd-item
-        
+        parent
         
         
         ">
@@ -124,7 +124,7 @@
  
   
     
-      <li data-nav-id="/2022/12/12/sizeclass-swiftui/" title="SwiftUI でサイズクラスに対応する" class="dd-item ">
+      <li data-nav-id="/2022/12/12/sizeclass-swiftui/" title="SwiftUI でサイズクラスに対応する" class="dd-item active">
         <a href="/2022/12/12/sizeclass-swiftui/">
         SwiftUI でサイズクラスに対応する
         
@@ -969,7 +969,13 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > Categories
+            
+            
+          
+          
+            <a href='/'>Yagamo Style</a> > <a href='/2022/'>2022</a> > SwiftUI でサイズクラスに対応する
+          
+        
           
         
           
@@ -980,7 +986,25 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#今回のゴール">今回のゴール</a></li>
+    <li><a href="#検証環境">検証環境</a></li>
+    <li><a href="#サイズクラスとは">サイズクラスとは</a></li>
+    <li><a href="#サイズクラス情報の取得">サイズクラス情報の取得</a></li>
+    <li><a href="#実装例第-1-段階">実装例（第 1 段階）</a></li>
+    <li><a href="#実装例第-2-段階">実装例（第 2 段階）</a>
+      <ul>
+        <li><a href="#ポイント">ポイント①</a></li>
+        <li><a href="#vstacklayout-hstacklayout-anylayout">VStackLayout, HStackLayout, AnyLayout</a></li>
+        <li><a href="#ポイント-1">ポイント②</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -990,34 +1014,200 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/ios">iOS</a>
+
+  <a class="tag-link" href="/tags/swift">Swift</a>
+
+  <a class="tag-link" href="/tags/swiftui">SwiftUI</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                category ::
-              
-              Categories
+              SwiftUI でサイズクラスに対応する
             </h1>
           
 
         
 
 
-
-
-
+<h2 id="はじめに">はじめに</h2>
+<p>Storyboard を利用していると、サイズクラスを利用して以下のように柔軟にビューのレイアウトを変更することが、比較的簡単に実現できていました。</p>
 <ul>
-	
-		<li><a href="/categories/technical/">Technical</a></li>
-	
-		<li><a href="/categories/report/">Report</a></li>
-	
+<li>iPad で画面を分割していないので、幅が十分にあるからビューを横に並べよう</li>
+<li>iPad をマルチタスキングで画面分割して幅が狭くなったので、ビューを縦に並べよう</li>
+</ul>
+<p><code>UIStackView</code> で、幅と高さが Regular のデバイス（iPad で画面非分割時など）の場合のみサブビューを横に並べるのであれば、以下のような設定を行いました。</p>
+<p><img src="/images/sizeclass-swiftui/sizeclass_in_storyboard.png?width=25pc" alt="sizeclass_in_storyboard.png?width=25pc"></p>
+<p>サイズクラスは SwiftUI でも利用できるので、その使い方を記載します。</p>
+<h2 id="今回のゴール">今回のゴール</h2>
+<p>以下のように、画面幅の広い状態ではビューを横に、狭い状態では縦に並べるように設定します。</p>
+<table>
+<thead>
+<tr>
+<th>w:Regular</th>
+<th>w:Compact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/images/sizeclass-swiftui/w_regular.png?width=25pc" alt="w_regular.png?width=25pc"></td>
+<td><img src="/images/sizeclass-swiftui/w_compact.png?width=25pc" alt="w_compact.png?width=25pc"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="検証環境">検証環境</h2>
+<ul>
+<li>macOS Ventura 13.0.1</li>
+<li>Xcode 14.1</li>
+<li>iOS/iPadOS 16.1</li>
+</ul>
+<h2 id="サイズクラスとは">サイズクラスとは</h2>
+<p>サイズクラスは、その名のとおり「デバイスのサイズを分類する」概念です。サイズクラスでは、ざっくりとデバイスの縦横を「普通（Regular）」「小さい（Compact）」の組み合わせで表します。
+それにより、最大で 4 通りの画面サイズ（w: Regular x h: Regular, &hellip;, w: Compact x h: Compact）にデバイスを分類してビューのレイアウトを行います。
+サイズクラスを使うことで、全部のデバイスに個々に対応せず、大まかな分類ごとにレイアウトを行えば済むので労力が削減できます。</p>
+<p>4 パターン全部に対応せずとも、iPad の画面分割のことを考えるのであれば、幅のみに着目して 2 パターンでレイアウトすることが多いのではないでしょうか。</p>
+<h2 id="サイズクラス情報の取得">サイズクラス情報の取得</h2>
+<p>現在表示中のビューがどのサイズクラスなのかは、<code>Environment</code> から列挙型 <code>UserInterfaceSizeClass</code> 型の値として取得できます。</p>
+<pre tabindex="0"><code class="language-swift:サイズクラス情報の取得" data-lang="swift:サイズクラス情報の取得">@Environment(\.horizontalSizeClass) private var horizontalSizeClass
+@Environment(\.verticalSizeClass) private var verticalSizeClass
+</code></pre><p>この <code>UserInterfaceSizeClass</code> は定数として <code>compact</code> と <code>regular</code> の 2 つのケースを取るため、これを利用して条件分岐すれば、サイズクラスごとにレイアウトを変更できます。</p>
+<h2 id="実装例第-1-段階">実装例（第 1 段階）</h2>
+<p>では、サイズクラスごとにレイアウトを変えてみます。</p>
+<pre tabindex="0"><code class="language-swift:第1段階" data-lang="swift:第1段階">struct Example1: View {
+    // 水平方向のサイズクラス（compact, regular のいずれか）
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass     // 今回は使ってない
+    
+    var body: some View {
+        // compact なら VStack, regular なら HStack でレイアウト
+        if horizontalSizeClass == .compact {
+            VStack {
+                Text(&#34;A&#34;)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.green)
+                    .foregroundColor(.white)
+
+                Text(&#34;B&#34;)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.orange)
+                    .foregroundColor(.white)
+            }
+            .font(.largeTitle)
+            .frame(maxWidth: .infinity)
+            .padding()
+        } else {
+            HStack {
+                Text(&#34;A&#34;)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.green)
+                    .foregroundColor(.white)
+
+                Text(&#34;B&#34;)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.orange)
+                    .foregroundColor(.white)
+            }
+            .font(.largeTitle)
+            .frame(maxWidth: .infinity)
+            .padding()
+        }
+    }
+}
+</code></pre><p>この実装で、w: Compact であれば <code>VStack</code> を利用してビューが縦に、w: Regular であれば <code>HStack</code> を利用して横に配置されます。</p>
+<p>ただし、外側のビューが <code>VStack</code> か <code>HStack</code> かの違いだけですので、このままでは冗長です。
+共通部分をビューとして切り出しても良いですが、大袈裟な気がします。</p>
+<h2 id="実装例第-2-段階">実装例（第 2 段階）</h2>
+<p><code>VStackLayout</code> や <code>HStackLayout</code> などを利用することで、上記のコードをシンプルに記述できるようになります。</p>
+<pre tabindex="0"><code class="language-swift:第2段階" data-lang="swift:第2段階">struct Example2: View {
+    // 水平方向のサイズクラス（compact, regular のいずれか）
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass     // 今回は使ってない
+    
+    var body: some View {
+        // compact なら VStackLayout, regular なら HStackLayout を生成
+        // VStackLayout, HStackLayout は Layout プロトコルに準拠しているので、AnyLayout に包める
+        let layout = horizontalSizeClass == .compact
+        ? AnyLayout(VStackLayout())     // &lt;---- ①
+        : AnyLayout(HStackLayout())     // &lt;---- ①
+ 
+        // 上で選択したレイアウトを利用してビューを配置
+        // この形で記述できているのは、callAsFunction(_:) が呼ばれているため
+        layout {    // &lt;---- ②
+            Text(&#34;A&#34;)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.green)
+                .foregroundColor(.white)
+
+            Text(&#34;B&#34;)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.orange)
+                .foregroundColor(.white)
+        }
+        .font(.largeTitle)
+        .frame(maxWidth: .infinity)
+        .padding()
+    }
+}
+</code></pre><p>ここでのポイントは以下です。</p>
+<ul>
+<li>①: サイズクラスの値によって <code>VStackLayout</code> と <code>HStackLayout</code> を選択（<code>AnyLayout</code> に包む）</li>
+<li>②: ① の <code>AnyLayout</code> を使ってレイアウト</li>
+</ul>
+<h3 id="ポイント">ポイント①</h3>
+<h3 id="vstacklayout-hstacklayout-anylayout">VStackLayout, HStackLayout, AnyLayout</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// compact なら VStackLayout, regular なら HStackLayout を生成</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// VStackLayout, HStackLayout は Layout プロトコルに準拠しているので、AnyLayout に包める</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> layout = horizontalSizeClass == .compact
+</span></span><span style="display:flex;"><span>? AnyLayout(VStackLayout())     <span style="color:#75715e">// &lt;---- ①</span>
+</span></span><span style="display:flex;"><span>: AnyLayout(HStackLayout())     <span style="color:#75715e">// &lt;---- ①</span>
+</span></span></code></pre></div><p><code>VStack</code> や <code>HStack</code> は、内包するビューをイニシャライザに渡す必要があるため、引数なしではインスタンス化できません。</p>
+<p>そのような場合には <code>VStackLayout</code> や <code>HStackLayout</code> などが利用できます。
+今回は定数  <code>layout</code> には <code>VStackLayout</code> と <code>HStackLayout</code> のどちらの値も取りうるので、両方を表現できるように <code>AnyLayout</code> に包んでいます。</p>
+<p><code>AnyLayout</code> のイニシャライザに渡せるのは <code>Layout</code> プロトコル型ですが、<code>VStackLayout</code> や <code>HStackLayout</code> はこのプロトコルに準拠しています。</p>
+<p>これで、どちらの場合であっても <code>AnyLayout</code> 型として扱うことができます。</p>
+<h3 id="ポイント-1">ポイント②</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// 上で選択したレイアウトを利用してビューを配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// この形で記述できているのは、callAsFunction(_:) が呼ばれているため</span>
+</span></span><span style="display:flex;"><span>layout {    <span style="color:#75715e">// &lt;---- ②</span>
+</span></span><span style="display:flex;"><span>    Text(<span style="color:#e6db74">&#34;A&#34;</span>)
+</span></span><span style="display:flex;"><span>        .frame(maxWidth: .infinity, maxHeight: .infinity)
+</span></span><span style="display:flex;"><span>        .background(.green)
+</span></span><span style="display:flex;"><span>        .foregroundColor(.white)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Text(<span style="color:#e6db74">&#34;B&#34;</span>)
+</span></span><span style="display:flex;"><span>        .frame(maxWidth: .infinity, maxHeight: .infinity)
+</span></span><span style="display:flex;"><span>        .background(.orange)
+</span></span><span style="display:flex;"><span>        .foregroundColor(.white)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>layout { ... }</code> という記述には、少し違和感があるかもしれません。
+これは <code> layout.callAsFunction( {  ... } )</code> の省略形です。</p>
+<p>この記述は <code>callAsFunction(_:)</code> という名前のメソッドを定義しておくと、メソッド名を省略して <code>インスタンス()</code> の形で呼び出すことができるようになっている言語仕様によるものです。<code>AnyLayout</code> や <code>VStackLayout</code>, <code>HStackLayout</code> が準拠している <code>Layout</code> プロトコルには、<code>callAsFunction(_:)</code> が宣言されています。</p>
+<p>もちろん、末尾クロージャなので引数リストの <code>()</code> も省略しています。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>サイズクラスに対応するだけなら、<code>Environment</code> から値を取得して条件分岐できるので単純です。
+さらに、<code>AnyLayout</code>, <code>VStackLayout</code>, <code>HStackLayout</code> や <code>callAsFunction(_:)</code> などを利用することで簡潔なコードとすることができることがわかりましたね。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://developer.apple.com/documentation/swiftui/vstacklayout">VStackLayout | Apple Developer Documentation</a></li>
+<li><a href="https://developer.apple.com/documentation/swiftui/hstacklayout">HStackLayout | Apple Developer Documentation</a></li>
+<li><a href="https://developer.apple.com/documentation/swiftui/anylayout">AnyLayout | Apple Developer Documentation</a></li>
+<li><a href="https://developer.apple.com/documentation/swiftui/anylayout/callasfunction(_:)">callAsFunction(_:) | Apple Developer Documentation</a></li>
+<li><a href="https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID622">Methods with Special Names | Declarations — The Swift Programming Language (Swift 5.7)</a>
+<ul>
+<li><a href="https://www.swiftlangjp.com/language-reference/declarations.html#methods-with-special-names">上記の日本語版</a></li>
+</ul>
+</li>
 </ul>
 
 
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1471,6 +1661,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1483,6 +1674,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1499,6 +1691,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1641,16 +1836,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1670792918"></script>
-    <script src="/js/perfect-scrollbar.min.js?1670792918"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1670792918"></script>
-    <script src="/js/jquery.sticky.js?1670792918"></script>
-    <script src="/js/featherlight.min.js?1670792918"></script>
-    <script src="/js/highlight.pack.js?1670792918"></script>
+    <script src="/js/clipboard.min.js?1670792919"></script>
+    <script src="/js/perfect-scrollbar.min.js?1670792919"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1670792919"></script>
+    <script src="/js/jquery.sticky.js?1670792919"></script>
+    <script src="/js/featherlight.min.js?1670792919"></script>
+    <script src="/js/highlight.pack.js?1670792919"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1670792918"></script>
-    <script src="/js/learn.js?1670792918"></script>
-    <script src="/js/hugo-learn.js?1670792918"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1670792919"></script>
+    <script src="/js/learn.js?1670792919"></script>
+    <script src="/js/hugo-learn.js?1670792919"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
@@ -1663,3 +1858,4 @@
 
   </body>
 </html>
+

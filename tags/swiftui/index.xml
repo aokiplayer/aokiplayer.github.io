@@ -6,7 +6,23 @@
     <description>Recent content in SwiftUI on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 26 Oct 2022 14:03:56 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Dec 2022 06:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SwiftUI でサイズクラスに対応する</title>
+      <link>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</link>
+      <pubDate>Mon, 12 Dec 2022 06:00:00 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</guid>
+      <description>はじめに Storyboard を利用していると、サイズクラスを利用して以下のように柔軟にビューのレイアウトを変更することが、比較的簡単に実現できていました。
+ iPad で画面を分割していないので、幅が十分にあるからビューを横に並べよう iPad をマルチタスキングで画面分割して幅が狭くなったので、ビューを縦に並べよう  UIStackView で、幅と高さが Regular のデバイス（iPad で画面非分割時など）の場合のみサブビューを横に並べるのであれば、以下のような設定を行いました。
+サイズクラスは SwiftUI でも利用できるので、その使い方を記載します。
+今回のゴール 以下のように、画面幅の広い状態ではビューを横に、狭い状態では縦に並べるように設定します。
+   w:Regular w:Compact          検証環境  macOS Ventura 13.0.1 Xcode 14.1 iOS/iPadOS 16.1  サイズクラスとは サイズクラスは、その名のとおり「デバイスのサイズを分類する」概念です。サイズクラスでは、ざっくりとデバイスの縦横を「普通（Regular）」「小さい（Compact）」の組み合わせで表します。 それにより、最大で 4 通りの画面サイズ（w: Regular x h: Regular, &amp;hellip;, w: Compact x h: Compact）にデバイスを分類してビューのレイアウトを行います。 サイズクラスを使うことで、全部のデバイスに個々に対応せず、大まかな分類ごとにレイアウトを行えば済むので労力が削減できます。
+4 パターン全部に対応せずとも、iPad の画面分割のことを考えるのであれば、幅のみに着目して 2 パターンでレイアウトすることが多いのではないでしょうか。
+サイズクラス情報の取得 現在表示中のビューがどのサイズクラスなのかは、Environment から列挙型 UserInterfaceSizeClass 型の値として取得できます。
+@Environment(\.horizontalSizeClass) private var horizontalSizeClass @Environment(\.</description>
+    </item>
+    
     <item>
       <title>Swift の型消去（Type Erasure）</title>
       <link>https://yagamo-style.com/2022/10/26/type-erasure/</link>
