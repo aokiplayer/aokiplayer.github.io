@@ -14,22 +14,22 @@
     <title>SwiftUI でサイズクラスに対応する :: Yagamo Style</title>
 
     
-    <link href="/css/nucleus.css?1670792918" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1670792918" rel="stylesheet">
-    <link href="/css/hybrid.css?1670792918" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1670792918" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1670792918" rel="stylesheet">
-    <link href="/css/auto-complete.css?1670792918" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1670792918" rel="stylesheet">
-    <link href="/css/theme.css?1670792918" rel="stylesheet">
-    <link href="/css/tabs.css?1670792918" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1670792918" rel="stylesheet">
+    <link href="/css/nucleus.css?1670797028" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1670797028" rel="stylesheet">
+    <link href="/css/hybrid.css?1670797028" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1670797028" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1670797028" rel="stylesheet">
+    <link href="/css/auto-complete.css?1670797028" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1670797028" rel="stylesheet">
+    <link href="/css/theme.css?1670797028" rel="stylesheet">
+    <link href="/css/tabs.css?1670797028" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1670797028" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1670792918" rel="stylesheet">
+    <link href="/css/theme-blue.css?1670797028" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1670792918"></script>
+    <script src="/js/jquery-3.3.1.min.js?1670797028"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -62,14 +62,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1670792918"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1670792918"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1670797028"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1670797028"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/yagamo-style.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1670792918"></script>
+<script type="text/javascript" src="/js/search.js?1670797028"></script>
 
     
   </div>
@@ -997,7 +997,6 @@
     <li><a href="#実装例第-2-段階">実装例（第 2 段階）</a>
       <ul>
         <li><a href="#ポイント">ポイント①</a></li>
-        <li><a href="#vstacklayout-hstacklayout-anylayout">VStackLayout, HStackLayout, AnyLayout</a></li>
         <li><a href="#ポイント-1">ポイント②</a></li>
       </ul>
     </li>
@@ -1084,7 +1083,7 @@
     // 水平方向のサイズクラス（compact, regular のいずれか）
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass     // 今回は使ってない
-    
+
     var body: some View {
         // compact なら VStack, regular なら HStack でレイアウト
         if horizontalSizeClass == .compact {
@@ -1129,14 +1128,14 @@
     // 水平方向のサイズクラス（compact, regular のいずれか）
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass     // 今回は使ってない
-    
+
     var body: some View {
         // compact なら VStackLayout, regular なら HStackLayout を生成
         // VStackLayout, HStackLayout は Layout プロトコルに準拠しているので、AnyLayout に包める
         let layout = horizontalSizeClass == .compact
         ? AnyLayout(VStackLayout())     // &lt;---- ①
         : AnyLayout(HStackLayout())     // &lt;---- ①
- 
+
         // 上で選択したレイアウトを利用してビューを配置
         // この形で記述できているのは、callAsFunction(_:) が呼ばれているため
         layout {    // &lt;---- ②
@@ -1161,7 +1160,7 @@
 <li>②: ① の <code>AnyLayout</code> を使ってレイアウト</li>
 </ul>
 <h3 id="ポイント">ポイント①</h3>
-<h3 id="vstacklayout-hstacklayout-anylayout">VStackLayout, HStackLayout, AnyLayout</h3>
+<h4 id="vstacklayout-hstacklayout-anylayout">VStackLayout, HStackLayout, AnyLayout</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// compact なら VStackLayout, regular なら HStackLayout を生成</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// VStackLayout, HStackLayout は Layout プロトコルに準拠しているので、AnyLayout に包める</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> layout = horizontalSizeClass == .compact
@@ -1173,6 +1172,7 @@
 <p><code>AnyLayout</code> のイニシャライザに渡せるのは <code>Layout</code> プロトコル型ですが、<code>VStackLayout</code> や <code>HStackLayout</code> はこのプロトコルに準拠しています。</p>
 <p>これで、どちらの場合であっても <code>AnyLayout</code> 型として扱うことができます。</p>
 <h3 id="ポイント-1">ポイント②</h3>
+<h4 id="callasfunction_">callAsFunction(_:)</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// 上で選択したレイアウトを利用してビューを配置</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// この形で記述できているのは、callAsFunction(_:) が呼ばれているため</span>
 </span></span><span style="display:flex;"><span>layout {    <span style="color:#75715e">// &lt;---- ②</span>
@@ -1836,16 +1836,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1670792919"></script>
-    <script src="/js/perfect-scrollbar.min.js?1670792919"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1670792919"></script>
-    <script src="/js/jquery.sticky.js?1670792919"></script>
-    <script src="/js/featherlight.min.js?1670792919"></script>
-    <script src="/js/highlight.pack.js?1670792919"></script>
+    <script src="/js/clipboard.min.js?1670797029"></script>
+    <script src="/js/perfect-scrollbar.min.js?1670797029"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1670797029"></script>
+    <script src="/js/jquery.sticky.js?1670797029"></script>
+    <script src="/js/featherlight.min.js?1670797029"></script>
+    <script src="/js/highlight.pack.js?1670797029"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1670792919"></script>
-    <script src="/js/learn.js?1670792919"></script>
-    <script src="/js/hugo-learn.js?1670792919"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1670797029"></script>
+    <script src="/js/learn.js?1670797029"></script>
+    <script src="/js/hugo-learn.js?1670797029"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
