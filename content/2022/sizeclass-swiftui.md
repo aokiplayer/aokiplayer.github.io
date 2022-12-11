@@ -55,7 +55,7 @@ struct Example1: View {
     // 水平方向のサイズクラス（compact, regular のいずれか）
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass     // 今回は使ってない
-    
+
     var body: some View {
         // compact なら VStack, regular なら HStack でレイアウト
         if horizontalSizeClass == .compact {
@@ -106,14 +106,14 @@ struct Example2: View {
     // 水平方向のサイズクラス（compact, regular のいずれか）
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass     // 今回は使ってない
-    
+
     var body: some View {
         // compact なら VStackLayout, regular なら HStackLayout を生成
         // VStackLayout, HStackLayout は Layout プロトコルに準拠しているので、AnyLayout に包める
         let layout = horizontalSizeClass == .compact
         ? AnyLayout(VStackLayout())     // <---- ①
         : AnyLayout(HStackLayout())     // <---- ①
- 
+
         // 上で選択したレイアウトを利用してビューを配置
         // この形で記述できているのは、callAsFunction(_:) が呼ばれているため
         layout {    // <---- ②
@@ -140,7 +140,7 @@ struct Example2: View {
 - ②: ① の `AnyLayout` を使ってレイアウト
 
 ### ポイント①
-### VStackLayout, HStackLayout, AnyLayout
+#### VStackLayout, HStackLayout, AnyLayout
 ```swift
 // compact なら VStackLayout, regular なら HStackLayout を生成
 // VStackLayout, HStackLayout は Layout プロトコルに準拠しているので、AnyLayout に包める
@@ -159,6 +159,7 @@ let layout = horizontalSizeClass == .compact
 これで、どちらの場合であっても `AnyLayout` 型として扱うことができます。
 
 ### ポイント②
+#### callAsFunction(_:)
 ```swift
 // 上で選択したレイアウトを利用してビューを配置
 // この形で記述できているのは、callAsFunction(_:) が呼ばれているため
