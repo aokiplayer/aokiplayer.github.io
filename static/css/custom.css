@@ -1,0 +1,5 @@
+/* アルファベットを大文字に変換しない */
+h1 {
+  font-family: "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  text-transform: none
+}
