@@ -16,7 +16,7 @@ themesdir = "themes"
 #editURL = ""
 
 # Author of the site, will be used in meta information. [不明] 著者
-author = "Hiroyuki Aoki"
+author = "Steven Hiroyuki Aoki"
 
 # Description of the site, will be used in meta information. [不明] ページの説明
 description = "技術メモとかイベントレポートとか"
