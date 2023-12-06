@@ -88,6 +88,7 @@ url = "https://github.com/aokiplayer"
 weight = 50
 
 [permalinks]
+2023 = '/:year/:month/:day/:filename/'
 2022 = '/:year/:month/:day/:filename/'
 2021 = '/:year/:month/:day/:filename/'
 2020 = '/:year/:month/:day/:filename/'
