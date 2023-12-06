@@ -77,7 +77,7 @@ print(result2)
 `callAsFunction` を積極的に定義する機会は多くないと思います。
 しかし、Swift（特に SwiftUI）では意外と使われていたりするので、仕組みは知っておくと良いでしょう。
 
-以前に書いた記事 [SwiftUI でサイズクラスに対応する](https://qiita.com/aokiplayer/items/a91213b953c2a805626a) でも、軽く触れています。
+以前に書いた記事 [SwiftUI でサイズクラスに対応する]({{< ref "/2022/sizeclass-swiftui.md">}}) でも、軽く触れています。
 
 作成したサンプルは、[GitHub: aokiplayer/swift-sandboxCallAsFunction.playground](https://github.com/aokiplayer/swift-sandbox/tree/master/CallAsFunction) に置きました。
 
