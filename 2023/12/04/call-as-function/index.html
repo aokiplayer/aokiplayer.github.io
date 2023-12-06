@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Steven Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/tags/">
-<meta property="og:title" content="Tags">
-<meta property="og:image" content="https://yagamo-style.com/">
+<meta property="og:url" content="https://yagamo-style.com/2023/12/04/call-as-function/">
+<meta property="og:title" content="SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？">
+<meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tags :: Yagamo Style</title>
+    <title>SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？ :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1701844172" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/2023/12/04/call-as-function/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2023/" title="2023" class="dd-item
-        
+        parent
         
         
         ">
@@ -124,7 +124,7 @@
  
   
     
-      <li data-nav-id="/2023/12/04/call-as-function/" title="SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？" class="dd-item ">
+      <li data-nav-id="/2023/12/04/call-as-function/" title="SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？" class="dd-item active">
         <a href="/2023/12/04/call-as-function/">
         SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？
         
@@ -1024,7 +1024,13 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > Tags
+            
+            
+          
+          
+            <a href='/'>Yagamo Style</a> > <a href='/2023/'>2023</a> > SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？
+          
+        
           
         
           
@@ -1035,7 +1041,21 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#検証環境">検証環境</a></li>
+    <li><a href="#callasfunction-メソッド">callAsFunction メソッド</a>
+      <ul>
+        <li><a href="#callasfunction-の例">callAsFunction の例</a></li>
+        <li><a href="#callasfunction-関数の仕様">callAsFunction 関数の仕様</a></li>
+        <li><a href="#注意点">注意点</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1045,56 +1065,94 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/ios">iOS</a>
+
+  <a class="tag-link" href="/tags/swift">Swift</a>
+
+  <a class="tag-link" href="/tags/swiftui">SwiftUI</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                tag ::
-              
-              Tags
+              SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？
             </h1>
           
 
         
 
 
-
-
-
+<h2 id="はじめに">はじめに</h2>
+<p>SwiftUI で多用されている Property Wrappers ですが、基本的に「なんか難しいことをやってくれてる」感じになってます。頻繁に利用される <code>@Environment</code> も、「こう書けばこう動く」という感じで何となく使っている人が多いと思います。</p>
+<p>ところで、Property Wrapper そのものの機能とは関係ないですが、以下のコードの <code>@Environment</code> の <code>dismiss()</code> の部分はよく考えると不思議な構文ではないでしょうか。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// ビューを閉じるための DismissAction を取得</span>
+</span></span><span style="display:flex;"><span>@Environment(<span style="color:#960050;background-color:#1e0010">\</span>.dismiss) <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> dismiss: DismissAction
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ビューを閉じる</span>
+</span></span><span style="display:flex;"><span>dismiss() <span style="color:#75715e">// &lt;--- オブジェクト() という構文？？？</span>
+</span></span></code></pre></div><p><code>dismiss</code> は <code>DismissAction</code> 型のオブジェクトなので、本来なら以下の形式でないと辻褄が合いませんよね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>dismiss.<span style="color:#960050;background-color:#1e0010">何かメソッド名</span>() <span style="color:#75715e">// &lt;--- オブジェクト.メソッド名() という構文ならわかる</span>
+</span></span></code></pre></div><h2 id="検証環境">検証環境</h2>
 <ul>
-	
-		<li><a href="/tags/ios/">iOS</a></li>
-	
-		<li><a href="/tags/swift/">Swift</a></li>
-	
-		<li><a href="/tags/swiftui/">SwiftUI</a></li>
-	
-		<li><a href="/tags/iosdc/">iOSDC</a></li>
-	
-		<li><a href="/tags/hugo/">Hugo</a></li>
-	
-		<li><a href="/tags/git/">Git</a></li>
-	
-		<li><a href="/tags/json/">JSON</a></li>
-	
-		<li><a href="/tags/apple/">Apple</a></li>
-	
-		<li><a href="/tags/certification/">Certification</a></li>
-	
-		<li><a href="/tags/macos/">macOS</a></li>
-	
-		<li><a href="/tags/mac/">Mac</a></li>
-	
-		<li><a href="/tags/shell-script/">Shell Script</a></li>
-	
-		<li><a href="/tags/try-swift/">try! Swift</a></li>
-	
+<li>Xcode 15.0</li>
+<li>Swift 5.9</li>
+</ul>
+<h2 id="callasfunction-メソッド">callAsFunction メソッド</h2>
+<p>実は、これは <code>dismiss.何かメソッド名()</code> の省略形です。
+具体的には <code>dismiss.callAsFunction()</code> です。</p>
+<h3 id="callasfunction-の例">callAsFunction の例</h3>
+<p>例として、単に「足し算をするためだけの構造体」を用意し、<code>callAsFunction</code> メソッドを実装して利用してみます。</p>
+<pre tabindex="0"><code class="language-swift:" data-lang="swift:">import Foundation
+
+// 足し算をするためだけの構造体
+struct AddAction {
+    public func callAsFunction(_ number1: Int, with number2: Int) -&gt; Int {
+        return number1 + number2
+    }
+}
+
+let add = AddAction()
+
+// 以下は add.callAsFunction(10, with: 20) の省略形
+let result1 = add(10, with: 20)
+print(result1)
+
+// もちろん、メソッド名を書いても動作する
+let result2 = add.callAsFunction(50, with: 100)
+print(result2)
+</code></pre><p>上記のコードでは、<code>add</code> は <code>AddAction</code> 型のオブジェクトですが、<code>add(10, with: 20)</code> の形で実行できていることがわかります。</p>
+<p>冒頭で紹介した <code>DismissAction</code> にも <code>callAsFunction</code> メソッドが定義されているため、<code>dismiss()</code> と記述できます。</p>
+<h3 id="callasfunction-関数の仕様">callAsFunction 関数の仕様</h3>
+<ul>
+<li>クラス、構造体、列挙型に宣言する</li>
+<li>メソッド名は <code>callAsFunction</code></li>
+<li>引数の型と数、戻り値の型は自由</li>
+<li><code>オブジェクト.callAsFunction(引数)</code>の形式で利用</li>
+</ul>
+<h3 id="注意点">注意点</h3>
+<p><code>callAsFunction</code> というメソッド名は何らかのプロトコルで規定されているわけではないため、定義時にスペルミスをしてもエラーにはならない点に注意が必要です。
+呼び出し側のコードを書いている時に、<code>オブジェクト(引数)</code> で呼べないので気づくこととなるでしょう。</p>
+<h2 id="まとめ">まとめ</h2>
+<p><code>callAsFunction</code> を積極的に定義する機会は多くないと思います。
+しかし、Swift（特に SwiftUI）では意外と使われていたりするので、仕組みは知っておくと良いでしょう。</p>
+<p>以前に書いた記事 <a href="https://qiita.com/aokiplayer/items/a91213b953c2a805626a">SwiftUI でサイズクラスに対応する</a> でも、軽く触れています。</p>
+<p>作成したサンプルは、<a href="https://github.com/aokiplayer/swift-sandbox/tree/master/CallAsFunction">GitHub: aokiplayer/swift-sandboxCallAsFunction.playground</a> に置きました。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#Methods-with-Special-Names">Methods with Special Names (The Swift Programming Language)</a></li>
+<li><a href="https://developer.apple.com/documentation/swiftui/dismissaction/callasfunction()">callAsFunction() | DismissAction (Apple Developer Documentation)</a></li>
 </ul>
 
 
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1708,6 +1766,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1720,6 +1779,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1772,3 +1832,4 @@
 
   </body>
 </html>
+

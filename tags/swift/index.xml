@@ -6,7 +6,21 @@
     <description>Recent content in Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 12 Dec 2022 06:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Dec 2023 06:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？</title>
+      <link>https://yagamo-style.com/2023/12/04/call-as-function/</link>
+      <pubDate>Mon, 04 Dec 2023 06:00:00 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2023/12/04/call-as-function/</guid>
+      <description>はじめに SwiftUI で多用されている Property Wrappers ですが、基本的に「なんか難しいことをやってくれてる」感じになってます。頻繁に利用される @Environment も、「こう書けばこう動く」という感じで何となく使っている人が多いと思います。
+ところで、Property Wrapper そのものの機能とは関係ないですが、以下のコードの @Environment の dismiss() の部分はよく考えると不思議な構文ではないでしょうか。
+// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction  ...  // ビューを閉じる dismiss() // &amp;lt;--- オブジェクト() という構文？？？ dismiss は DismissAction 型のオブジェクトなので、本来なら以下の形式でないと辻褄が合いませんよね。
+dismiss.何かメソッド名() // &amp;lt;--- オブジェクト.メソッド名() という構文ならわかる 検証環境  Xcode 15.0 Swift 5.9  callAsFunction メソッド 実は、これは dismiss.何かメソッド名() の省略形です。 具体的には dismiss.callAsFunction() です。
+callAsFunction の例 例として、単に「足し算をするためだけの構造体」を用意し、callAsFunction メソッドを実装して利用してみます。
+import Foundation // 足し算をするためだけの構造体 struct AddAction { public func callAsFunction(_ number1: Int, with number2: Int) -&amp;gt; Int { return number1 + number2 } } let add = AddAction() // 以下は add.</description>
+    </item>
+    
     <item>
       <title>SwiftUI でサイズクラスに対応する</title>
       <link>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</link>

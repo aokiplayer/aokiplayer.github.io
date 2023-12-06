@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
-<meta name="author" content="Hiroyuki Aoki">
+<meta name="author" content="Steven Hiroyuki Aoki">
 <meta property="og:url" content="https://yagamo-style.com/2022/10/26/type-erasure/">
 <meta property="og:title" content="Swift の型消去（Type Erasure）">
 <meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
@@ -14,22 +14,22 @@
     <title>Swift の型消去（Type Erasure） :: Yagamo Style</title>
 
     
-    <link href="/css/nucleus.css?1701828079" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701828079" rel="stylesheet">
-    <link href="/css/hybrid.css?1701828079" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701828079" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701828079" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701828079" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701828079" rel="stylesheet">
-    <link href="/css/theme.css?1701828079" rel="stylesheet">
-    <link href="/css/tabs.css?1701828079" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701828079" rel="stylesheet">
+    <link href="/css/nucleus.css?1701844172" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1701844172" rel="stylesheet">
+    <link href="/css/hybrid.css?1701844172" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1701844172" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1701844172" rel="stylesheet">
+    <link href="/css/auto-complete.css?1701844172" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1701844172" rel="stylesheet">
+    <link href="/css/theme.css?1701844172" rel="stylesheet">
+    <link href="/css/tabs.css?1701844172" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1701844172" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1701828079" rel="stylesheet">
+    <link href="/css/theme-blue.css?1701844172" rel="stylesheet">
     
-    <link href="/css/custom.css?1701828079" rel="stylesheet">
+    <link href="/css/custom.css?1701844172" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1701828079"></script>
+    <script src="/js/jquery-3.3.1.min.js?1701844172"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -62,14 +62,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701828079"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701828079"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1701844172"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1701844172"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/yagamo-style.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701828079"></script>
+<script type="text/javascript" src="/js/search.js?1701844172"></script>
 
     
   </div>
@@ -87,6 +87,61 @@
     <ul class="topics">
 
         
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2023/" title="2023" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2023/">
+          2023
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2023/12/04/call-as-function/" title="SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？" class="dd-item ">
+        <a href="/2023/12/04/call-as-function/">
+        SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
 
           
           
@@ -1780,6 +1835,38 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
 
@@ -1795,16 +1882,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701828079"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701828079"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701828079"></script>
-    <script src="/js/jquery.sticky.js?1701828079"></script>
-    <script src="/js/featherlight.min.js?1701828079"></script>
-    <script src="/js/highlight.pack.js?1701828079"></script>
+    <script src="/js/clipboard.min.js?1701844172"></script>
+    <script src="/js/perfect-scrollbar.min.js?1701844172"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1701844172"></script>
+    <script src="/js/jquery.sticky.js?1701844172"></script>
+    <script src="/js/featherlight.min.js?1701844172"></script>
+    <script src="/js/highlight.pack.js?1701844172"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701828079"></script>
-    <script src="/js/learn.js?1701828079"></script>
-    <script src="/js/hugo-learn.js?1701828079"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1701844172"></script>
+    <script src="/js/learn.js?1701844172"></script>
+    <script src="/js/hugo-learn.js?1701844172"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
