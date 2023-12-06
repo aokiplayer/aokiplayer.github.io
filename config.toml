@@ -69,7 +69,7 @@ themeVariant = "blue"
 # titleSeparator = "-"
 
 # テーマとは別のスタイルを当てる
-# custom_css = ["css/custom.css"]
+custom_css = ["css/custom.css"]
 
 # ページ横断の検索
 [outputs]
