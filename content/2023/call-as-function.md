@@ -63,7 +63,7 @@ print(result2)
 
 冒頭で紹介した `DismissAction` にも `callAsFunction` メソッドが定義されているため、`dismiss()` と記述できます。
 
-### callAsFunction 関数の仕様
+### callAsFunction メソッドの仕様
 - クラス、構造体、列挙型に宣言する
 - メソッド名は `callAsFunction`
 - 引数の型と数、戻り値の型は自由
