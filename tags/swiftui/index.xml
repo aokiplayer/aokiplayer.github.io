@@ -6,7 +6,20 @@
     <description>Recent content in SwiftUI on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 04 Dec 2023 06:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Dec 2023 06:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す</title>
+      <link>https://yagamo-style.com/2023/12/05/dynamic-callable/</link>
+      <pubDate>Tue, 05 Dec 2023 06:00:00 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2023/12/05/dynamic-callable/</guid>
+      <description>はじめに 以前の記事 SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？ で、callAsFunction メソッドについて説明しました。 簡単に説明すると、型に callAsFunction という名前のメソッドを定義すると、オブジェクト(引数)のような形でメソッドを呼び出せるようになる仕組みです。
+SwiftUI の DismissAction が、そのような形をとっていました。
+// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction  ...  // ビューを閉じる dismiss() // &amp;lt;--- dismiss.callAsFunction() の省略形 似たような仕組みがもうひとつあるので、今回はそちらについて紹介します。
+検証環境  Xcode 15.0 Swift 5.9  dynamicCallable @dynamicCallable で修飾した型には、以下のいずれかのメソッドの実装が必須となります。 メソッドの定義漏れやスペルミスをコンパイル時に気づける点が、callAsFunction とは異なりますね。
+   メソッド 説明     dynamicallyCall(withArguments:) 引数は ExpressibleByArrayLiteral プロトコルに準拠した型（配列など）   dynamicallyCall(withKeywordArguments:) 引数に ExpressibleByDictionaryLiteral プロトコルに準拠した型（ディクショナリなど）    dynamicallyCall(withArguments:) メソッド dynamicallyCall(withArguments:) は、可変長の引数を受け取れます。 メソッドの定義時には引数に配列などを指定しますが、メソッド名を省略した呼び出しの際には個別の値（本来、配列の要素とすべき値）をカンマ区切りで複数指定できます。</description>
+    </item>
+    
     <item>
       <title>SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？</title>
       <link>https://yagamo-style.com/2023/12/04/call-as-function/</link>
