@@ -23,6 +23,20 @@
     </item>
     
     <item>
+      <title>JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</title>
+      <link>https://yagamo-style.com/2024/js-logical-and/</link>
+      <pubDate>Wed, 24 Jan 2024 09:00:00 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2024/js-logical-and/</guid>
+      <description>はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。
+ というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
+ {errors.exampleRequired &amp;amp;&amp;amp; &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。
+ errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される  右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される    入力チェックの結果、エラーがない場合ならこうなるよね？
+ errors.exampleRequired が undefined false と評価される 右オペランドを評価せず、false が返される  どちらにせよ、true/false のいずれかが返されるので &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; は出力されないように思えます。 正しく動作させるなら、普通に考えればこうなるかなと。
+{errors.exampleRequired ? &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; : &amp;#39;&amp;#39;} JavaScript の &amp;amp;&amp;amp; 演算子が Java などと比べて特殊なので、確認してみます。</description>
+    </item>
+    
+    <item>
       <title>Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す</title>
       <link>https://yagamo-style.com/2023/12/05/dynamic-callable/</link>
       <pubDate>Tue, 05 Dec 2023 06:00:00 +0900</pubDate>

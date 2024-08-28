@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Steven Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/tags/iosdc/">
-<meta property="og:title" content="iOSDC">
-<meta property="og:image" content="https://yagamo-style.com/">
+<meta property="og:url" content="https://yagamo-style.com/2024/js-logical-and/">
+<meta property="og:title" content="JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない">
+<meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>iOSDC :: Yagamo Style</title>
+    <title>JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1724809909" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/iosdc/">
+  <body class="" data-url="/2024/js-logical-and/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2024/" title="2024" class="dd-item
-        
+        parent
         
         
         ">
@@ -145,7 +145,7 @@
  
   
     
-      <li data-nav-id="/2024/js-logical-and/" title="JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない" class="dd-item ">
+      <li data-nav-id="/2024/js-logical-and/" title="JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない" class="dd-item active">
         <a href="/2024/js-logical-and/">
         JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない
         
@@ -1125,7 +1125,7 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > <a href='/tags/'>Tags</a> > iOSDC
+            <a href='/'>Yagamo Style</a> > <a href='/2024/'>2024</a> > JavaScript の && 演算子は true/false を返すとは限らない
           
         
           
@@ -1138,7 +1138,19 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#-演算子の基本">&amp;&amp; 演算子の基本</a></li>
+    <li><a href="#ちょっと変わった使い方">ちょっと変わった使い方</a>
+      <ul>
+        <li><a href="#では最初の例は">では最初の例は？</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1148,42 +1160,110 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/javascript">JavaScript</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                tag ::
-              
-              iOSDC
+              JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない
             </h1>
           
 
         
 
 
-
-
-
+<h2 id="はじめに">はじめに</h2>
+<p>React Hook Form のサンプルを見ていたら、こんなコードがありました。</p>
+<blockquote>
+<p>というか、React 本家のチュートリアルにもありますね。
+<a href="https://ja.react.dev/learn/conditional-rendering#logical-and-operator-">https://ja.react.dev/learn/conditional-rendering#logical-and-operator-</a></p>
+</blockquote>
+<pre tabindex="0"><code class="language-react:エラーがあれば&&の右を出力" data-lang="react:エラーがあれば&&の右を出力">{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;}
+</code></pre><p>普段 JavaScript を書かない立場としては、すぐには理解できませんでした。
+入力チェックの結果、エラーがある場合ならこういう挙動のはず。</p>
+<ol>
+<li><code>errors.exampleRequired</code> に何らかのオブジェクトが入っている</li>
+<li><code>true</code> と評価される</li>
+<li>右オペランドが評価される
+<ol>
+<li>右オペランドが <code>true</code> と評価されれば、<code>true</code> が返される</li>
+<li>右オペランドが <code>false</code> と評価されれば、<code>false</code> が返される</li>
+</ol>
+</li>
+</ol>
+<p>入力チェックの結果、エラーがない場合ならこうなるよね？</p>
+<ol>
+<li><code>errors.exampleRequired</code> が <code>undefined</code></li>
+<li><code>false</code> と評価される</li>
+<li>右オペランドを評価せず、<code>false</code> が返される</li>
+</ol>
+<p>どちらにせよ、<code>true</code>/<code>false</code> のいずれかが返されるので <code>&lt;span&gt;This field is required&lt;/span&gt;</code> は出力されないように思えます。
+正しく動作させるなら、普通に考えればこうなるかなと。</p>
+<pre tabindex="0"><code class="language-react:条件演算子を使うよね" data-lang="react:条件演算子を使うよね">{errors.exampleRequired ? &lt;span&gt;This field is required&lt;/span&gt; : &#39;&#39;}
+</code></pre><p>JavaScript の <code>&amp;&amp;</code> 演算子が Java などと比べて特殊なので、確認してみます。</p>
+<h2 id="-演算子の基本">&amp;&amp; 演算子の基本</h2>
+<p>JavaScript も C 言語の流れを汲んでいる（基本的な文法の面では）ので、基本的には同じです。</p>
 <ul>
-	
-		<li><a href="/2022/09/12/iosdc2022/">iOSDC Japan 2022 参加レポート</a></li>
-	
-		<li><a href="/2022/09/10/iosdc2021/">iOSDC Japan 2021 参加レポート - ベストフィードバッカー賞を頂きました</a></li>
-	
-		<li><a href="/2019/09/08/iosdc2019day2/">iOSDC 2019 に参加してきました</a></li>
-	
-		<li><a href="/2019/09/07/iosdc2019day1/">iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</a></li>
-	
-		<li><a href="/2019/09/03/iosdc2019pre/">iOSDC 2019 に Mac の環境構築の内容で LT 登壇します</a></li>
-	
-		<li><a href="/2018/09/15/iosdc2018/">iOSDC 2018 感想など</a></li>
-	
+<li>AND（論理積）を求める</li>
+<li>ショートカット演算子なので、左オペランドを評価して式全体の結果が確定すれば、右オペランドは評価しない</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript:論理積を求める" data-lang="javascript:論理積を求める">const t1 = true;
+const t2 = true;
+const f1 = false;
+const f2 = false;
+t1 &amp;&amp; t2    // true
+t1 &amp;&amp; f2    // false
+f1 &amp;&amp; t1    // false, f1 を評価した時点で全体の結果が確定するので t1 は評価されない
+</code></pre><h2 id="ちょっと変わった使い方">ちょっと変わった使い方</h2>
+<p>MDN を見ると、以下のような説明があります。</p>
+<blockquote>
+<p>一般的には、この演算子は左から右に向けて評価した際に最初の偽値のオペランドに遭遇したときにはその値を、またはすべてが真値であった場合は最後のオペランドの値を返します。</p>
+</blockquote>
+<p>つまり、論理演算子なので常に <code>true</code>/<code>false</code> の真偽値を返すと思いがちですが、実際には以下のような挙動となっています。</p>
+<ul>
+<li>左オペランドが <code>false</code> として扱われる値の場合: 左オペランドを返す</li>
+<li>左オペランドが <code>true</code> として扱われる値の場合: 右オペランドを返す</li>
+</ul>
+<p>上記の挙動に当てはめた結果、真偽値型の場合は我々のよく知る挙動となっているわけですね。</p>
+<p>ということで、真偽値型以外に適用するとこんなことが起こってしまうわけです。
+直感に反しますよね。</p>
+<pre tabindex="0"><code class="language-javascript:田中さん" data-lang="javascript:田中さん">const tanaka = &#39;田中まさひろ&#39;;
+const satoda = &#39;里田まい&#39;;
+
+tanaka &amp;&amp; satoda  // &#39;里田まい&#39;
+</code></pre><h3 id="では最初の例は">では最初の例は？</h3>
+<pre tabindex="0"><code class="language-react:エラーがあれば&&の右を出力" data-lang="react:エラーがあれば&&の右を出力">{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;}
+</code></pre><p>以下の挙動となります。</p>
+<h4 id="入力チェックの結果エラーがある場合">入力チェックの結果、エラーがある場合</h4>
+<ol>
+<li><code>errors.exampleRequired</code> に何らかのオブジェクトが入っている</li>
+<li><code>true</code> と評価される</li>
+<li>右オペランドが返されて、メッセージを出力</li>
+</ol>
+<h4 id="入力チェックの結果エラーがない場合">入力チェックの結果、エラーがない場合</h4>
+<ol>
+<li><code>errors.exampleRequired</code> は <code>undefined</code></li>
+<li><code>false</code> と評価される</li>
+<li>左オペランドが返されて、<code>undefined</code> なので React は何も出力しない</li>
+</ol>
+<h2 id="まとめ">まとめ</h2>
+<p>Java などの、型を厳密に扱う言語に慣れていると JavaScript の <code>&amp;&amp;</code> の挙動は不思議に思えますね。
+ですが、ドキュメントをしっかり読めば説明はあるので、注意して少しずつ慣れていきましょう。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://ja.react.dev/learn/conditional-rendering#logical-and-operator-">論理 AND 演算子 (&amp;&amp;): 条件付きレンダー – React</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND">論理積 (&amp;&amp;) - JavaScript | MDN</a></li>
 </ul>
 
 
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1845,6 +1925,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1857,6 +1938,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1873,6 +1957,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1903,16 +1988,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1724809909"></script>
-    <script src="/js/perfect-scrollbar.min.js?1724809909"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1724809909"></script>
-    <script src="/js/jquery.sticky.js?1724809909"></script>
-    <script src="/js/featherlight.min.js?1724809909"></script>
-    <script src="/js/highlight.pack.js?1724809909"></script>
+    <script src="/js/clipboard.min.js?1724809910"></script>
+    <script src="/js/perfect-scrollbar.min.js?1724809910"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1724809910"></script>
+    <script src="/js/jquery.sticky.js?1724809910"></script>
+    <script src="/js/featherlight.min.js?1724809910"></script>
+    <script src="/js/highlight.pack.js?1724809910"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1724809909"></script>
-    <script src="/js/learn.js?1724809909"></script>
-    <script src="/js/hugo-learn.js?1724809909"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1724809910"></script>
+    <script src="/js/learn.js?1724809910"></script>
+    <script src="/js/hugo-learn.js?1724809910"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
@@ -1925,3 +2010,4 @@
 
   </body>
 </html>
+
