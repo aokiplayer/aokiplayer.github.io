@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Steven Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/2019/05/24/remotenotification02/">
-<meta property="og:title" content="iOSにおけるPush通知の基本2（受信した通知の内容取得）">
-<meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
+<meta property="og:url" content="https://yagamo-style.com/2024/">
+<meta property="og:title" content="2024">
+<meta property="og:image" content="https://yagamo-style.com/">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>iOSにおけるPush通知の基本2（受信した通知の内容取得） :: Yagamo Style</title>
+    <title>2024 :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1724807295" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2019/05/24/remotenotification02/">
+  <body class="" data-url="/2024/">
     <nav id="sidebar" class="">
 
 
@@ -98,8 +98,8 @@
   
     
     <li data-nav-id="/2024/" title="2024" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/2024/">
@@ -646,7 +646,7 @@
   
     
     <li data-nav-id="/2019/" title="2019" class="dd-item
-        parent
+        
         
         
         ">
@@ -903,7 +903,7 @@
  
   
     
-      <li data-nav-id="/2019/05/24/remotenotification02/" title="iOSにおけるPush通知の基本2（受信した通知の内容取得）" class="dd-item active">
+      <li data-nav-id="/2019/05/24/remotenotification02/" title="iOSにおけるPush通知の基本2（受信した通知の内容取得）" class="dd-item ">
         <a href="/2019/05/24/remotenotification02/">
         iOSにおけるPush通知の基本2（受信した通知の内容取得）
         
@@ -1088,8 +1088,6 @@
                         </a>
                     </span>
                   
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  
                   <span class="links">
                  
                  
@@ -1100,13 +1098,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/'>Yagamo Style</a> > <a href='/2019/'>2019</a> > iOSにおけるPush通知の基本2（受信した通知の内容取得）
-          
-        
+            <a href='/'>Yagamo Style</a> > 2024
           
         
           
@@ -1115,276 +1107,33 @@
                   </span>
                 </div>
                 
-                    <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#検証環境">検証環境</a></li>
-    <li><a href="#通知に対するコールバックメソッド">通知に対するコールバックメソッド</a></li>
-    <li><a href="#push通知のペイロード">Push通知のペイロード</a></li>
-    <li><a href="#ペイロードの取得">ペイロードの取得</a>
-      <ul>
-        <li><a href="#そもそもどこから取り出すのか">そもそもどこから取り出すのか？</a></li>
-        <li><a href="#送信するpush通知の内容">送信するPush通知の内容</a></li>
-        <li><a href="#実装例">実装例</a></li>
-      </ul>
-    </li>
-    <li><a href="#まとめ">まとめ</a></li>
-    <li><a href="#参考">参考</a></li>
-  </ul>
-</nav>
-    </div>
-</div>
-
-                
               </div>
             </div>
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/tags/ios">iOS</a>
-
-  <a class="tag-link" href="/tags/swift">Swift</a>
-
-</div>
-
         </div>
+        
+          <div id="chapter">
         
         <div id="body-inner">
           
-            <h1>
-              
-              iOSにおけるPush通知の基本2（受信した通知の内容取得）
-            </h1>
-          
 
         
 
 
-<h2 id="はじめに">はじめに</h2>
-<ul>
-<li>前の記事 <a href="/2019/04/18/remotenotification01/">[iOSにおけるPush通知の基本1（通知の受信まで）]</a> では、以下のところまで紹介しました
-<ul>
-<li>Push通知に必要な事前設定</li>
-<li>Push通知のユーザへの利用許可依頼</li>
-<li>Push通知の送信テスト</li>
-</ul>
-</li>
-<li>これだけでも、受け取った通知をタップしてアプリを起動することができます</li>
-<li>今回は、通知に含まれる内容（ペイロード）を取得する方法を説明します</li>
-</ul>
-<h2 id="検証環境">検証環境</h2>
-<ul>
-<li>Xcode 10.2</li>
-<li>iOS 12.2</li>
-<li>Swift 5</li>
-<li>iPod touch 6th generation</li>
-</ul>
-<h2 id="通知に対するコールバックメソッド">通知に対するコールバックメソッド</h2>
-<ul>
-<li>
-<p>通知を受け取ると、<code>UIApplicationDelegate</code>の以下のコールバックメソッドが呼ばれます</p>
-</li>
-<li>
-<p>呼ばれるコールバックメソッドとそのタイミングは、アプリの実行状態により決定されます</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">事前状態</th>
-<th style="text-align:left">タイミング</th>
-<th style="text-align:left">メソッド</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">未起動</td>
-<td style="text-align:left">通知のタップにより起動</td>
-<td style="text-align:left"><code>application(_:didFinishLaunchingWithOptions:)</code></td>
-</tr>
-<tr>
-<td style="text-align:left">Foreground</td>
-<td style="text-align:left">通知を受信</td>
-<td style="text-align:left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
-</tr>
-<tr>
-<td style="text-align:left">Background</td>
-<td style="text-align:left">通知のタップによりForeground</td>
-<td style="text-align:left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>これらのコールバック内で、通知のペイロード（通知に含まれるデータ）を取得して処理を行います</p>
-</li>
-</ul>
-<h2 id="push通知のペイロード">Push通知のペイロード</h2>
-<ul>
-<li>
-<p>Push通知のペイロードは、以下のような形式のJSONです</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;aps&#34;</span> : {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;alert&#34;</span> : {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;title&#34;</span> : <span style="color:#e6db74">&#34;New Message&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;subtitle&#34;</span> : <span style="color:#e6db74">&#34;You got a new message.&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;body&#34;</span> : <span style="color:#e6db74">&#34;New message has arrived. Open your inbox.&#34;</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;badge&#34;</span> : <span style="color:#ae81ff">3</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;sound&#34;</span> : <span style="color:#e6db74">&#34;default&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
-</ul>
-<h2 id="ペイロードの取得">ペイロードの取得</h2>
-<ul>
-<li>受信したPush通知から、ペイロードを取り出す処理を実装します</li>
-</ul>
-<h3 id="そもそもどこから取り出すのか">そもそもどこから取り出すのか？</h3>
-<ul>
-<li>ペイロードは、<code>UIApplicationDelegate</code>のコールバックの引数に格納された状態で渡されます</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">コールバックメソッド</th>
-<th style="text-align:left">格納場所</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>application(_:didFinishLaunchingWithOptions:)</code></td>
-<td style="text-align:left">第2引数<code>launchOptions</code>ディクショナリ内</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code></td>
-<td style="text-align:left">第2引数の<code>userInfo</code>ディクショナリ内</td>
-</tr>
-</tbody>
-</table>
-<h3 id="送信するpush通知の内容">送信するPush通知の内容</h3>
-<ul>
-<li>
-<p>今回は、以下の内容のPush通知を送ってみます</p>
-<pre tabindex="0"><code class="language-json:通知のペイロード" data-lang="json:通知のペイロード">{
-  &#34;aps&#34;: {
-    &#34;alert&#34;: &#34;Wake up!&#34;,
-    &#34;sound&#34;: &#34;default&#34;
-  }
-}
-</code></pre></li>
-</ul>
-<h3 id="実装例">実装例</h3>
-<h4 id="アプリ未起動の場合">アプリ未起動の場合</h4>
-<ul>
-<li>アプリが起動していない場合は通知をタップした時点でアプリが起動するので、ライフサイクルメソッドである<code>application(_:didFinishLaunchingWithOptions:)</code>が呼ばれます</li>
-<li>このサンプルコードでは、ペイロードの内容を文字列として整形してビューコントローラのプロパティに渡しています
-<ul>
-<li>起動済みの場合と区別するために、背景色を黄色に設定しています</li>
-</ul>
-</li>
-</ul>
-<h5 id="ペイロードの取得手順">ペイロードの取得手順</h5>
-<ol>
-<li>第2引数の<code>launchOptions</code>ディクショナリからキー<code>UIApplication.LaunchOptionsKey.remoteNotification</code>を指定
-<ul>
-<li>Push通知のペイロードを格納したディクショナリが得られる</li>
-</ul>
-</li>
-<li>Push通知のペイロードを格納したディクショナリから、キー&quot;aps&quot;でペイロードの内容部分のディクショナリを取得</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication,
-</span></span><span style="display:flex;"><span>                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">〜省略〜</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 01. get notification payload</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> notificationOptions = launchOptions?[.remoteNotification] <span style="color:#66d9ef">as</span>? [String: AnyObject] {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> apsPart = notificationOptions[<span style="color:#e6db74">&#34;aps&#34;</span>] <span style="color:#66d9ef">as</span>? [String: AnyObject] <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> vc = window?.rootViewController <span style="color:#66d9ef">as</span>? ViewController <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> text = apsPart.map { (key, value) <span style="color:#66d9ef">in</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>key<span style="color:#e6db74">)</span><span style="color:#e6db74">: </span><span style="color:#e6db74">\(</span>value<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> }.joined(separator: <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>        vc.payloadText = text
-</span></span><span style="display:flex;"><span>        vc.backgroundColor = .yellow
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h5 id="実行結果">実行結果</h5>
-<p><img src="/images/remotenotification02/launching.png" alt="launching"></p>
-<h4 id="アプリが起動中の場合">アプリが起動中の場合</h4>
-<ul>
-<li>アプリが起動中の場合は、以下のタイミングで<code>UIApplicationDelegate</code>プロトコルの<code>application(_:didReceiveRemoteNotification:fetchCompletionHandler:)</code>が呼ばれます
-<ul>
-<li>アプリがForegroundの場合: 通知を受け取ったタイミング</li>
-<li>アプリがBackgroundの場合: 受け取った通知をタップしてForegroundになったタイミング</li>
-</ul>
-</li>
-<li>このサンプルコードでは、ペイロードの内容を文字列として整形してビューコントローラのプロパティに渡しています
-<ul>
-<li>未起動の場合と区別するために、背景色を緑に設定しています</li>
-</ul>
-</li>
-</ul>
-<h5 id="ペイロードの取得手順-1">ペイロードの取得手順</h5>
-<ol>
-<li>第2引数の<code>userInfo</code>ディクショナリからキー&quot;aps&quot;でペイロードの内容部分のディクショナリを取得</li>
-<li>取得したディクショナリの扱いは、未起動の場合と同様</li>
-</ol>
-<ul>
-<li>
-<p>このコールバックを実装した場合、Backgorund ModesをONにすることを求められるので有効にしておきます</p>
-<ul>
-<li>エラーにはなりませんが、コンソールにメッセージが表示されます</li>
-</ul>
-<p><img src="/images/remotenotification02/background_modes.png" alt="background_modes"></p>
-</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift:AppDelegate.swift" data-lang="swift:AppDelegate.swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">application</span>(<span style="color:#66d9ef">_</span> application: UIApplication,
-</span></span><span style="display:flex;"><span>                 didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-</span></span><span style="display:flex;"><span>                 fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -&gt; Void) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> 04. get notification payload</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> apsPart = userInfo[<span style="color:#e6db74">&#34;aps&#34;</span>] <span style="color:#66d9ef">as</span>? [String: AnyObject] <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>        completionHandler(.failed)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> vc = window?.rootViewController <span style="color:#66d9ef">as</span>? ViewController <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> text = apsPart.map { (key, value) <span style="color:#66d9ef">in</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>key<span style="color:#e6db74">)</span><span style="color:#e6db74">: </span><span style="color:#e6db74">\(</span>value<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span> }.joined(separator: <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>    vc.payloadText = text
-</span></span><span style="display:flex;"><span>    vc.backgroundColor = .green
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h5 id="実行結果-1">実行結果</h5>
-<p><img src="/images/remotenotification02/active.png" alt="active"></p>
-<h2 id="まとめ">まとめ</h2>
-<ul>
-<li>アプリの実行状態によって、呼ばれるコールバックが異なる点に注意</li>
-<li>ペイロードはディクショナリから取り出す
-<ul>
-<li>受け取った時点で、すでにJSONからディクショナリに変換されている</li>
-</ul>
-</li>
-<li>今回作成したサンプルコードは、GitHubに置きました
-<ul>
-<li><a href="https://github.com/aokiplayer/TreatPushNotificationPayloadSample">aokiplayer/TreatPushNotificationPayloadSample</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/usernotifications">UserNotifications | Apple Developer Documentation</a></li>
-<li><a href="https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started">Push Notifications Tutorial: Getting Started | raywenderlich.com</a></li>
-</ul>
+
+	
 
 
-<footer class="footline">
+
+
+<footer class=" footline" >
 	
 </footer>
 
+        
+            </div> 
         
         </div>
         
@@ -1451,7 +1200,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1464,9 +1212,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1644,7 +1389,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1660,9 +1404,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2051,6 +1792,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2063,6 +1805,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2093,16 +1838,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1724807296"></script>
-    <script src="/js/perfect-scrollbar.min.js?1724807296"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1724807296"></script>
-    <script src="/js/jquery.sticky.js?1724807296"></script>
-    <script src="/js/featherlight.min.js?1724807296"></script>
-    <script src="/js/highlight.pack.js?1724807296"></script>
+    <script src="/js/clipboard.min.js?1724807295"></script>
+    <script src="/js/perfect-scrollbar.min.js?1724807295"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1724807295"></script>
+    <script src="/js/jquery.sticky.js?1724807295"></script>
+    <script src="/js/featherlight.min.js?1724807295"></script>
+    <script src="/js/highlight.pack.js?1724807295"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1724807296"></script>
-    <script src="/js/learn.js?1724807296"></script>
-    <script src="/js/hugo-learn.js?1724807296"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1724807295"></script>
+    <script src="/js/learn.js?1724807295"></script>
+    <script src="/js/hugo-learn.js?1724807295"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
@@ -2115,4 +1860,3 @@
 
   </body>
 </html>
-
