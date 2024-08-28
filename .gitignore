@@ -34,7 +34,6 @@ Temporary Items
 
 # Hugo
 resources/_gen
-/public
 
 # JetBrains
 .idea
