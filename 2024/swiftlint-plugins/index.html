@@ -14,22 +14,22 @@
     <title>Build Tool プラグインとしての SwiftLint 導入時のエラー対処 :: Yagamo Style</title>
 
     
-    <link href="/css/nucleus.css?1738283861" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1738283861" rel="stylesheet">
-    <link href="/css/hybrid.css?1738283861" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1738283861" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1738283861" rel="stylesheet">
-    <link href="/css/auto-complete.css?1738283861" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1738283861" rel="stylesheet">
-    <link href="/css/theme.css?1738283861" rel="stylesheet">
-    <link href="/css/tabs.css?1738283861" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1738283861" rel="stylesheet">
+    <link href="/css/nucleus.css?1738918923" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1738918923" rel="stylesheet">
+    <link href="/css/hybrid.css?1738918923" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1738918923" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1738918923" rel="stylesheet">
+    <link href="/css/auto-complete.css?1738918923" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1738918923" rel="stylesheet">
+    <link href="/css/theme.css?1738918923" rel="stylesheet">
+    <link href="/css/tabs.css?1738918923" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1738918923" rel="stylesheet">
     
-    <link href="/css/theme-blue.css?1738283861" rel="stylesheet">
+    <link href="/css/theme-blue.css?1738918923" rel="stylesheet">
     
-    <link href="/css/custom.css?1738283861" rel="stylesheet">
+    <link href="/css/custom.css?1738918923" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1738283861"></script>
+    <script src="/js/jquery-3.3.1.min.js?1738918923"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -62,14 +62,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1738283861"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1738283861"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1738918923"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1738918923"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/yagamo-style.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1738283861"></script>
+<script type="text/javascript" src="/js/search.js?1738918923"></script>
 
     
   </div>
@@ -1187,6 +1187,10 @@
         
 
 
+<blockquote>
+<p>2025.02.07 追記<br>
+Run Script にペーストするスクリプトが公式サイトで変更されていたので修正</p>
+</blockquote>
 <h2 id="はじめに">はじめに</h2>
 <p>Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。
 基本的には SwiftLint パッケージをプロジェクトに導入 -&gt; <code>Build Phases</code> の <code>Run Build Tool Plug-ins</code> に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。</p>
@@ -1230,7 +1234,7 @@
 <li>
 <p>以下の内容を <code>Run Script</code> で実行するスクリプトとして貼り付け</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>SWIFT_PACKAGE_DIR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>BUILD_DIR%Build/*<span style="color:#e6db74">}</span><span style="color:#e6db74">SourcePackages/artifacts&#34;</span>
-</span></span><span style="display:flex;"><span>SWIFTLINT_CMD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ls <span style="color:#e6db74">&#34;</span>$SWIFT_PACKAGE_DIR<span style="color:#e6db74">&#34;</span>/swiftlintplugins/SwiftLintBinary/SwiftLintBinary.artifactbundle/swiftlint-*/bin/swiftlint | head -n 1<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>SWIFTLINT_CMD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>ls <span style="color:#e6db74">&#34;</span>$SWIFT_PACKAGE_DIR<span style="color:#e6db74">&#34;</span>/swiftlintplugins/SwiftLintBinary/SwiftLintBinary.artifactbundle/swiftlint-*-macos/bin/swiftlint | head -n 1<span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> test -f <span style="color:#e6db74">&#34;</span>$SWIFTLINT_CMD<span style="color:#e6db74">&#34;</span> 2&gt;&amp;<span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
@@ -1979,16 +1983,16 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1738283862"></script>
-    <script src="/js/perfect-scrollbar.min.js?1738283862"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1738283862"></script>
-    <script src="/js/jquery.sticky.js?1738283862"></script>
-    <script src="/js/featherlight.min.js?1738283862"></script>
-    <script src="/js/highlight.pack.js?1738283862"></script>
+    <script src="/js/clipboard.min.js?1738918923"></script>
+    <script src="/js/perfect-scrollbar.min.js?1738918923"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1738918923"></script>
+    <script src="/js/jquery.sticky.js?1738918923"></script>
+    <script src="/js/featherlight.min.js?1738918923"></script>
+    <script src="/js/highlight.pack.js?1738918923"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1738283862"></script>
-    <script src="/js/learn.js?1738283862"></script>
-    <script src="/js/hugo-learn.js?1738283862"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1738918923"></script>
+    <script src="/js/learn.js?1738918923"></script>
+    <script src="/js/hugo-learn.js?1738918923"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
