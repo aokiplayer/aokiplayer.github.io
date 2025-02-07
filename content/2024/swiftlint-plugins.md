@@ -6,6 +6,9 @@ tags = [ "iOS", "Swift", "SwiftLint", "Swift Package Manager" ]
 ogimage = "images/open_graph_logo.png"
 +++
 
+> 2025.02.07 追記  
+> Run Script にペーストするスクリプトが公式サイトで変更されていたので修正
+
 ## はじめに
 Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。
 基本的には SwiftLint パッケージをプロジェクトに導入 -> `Build Phases` の `Run Build Tool Plug-ins` に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。
@@ -38,8 +41,8 @@ Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に�
 1. 以下の内容を `Run Script` で実行するスクリプトとして貼り付け
     ```bash
     SWIFT_PACKAGE_DIR="${BUILD_DIR%Build/*}SourcePackages/artifacts"
-    SWIFTLINT_CMD=$(ls "$SWIFT_PACKAGE_DIR"/swiftlintplugins/SwiftLintBinary/SwiftLintBinary.artifactbundle/swiftlint-*/bin/swiftlint | head -n 1)
-    
+    SWIFTLINT_CMD=$(ls "$SWIFT_PACKAGE_DIR"/swiftlintplugins/SwiftLintBinary/SwiftLintBinary.artifactbundle/swiftlint-*-macos/bin/swiftlint | head -n 1)
+
     if test -f "$SWIFTLINT_CMD" 2>&1
     then
         "$SWIFTLINT_CMD"
