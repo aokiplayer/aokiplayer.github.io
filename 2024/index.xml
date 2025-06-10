@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2024 :: Yagamo Style</title>
-    <link>https://yagamo-style.com/2024/index.html</link>
-    <description></description>
-    <generator>Hugo</generator>
+    <title>2024 on Yagamo Style</title>
+    <link>https://yagamo-style.com/2024/</link>
+    <description>Recent content in 2024 on Yagamo Style</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 01 Aug 2024 09:00:00 +0900</lastBuildDate>
-    <atom:link href="https://yagamo-style.com/2024/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Aug 2024 09:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2024/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build Tool プラグインとしての SwiftLint 導入時のエラー対処</title>
-      <link>https://yagamo-style.com/2024/swiftlint-plugins/index.html</link>
+      <link>https://yagamo-style.com/2024/swiftlint-plugins/</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      <guid>https://yagamo-style.com/2024/swiftlint-plugins/index.html</guid>
-      <description>2025.02.07 追記&#xA;Run Script にペーストするスクリプトが公式サイトで変更されていたので修正&#xA;はじめに Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。 基本的には SwiftLint パッケージをプロジェクトに導入 -&gt; Build Phases の Run Build Tool Plug-ins に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。&#xA;細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。 また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。&#xA;執筆時点で最新の、Xcode 15.4 における回避方法を記載します。&#xA;今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。 そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。&#xA;検証環境 macOS Sonoma 14.5 (23F79) Xcode 15.4 (15F31d) 導入手順 SwiftPM を利用して SwiftLint への依存性を追加 Xcode メニュー -&gt; Add Package Dependencies...&#xA;検索欄に https://github.com/SimplyDanny/SwiftLintPlugins を入力し、Add Package ボタンをクリック&#xA;URL が SwiftLint 公式のものでない点に注意 以前の手順では、公式の https://github.com/realm/SwiftLint となっていた Dependency Rule は Up to Next Major Version のままで OK</description>
+      
+      <guid>https://yagamo-style.com/2024/swiftlint-plugins/</guid>
+      <description>2025.02.07 追記
+Run Script にペーストするスクリプトが公式サイトで変更されていたので修正
+ はじめに Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。 基本的には SwiftLint パッケージをプロジェクトに導入 -&amp;gt; Build Phases の Run Build Tool Plug-ins に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。
+細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。 また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。
+執筆時点で最新の、Xcode 15.4 における回避方法を記載します。
+今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。 そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。
+検証環境  macOS Sonoma 14.5 (23F79) Xcode 15.4 (15F31d)  導入手順 SwiftPM を利用して SwiftLint への依存性を追加   Xcode メニュー -&amp;gt; Add Package Dependencies...
+  検索欄に https://github.</description>
     </item>
+    
     <item>
       <title>JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</title>
-      <link>https://yagamo-style.com/2024/js-logical-and/index.html</link>
+      <link>https://yagamo-style.com/2024/js-logical-and/</link>
       <pubDate>Wed, 24 Jan 2024 09:00:00 +0900</pubDate>
-      <guid>https://yagamo-style.com/2024/js-logical-and/index.html</guid>
-      <description>はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。&#xA;というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-&#xA;{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。&#xA;errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される 右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される 入力チェックの結果、エラーがない場合ならこうなるよね？&#xA;errors.exampleRequired が undefined false と評価される 右オペランドを評価せず、false が返される どちらにせよ、true/false のいずれかが返されるので &lt;span&gt;This field is required&lt;/span&gt; は出力されないように思えます。 正しく動作させるなら、普通に考えればこうなるかなと。&#xA;{errors.exampleRequired ? &lt;span&gt;This field is required&lt;/span&gt; : &#39;&#39;} JavaScript の &amp;&amp; 演算子が Java などと比べて特殊なので、確認してみます。&#xA;&amp;&amp; 演算子の基本 JavaScript も C 言語の流れを汲んでいる（基本的な文法の面では）ので、基本的には同じです。&#xA;AND（論理積）を求める ショートカット演算子なので、左オペランドを評価して式全体の結果が確定すれば、右オペランドは評価しない const t1 = true; const t2 = true; const f1 = false; const f2 = false; t1 &amp;&amp; t2 // true t1 &amp;&amp; f2 // false f1 &amp;&amp; t1 // false, f1 を評価した時点で全体の結果が確定するので t1 は評価されない ちょっと変わった使い方 MDN を見ると、以下のような説明があります。</description>
+      
+      <guid>https://yagamo-style.com/2024/js-logical-and/</guid>
+      <description>はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。
+ というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
+ {errors.exampleRequired &amp;amp;&amp;amp; &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。
+ errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される  右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される    入力チェックの結果、エラーがない場合ならこうなるよね？
+ errors.exampleRequired が undefined false と評価される 右オペランドを評価せず、false が返される  どちらにせよ、true/false のいずれかが返されるので &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; は出力されないように思えます。 正しく動作させるなら、普通に考えればこうなるかなと。
+{errors.exampleRequired ? &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; : &amp;#39;&amp;#39;} JavaScript の &amp;amp;&amp;amp; 演算子が Java などと比べて特殊なので、確認してみます。</description>
     </item>
+    
   </channel>
 </rss>

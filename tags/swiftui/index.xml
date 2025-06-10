@@ -1,54 +1,88 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SwiftUI :: タグ :: Yagamo Style</title>
-    <link>https://yagamo-style.com/tags/swiftui/index.html</link>
-    <description></description>
-    <generator>Hugo</generator>
+    <title>SwiftUI on Yagamo Style</title>
+    <link>https://yagamo-style.com/tags/swiftui/</link>
+    <description>Recent content in SwiftUI on Yagamo Style</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 05 Dec 2023 06:00:00 +0900</lastBuildDate>
-    <atom:link href="https://yagamo-style.com/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Dec 2023 06:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す</title>
-      <link>https://yagamo-style.com/2023/12/05/dynamic-callable/index.html</link>
+      <link>https://yagamo-style.com/2023/12/05/dynamic-callable/</link>
       <pubDate>Tue, 05 Dec 2023 06:00:00 +0900</pubDate>
-      <guid>https://yagamo-style.com/2023/12/05/dynamic-callable/index.html</guid>
-      <description>はじめに 以前の記事 SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？ で、callAsFunction メソッドについて説明しました。 簡単に説明すると、型に callAsFunction という名前のメソッドを定義すると、オブジェクト(引数)のような形でメソッドを呼び出せるようになる仕組みです。&#xA;SwiftUI の DismissAction が、そのような形をとっていました。&#xA;// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction ... // ビューを閉じる dismiss() // &lt;--- dismiss.callAsFunction() の省略形 似たような仕組みがもうひとつあるので、今回はそちらについて紹介します。&#xA;検証環境 Xcode 15.0 Swift 5.9 dynamicCallable @dynamicCallable で修飾した型には、以下のいずれかのメソッドの実装が必須となります。 メソッドの定義漏れやスペルミスをコンパイル時に気づける点が、callAsFunction とは異なりますね。&#xA;メソッド 説明 dynamicallyCall(withArguments:) 引数は ExpressibleByArrayLiteral プロトコルに準拠した型（配列など） dynamicallyCall(withKeywordArguments:) 引数に ExpressibleByDictionaryLiteral プロトコルに準拠した型（ディクショナリなど） dynamicallyCall(withArguments:) メソッド dynamicallyCall(withArguments:) は、可変長の引数を受け取れます。 メソッドの定義時には引数に配列などを指定しますが、メソッド名を省略した呼び出しの際には個別の値（本来、配列の要素とすべき値）をカンマ区切りで複数指定できます。&#xA;dynamicallyCall(withArguments:) の例 import Foundation // 足し算をするためだけの構造体 @dynamicCallable struct AddAction { // 引数はExpressibleByArrayLiteralに準拠した型とする public func dynamicallyCall(withArguments args: [Int]) -&gt; Int { return args.reduce(0, +) } } let add = AddAction() // 以下は add.dynamicallyCall(withArguments: [10, 20, 30]) の省略形 // この際、引数の配列は展開した状態で渡せる let result1 = add(10, 20, 30) print(result1) // メソッド名を記載した際には、引数は配列として渡す必要がある let result2 = add.dynamicallyCall(withArguments: [10, 20, 30, 40]) print(result2) 実行結果</description>
+      
+      <guid>https://yagamo-style.com/2023/12/05/dynamic-callable/</guid>
+      <description>はじめに 以前の記事 SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？ で、callAsFunction メソッドについて説明しました。 簡単に説明すると、型に callAsFunction という名前のメソッドを定義すると、オブジェクト(引数)のような形でメソッドを呼び出せるようになる仕組みです。
+SwiftUI の DismissAction が、そのような形をとっていました。
+// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction  ...  // ビューを閉じる dismiss() // &amp;lt;--- dismiss.callAsFunction() の省略形 似たような仕組みがもうひとつあるので、今回はそちらについて紹介します。
+検証環境  Xcode 15.0 Swift 5.9  dynamicCallable @dynamicCallable で修飾した型には、以下のいずれかのメソッドの実装が必須となります。 メソッドの定義漏れやスペルミスをコンパイル時に気づける点が、callAsFunction とは異なりますね。
+   メソッド 説明     dynamicallyCall(withArguments:) 引数は ExpressibleByArrayLiteral プロトコルに準拠した型（配列など）   dynamicallyCall(withKeywordArguments:) 引数に ExpressibleByDictionaryLiteral プロトコルに準拠した型（ディクショナリなど）    dynamicallyCall(withArguments:) メソッド dynamicallyCall(withArguments:) は、可変長の引数を受け取れます。 メソッドの定義時には引数に配列などを指定しますが、メソッド名を省略した呼び出しの際には個別の値（本来、配列の要素とすべき値）をカンマ区切りで複数指定できます。</description>
     </item>
+    
     <item>
       <title>SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？</title>
-      <link>https://yagamo-style.com/2023/12/04/call-as-function/index.html</link>
+      <link>https://yagamo-style.com/2023/12/04/call-as-function/</link>
       <pubDate>Mon, 04 Dec 2023 06:00:00 +0900</pubDate>
-      <guid>https://yagamo-style.com/2023/12/04/call-as-function/index.html</guid>
-      <description>はじめに SwiftUI で多用されている Property Wrappers ですが、基本的に「なんか難しいことをやってくれてる」感じになってます。頻繁に利用される @Environment も、「こう書けばこう動く」という感じで何となく使っている人が多いと思います。&#xA;ところで、Property Wrapper そのものの機能とは関係ないですが、以下のコードの @Environment の dismiss() の部分はよく考えると不思議な構文ではないでしょうか。&#xA;// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction ... // ビューを閉じる dismiss() // &lt;--- オブジェクト() という構文？？？ dismiss は DismissAction 型のオブジェクトなので、本来なら以下の形式でないと辻褄が合いませんよね。&#xA;dismiss.何かメソッド名() // &lt;--- オブジェクト.メソッド名() という構文ならわかる 検証環境 Xcode 15.0 Swift 5.9 callAsFunction メソッド 実は、これは dismiss.何かメソッド名() の省略形です。 具体的には dismiss.callAsFunction() です。&#xA;callAsFunction の例 例として、単に「足し算をするためだけの構造体」を用意し、callAsFunction メソッドを実装して利用してみます。&#xA;import Foundation // 足し算をするためだけの構造体 struct AddAction { public func callAsFunction(_ number1: Int, with number2: Int) -&gt; Int { return number1 + number2 } } let add = AddAction() // 以下は add.callAsFunction(10, with: 20) の省略形 let result1 = add(10, with: 20) print(result1) // もちろん、メソッド名を書いても動作する let result2 = add.callAsFunction(50, with: 100) print(result2) 上記のコードでは、add は AddAction 型のオブジェクトですが、add(10, with: 20) の形で実行できていることがわかります。</description>
+      
+      <guid>https://yagamo-style.com/2023/12/04/call-as-function/</guid>
+      <description>はじめに SwiftUI で多用されている Property Wrappers ですが、基本的に「なんか難しいことをやってくれてる」感じになってます。頻繁に利用される @Environment も、「こう書けばこう動く」という感じで何となく使っている人が多いと思います。
+ところで、Property Wrapper そのものの機能とは関係ないですが、以下のコードの @Environment の dismiss() の部分はよく考えると不思議な構文ではないでしょうか。
+// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction  ...  // ビューを閉じる dismiss() // &amp;lt;--- オブジェクト() という構文？？？ dismiss は DismissAction 型のオブジェクトなので、本来なら以下の形式でないと辻褄が合いませんよね。
+dismiss.何かメソッド名() // &amp;lt;--- オブジェクト.メソッド名() という構文ならわかる 検証環境  Xcode 15.0 Swift 5.9  callAsFunction メソッド 実は、これは dismiss.何かメソッド名() の省略形です。 具体的には dismiss.callAsFunction() です。
+callAsFunction の例 例として、単に「足し算をするためだけの構造体」を用意し、callAsFunction メソッドを実装して利用してみます。
+import Foundation // 足し算をするためだけの構造体 struct AddAction { public func callAsFunction(_ number1: Int, with number2: Int) -&amp;gt; Int { return number1 + number2 } } let add = AddAction() // 以下は add.</description>
     </item>
+    
     <item>
       <title>SwiftUI でサイズクラスに対応する</title>
-      <link>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/index.html</link>
+      <link>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</link>
       <pubDate>Mon, 12 Dec 2022 06:00:00 +0900</pubDate>
-      <guid>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/index.html</guid>
-      <description>はじめに Storyboard を利用していると、サイズクラスを利用して以下のように柔軟にビューのレイアウトを変更することが、比較的簡単に実現できていました。&#xA;iPad で画面を分割していないので、幅が十分にあるからビューを横に並べよう iPad をマルチタスキングで画面分割して幅が狭くなったので、ビューを縦に並べよう UIStackView で、幅と高さが Regular のデバイス（iPad で画面非分割時など）の場合のみサブビューを横に並べるのであれば、以下のような設定を行いました。&#xA;サイズクラスは SwiftUI でも利用できるので、その使い方を記載します。&#xA;今回のゴール 以下のように、画面幅の広い状態ではビューを横に、狭い状態では縦に並べるように設定します。&#xA;w:Regular w:Compact 検証環境 macOS Ventura 13.0.1 Xcode 14.1 iOS/iPadOS 16.1 サイズクラスとは サイズクラスは、その名のとおり「デバイスのサイズを分類する」概念です。サイズクラスでは、ざっくりとデバイスの縦横を「普通（Regular）」「小さい（Compact）」の組み合わせで表します。 それにより、最大で 4 通りの画面サイズ（w: Regular x h: Regular, …, w: Compact x h: Compact）にデバイスを分類してビューのレイアウトを行います。 サイズクラスを使うことで、全部のデバイスに個々に対応せず、大まかな分類ごとにレイアウトを行えば済むので労力が削減できます。</description>
+      
+      <guid>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</guid>
+      <description>はじめに Storyboard を利用していると、サイズクラスを利用して以下のように柔軟にビューのレイアウトを変更することが、比較的簡単に実現できていました。
+ iPad で画面を分割していないので、幅が十分にあるからビューを横に並べよう iPad をマルチタスキングで画面分割して幅が狭くなったので、ビューを縦に並べよう  UIStackView で、幅と高さが Regular のデバイス（iPad で画面非分割時など）の場合のみサブビューを横に並べるのであれば、以下のような設定を行いました。
+サイズクラスは SwiftUI でも利用できるので、その使い方を記載します。
+今回のゴール 以下のように、画面幅の広い状態ではビューを横に、狭い状態では縦に並べるように設定します。
+   w:Regular w:Compact          検証環境  macOS Ventura 13.0.1 Xcode 14.1 iOS/iPadOS 16.1  サイズクラスとは サイズクラスは、その名のとおり「デバイスのサイズを分類する」概念です。サイズクラスでは、ざっくりとデバイスの縦横を「普通（Regular）」「小さい（Compact）」の組み合わせで表します。 それにより、最大で 4 通りの画面サイズ（w: Regular x h: Regular, &amp;hellip;, w: Compact x h: Compact）にデバイスを分類してビューのレイアウトを行います。 サイズクラスを使うことで、全部のデバイスに個々に対応せず、大まかな分類ごとにレイアウトを行えば済むので労力が削減できます。
+4 パターン全部に対応せずとも、iPad の画面分割のことを考えるのであれば、幅のみに着目して 2 パターンでレイアウトすることが多いのではないでしょうか。
+サイズクラス情報の取得 現在表示中のビューがどのサイズクラスなのかは、Environment から列挙型 UserInterfaceSizeClass 型の値として取得できます。
+@Environment(\.horizontalSizeClass) private var horizontalSizeClass @Environment(\.</description>
     </item>
+    
     <item>
       <title>Swift の型消去（Type Erasure）</title>
-      <link>https://yagamo-style.com/2022/10/26/type-erasure/index.html</link>
+      <link>https://yagamo-style.com/2022/10/26/type-erasure/</link>
       <pubDate>Wed, 26 Oct 2022 14:03:56 +0900</pubDate>
-      <guid>https://yagamo-style.com/2022/10/26/type-erasure/index.html</guid>
-      <description>はじめに SwiftUI をしっかり理解しようとすると、これまで意識しなくて良かった多くの言語機能を知る必要があり、なかなか苦労します。 その 1 つとして、型消去（Type Erasure）があります。 ずっとわかったようなわからないような感じだったので、腰を据えて調べてみました。 まだこれについては自信がないので、ご指摘などあれば GitHub から頂けるとうれしいです。&#xA;サンプルは GitHub に置きました。&#xA;前提: プロトコルに関する制約事項 Swift では、associatedtype を持つプロトコルは、型宣言に利用できません。 以下のコードでは、最下部で Store 型の変数を宣言しようとしていますが、コンパイルが通りません。 これは、Store の持つ associatedtype の型が確定しないためです。&#xA;// お店で扱う商品の種類 struct Drug { var item: String } /** 何らかのお店を表すプロトコル. 商品の種類は associatedtype により柔軟に指定できるようにしている. */ protocol Store { associatedtype T var kind: T { get } func kindsOfStore() -&gt; T } /** 具体的なお店（マツモトキヨシ）. associatedtype は Drug として確定. */ class MatsumotoKiyoshi: Store { var kind: Drug init(kind: Drug) { self.kind = kind } func kindsOfStore() -&gt; Drug { return kind } } /** 具体的なお店（赤ひげ） associatedtype は Drug として確定. */ class AkaHige: Store { var kind: Drug init(kind: Drug) { self.kind = kind } func kindsOfStore() -&gt; Drug { return kind } } /** MatsumotoKiyoshi は Store プロトコルに準拠しているので問題なさそうだが、 associatedtype を持つのでこの宣言はできない. */ var myStore1: Store = MatsumotoKiyoshi(kind: Drug(item: &#34;絆創膏&#34;)) 型消去による解決 associatedtype を持ったオブジェクトを別の型にラップして、associatedtype をジェネリクスで表現できるようにしてみます。こうすることで、Store プロトコル型ではないものの、型宣言からは MatsumotoKiyoshi という具体的な型の情報を消去し、抽象的な AnyStore 型として表現できるようになります。</description>
+      
+      <guid>https://yagamo-style.com/2022/10/26/type-erasure/</guid>
+      <description>はじめに SwiftUI をしっかり理解しようとすると、これまで意識しなくて良かった多くの言語機能を知る必要があり、なかなか苦労します。 その 1 つとして、型消去（Type Erasure）があります。 ずっとわかったようなわからないような感じだったので、腰を据えて調べてみました。 まだこれについては自信がないので、ご指摘などあれば GitHub から頂けるとうれしいです。
+サンプルは GitHub に置きました。
+前提: プロトコルに関する制約事項 Swift では、associatedtype を持つプロトコルは、型宣言に利用できません。 以下のコードでは、最下部で Store 型の変数を宣言しようとしていますが、コンパイルが通りません。 これは、Store の持つ associatedtype の型が確定しないためです。
+// お店で扱う商品の種類 struct Drug {  var item: String }  /** 何らかのお店を表すプロトコル. 商品の種類は associatedtype により柔軟に指定できるようにしている. */ protocol Store {  associatedtype T   var kind: T { get }  func kindsOfStore() -&amp;gt; T }  /** 具体的なお店（マツモトキヨシ）. associatedtype は Drug として確定. */ class MatsumotoKiyoshi: Store {  var kind: Drug   init(kind: Drug) {  self.</description>
     </item>
+    
     <item>
       <title>SwiftUI のモディファイアの順序による結果の相違</title>
-      <link>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/index.html</link>
+      <link>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</link>
       <pubDate>Fri, 14 Oct 2022 10:17:36 +0900</pubDate>
-      <guid>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/index.html</guid>
-      <description>はじめに SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。 時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。&#xA;簡単に扱えるモディファイアですが、順序には注意する必要があります。&#xA;検証環境 macOS Monterey 12.6 Xcode 14.0.0 実験 Text に、frame(), padding(), border() の 3 つのモディファイアを設定してみます。 設定順序の組み合わせは 3! 通りあります。&#xA;サンプルコード それぞれ、枠線を付けた同じサイズの VStack 内に上記 3 つのモディファイアの順序を変えた Text を配置しています。&#xA;import SwiftUI struct ContentView: View { var body: some View { VStack { Text(&#34;モディファイアの順序&#34;) .font(.title) VStack { Text(&#34;frame -&gt; border -&gt; padding&#34;) .frame(width: 300, height: 60) .border(.red, width: 3) .padding() } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;frame -&gt; padding -&gt; border&#34;) .frame(width: 300, height: 60) .padding() .border(.red, width: 3) } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;border -&gt; frame -&gt; padding&#34;) .border(.red, width: 3) .frame(width: 300, height: 60) .padding() } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;border -&gt; padding -&gt; frame&#34;) .border(.red, width: 3) .padding() .frame(width: 300, height: 60) } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;padding -&gt; frame -&gt; border&#34;) .padding() .frame(width: 300, height: 60) .border(.red, width: 3) } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;padding -&gt; border -&gt; frame&#34;) .padding() .border(.red, width: 3) .frame(width: 300, height: 60) } .frame(width: 350, height: 100) .border(.indigo, width: 3) } } } struct ContentView_Previews: PreviewProvider { static var previews: some View { ContentView() } } 結果</description>
+      
+      <guid>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</guid>
+      <description>はじめに SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。 時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。
+簡単に扱えるモディファイアですが、順序には注意する必要があります。
+検証環境  macOS Monterey 12.6 Xcode 14.0.0  実験 Text に、frame(), padding(), border() の 3 つのモディファイアを設定してみます。 設定順序の組み合わせは 3! 通りあります。
+サンプルコード それぞれ、枠線を付けた同じサイズの VStack 内に上記 3 つのモディファイアの順序を変えた Text を配置しています。
+import SwiftUI  struct ContentView: View {  var body: some View {  VStack {  Text(&amp;#34;モディファイアの順序&amp;#34;)  .font(.title)   VStack {  Text(&amp;#34;frame -&amp;gt; border -&amp;gt; padding&amp;#34;)  .frame(width: 300, height: 60)  .border(.red, width: 3)  .</description>
     </item>
+    
     <item>
       <title>SwiftUIで一覧表示画面を作成する</title>
-      <link>https://yagamo-style.com/2019/06/14/swiftuilist_beta/index.html</link>
+      <link>https://yagamo-style.com/2019/06/14/swiftuilist_beta/</link>
       <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
-      <guid>https://yagamo-style.com/2019/06/14/swiftuilist_beta/index.html</guid>
-      <description>はじめに WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます 検証環境 macOS 10.15 Catalina beta Xcode 11 beta iOS 13 beta Swift 5.1 iPad Pro 10.5 inch ストーリーボードは？ これまで、レイアウトは基本的にストーリーボードで行ってきました ストーリーボードは決して悪いものではなく、まず画面の作成を始める際にはとても扱いやすいです ただし、ビューの数が増えたり、複雑なレイアウトをしようとすると非常に管理が難しいのも事実です コードでレイアウトを行うSwiftUI Flutterなどでは、画面をコード上で宣言的に記述できます 最近は、この形式をとるものが増えています SwiftUIも、コードから宣言的なレイアウトを行います これまでもコードのみで画面を作成できましたが、以下のような問題を抱えていました プレビューの方法がないため、ビルドして実行しないと確認できない 手続的に記述するため、実際のレイアウトがイメージしにくい SwiftUIで作成した一覧画面のサンプル 画面イメージ 実装ファイル 実装したのは、以下のファイルです ファイル 説明 FoodModel.swift 表の1行分を表すデータモデル FoodDataSource.swift 表示するデータを提供する FoodRow.swift 表の各行を表すビュー。FoodListから利用される FoodList.swift 表の全体を表すビュー。FoodDataSourceからデータを取得し、各行のFoodRowを生成する ContentView.swift 最初に表示されるビュー。この中でFoodListを読み込む FoodModel.swift import Foundation struct FoodModel: Codable { var id: Int var title: String var userName: String var imageName: String var liked: Bool = false } FoodDataSource.swift import Combine import SwiftUI class FoodDataSource: BindableObject { typealias PublisherType = PassthroughSubject let didChange: FoodDataSource.PublisherType = PassthroughSubject&lt;Void, Never&gt;() var foodData: [FoodModel] init() { foodData = [ FoodModel(id: 10, title: &#34;スープカレー&#34;, userName: &#34;山田二郎&#34;, imageName: &#34;1&#34;, liked: true), FoodModel(id: 20, title: &#34;そば屋のカレー&#34;, userName: &#34;川田吾郎&#34;, imageName: &#34;2&#34;), FoodModel(id: 30, title: &#34;タイ風カレー&#34;, userName: &#34;里田舞&#34;, imageName: &#34;3&#34;, liked: true), FoodModel(id: 40, title: &#34;スタミナジャンボカレー&#34;, userName: &#34;海田泳七郎&#34;, imageName: &#34;4&#34;), FoodModel(id: 50, title: &#34;レッドカレー&#34;, userName: &#34;岡田八郎&#34;, imageName: &#34;5&#34;) ] didChange.send(()) } } FoodRow.swift import SwiftUI struct FoodRow : View { var foodModel: FoodModel var body: some View { VStack(alignment: .leading) { Image(foodModel.imageName) .resizable() .aspectRatio(contentMode: ContentMode.fit) .shadow(radius: 10) .border(Color.white, width: 2) Text(foodModel.title).font(.headline) HStack { Text(foodModel.userName).font(.subheadline) Spacer() Image(foodModel.liked ? &#34;liked&#34; : &#34;unliked&#34;) } }.padding() } } #if DEBUG struct FoodRow_Previews : PreviewProvider { static var previews: some View { Group { FoodRow(foodModel: FoodModel(id: 10, title: &#34;Ramen&#34;, userName: &#34;Jiro Yamada&#34;, imageName: &#34;5&#34;)) }.previewLayout(.fixed(width: 300, height: 400)) } } #endif FoodList.swift import SwiftUI struct FoodList : View { @ObjectBinding var foodDataSource = FoodDataSource() var body: some View { NavigationView { List(foodDataSource.foodData.identified(by: \.id)) { foodModel in FoodRow(foodModel: foodModel) } .navigationBarTitle(Text(&#34;Food list&#34;)) } } } #if DEBUG struct FoodList_Previews : PreviewProvider { static var previews: some View { FoodList() } } #endif ContentView.swift import SwiftUI struct ContentView : View { var body: some View { FoodList() } } #if DEBUG struct ContentView_Previews : PreviewProvider { static var previews: some View { ContentView() } } #endif まとめ よかった点 ちょっとした画面の作成であれば、SwiftUIはとても簡単に思えました macOS 10.15 Catalina上であれば、ライブビューでレイアウトだけでなく動作がすぐ確認できるのが良いです 難しく感じた点 ストーリーボードを利用していた際と、ビュー階層のイメージが異なるのでまだ戸惑っています また、思った通りにレイアウトができず苦労しています サンプルプロジェクト 今回作成したサンプルコードは、GitHubに置きました aokiplayer/SwiftUITableSample 参考 SwiftUI Tutorials | Apple Developer Documentation</description>
+      
+      <guid>https://yagamo-style.com/2019/06/14/swiftuilist_beta/</guid>
+      <description>はじめに  WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます  検証環境  macOS 10.15 Catalina beta Xcode 11 beta iOS 13 beta Swift 5.1 iPad Pro 10.5 inch  ストーリーボードは？  これまで、レイアウトは基本的にストーリーボードで行ってきました ストーリーボードは決して悪いものではなく、まず画面の作成を始める際にはとても扱いやすいです ただし、ビューの数が増えたり、複雑なレイアウトをしようとすると非常に管理が難しいのも事実です  コードでレイアウトを行うSwiftUI  Flutterなどでは、画面をコード上で宣言的に記述できます 最近は、この形式をとるものが増えています SwiftUIも、コードから宣言的なレイアウトを行います これまでもコードのみで画面を作成できましたが、以下のような問題を抱えていました  プレビューの方法がないため、ビルドして実行しないと確認できない 手続的に記述するため、実際のレイアウトがイメージしにくい    SwiftUIで作成した一覧画面のサンプル 画面イメージ 実装ファイル  実装したのは、以下のファイルです     ファイル 説明     FoodModel.swift 表の1行分を表すデータモデル   FoodDataSource.swift 表示するデータを提供する   FoodRow.swift 表の各行を表すビュー。FoodListから利用される   FoodList.</description>
     </item>
+    
   </channel>
 </rss>

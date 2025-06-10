@@ -2,74 +2,459 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yagamo Style</title>
-    <link>https://yagamo-style.com/index.html</link>
-    <description>技術メモとか、カンファレンスの感想とかを書いてます。&#xA;About me</description>
-    <generator>Hugo</generator>
+    <link>https://yagamo-style.com/</link>
+    <description>Recent content on Yagamo Style</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 14 Mar 2025 23:58:47 +0000</lastBuildDate>
-    <atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Mar 2025 23:58:47 +0000</lastBuildDate><atom:link href="https://yagamo-style.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>2025</title>
-      <link>https://yagamo-style.com/2025/index.html</link>
+      <title>RSGT 2025 に初参加、そして小田原へ</title>
+      <link>https://yagamo-style.com/2025/rsgt2025/</link>
       <pubDate>Fri, 14 Mar 2025 23:58:47 +0000</pubDate>
-      <guid>https://yagamo-style.com/2025/index.html</guid>
-      <description></description>
+      
+      <guid>https://yagamo-style.com/2025/rsgt2025/</guid>
+      <description>はじめに 時間が経ってしまった 1 月に開催された、RSGT 2025 に初参加してきました。
+今は 3 月です。 2 ヶ月経ってますね。
+もともと行動が遅いのと、業務の多忙により書くモチベーションが出ませんでした。
+ではなぜ今書いているのか これから、小田原で開催される「スクラムフェス神奈川2025 -春の陣-」に向かうにあたり、自分の気持ちを切り替えるためです。 楽しんで来よう！
+RSGT に参加してみた感想 参加する前 事前に「スクラムカンファレンスの歩き方」に参加して、kawaguti さんの話を伺っていました。 あまり人と話すのが得意ではない自分としては、とても不安でした。
+参加してみて とにかく、誰かに話しかけてみないと進まないと思い、多くの人に話しかけてみました。 とはいえ、なんの脈絡もない状況で会話は難しいので
+ CSM トレーニングで講師をしてくださっていた haradakiro さん 昔、勉強会で仲良くしていただいていた kyon_mm さん 廊下で掲示物を横で眺めていた方々 スポンサーブースの方々 etc.  などに話しかけてみました。 特に、初めてで声をかけにくい人にはスポンサーブースがおすすめです。 私自身がカンファレンスでスポンサーブースを出した経験があり、その立場からすると「スポンサー側から強引に声をかけるよりも、参加者に立ち寄っていただきたい」気持ちが強いので、ぜひ立ち寄ってみてください。
+毎日が懇親会 懇親会は、初日はスクラムフェス神奈川を運営されている正義さん（MYoshino1125）のところに参加しました。 一度お話ししたことがあると、少し参加のハードルが下がりますね。
+2 日目はオンラインの懇親会に参加しました。 現地にも後ろ髪をひかれましたが、別の形式も気になったので。 基本、顔馴染みの方々で会話をしてる感じでしたが、こちらも時々話したり、チャットで意見を送ったりしました。 が、オンラインで顔が見えてない状況だと、話すタイミングを逸してしまうのは悩みどころでした（これは普段の業務でも言える）。
+最終日は、ワークで一緒だった方に声をかけていただき、秋葉原の HUB 組に混ざりました。 席も広いので、多くの方々が合流してたくさんお話ができました。 「通常のメンバーよりもさらに割引できる人」として、重宝してもらえました。 ちょっとはみなさんに貢献できたかも？
+そしてスクラムフェス神奈川へ この界隈に参加し始めて、最初に参加したのが「スクラムフェス神奈川2024 -秋の陣-」でした。 その場で、新卒の頃の同期（なので数十年ぶり！）のナイバン（sasatoshin3104 ）さんと嬉しい再会があり、またこのイベントをきっかけで社内読書会を開始したこともあり、ご縁を感じているイベントです。
+最近は仕事でもプライベートでも気分が落ち込んでいることが多く、行動できていなかった部分が多いので、楽しんできます！</description>
     </item>
+    
     <item>
-      <title>2024</title>
-      <link>https://yagamo-style.com/2024/index.html</link>
+      <title>Build Tool プラグインとしての SwiftLint 導入時のエラー対処</title>
+      <link>https://yagamo-style.com/2024/swiftlint-plugins/</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      <guid>https://yagamo-style.com/2024/index.html</guid>
-      <description></description>
+      
+      <guid>https://yagamo-style.com/2024/swiftlint-plugins/</guid>
+      <description>2025.02.07 追記
+Run Script にペーストするスクリプトが公式サイトで変更されていたので修正
+ はじめに Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。 基本的には SwiftLint パッケージをプロジェクトに導入 -&amp;gt; Build Phases の Run Build Tool Plug-ins に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。
+細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。 また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。
+執筆時点で最新の、Xcode 15.4 における回避方法を記載します。
+今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。 そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。
+検証環境  macOS Sonoma 14.5 (23F79) Xcode 15.4 (15F31d)  導入手順 SwiftPM を利用して SwiftLint への依存性を追加   Xcode メニュー -&amp;gt; Add Package Dependencies...
+  検索欄に https://github.</description>
     </item>
+    
     <item>
-      <title>2023</title>
-      <link>https://yagamo-style.com/2023/index.html</link>
+      <title>JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</title>
+      <link>https://yagamo-style.com/2024/js-logical-and/</link>
+      <pubDate>Wed, 24 Jan 2024 09:00:00 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2024/js-logical-and/</guid>
+      <description>はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。
+ というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
+ {errors.exampleRequired &amp;amp;&amp;amp; &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。
+ errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される  右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される    入力チェックの結果、エラーがない場合ならこうなるよね？
+ errors.exampleRequired が undefined false と評価される 右オペランドを評価せず、false が返される  どちらにせよ、true/false のいずれかが返されるので &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; は出力されないように思えます。 正しく動作させるなら、普通に考えればこうなるかなと。
+{errors.exampleRequired ? &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; : &amp;#39;&amp;#39;} JavaScript の &amp;amp;&amp;amp; 演算子が Java などと比べて特殊なので、確認してみます。</description>
+    </item>
+    
+    <item>
+      <title>Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す</title>
+      <link>https://yagamo-style.com/2023/12/05/dynamic-callable/</link>
       <pubDate>Tue, 05 Dec 2023 06:00:00 +0900</pubDate>
-      <guid>https://yagamo-style.com/2023/index.html</guid>
-      <description></description>
+      
+      <guid>https://yagamo-style.com/2023/12/05/dynamic-callable/</guid>
+      <description>はじめに 以前の記事 SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？ で、callAsFunction メソッドについて説明しました。 簡単に説明すると、型に callAsFunction という名前のメソッドを定義すると、オブジェクト(引数)のような形でメソッドを呼び出せるようになる仕組みです。
+SwiftUI の DismissAction が、そのような形をとっていました。
+// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction  ...  // ビューを閉じる dismiss() // &amp;lt;--- dismiss.callAsFunction() の省略形 似たような仕組みがもうひとつあるので、今回はそちらについて紹介します。
+検証環境  Xcode 15.0 Swift 5.9  dynamicCallable @dynamicCallable で修飾した型には、以下のいずれかのメソッドの実装が必須となります。 メソッドの定義漏れやスペルミスをコンパイル時に気づける点が、callAsFunction とは異なりますね。
+   メソッド 説明     dynamicallyCall(withArguments:) 引数は ExpressibleByArrayLiteral プロトコルに準拠した型（配列など）   dynamicallyCall(withKeywordArguments:) 引数に ExpressibleByDictionaryLiteral プロトコルに準拠した型（ディクショナリなど）    dynamicallyCall(withArguments:) メソッド dynamicallyCall(withArguments:) は、可変長の引数を受け取れます。 メソッドの定義時には引数に配列などを指定しますが、メソッド名を省略した呼び出しの際には個別の値（本来、配列の要素とすべき値）をカンマ区切りで複数指定できます。</description>
     </item>
+    
     <item>
-      <title>2022</title>
-      <link>https://yagamo-style.com/2022/index.html</link>
+      <title>SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？</title>
+      <link>https://yagamo-style.com/2023/12/04/call-as-function/</link>
+      <pubDate>Mon, 04 Dec 2023 06:00:00 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2023/12/04/call-as-function/</guid>
+      <description>はじめに SwiftUI で多用されている Property Wrappers ですが、基本的に「なんか難しいことをやってくれてる」感じになってます。頻繁に利用される @Environment も、「こう書けばこう動く」という感じで何となく使っている人が多いと思います。
+ところで、Property Wrapper そのものの機能とは関係ないですが、以下のコードの @Environment の dismiss() の部分はよく考えると不思議な構文ではないでしょうか。
+// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction  ...  // ビューを閉じる dismiss() // &amp;lt;--- オブジェクト() という構文？？？ dismiss は DismissAction 型のオブジェクトなので、本来なら以下の形式でないと辻褄が合いませんよね。
+dismiss.何かメソッド名() // &amp;lt;--- オブジェクト.メソッド名() という構文ならわかる 検証環境  Xcode 15.0 Swift 5.9  callAsFunction メソッド 実は、これは dismiss.何かメソッド名() の省略形です。 具体的には dismiss.callAsFunction() です。
+callAsFunction の例 例として、単に「足し算をするためだけの構造体」を用意し、callAsFunction メソッドを実装して利用してみます。
+import Foundation // 足し算をするためだけの構造体 struct AddAction { public func callAsFunction(_ number1: Int, with number2: Int) -&amp;gt; Int { return number1 + number2 } } let add = AddAction() // 以下は add.</description>
+    </item>
+    
+    <item>
+      <title>SwiftUI でサイズクラスに対応する</title>
+      <link>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</link>
       <pubDate>Mon, 12 Dec 2022 06:00:00 +0900</pubDate>
-      <guid>https://yagamo-style.com/2022/index.html</guid>
-      <description></description>
+      
+      <guid>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</guid>
+      <description>はじめに Storyboard を利用していると、サイズクラスを利用して以下のように柔軟にビューのレイアウトを変更することが、比較的簡単に実現できていました。
+ iPad で画面を分割していないので、幅が十分にあるからビューを横に並べよう iPad をマルチタスキングで画面分割して幅が狭くなったので、ビューを縦に並べよう  UIStackView で、幅と高さが Regular のデバイス（iPad で画面非分割時など）の場合のみサブビューを横に並べるのであれば、以下のような設定を行いました。
+サイズクラスは SwiftUI でも利用できるので、その使い方を記載します。
+今回のゴール 以下のように、画面幅の広い状態ではビューを横に、狭い状態では縦に並べるように設定します。
+   w:Regular w:Compact          検証環境  macOS Ventura 13.0.1 Xcode 14.1 iOS/iPadOS 16.1  サイズクラスとは サイズクラスは、その名のとおり「デバイスのサイズを分類する」概念です。サイズクラスでは、ざっくりとデバイスの縦横を「普通（Regular）」「小さい（Compact）」の組み合わせで表します。 それにより、最大で 4 通りの画面サイズ（w: Regular x h: Regular, &amp;hellip;, w: Compact x h: Compact）にデバイスを分類してビューのレイアウトを行います。 サイズクラスを使うことで、全部のデバイスに個々に対応せず、大まかな分類ごとにレイアウトを行えば済むので労力が削減できます。
+4 パターン全部に対応せずとも、iPad の画面分割のことを考えるのであれば、幅のみに着目して 2 パターンでレイアウトすることが多いのではないでしょうか。
+サイズクラス情報の取得 現在表示中のビューがどのサイズクラスなのかは、Environment から列挙型 UserInterfaceSizeClass 型の値として取得できます。
+@Environment(\.horizontalSizeClass) private var horizontalSizeClass @Environment(\.</description>
     </item>
+    
     <item>
-      <title>2021</title>
-      <link>https://yagamo-style.com/2021/index.html</link>
-      <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
-      <guid>https://yagamo-style.com/2021/index.html</guid>
-      <description></description>
+      <title>Swift の型消去（Type Erasure）</title>
+      <link>https://yagamo-style.com/2022/10/26/type-erasure/</link>
+      <pubDate>Wed, 26 Oct 2022 14:03:56 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/10/26/type-erasure/</guid>
+      <description>はじめに SwiftUI をしっかり理解しようとすると、これまで意識しなくて良かった多くの言語機能を知る必要があり、なかなか苦労します。 その 1 つとして、型消去（Type Erasure）があります。 ずっとわかったようなわからないような感じだったので、腰を据えて調べてみました。 まだこれについては自信がないので、ご指摘などあれば GitHub から頂けるとうれしいです。
+サンプルは GitHub に置きました。
+前提: プロトコルに関する制約事項 Swift では、associatedtype を持つプロトコルは、型宣言に利用できません。 以下のコードでは、最下部で Store 型の変数を宣言しようとしていますが、コンパイルが通りません。 これは、Store の持つ associatedtype の型が確定しないためです。
+// お店で扱う商品の種類 struct Drug {  var item: String }  /** 何らかのお店を表すプロトコル. 商品の種類は associatedtype により柔軟に指定できるようにしている. */ protocol Store {  associatedtype T   var kind: T { get }  func kindsOfStore() -&amp;gt; T }  /** 具体的なお店（マツモトキヨシ）. associatedtype は Drug として確定. */ class MatsumotoKiyoshi: Store {  var kind: Drug   init(kind: Drug) {  self.</description>
     </item>
+    
     <item>
-      <title>2020</title>
-      <link>https://yagamo-style.com/2020/index.html</link>
-      <pubDate>Thu, 03 Dec 2020 13:30:07 +0900</pubDate>
-      <guid>https://yagamo-style.com/2020/index.html</guid>
-      <description></description>
+      <title>SwiftUI のモディファイアの順序による結果の相違</title>
+      <link>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</link>
+      <pubDate>Fri, 14 Oct 2022 10:17:36 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</guid>
+      <description>はじめに SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。 時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。
+簡単に扱えるモディファイアですが、順序には注意する必要があります。
+検証環境  macOS Monterey 12.6 Xcode 14.0.0  実験 Text に、frame(), padding(), border() の 3 つのモディファイアを設定してみます。 設定順序の組み合わせは 3! 通りあります。
+サンプルコード それぞれ、枠線を付けた同じサイズの VStack 内に上記 3 つのモディファイアの順序を変えた Text を配置しています。
+import SwiftUI  struct ContentView: View {  var body: some View {  VStack {  Text(&amp;#34;モディファイアの順序&amp;#34;)  .font(.title)   VStack {  Text(&amp;#34;frame -&amp;gt; border -&amp;gt; padding&amp;#34;)  .frame(width: 300, height: 60)  .border(.red, width: 3)  .</description>
     </item>
+    
     <item>
-      <title>2019</title>
-      <link>https://yagamo-style.com/2019/index.html</link>
-      <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
-      <guid>https://yagamo-style.com/2019/index.html</guid>
-      <description></description>
+      <title>iOSDC Japan 2022 参加レポート</title>
+      <link>https://yagamo-style.com/2022/09/12/iosdc2022/</link>
+      <pubDate>Mon, 12 Sep 2022 23:46:19 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/09/12/iosdc2022/</guid>
+      <description>不思議なことに、昨年の iOSDC Japan 2021 の終わったのが ほんの数日前のような気がします。
+今回は、熱いうちにレポートを書いておきます。
+公式サイト、ハッシュタグなど  https://iosdc.jp/2022/ @iosdcjp #iosdc  私の参加方針 昨年（2021） 昨年は「とにかくたくさんのトークを聞きたい！」との気持ちで、休むことなくたくさんのトークを聞いてフィードバックしました。 その結果として、ありがたいことにベストフィードバッカー賞を頂きました。
+今年（2022） 3 年ぶりに現地開催もある（オンラインと同時開催）ということで、私は現地で参加しました。 多くのトークを聞きたい気持ちは変わりませんが、現地でしかできない対話を大切にしよう（飢えてる）という思いが強く、また会場と自宅が遠いこともあり、タイムシフトでの視聴はほとんど行いませんでした。
+感想 スポンサーブース スポンサーブースは、全て訪問しました。 みなさん、各社サービスの紹介などもさることながら、抱えている課題や Swift の歴史にかかわる雑談など、たくさんされていました。前回（2019）の時と、印象が変わりました。
+こういう単なる雑談は、ブース要員と来訪者が知り合い同士の場合はよく見かけました（そしてそういう内輪っぽい会話をしている場には近づき難い）が、私のような初対面の人とはあまりしていなかったように思えます。参加者と同じで、コミュニケーションに飢えている部分があったのでしょうか？
+とにかく、スポンサー各社様の内情なども伺えて、とても有意義でした。
+トーク 現地チケットの数を絞ったことから、人気のところにも「満員で入れない」ということはありませんでした。オンライン・オフライン同時開催におけるメリットのひとつですね。ただ、QA の時間はその場では取られなかったので「現地のメリットは？」と思わなくもなかったです。
+トーク内容としては「Swift の文法が大きく変わった」という点を強く感じました。 新規開発で SwiftUI を使った案件が増えたこと、JavaScript などでは当然のように使われてきた async/await などが使えるようになり、コールバック地獄から抜け出せるようになったためでしょうか。
+そういう意味で、もっとも印象に残ったのは たまねぎ さんの「20分でわかる！速習resultBuilder」でした。
+SwiftUI の文法は元々の Swift の文法とは大きく異なりますが、とりあえず「こう書けば良い」で済ましてしまいがちです。 その文法がどうやって成り立っているのか、知ることは大きなステップアップになるでしょう。 SwiftUI で画面を組み立てたれるようになった（SwiftUI の文法に少し慣れた）ら、ぜひ見てみることをお勧めします。
+フィードバックを忘れずに！ これだけ大規模で楽しいカンファレンスが実施できるのは、運営・スポンサー・スピーカーおよびトークの応募者、そして我々参加者の力があってこそです。 昨年の参加レポート にも書きましたが、参加者からのフィードバックがモチベーションとなります。
+また、スポンサーについては「どれだけブースに立ち寄ってもらえたか」「どれだけアンケートの回答が集まったか」も、次回以降の継続可否に大きく関わります（実体験）。
+ トークのフィードバック 全体アンケート スポンサー各社からのアンケート  これらも、忘れずにフィードバックしましょう。
+では、また次の iOSDC Japan 2023 で会いましょう！（そして私とも仲良くしてください）</description>
     </item>
+    
     <item>
-      <title>2018</title>
-      <link>https://yagamo-style.com/2018/index.html</link>
-      <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
-      <guid>https://yagamo-style.com/2018/index.html</guid>
-      <description></description>
+      <title>iOSDC Japan 2021 参加レポート - ベストフィードバッカー賞を頂きました</title>
+      <link>https://yagamo-style.com/2022/09/10/iosdc2021/</link>
+      <pubDate>Sat, 10 Sep 2022 11:25:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/09/10/iosdc2021/</guid>
+      <description>iOSDC Japan 2022 が、今日から始まりますね。 そんな中、昨年のレポートをいま書いてます。昨年のレポートが終わらないと、今年のイベントが始まりませんからね！
+本レポートでは、セッション内容などの感想には触れません。 私からみなさんに伝えたいのは「ほんの少しでもいいので、スピーカーには感想を伝えよう」だけです。
+ありがたいことに、ベストフィードバッカー賞を頂いたので、その点について書いてみたいと思います。
+公式サイト、ハッシュタグなど  https://iosdc.jp/2021/ @iosdcjp #iosdc  モチベーション iOSDC Japan に登壇してイベントを堪能した 2020 年。 しかし、2020 年は私自身に不幸()があり、辛い日々を過ごしていて参加する元気もなく、1,2 セッション覗いただけとなりました。
+その反動で、2021 年は「とにかくセッションをたくさん聞きたい」という気持ちでいっぱいでした。
+私はいかにベストフィードバッカー賞を頂いたのか モチベーションでも書いたように、とにかくたくさんのセッションを聞きたい気持ちが大きかったので、こんな過ごし方をしてました。
+ セッションを聞く 次のセッションまでの間は、聞けなかったセッションをニコニコ動画の「追っかけ再生」 その日のクロージング後も「追っかけ再生」 翌日の開始までの間も「追っかけ再生」  こんな感じでした。結果として、全体の 3/4 くらいのセッションは期間中に聞いたのではないかと思います。オンライン参加ならではですね。 もちろん、ただ聞き流すのではなく
+ 気づきはメモなども取りながら 楽しかったという気持ちを忘れないうちにフィードバック  を大切にしていました。そのためか、ベストフィードバッカー賞を頂くことができました。
+賞品は Grid 社の AppleWatch の壁掛けです。カッコイイ！
+こんなフィードバックでもいいのかな？ いざフィードバックしようとしても、みなさん気になるのが
+ 一言だけのフィードバックなんてもらっても、嬉しくないのでは 自分には内容が難しくて理解できなかったのに、フィードバックしたら申し訳ない 全然的外れなことを書いて、がっかりされないだろうか  などだと思います。
+結論から言うと、そんなことは全くないです。 私は普段から仕事で登壇していますし、iOSDC Japan でも一度登壇していますが、「言葉でフィードバックをもらう」のはどんな些細なものでも嬉しいです（ネガティブなものも含めて）。
+私はあまり人に話しかけるのが得意ではない（カンファレンスの懇親会でもボッチ率が高い）ですし、同じ気持ちの方も多いのではないかと思います。 なら、まずは文字で感想を伝えてみましょう！
+最後に 今日からの iOSDC Japan 2022 は、久しぶりにオフラインも復活です。 文字でのフィードバックだけでなく、ぜひスピーカーの方々に直接感想を伝えてみましょう。文字でも嬉しいですが、直接だともっと嬉しいものですよ。</description>
     </item>
+    
     <item>
       <title>About</title>
-      <link>https://yagamo-style.com/about/index.html</link>
+      <link>https://yagamo-style.com/about/</link>
       <pubDate>Fri, 09 Sep 2022 09:30:59 +0900</pubDate>
-      <guid>https://yagamo-style.com/about/index.html</guid>
-      <description>Hiroyuki Aoki トレーナー、インストラクター、トレーニングコンテンツ企画・開発 Swift, Kotlin, Java, iOS, Android, macOS, MDM Apple Certified Trainer（Apple 認定トレーナー） 2015- macOS Support Essentials (OS X Support Essentials) iOS Deployment Essentials Introduction to Swift Introduction to the iOS SDK App Development with Swift Apple Professional Learning Provider 2019-2022 学校の先生向けに、授業にアプリケーションやプログラミングを導入する支援を行います Apple Teacher 2019- Apple Teacher Apple Teacher Swift Playgrounds トレーニングコンテンツ 速習 Swift プログラミング言語 Swift による iOS アプリ開発入門 Swift による iOS アプリ開発応用 Swift による iOS アプリ開発実践 カンファレンス、セミナー登壇 [iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 [iOS コンソーシアム] Apple Professional Learningを体験しよう 認定講師によるオンライン研修を無料体験できる特別な4日間 [iOS コンソーシアム] すぐに始められるiPadの活用研修 その他登壇/出演情報 Schoo 【2017年版】Kotlinで始めるAndroidアプリ開発入門 プログラミング少女 【アンプラグド・プログラミング前編】パソコンを使わないでプログラミングを学ぶ方法って！？ - YouTube 【アンプラグド・プログラミング後編】iPadは誰の手に！？ARの道を早くゴールした方が勝ち！！ - YouTube</description>
+      
+      <guid>https://yagamo-style.com/about/</guid>
+      <description> Hiroyuki Aoki トレーナー、インストラクター、トレーニングコンテンツ企画・開発 Swift, Kotlin, Java, iOS, Android, macOS, MDM  Apple Certified Trainer（Apple 認定トレーナー）  2015- macOS Support Essentials (OS X Support Essentials) iOS Deployment Essentials Introduction to Swift Introduction to the iOS SDK App Development with Swift  Apple Professional Learning Provider  2019-2022 学校の先生向けに、授業にアプリケーションやプログラミングを導入する支援を行います  Apple Teacher  2019- Apple Teacher Apple Teacher Swift Playgrounds  トレーニングコンテンツ  速習 Swift プログラミング言語 Swift による iOS アプリ開発入門 Swift による iOS アプリ開発応用 Swift による iOS アプリ開発実践  カンファレンス、セミナー登壇  [iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 [iOS コンソーシアム] Apple Professional Learningを体験しよう ~認定講師によるオンライン研修を無料体験できる特別な4日間~ [iOS コンソーシアム] すぐに始められるiPadの活用研修  その他登壇/出演情報  Schoo  【2017年版】Kotlinで始めるAndroidアプリ開発入門   プログラミング少女  【アンプラグド・プログラミング前編】パソコンを使わないでプログラミングを学ぶ方法って！？ - YouTube 【アンプラグド・プログラミング後編】iPadは誰の手に！？ARの道を早くゴールした方が勝ち！！ - YouTube    </description>
     </item>
+    
+    <item>
+      <title>Hugo で記事の URL にエイリアスを設定する</title>
+      <link>https://yagamo-style.com/2022/03/29/hugo-url-aliases/</link>
+      <pubDate>Tue, 29 Mar 2022 10:19:02 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/03/29/hugo-url-aliases/</guid>
+      <description>はじめに  静的サイトジェネレータ Hugo の設定のお話です 記事が増えると、 Web サイトを整理したくなりますよね。また、 URL を後から変えたくなることもあります。 ただ、そうするとどこかからリンクされているページであればリンク切れを起こしてしまい、全部修正して回る羽目になります 自分のサイト内のリンクであればそれでもいいかも知れませんが、サイト外からリンクされている場合にはそういう訳にもいかないでしょう そのような場合は、記事にエイリアスを設定すれば解決します  検証環境  hugo v0.93.3  エイリアスの設定  ページヘッダの Front Matter に aliases を記載することで、通常の URL に加えて、エイリアスによるアクセスが可能となります 実際には、エイリアスにアクセスすると本来の URL にリダイレクトされます  +++ title = &amp;#34;iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました&amp;#34; date = &amp;#34;2019-09-07T07:33:45+09:00&amp;#34; draft = false toc = true tags = [ &amp;#34;iOSDC&amp;#34;, &amp;#34;iOS&amp;#34;, &amp;#34;Swift&amp;#34;, &amp;#34;macOS&amp;#34; ] aliases = [ &amp;#34;/posts/iosdc2019day1/&amp;#34; ] ogimage = &amp;#34;images/open_graph_logo.png&amp;#34; +++ [iOSDC 2019 に Mac の環境構築の内容で LT 登壇します](/2019/09/03/iosdc2019pre/) で書いていましたが…  上記の記事に設定される本来のパスは /2019/09/07/iosdc2019day1/ ですが、 /posts/iosdc2019day1/ でもアクセスできます 実際にアクセスして、動作を確認してみてください  まとめ  一度公開した Web ページの URL を変えるのは、いろいろと面倒です  でもやりたくなっちゃう   そんな時は、この記事のようにエイリアスで対応しましょう  参考  URL Management | Hugo  </description>
+    </item>
+    
+    <item>
+      <title>Hugo で記事の URL をカスタマイズ</title>
+      <link>https://yagamo-style.com/2022/03/17/hugo-custom-url/</link>
+      <pubDate>Thu, 17 Mar 2022 09:50:39 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/03/17/hugo-custom-url/</guid>
+      <description>はじめに  静的サイトジェネレータの Hugo では、記事の URL 階層はデフォルトではディレクトリ階層と一致します ですが、場合によっては変更したい場合があります  ブログ記事などでは、たとえば /diary/2020/04/19 のような形式にしたい場合もあるでしょう そのためにディレクトリを細かく設定していくのは面倒です   その際に、必要な設定について記載します  検証環境  hugo v0.93.3  カスタム URL の指定（Permalinks の設定）  config.toml に [permalinks] 項目を追加することで、記事のパスを自由に設定できます  サンプル [permalinks] posts = &amp;#39;/:year/:month/:day/:filename/&amp;#39;  上記の例では、 contents/posts に配置された各記事の URL は 2020/04/19/拡張子を除いた記事のファイル名/ のような形式となります  出力イメージは、この記事の URL をご覧ください   :year のような設定値は他にも用意されているので、必要に応じて公式サイトで確認すると良いでしょう  まとめ  URL を物理的なディレクトリ階層と分けられれば、記事の管理がグッと楽になります また、途中でディレクトリ階層を変更しても、記事の URL が変わらないのがありがたいですね  参考  URL Management | Hugo  </description>
+    </item>
+    
+    <item>
+      <title>いつも忘れる Git の設定（日本語ファイル名を正しく表示）</title>
+      <link>https://yagamo-style.com/2022/03/16/git-unusual-filename/</link>
+      <pubDate>Wed, 16 Mar 2022 14:59:46 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/03/16/git-unusual-filename/</guid>
+      <description>はじめに  この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます  Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね  これを設定しておく（グローバルでやっちゃってもいいとは思うけど）  git config --local core.quotepath false 参考  Git の man より  core.quotePath  Commands that output paths (e.g. ls-files, diff), will quote &amp;#34;unusual&amp;#34; characters in the  pathname by enclosing the pathname in double-quotes and escaping those characters with  backslashes in the same way C escapes control characters (e.g. \t for TAB, \n for LF, \\ for  backslash) or bytes with values larger than 0x80 (e.</description>
+    </item>
+    
+    <item>
+      <title>プロパティが nil の場合もエンコード先の JSON に属性を出力する</title>
+      <link>https://yagamo-style.com/2022/03/12/json-with-null-value/</link>
+      <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2022/03/12/json-with-null-value/</guid>
+      <description>はじめに  JSON の解析をカスタマイズする方法については [ネストした JSON をフラットな構造体にマッピングする] で書きました 「Codable なオブジェクトに nil 値があると、 JSON ではその属性自体が省略されてしまう挙動を変えられないのか？」という質問を受講者から頂いたので、ここに記載しておきます  検証環境  macOS Big Sur 11.6 Xcode 13.2.1  サンプルコード 通常の挙動（nil を含む属性が出力されない） // JSON と対応させる Person 型（Codable に準拠） struct Person: Codable { let name: String let age: Int? // nil を許容 } let encoder = JSONEncoder() let yamada = Person(name: &amp;#34;山田二郎&amp;#34;, age: 53) let kawada = Person(name: &amp;#34;川田吾郎&amp;#34;, age: nil) let yamadaData = try! encoder.encode(yamada) let kawadaData = try!</description>
+    </item>
+    
+    <item>
+      <title>ネストした JSON をフラットな構造体にマッピングする</title>
+      <link>https://yagamo-style.com/2021/03/08/codable-container/</link>
+      <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2021/03/08/codable-container/</guid>
+      <description>はじめに  Swift では Encodable, Decodableプロトコルと JSONEncoder, JSONDecoder を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂 が、ネストした JSON を扱う場合には Swift 側の対応する型（構造体を使うことが多い）も同じ構造にネストする必要があります😔 公開されている Web API では、何階層にもネストしてる JSON も多いので、ネストした階層分だけ構造体を定義するのは面倒ですし、扱いづらくなります そのような場合には、以下の 2 つを実装すると解決できます  Encodable のメソッド encode(to:) Decodable のイニシャライザ init(from:)   定義は少し面倒ですが、一度作成してしまえばとても使いやすくなります  検証環境  macOS Big Sur 11.2.1 Xcode 12.4  サンプル { &amp;#34;user_name&amp;#34;: &amp;#34;山田二郎&amp;#34;, &amp;#34;scores&amp;#34;: [ { &amp;#34;score&amp;#34;: 65 }, { &amp;#34;score&amp;#34;: 24 } ] } 上記の JSON は、構造として全体を表す {} の中に、 &amp;quot;scores&amp;quot; 部分が配列となっており、その要素が {} となっています。 つまり、「オブジェクト」-&amp;gt;「配列」-&amp;gt;「オブジェクト」の 3 階層です。 配列は Swift で Array 型が定義されているので、自分で用意する必要があるのは 2 つの構造体であることがわかります。</description>
+    </item>
+    
+    <item>
+      <title>iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）</title>
+      <link>https://yagamo-style.com/2020/12/03/tableview-cell-configure14/</link>
+      <pubDate>Thu, 03 Dec 2020 13:30:07 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2020/12/03/tableview-cell-configure14/</guid>
+      <description>はじめに テーブルビューでは、カスタムセルを作成しなくてもデフォルトで提供されている 4 種類のスタイルが利用できました。
+   IB 上での Style 設定 対応する UITableViewCell.CellStyle の定数 説明     Basic default 左端に imageView 、その隣に textLabel   Right Detail value1 左端に imageView 、その隣に textLabel、右端に detailTextLabel   Left Detail value2 左端に textLabel、またそのすぐ隣に detailTextLabel   Subtitle subtitle 左端に imageView 、その隣の上段に textLabel、下段に detailTextLabel    しかし、 iOS 14 では textLabel と detailTextLabel 、そして imageView も deprecated となっています。 その代わりにセルの defaultContentConfiguration() で取得したオブジェクトに設定を行い、それを contentConfiguration プロパティに渡せと書いてあります。 その辺りを、サンプルを書いて確認してみます。</description>
+    </item>
+    
+    <item>
+      <title>map と compactMap と flatMap</title>
+      <link>https://yagamo-style.com/2020/11/10/maps/</link>
+      <pubDate>Tue, 10 Nov 2020 16:08:03 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2020/11/10/maps/</guid>
+      <description>はじめに コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 map があります。 が、 map にも亜種があって混乱しがちなので、整理しておきたいと思います。
+なお、この記事では配列を例としています。 実際には、配列でもディクショナリでも Optional でも「入れ物」にあたるものは似たような操作が提供されています（全く同じではないですが）。
+map の種類 map 配列内の各要素を変換します。全要素を変換するので、変換前後で要素数は変わりません。
+compactMap map と同じですが、要素のうち nil は除外し、 Optional は unwrap します。 nil を除外するため、 map と異なり変換前後で要素数が変わる（減る）場合もあります。
+flatMap 配列がネストされている場合、内側の配列から要素を取り出して平坦な配列にします（二次元配列 -&amp;gt; 一次元配列）。
+内側の「配列という 入れ物 」を「Optional という 入れ物 」に見立てれば「Optional の内容を取り出した配列」を作成することになり、 compactMap と同じ動作となります。
+ Array&amp;lt;Array&amp;lt;要素&amp;gt; -（変換）-&amp;gt; Array&amp;lt;要素&amp;gt; Array&amp;lt;Optional&amp;lt;要素&amp;gt; -（変換）-&amp;gt; Array&amp;lt;要素&amp;gt;  compactMap が実装されていなかった Swift の初期のバージョンではこのような用途でも利用されていましたが、現在では deprecated です。素直に compactMap を使いましょう。
+サンプル map, compactMap, flatMap を利用したサンプルです。 上記 4 つの図と比較しながら読んでみてください。
+コード例 import Foundation  enum Category: String, CustomStringConvertible {  var description: String {  self.</description>
+    </item>
+    
+    <item>
+      <title>ディクショナリからタプルの配列を作成する</title>
+      <link>https://yagamo-style.com/2020/07/20/dictionary-to-array/</link>
+      <pubDate>Mon, 20 Jul 2020 08:22:03 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2020/07/20/dictionary-to-array/</guid>
+      <description>はじめに  Swift には、連想配列的なデータ構造としてディクショナリがあります ディクショナリはデータの順序を保証しないので、そのままではテーブルビューやコレクションビューのデータソースとして利用しにくいです その場合は、タプルの配列に変換すると上手く行きます  検証環境  Xcode 11.5 Swift 5.2  利用する機能 sorted(by:)  ディクショナリのメソッド 引数に渡した関数 by がソート条件  関数 by の引数  2 つのタプル（それぞれディクショナリの n 番目の要素と n + 1 番目の要素に対応）   関数 by の戻り値  Bool（false なら並び替え）     戻り値は [(key: ディクショナリの key の型, value: ディクショナリの value の型)]  つまり、ディクショナリとほぼ同じ構造を持った「タプルの配列」    コード例  以下はディクショナリ [String: Int] からタプルの配列 [(key: String, value: Int)] に変換する例です  import Foundation var scores: [String: Int] = [ &amp;#34;Steve Yamada&amp;#34;: 34, &amp;#34;Jeff Takeshita&amp;#34;: 87, &amp;#34;Mickey Yoshida&amp;#34;: 100, &amp;#34;Charly Kinoshita&amp;#34;: 53, &amp;#34;Anna Saito&amp;#34;: 19, &amp;#34;Robert Suzuki&amp;#34;: 97, &amp;#34;Erick Kawakami&amp;#34;: 32, &amp;#34;John Miyabe&amp;#34;: 64, &amp;#34;Gregory Goto&amp;#34;: 76 ] print(&amp;#34;&amp;#34;&amp;#34; Ascending by key ======================== &amp;#34;&amp;#34;&amp;#34;) var sortedByNameAsc: [(key: String, value: Int)] = scores.</description>
+    </item>
+    
+    <item>
+      <title>配列要素をグループ化したディクショナリの作成</title>
+      <link>https://yagamo-style.com/2020/07/16/arraygrouping/</link>
+      <pubDate>Thu, 16 Jul 2020 08:39:32 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2020/07/16/arraygrouping/</guid>
+      <description>はじめに  テーブルビューやコレクションビューで、グループ化した表示はよく使います その場合、データソースとして二次元配列などを利用すると思います が、データソースが一次元配列だった場合は、少しデータの加工が必要ですよね  検証環境  Xcode 11.5 Swift 5.2  利用する機能 Dictionary(grouping: by:)  ディクショナリのイニシャライザ grouping  元データとなる配列 by で指定した key ごとに、部分配列として分割される   by  グループ化したディクショナリの key となる値を返す関数 引数は、配列の各要素    コード例  配列 [Product] を、 Product の要素である category（Product.Category 型）ごとにグループ化するサンプル 変換後のディクショナリは [Product.Category: [Product]] 型  サンプルコード import Foundation struct Product: CustomStringConvertible { var description: String { &amp;#34;(\(self.name), $\(self.price), \(self.category))&amp;#34; } var name: String var price: Int var category: Category enum Category: String { case food case drink case other } } // Array of Product var products: [Product] = [ Product(name: &amp;#34;Fried Potato&amp;#34;, price: 24, category: .</description>
+    </item>
+    
+    <item>
+      <title>iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある</title>
+      <link>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/</link>
+      <pubDate>Mon, 02 Mar 2020 18:03:25 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/</guid>
+      <description>はじめに  iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません  もちろん、 unwind セグエメソッドも呼ばれません unwind セグエから戻っても、ライフサイクルメソッドは呼ばれません（unwind セグエメソッドは呼ばれる）    サンプル 画面レイアウト New Default シーンへのセグエ  Xcode 11 でのデフォルト設定 Presentation が Same as Destination  Full Screen シーンへのセグエ  Presentation を Full Screen に変更 デフォルトと異なり、画面全体を覆う（iOS 12 までの Modal）  ソースコード ViewController（最初の画面） import UIKit  class ViewController: UIViewController {   override func viewDidLoad() {  super.viewDidLoad()  print(#function)  }   override func viewWillDisappear(_ animated: Bool) {  super.</description>
+    </item>
+    
+    <item>
+      <title>Apple の iOS/Swift 認定資格を受験してみた</title>
+      <link>https://yagamo-style.com/2019/12/20/swift-exam-impression/</link>
+      <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/12/20/swift-exam-impression/</guid>
+      <description>2018 年 11 月 26 日の Apple の Newsroom 記事 Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本) で述べられているように、 Apple は主に学生をターゲットとした iOS および Swift の認定資格をリリースしました。
+ このカリキュラムを履修した学生は、Swiftについての知識、アプリケーション開発ツール、アプリケーションのコアコンポーネントの知識について認定を受けることもできます。App Development with Swift Level 1認定試験は、世界中のCertiport認定試験センターを通じて実施されます。
+ 日本ではこれまで試験が配信されていませんでしたが、約 1 年後の 2019 年 12 月 10 日から、 Certiport の代理店である オデッセイ コミュニケーションズ から配信が開始されました。
+配信開始日の一番早い時間に受験し、日本での認定第一号として合格してきました。 興味のある方もいらっしゃると思うので、 NDA に抵触しない程度に感想などをまとめてみます。
+なお、この記事は日本でのリリース当初（2019 年 12 月 10 日）の情報です。 今後のアップデートで、変わる可能性がありますのでご注意ください。
+試験の概要 詳しくは、公式サイトをご覧ください。
+名称 App Development with Swfit Level 1
+試験の範囲 App Development with Swift の内容</description>
+    </item>
+    
+    <item>
+      <title>Xcode 11 で作成したプロジェクトを iOS 13 未満に対応させる</title>
+      <link>https://yagamo-style.com/2019/12/02/adopt-under13-xcode11/</link>
+      <pubDate>Mon, 02 Dec 2019 16:38:56 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/12/02/adopt-under13-xcode11/</guid>
+      <description>はじめに  Xcode 11 から、新規作成したプロジェクトの構成が変わりました  User Interface を Swift UI と Storyboard から選択可能 SceneDelegate.swift が追加 Info.plist に、 SceneDelegate を利用するエントリが追加   iOS 13 以降のみ対応させる場合にはそのままでよいのですが、多くの場合、 2 つ前くらいまでの iOS をサポートすると思います このままで Target のバージョンに iOS 13 未満を設定すると、エラーが発生して実行できません ここでは、その解決法を紹介します  方法は他にもあるようですが、これが Xcode のサポートを一番受けやすい方法だと思います なお、 Swift UI は iOS 13 以降対応なので、ここでは Storyboard を選択した前提とします    検証環境  Xcode 11.2.1 iOS 13.2.3, 12.3.1 Swift 5  デフォルトの状態と実行確認  プロジェクトを作成すると、以下のような状態となっています   手順 Build Target を iOS 13 未満に設定 アプリを実行  ビルドに失敗する  ビルドエラーメッセージを確認 エラーのアイコンをクリックし、修正内容を選択   SceneDelegate</description>
+    </item>
+    
+    <item>
+      <title>asr restore による Mac の起動ボリュームのリストア</title>
+      <link>https://yagamo-style.com/2019/10/15/asr-restore-basic/</link>
+      <pubDate>Tue, 15 Oct 2019 13:22:13 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/10/15/asr-restore-basic/</guid>
+      <description>はじめに  Apple 標準の asr コマンドを利用して、 Mac の起動ボリューム（デフォルトでは Macintosh HD）をリストアする方法です とはいえ、起動ボリュームか否かは関係なく、どのボリュームでも扱い方は同じです  むしろ、起動可能なボリュームのイメージ作成の方にコツがある 今回は、イメージ作成についての詳細には触れません    検証環境  MacBook Pro without T2 Security Chip (-2017) MacBook Pro with T2 Security Chip (2018-) macOS Mojave 10.14.6  asr コマンド  asr は、 Apple Software Restore の略であり、その名の通りリストアを目的としたコマンドです Apple がどこまで公式にサポートしているのかはわかりませんが、起動ボリューム自体もリストア可能です  ソースとなるディスクイメージの作成方法にコツがあったり、いろいろ苦労はありますが…   主に利用するのは、 asr restore の形式です  asr restore  asr restore は、以下のような形式で記述します  asr restore --source リカバリ元のディスクイメージやボリューム --target リカバリ先のディスクやボリューム --erase オプションの説明  --source or -s  リカバリ元のソースを指定 ディスクイメージ でもいいし、それをマウントしたボリュームでも OK  DMG 形式はそのまま指定できるが、 Sparse Bundle などではマウントしなければ指定不可能     --target or -t  リカバリ先のターゲットを指定 /Volume/.</description>
+    </item>
+    
+    <item>
+      <title>iOSDC 2019 に参加してきました</title>
+      <link>https://yagamo-style.com/2019/09/08/iosdc2019day2/</link>
+      <pubDate>Sun, 08 Sep 2019 19:57:25 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/09/08/iosdc2019day2/</guid>
+      <description>2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&amp;ldquo;ブログを書くまでが iOSDC&amp;rdquo;）。
+私自身の登壇に関しては、前回のエントリ iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました をぜひご覧ください。
+ここでは、それ以外について振り返りたいと思います。
+公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  イベント全体について もちろん、最高のスタッフで全体的に素晴らしかったです！ が、いくつかピックアップします。
+良かったこと 公式アプリ  アプリ自体も良かったですし、フィードバックを素早く反映されていてすごいなと思いました 具体的には、練習会のときに「スピーカーだけじゃなくて、スタッフの方の Twitter リンクはないのですか？」とお伝えしたら直後のリリースで対応されていました！  ネットワーク  毎年改善が目覚ましいです ごく短時間、繋がりにくいのと WiFi の先でインターネットに接続できないこともありましたが、ほぼ問題なく接続できていました  1,000 人越えのしかもコミュニティベースのイベントで、これは本当にすごいなと思います   Aruba の最新の機器をこのカンファレンスで（たぶん）国内初の利用とか、気合入ってますね！  映像技術  登壇者のスライドとそこから切り替えてデモ実施時の映像、登壇者の映像をセッションタイトル付きの枠にその場で合成して配信してました また、スライドの縦横比によって即座に切り替えたりも ボーッとしてると当たり前のように思えますが、冷静に考えてとてもすごい！  スピーカーディナーでの 1min ピッチ  文章からだけじゃなくて、動画でトークの内容を事前に宣伝する試みは面白いなと思いました スピーカーの立場としても、これを行うことで話す練習にもなるし、考えをまとめるいい機会になりました  ルーキーズ LT 練習会  Twitter や別のエントリで何度も書いてますが、これは練習という意味だけでなく最高でした！ 練習会の参加者（スピーカーだけじゃなくてスタッフの皆さん）は、顔を合わせるたびに話が盛り上がる感じになってました どなたかがツイートしていましたが、この &amp;ldquo;文化祭&amp;rdquo; みたいな感じがすごくいいなーと思いました この練習会は、次に採択されてももう二度と参加できないのが寂しいです😢  座席予約  個人サポーターおよびジョーカーチケットを持ってる人が、あらかじめ聞きたいセッションの席を予約できるシステムです 人気のセッションは前のセッションを諦めて並ぶ必要があったりしたけど、それを（ある程度）解消できます 私は並ぶのが苦手なタイプなので、これはありがたかったです！  オープニングパーティ、茶会、懇親会  交流を測る場としては同じだけど、それぞれコンセプトが違っていて楽しかったです  オープニングパーティは話す、というよりもみんなで踊って楽しむ（音量大きめ） 茶会は &amp;ldquo;ノンアルコールがマジョリティ&amp;rdquo;。着席でカテゴリ別のテーブルや、ボードゲームなどもあり 懇親会は立食で、いわゆる普通の懇親会   多くのカンファレンスは最終日の懇親会のみだけなので都合がつかないこともあるけど、複数あると参加できる可能性が増えていいですね  もっと良くできるかも iOSDC チャレンジ  これ自体は、ゲーム性があってとても楽しいものでした トークンを探すために、多くのスポンサーブースにも自然と足が向くという、よく考えられた仕組みです  2017 年の、スポンサーロゴ缶バッジと近いですね   が、例年の自分の行動と照らし合わせてみると、いつもであれば聞いたセッションのフィードバックをしていた時間を、トークン探しに費やしていました そのため、聞いてすぐにフィードバックが送れず、ほとんどは全日程が終わった後に書くことになりました そこは、どちらを優先するかの参加者の問題なので、私の考え方次第ですね  セッションのバランス  これも感じ方次第なのですが、 iOS やその周辺技術以外のトークが比較的固まっている時間帯がありました  最終日 LT の後半   全体からすると割合はそこまで多くなかったと思うのですが、印象的にそう見えてしまった感じがします でも、トークの題材を限定しすぎるよりも自分の知らなかったいろんな内容を知るのは楽しいです！  茶会の流動性  茶会は基本、着席でテーブルを囲んで話すスタイルでした そのため、人の流動性は少なく、多くの人との交流という点ではちょっともったいなかったです  意図して動かないというわけではなくて、座ってるとじっくり話し込んじゃって気付いたら時間が経過している   どなたか言ってましたが、スタッフが途中でアナウンスをしてみてもいいのかなと思いました  名札のプロフィール QR  参加者同士のアカウント交換しやすいように、名札に fortee のアカウント情報へアクセスする QR コードが付いていました これはすごく便利！だったのですが、私は活用できていませんでした（活用したつもりになっていました） スピーカー情報を登録していたので、それが表示されるものと思っていたのですが、それとは別に入力が必要でした それに気付いたのが終盤だったので、私の QR コードを読み込んでくださっていた方々は無を見ていたことになります… スピーカーに対して、「スピーカー情報だけ入力してもダメだよ」とのアナウンスが事前にあると良かったかも知れません  次回への抱負  今回の私のトークは「試行錯誤してる」状態で終わってしまいました 引き続き試すので、そこで得られた知見などをまたお話ししたいなと思ってます 今回は参加できなかった、企業スポンサーとしてもまた帰って来るために組織もなんとかしたい…  参加したセッションについての一言感想 たくさん感想はあるのですが、ものすごい量になりそうなのでそれぞれ一言だけ感想を書きます。</description>
+    </item>
+    
+    <item>
+      <title>iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました</title>
+      <link>https://yagamo-style.com/2019/09/07/iosdc2019day1/</link>
+      <pubDate>Sat, 07 Sep 2019 07:33:45 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/09/07/iosdc2019day1/</guid>
+      <description>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します で書いていましたが、ルーキーズ LT に登壇してきました。 普段からトレーニングで話してはいますが、全くの別物なのでずっと緊張してました。
+若干のミス（残り時間を間違えて、 15 秒余らせたまま最後の部分を省略してしまった）はあったものの、お伝えできたかなと思います。
+公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  発表スライド Speaker Deck に上げたので、ぜひご覧ください。
+ 完全に同じ開発環境を素早く用意できる（もしくはできない）技術  モチベーション トレーニングの環境作成って、とても気をつかいます。特に、 Mac を使うトレーニングの場合、多くの受講者が Windows しか触ったことがないです。 そのため、トレーナーがデモしている環境と、受講者の環境にちょっとでも差があると、受講者はとても戸惑います。 なので、環境は少しの違いもなく揃えておく必要があります。
+ただし、全部手作業で行うのは効率的ではなく、ミスも発生します。それに、セットアップ自体は技術に長けた我々トレーナーではなく、別の部隊です。なので、技術的に難しい手順は踏ませられません。
+話したこと いかにミスを防ぎ、大量の Mac を素早く正確にセットアップするかという点について、これまで取ってきた様々な手法についてお話ししました。 現在、残念ながら以前と比較して手間のかかる方式で行わざるを得ず、まだ模索している状況です。 それも含め、現状をお伝えしました。
+紹介した技術 Apple の提供する機能 NetRestore  macOS Server の 1 機能として提供されていました  Apple の「モノリシックイメージからのリストアは推奨しない」方針により、現在は利用できません macOS Server にはまだ機能が残っていますが、 GUI の画面は削除されました 2018 年以降（T2 Security Chip搭載）の Mac ではネットワークブート機能が削除されたため、 NetRestore が機能したとしても、各 Mac からは NetRestore イメージにはアクセスできません   事前に作成しておいたシステムイメージと完全に同じ環境がリストアできます とても素早い（リストア開始から完了まで 5,6 分）  Time Machine  履歴を持ったバックアップを取れる機能です 基本的に、同じバックアップから複数の Mac をリストアすることは前提にしていません  そのためか、複数の Mac から同時にリストアできません   Time Machine からのリストアは、 NetRestore のようなブロックコピーではないので時間がかかります  MDM(Mobile Device Management)  社内で iOS を集中管理する際などに利用しますが、 macOS にも対応しています Configuration Profile に設定を記述し、それをサーバからプッシュすることで設定を強制します Apple Business Manager(ABM) と連携することで、 VPP(Volume Purchase Program) で購入した App Store のアプリのインストールを各クライアントに強制できます  ただし、 App Store にある最新のアプリがインストールされるため、「チームで Xcode のバージョンを固定している」場合などには別の策を取る必要があります   ABM は、 VPP と DEP を統合したものです  VPP(Volume Purchase Program) DEP(Device Enrollment Program)    ASR(Apple Software Restore)  今回紹介した技術の中では NetRestore 以外唯一、インストールではなくイメージのコピーを行う技術  なので、リストアは速いです（数分） ただし、イメージは各 Mac に個別にコピーしておく必要があります   Disk Utility を利用してシステムのイメージを DMG ファイルとして作成し、それをもとに macOS Recovery 上でコマンドラインからリストアします macOS 10.</description>
+    </item>
+    
+    <item>
+      <title>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します</title>
+      <link>https://yagamo-style.com/2019/09/03/iosdc2019pre/</link>
+      <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/09/03/iosdc2019pre/</guid>
+      <description>2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。 昨年までは個人サポーター（およびスポンサー企業の社員）として参加していましたが、今年は LT に登壇します！ なので、スピーカー兼個人サポーターとしての参加です（今期から、弊社は技術系のカンファレンスにスポンサーを出さない方針になってしまいました…）。
+公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  私（Hiroyuki Aoki）について  株式会社カサレアルで、研修のトレーナーをしています iOS や Android アプリ開発コースも担当していますが、国内唯一の Apple 認定トレーナーとして macOS のシステム管理コースなども担当しています  ちなみに、カサレアルは国内唯一の Apple 認定トレーニングプロバイダーです Apple の macOS 認定資格（Apple Certified Support Professional）の試験も、弊社で受験可能です   業務を行う中で得た知見から、今回の LT では Mac の環境構築に関する内容を話します  こんなことを話します 完全に同じ開発環境を素早く用意できる（もしくはできない）技術  弊社では、トレーニングで利用するために、たくさんの Mac を全部同じ状態にセットアップしています 手作業で設定すると、ちょっとずつ設定がズレてしまい、受講者に同じ体験をして頂くことができません そのため、素早く・簡単に・完全に同じ状態の Mac をセットアップする必要性があります 以前は利用できた方法が使えなくなったりと一筋縄では行かないのですが、これまでどうやってきて今後どうして行くのか、お話しします  私の登壇は 9 月 6 日の 16:35 、 Track Aの LT 前半の最後です。 アプリの開発技術ではないですが、 Mac の設定も奥が深くて楽しいですよ！ それに、みなさんの普段の Mac 環境準備にも、もしかしたら役に立つ情報があるかも知れません。</description>
+    </item>
+    
+    <item>
+      <title>MACアドレスを取得してファイルに書き出すシェルスクリプト</title>
+      <link>https://yagamo-style.com/2019/08/02/getmacaddress/</link>
+      <pubDate>Fri, 02 Aug 2019 21:49:24 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/08/02/getmacaddress/</guid>
+      <description>はじめに  トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります 未認証のデバイスを接続させないため、MACアドレスでフィルタリングを掛ける目的です 手作業で取得するのは辛いので、シェルスクリプトを用意しました あとで集約する際のために、ファイル名にはMacのSerial Numberを付けるようにしました  検証環境  macOS 10.14.6 Mojave  シェルスクリプトの内容 #!/bin/sh  ## GET Serial Number of this Mac SERIAL=`ioreg -l | awk &amp;#39;/IOPlatformSerialNumber/ { if (gsub(/&amp;#34;/, &amp;#34;&amp;#34;)) print $4 }&amp;#39;`  ## Write MAC address of primary WiFi interfce in &amp;#34;{SERIAL NUMBER}.txt&amp;#34; on this user&amp;#39;s Desktop ifconfig en0 ether | awk &amp;#39;/ether/ { print $2 }&amp;#39; &amp;gt; ~/Desktop/${SERIAL}.txt Serial Numberを取得して、変数に代入 SERIAL=`ioreg -l | awk &amp;#39;/IOPlatformSerialNumber/ { if (gsub(/&amp;#34;/, &amp;#34;&amp;#34;)) print $4 }&amp;#39;`  ioregで、ハードウェアデバイスとドライバの情報を取得 awkを利用して、以下の処理を実行  IOPlatformSerialNumberを含む行だけを抽出  　| &amp;quot;IOPlatformSerialNumber&amp;quot; = &amp;quot;C0XXXXXXXXXX&amp;quot;   &amp;quot;を除去する  　| IOPlatformSerialNumber = C0XXXXXXXXXX   スペースで区切った4つ目のフィールドを出力  C0XXXXXXXXXX      WiFiインターフェイスのMACアドレスを取得し、ファイルに書き込み ifconfig en0 ether | awk &amp;#39;/ether/ { print $2 }&amp;#39; &amp;gt; ~/Desktop/${SERIAL}.</description>
+    </item>
+    
+    <item>
+      <title>簡単なdelegateのサンプル</title>
+      <link>https://yagamo-style.com/2019/07/02/delegate/</link>
+      <pubDate>Tue, 02 Jul 2019 11:34:30 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/07/02/delegate/</guid>
+      <description>はじめに  iOSアプリでは、delegateが非常によく利用されます トレーニングで紹介していると、初めての人には「delegateオブジェクトに用意したコールバックメソッドが自動的に呼ばれる」ことの理解が難しいように感じました そこで、ごく簡単なサンプルを利用してdelegateの仕組みを紹介してみます  検証環境  Xcode 10.2 Swift 5  サンプルコード delegateを利用するクラスとdelegateプロトコル  まずは、delegateを利用するMyClassクラスの定義とdelegateであるMyDelegateプロトコルの定義です MyClassのshow(text:)を呼ぶと、自身のプロパティとして保持するdelegateのonShowCalled(withText:)を呼ぶ実装となっています  class MyClass {  var delegate: MyDelegate?   func show(text: String) {  self.delegate?.onShowCalled(withText: text)  } }  protocol MyDelegate {  func onShowCalled(withText text: String) } delegateに準拠したクラス  delegateはプロトコルなので、利用する際にはそのプロトコルに準拠して内容を実装したクラスが必要です MyAdopted1とMyAdopted2の2つを用意し、それぞれ実装の異なるonShowCalled(withText:)を用意しています  class MyAdopted1: MyDelegate {  func onShowCalled(withText text: String) {  print(&amp;#34;MyAdopted1: \(text)&amp;#34;)  } }  class MyAdopted2: MyDelegate {  func onShowCalled(withText text: String) {  print(&amp;#34;\(text)from MyAdopted2!</description>
+    </item>
+    
+    <item>
+      <title>Asset Catalogで同じ名前の別画像を利用する</title>
+      <link>https://yagamo-style.com/2019/06/21/assetfolder/</link>
+      <pubDate>Fri, 21 Jun 2019 09:09:14 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/06/21/assetfolder/</guid>
+      <description>はじめに  Xcodeのアセットカタログ（デフォルトではAssets.xcassets）は、画像などのリソースを管理します アセットカタログ内で、フォルダ分けも可能です その際、別のフォルダに同じ名前の画像を置きたくなることもあります その場合の扱い方です  検証環境  Xcode 10.2.1 iOS 12.2 Swift 5  フォルダにNamespaceを付与する デフォルトの状態（Namespaceなし）  この画像の例では、birdという画像がforestフォルダとseaフォルダの両方に配置されています ですが、デフォルトの状態ではフォルダ名は無視されるので、これらの画像にはbirdという名前でアクセスすることになり、区別ができません  フォルダ名付きでのアクセス（Namespaceあり）   アセットカタログ内でフォルダを選択し、Attributes InspectorからProvides Namespaceにチェックを入れると、そのフォルダ名がNamespaceとして利用されます
+ フォルダの色も黄色から水色に変わっていますね    この画像の例では、それぞれforest/birdとsea/birdという名前で区別されます
+  こんな感じで、コード内でもInterface Builderでも参照できます
+imageView.image = index == 0 ? UIImage(named: &amp;#34;forest/bird&amp;#34;) : UIImage(named: &amp;#34;sea/bird&amp;#34;)   まとめ  Namespaceがあると、格段に管理がしやすくなりますね 今回作成したサンプルコードは、GitHubに置きました  aokiplayer/AssetFolderSample    参考  Asset Catalog Format Reference: Folders ios - Asset Catalog: Access images with same name in different folders - Stack Overflow  </description>
+    </item>
+    
+    <item>
+      <title>SwiftUIで一覧表示画面を作成する</title>
+      <link>https://yagamo-style.com/2019/06/14/swiftuilist_beta/</link>
+      <pubDate>Fri, 14 Jun 2019 13:16:59 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/06/14/swiftuilist_beta/</guid>
+      <description>はじめに  WWDC 2019で発表された目玉として、SwiftUIがあります 今回は、少しだけSwiftUIを触ってみたのでメモしてみます  検証環境  macOS 10.15 Catalina beta Xcode 11 beta iOS 13 beta Swift 5.1 iPad Pro 10.5 inch  ストーリーボードは？  これまで、レイアウトは基本的にストーリーボードで行ってきました ストーリーボードは決して悪いものではなく、まず画面の作成を始める際にはとても扱いやすいです ただし、ビューの数が増えたり、複雑なレイアウトをしようとすると非常に管理が難しいのも事実です  コードでレイアウトを行うSwiftUI  Flutterなどでは、画面をコード上で宣言的に記述できます 最近は、この形式をとるものが増えています SwiftUIも、コードから宣言的なレイアウトを行います これまでもコードのみで画面を作成できましたが、以下のような問題を抱えていました  プレビューの方法がないため、ビルドして実行しないと確認できない 手続的に記述するため、実際のレイアウトがイメージしにくい    SwiftUIで作成した一覧画面のサンプル 画面イメージ 実装ファイル  実装したのは、以下のファイルです     ファイル 説明     FoodModel.swift 表の1行分を表すデータモデル   FoodDataSource.swift 表示するデータを提供する   FoodRow.swift 表の各行を表すビュー。FoodListから利用される   FoodList.</description>
+    </item>
+    
+    <item>
+      <title>画面遷移（セグエ）のキャンセル</title>
+      <link>https://yagamo-style.com/2019/05/26/seguecancel/</link>
+      <pubDate>Sun, 26 May 2019 09:35:28 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/05/26/seguecancel/</guid>
+      <description>はじめに  画面遷移のタイミングで条件を判断し、場合によってはキャンセルするような動作が必要な場面があります ボタンなどからAction接続したメソッド内でperformSegue(withIdentifier:sender:)を利用する場合や、addTarget(_:action:for:)でアクションを登録した場合であれば、その際に条件判断を行うこともできます  しかし、ボタンからセグエを直接引いて画面遷移する場合であれば、無条件に画面遷移してしまいます   ここでは、後者の場合に画面遷移の判断とキャンセルの方法について紹介します  検証環境  Xcode 10.2 iOS 12.2 Swift 5  利用するメソッド  UIViewControllerのshouldPerformSegue(withIdentifier:sender:)を利用します  このメソッドをオーバーライドします 動きとしては、trueを返した場合は画面遷移を実行、falseの場合はキャンセルとなります    サンプルプログラム 動作   NEXTボタンからセグエを引いてあり、スイッチがONの場合のみ画面遷移を行うプログラムです
+  サンプルコード import UIKit  class ViewController: UIViewController {   @IBOutlet weak var moveSwitch: UISwitch!   override func viewDidLoad() {  super.viewDidLoad()  }   override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -&amp;gt; Bool {  super.</description>
+    </item>
+    
+    <item>
+      <title>iOSにおけるPush通知の基本2（受信した通知の内容取得）</title>
+      <link>https://yagamo-style.com/2019/05/24/remotenotification02/</link>
+      <pubDate>Fri, 24 May 2019 10:52:57 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/05/24/remotenotification02/</guid>
+      <description>はじめに  前の記事 [iOSにおけるPush通知の基本1（通知の受信まで）] では、以下のところまで紹介しました  Push通知に必要な事前設定 Push通知のユーザへの利用許可依頼 Push通知の送信テスト   これだけでも、受け取った通知をタップしてアプリを起動することができます 今回は、通知に含まれる内容（ペイロード）を取得する方法を説明します  検証環境  Xcode 10.2 iOS 12.2 Swift 5 iPod touch 6th generation  通知に対するコールバックメソッド   通知を受け取ると、UIApplicationDelegateの以下のコールバックメソッドが呼ばれます
+  呼ばれるコールバックメソッドとそのタイミングは、アプリの実行状態により決定されます
+   事前状態 タイミング メソッド     未起動 通知のタップにより起動 application(_:didFinishLaunchingWithOptions:)   Foreground 通知を受信 application(_:didReceiveRemoteNotification:fetchCompletionHandler:)   Background 通知のタップによりForeground application(_:didReceiveRemoteNotification:fetchCompletionHandler:)      これらのコールバック内で、通知のペイロード（通知に含まれるデータ）を取得して処理を行います
+  Push通知のペイロード   Push通知のペイロードは、以下のような形式のJSONです
+{  &amp;#34;aps&amp;#34; : {  &amp;#34;alert&amp;#34; : {  &amp;#34;title&amp;#34; : &amp;#34;New Message&amp;#34;,  &amp;#34;subtitle&amp;#34; : &amp;#34;You got a new message.</description>
+    </item>
+    
+    <item>
+      <title>UIViewControllerのライフサイクルメソッド</title>
+      <link>https://yagamo-style.com/2019/05/21/viewcontrollerlifecycle/</link>
+      <pubDate>Tue, 21 May 2019 12:19:51 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/05/21/viewcontrollerlifecycle/</guid>
+      <description>はじめに  iOSアプリを作成していて、どのタイミングでどのメソッドが呼ばれるんだっけ？となることは多いです 特に、画面遷移の際に困ることがあります なので、非常に単純なサンプルを作成しておきました  各メソッド内で、コンソール出力をしているのみです    検証環境  Xcode 10.2 iOS 12.2 Swift 5  サンプルプロジェクト  aokiplayer/ViewControllerLifeCycleSample  サンプルの画面構成   画面はストーリーボードで作成しています
+  A, Bの2画面があり、以下のように遷移します（Aが初期画面）
+ A -&amp;gt; Bは、単純にPresent Modallyなセグエで遷移 B -&amp;gt; Aは、unwindセグエで遷移    コンソール出力例 アプリ起動（Aを表示）  レイアウト系が2度呼ばれています  レイアウトは、様々なタイミングで呼ばれるのでこのように複数回呼ばれる可能性があるためです  boundsが変更されたり、サブビューが追加されたりしても呼ばれます   Auto Layoutの制約を明示的に設定せず、Autoresizing maskをAuto Layoutに変換した場合などは1度しか呼ばれなかったりします    A: init(coder:) A: loadView() A: viewDidLoad() A: viewWillAppear(_:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewDidAppear(_:) 画面を回転（A画面表示中）  レイアウトを組み直す必要が発生するので、こんな感じですね  A: viewWillTransition(to:with:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() HOMEボタンを押す（A画面表示中）  画面は表示されなくなりますが、実際にはいずれのコールバックも呼ばれていません  このあたりの挙動は、Androidとは異なりますね（Androidではこのタイミングでもコールバック呼ばれる）    HOME画面でアイコンをタップ（上記の操作後）  非表示状態からの復帰ですが、いずれのコールバックも呼ばれていません  これも、Androidの場合はコールバックが呼ばれますね    Bへ遷移（Present Modallyセグエ）  ポイントはAのprepare(for:sender:)のタイミングです  ここで必要なデータの受け渡しを行いますが、BのviewDidLoad()よりも前です そのため、この時点ではBの持っているビューはnilであり、データを渡そうとすると実行時エラーとなります     B: init(coder:) A: prepare(for:sender:)  B: loadView()  B: viewDidLoad() A: viewWillDisappear(_:)  B: viewWillAppear(_:)  B: viewWillLayoutSubviews()  B: viewDidLayoutSubviews() A: viewWillLayoutSubviews() A: viewDidLayoutSubviews()  B: viewWillLayoutSubviews()  B: viewDidLayoutSubviews()  B: viewDidAppear(_:) A: viewDidDisappear(_:) Aへ戻る（unwindセグエ）  unwindセグエで戻る際も、prepare(for:sender:)は呼ばれています   B: prepare(for:sender:) A: unwindToFirst(_:)  B: viewWillDisappear(_:) A: viewWillAppear(_:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewDidAppear(_:)  B: viewDidDisappear(_:)  B: deinit A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() まとめ  初心者の陥りやすい点としては、prepare(for:sender:)内でのデータの受け渡しです 「遷移先画面のビューはまだnil」という点は、しっかり認識しておきましょう  </description>
+    </item>
+    
+    <item>
+      <title>iOSにおけるPush通知の基本1（通知の受信まで）</title>
+      <link>https://yagamo-style.com/2019/04/18/remotenotification01/</link>
+      <pubDate>Thu, 18 Apr 2019 09:30:15 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/04/18/remotenotification01/</guid>
+      <description>はじめに  Push通知は、使い方によっては非常に効果的です  通知しすぎると、邪魔になってしまいますが   ここでは、Push通知の基本的な実装方法を説明します Push通知の実装には、UserNotificationsフレームワークを利用します  ローカル通知にも、同じフレームワークを利用します 昔と違って、ひとつのフレームワークで両方に対応できていいですね    検証環境  Xcode 10.2 iOS 12.2 Swift 5 iPod touch 6th generation  必要なもの  Apple Developer Programのアカウント  Apple Developerサイト上で、以下の確認・作成が必要なため  Team ID Authentication Key     APNs（Apple Push Notification Service）に対応した、Push通知を送信するサーバ  FirebaseとかMicrosoft Azureとか、いろいろなサービスが対応してます テストするだけなら、APNsに対応したいろいろなツールがあります  Dwarven/PushMeBaby onmyway133/PushNotifications   APNsは、その名のとおりAppleのPush通知サービスです  Push通知の送信は、必ずこのサービスを経由します     iPhoneやiPadなどの実デバイス   シミュレータではPush通知が利用できないため
+  シミュレータでPush通知の登録をしようとすると、コンソールに以下のようなメッセージが出力されます</description>
+    </item>
+    
+    <item>
+      <title>try! Swift Tokyo 2019 感想など</title>
+      <link>https://yagamo-style.com/2019/04/17/tryswifttokyo2019/</link>
+      <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2019/04/17/tryswifttokyo2019/</guid>
+      <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。
+だいぶ時間が経ってしまったけど、感想を少し書いてみます。
+公式サイト、ハッシュタグなど  https://www.tryswift.co/events/2019/tokyo/jp/ @tryswiftconf #tryswiftconf  ここが良かった スポンサーとして 知名度が少し上がってきた  Java 系ではそれなりに知名度がある弊社ですが、モバイル系のカンファレンスに継続して参加することでこちらでも知名度が少しずつ上がってきました。 いろいろな方から、声を掛けて頂けました。  商品をお見せするのが大事  今回はマーケティングチームのアイディアで、主に私の執筆したトレーニングテキストのサンプルを展示しました。 実際に手に取ってご覧頂くことで、以下の効果が得られました。  弊社の業務やトレーニング内容をイメージ頂けた -&amp;gt; 参加者の皆様との会話のきっかけとなった たくさんのご意見を頂けた  「市販書籍よりもわかりやすい」「ここに書いてるのよりも、こっちのライブラリを使ったほうがいい」 「テキストを売って欲しい」「現場に出る前の教育に使いたい」      エンジニアとして 世界的なエンジニアに直接聞ける  私は IBM Kitura を使い始めているのですが、せっかく Kitura の開発チームが来日されていたので、うまくいかない点を思い切って質問してみました。  その上で、Kituraのドキュメント自体に誤りがあることなどを発見できました。 &amp;lt;- 貢献できた！   セッション自体はあとで動画がアップロードされますが、質問はその場でしかできないので、貴重な経験でした。 英語は、できなくてもこわくないです（もちろん、できた方がいいけど）。  言いたいことがはっきりしていれば、文法を多少誤っていたり単語が出てこなかったりしても伝わります。 カンファレンス前日の Global Communication Workshop for try! Swift で、背中を押してもらえた気がします。    今後に向けて  個人・企業ともスポンサーは続けていきたいです。 参加して良かった！で終わらせない。今は IBM Kitura ブースで頂いた本（抽選に当たりました）も使いながら Kitura を学習してます。  </description>
+    </item>
+    
+    <item>
+      <title>iOSDC 2018 感想など</title>
+      <link>https://yagamo-style.com/2018/09/15/iosdc2018/</link>
+      <pubDate>Sat, 15 Sep 2018 21:32:57 +0900</pubDate>
+      
+      <guid>https://yagamo-style.com/2018/09/15/iosdc2018/</guid>
+      <description>今年も個人サポーター（初回から 3 年連続）として iOSDC に参加してきました。トークには応募してたけど、残念ながら選に漏れました。 あと、弊社は昨年からブーススポンサーをやってるので、そっちにも顔を出してました。
+公式サイト、ハッシュタグなど  https://iosdc.jp/2018/ @iosdcjp #iosdc iOSDC 2018 セッション資料まとめ  今年は 8/30-9/2 の開催でしたが、 8/30-31 は残念ながら iOSDE に登壇していたので iOSDC には 9/1,2 のみ参加です（名前が紛らわしい）。
+セッションは高度な内容から日常で使える tips 、入門者向けの内容まで幅広く、どのレベルのエンジニアでも学びの得られる門戸の広いカンファレンスでした。特に後者はカンファレンスでは蔑ろにされることが多い気がするけど、いろんなエンジニアが学べて交流できるのって大事だなと思ってます（なので来年もそっち系でトーク応募します）。
+ここがよかった 参加者として  初回からずっと参加してますが、「ここがもうちょっとこうなってるといいな」が毎年着実に改善されています。 昨年導入された「パックマンルール」もすごい！って思ったけど、今年の「機械的席詰めタイム」はそれ以上によく考えられてるなと思いました。 みんな気持ち的には「詰めた方がいいんだろうな」と思いつつ、最初から詰めるのは何となく気が引ける。で、結果的に 3 人掛けだと真ん中が空いちゃって後から来る人が入りづらい。それを上手く解決してるなーととても感心しました。 ノベルティのサコッシュ（斜め掛けのバッグ）。スリーブに入れた MacBook と iPad Pro 10.5 インチがぴったり収まるし、トートバッグと違って両手が空くのでとても便利でした。カンファレンス中、大活躍でした。 バドワイザー（瓶）が今年も継続されてた。  スポンサー＆サポーターとして  昨年ブーススポンサー用に作成して頂いた各社ロゴの缶バッジは、参加者がブースを回るモチベーションとなりとても好評でした（あと、登壇者に目立つところに付けて頂くことで露出を狙えた）。 今年はそういう感じのはないのか…とちょっとだけ残念な気持ちでしたが、運営の方々の思いである「参加者も一緒にイベントを作っていく仲間」というのが 3 年目ともなるとしっかり浸透していて、結果的に多くの方々に立ち寄って頂けました。 昨年は個人サポーター（個人スポンサー）の T シャツが一般と同じだったので、パーカーを着てないと見分けがつかなかったけど今年は一般がシルバー、個人サポーターがゴールドと違いがあってうれしかった（でもスポンサーブース用に会社のポロシャツを着てたので、着るチャンスがなかった…）。 来年もやります。  あれ？と思った点  昨年は LT の投票＆賞ってレギュラートークとは別にありませんでしたっけ？（うろ覚え）   参加したトークのひとこと感想 9/1 詳解 Fastfile  スピーカー: ぎぎにゃん さん @giginet 「詳解 Fastlane だと勘違いしてた人が…」あっ、はい Fastfile の話でしたが、以下のように Fastlane に限らず一般的に有用な内容でした  値は環境変数から読み込む 設定とロジックを分ける   私自身は Fastlane を使い始めたばかりなので、実際にこの辺りを見ながら少しずつ適用していきたいです  Depth in Depth  スピーカー: 堤修一 さん @shu223 深度はボケのためだけではない、という話でした 深度の種類やセンサーの仕組みなどから、丁寧に説明されていました 私自身は、深度を可視化するアプリを利用してていつも面白いなーと思ってましたが、意外と取るのは単純だと感じました（でもやったら多分難しいとは思う） 説明の明快さもさることながら、人物をくり抜いて背景合成するというキャッチーなデモが非常に分かり易かったです この日に生まれたお子さんが、私の娘と同じ誕生日なので何となくうれしいです。おめでとうございます！  5000 行の UITableView を差分更新する  スピーカー: ばんじゅん さん @banjun 差分更新のライブラリ比較や、パフォーマンスを落とさないための試行錯誤などに関する内容でした UITableView の差分更新については、 8/30, 31 にもいくつかセッションがあったようです ライブラリを入れればそれで解決、とは行かないようでした 実際にパフォーマンスが上がらずに、そのボトルネックを突き止め改善するプロセス自体が有用でした  気遣いの iOS プログラミング  スピーカー: ezura さん @eduraaa どの場面でも利用すべきベストなものはなく、いろいろな場面に活用できる引き出しを増やすことが重要というお話でした いくつか具体例を出しながら、コードの意図をより伝えやすい記述を紹介していました 紹介されていたどれも、 Swift らしい言語機能を上手く活用していました そのため、むしろ Java などの言語から移ってきた人にはすぐには理解しがたいのかもしれないと感じました メンバーの習熟度も考慮して採用する記述方法を記述する必要があり、引き出しを増やしておくのは重要だと思います   9/2 iOS マイクロインタラクション入門  スピーカー: kiwi さん @koga_wiwi 「マイクロインタラクション = ちょっとした相互作用」を活用することで、操作の心地良さにつながるという話でした いくつか、具体的な実装方法も紹介しながらのセッションでした 機能要件的には不要であるものの、特にコンシュマー向けのアプリでは UX が重要ですよね 本のちょっとしたことでも、全く印象は変わるので少しずつ試してみたいです  プロトコルを使って複数サービスを跨いだ music player を実装する  スピーカー: kumabook さん @kumabook 実際に開発した、複数の音楽サービスをサポートするアプリ開発時の知見でした Apple Music の曲の後に Spotify の曲、その後に SoundCloud の…といったような再生が可能となっているそうです それぞれのサービスごとに利用する API の形式は違うので、プロトコルを活用して共通化されていました サービスによってサポートされていない機能などもある中で、できる限り共通化するための試行錯誤があったようです ただ、「再生する」「停止する」などの根幹部分はある程度近いので、その辺りを中心に考えると設計がしやすそうでした  Auto Layout エラー診断所  スピーカー: akatsuki174 さん @akatsuki174 Auto Layout 利用時に発生するエラーや警告を解消するためのデバッグ手法を、具体例とともに紹介するセッションでした また、その際に役立つツールなどの紹介もあり、 Auto Layout を利用している場合はすぐに役立つ構成となっていました Auto Layout については、初学者のみならず苦戦すると思います このセッションの内容はまさに「明日からすぐ使える」ものなので、ぜひ取り入れていきたいです  教育・企業におけるデバイス管理手法について  スピーカー: 大西正恭 さん @kenchan0130 組織内における Apple デバイスの管理について、概要が全体的に整理されていました なぜ必要なのか、何ができるのか、何が必要なのかが整理されたセッションでした 私自身は Apple 認定 iOS Deployment Essentials で教えているので、内容はだいたいわかってました ただ、具体的な MDM 製品を導入して管理している立場の方のご意見を伺いたくて参加しました デベロッパーには意外とデバイス管理は知られていないので、こういう内容のが増えるといいなと思います  iOS でグラフを描くために必要な知識について  スピーカー: 須藤将史 さん @kurotyann9696 数学的な円の基礎知識の復習から、段階を追いながら円グラフを書いていく内容でした 「こんな風になってるといいよね」から「それを実現するためには」を明確に示しながら、理解を深める説明がなされていました 私自身は現状、「なんとなく難しそう」という理由でアプリ内でグラフなどは使っていませんが、このセッションを聞いて気持ちが変わりました 説明が非常に明快で、グラフの書き方以上にワクワク感が伝わってきました やはり情報を伝えるためには文字情報よりも、グラフや図解が圧倒的に有効だというのを再認識しました  </description>
+    </item>
+    
   </channel>
 </rss>
