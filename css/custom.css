@@ -16,3 +16,19 @@ h3 {
 h4, h5, h6 {
   font-size: 1rem;  /* rem はルート要素に対する相対サイズ指定 */
 }
+
+/* サイドバーメニューのトグル機能用スタイル */
+.category-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.category-icon {
+  transition: transform 0.3s ease;
+}
+
+.category-icon.fa-angle-down {
+  transform: rotate(90deg);
+}
