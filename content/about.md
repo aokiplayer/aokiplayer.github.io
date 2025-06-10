@@ -27,11 +27,15 @@ tags: []
 - Apple Teacher
 - Apple Teacher Swift Playgrounds
 
+## Scrum Alliance Certified ScrumMaster
+- 2023-
+
 ## トレーニングコンテンツ
 - 速習 Swift プログラミング言語
 - Swift による iOS アプリ開発入門
 - Swift による iOS アプリ開発応用
 - Swift による iOS アプリ開発実践
+- 体験！アジャイルな開発プロジェクト
 
 ## カンファレンス、セミナー登壇
 - [[iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術](https://fortee.jp/iosdc-japan-2019/proposal/973963ea-c6b2-46aa-a15b-1b34af099c84)
