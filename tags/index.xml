@@ -1,182 +1,145 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Yagamo Style</title>
-    <link>https://yagamo-style.com/tags/</link>
-    <description>Recent content in Tags on Yagamo Style</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>タグ :: Yagamo Style</title>
+    <link>https://yagamo-style.com/tags/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 14 Mar 2025 23:58:47 +0000</lastBuildDate><atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Mar 2025 23:58:47 +0000</lastBuildDate>
+    <atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Agile</title>
-      <link>https://yagamo-style.com/tags/agile/</link>
+      <title>タグ :: Agile</title>
+      <link>https://yagamo-style.com/tags/agile/index.html</link>
       <pubDate>Fri, 14 Mar 2025 23:58:47 +0000</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/agile/</guid>
+      <guid>https://yagamo-style.com/tags/agile/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>RSGT</title>
-      <link>https://yagamo-style.com/tags/rsgt/</link>
+      <title>タグ :: RSGT</title>
+      <link>https://yagamo-style.com/tags/rsgt/index.html</link>
       <pubDate>Fri, 14 Mar 2025 23:58:47 +0000</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/rsgt/</guid>
+      <guid>https://yagamo-style.com/tags/rsgt/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>SCRUM</title>
-      <link>https://yagamo-style.com/tags/scrum/</link>
+      <title>タグ :: SCRUM</title>
+      <link>https://yagamo-style.com/tags/scrum/index.html</link>
       <pubDate>Fri, 14 Mar 2025 23:58:47 +0000</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/scrum/</guid>
+      <guid>https://yagamo-style.com/tags/scrum/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>iOS</title>
-      <link>https://yagamo-style.com/tags/ios/</link>
+      <title>タグ :: IOS</title>
+      <link>https://yagamo-style.com/tags/ios/index.html</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/ios/</guid>
+      <guid>https://yagamo-style.com/tags/ios/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Swift</title>
-      <link>https://yagamo-style.com/tags/swift/</link>
+      <title>タグ :: Swift</title>
+      <link>https://yagamo-style.com/tags/swift/index.html</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/swift/</guid>
+      <guid>https://yagamo-style.com/tags/swift/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Swift Package Manager</title>
-      <link>https://yagamo-style.com/tags/swift-package-manager/</link>
+      <title>タグ :: Swift Package Manager</title>
+      <link>https://yagamo-style.com/tags/swift-package-manager/index.html</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/swift-package-manager/</guid>
+      <guid>https://yagamo-style.com/tags/swift-package-manager/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>SwiftLint</title>
-      <link>https://yagamo-style.com/tags/swiftlint/</link>
+      <title>タグ :: SwiftLint</title>
+      <link>https://yagamo-style.com/tags/swiftlint/index.html</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/swiftlint/</guid>
+      <guid>https://yagamo-style.com/tags/swiftlint/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>JavaScript</title>
-      <link>https://yagamo-style.com/tags/javascript/</link>
+      <title>タグ :: JavaScript</title>
+      <link>https://yagamo-style.com/tags/javascript/index.html</link>
       <pubDate>Wed, 24 Jan 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/javascript/</guid>
+      <guid>https://yagamo-style.com/tags/javascript/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>SwiftUI</title>
-      <link>https://yagamo-style.com/tags/swiftui/</link>
+      <title>タグ :: SwiftUI</title>
+      <link>https://yagamo-style.com/tags/swiftui/index.html</link>
       <pubDate>Tue, 05 Dec 2023 06:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/swiftui/</guid>
+      <guid>https://yagamo-style.com/tags/swiftui/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>iOSDC</title>
-      <link>https://yagamo-style.com/tags/iosdc/</link>
+      <title>タグ :: IOSDC</title>
+      <link>https://yagamo-style.com/tags/iosdc/index.html</link>
       <pubDate>Mon, 12 Sep 2022 23:46:19 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/iosdc/</guid>
+      <guid>https://yagamo-style.com/tags/iosdc/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Hugo</title>
-      <link>https://yagamo-style.com/tags/hugo/</link>
+      <title>タグ :: Hugo</title>
+      <link>https://yagamo-style.com/tags/hugo/index.html</link>
       <pubDate>Tue, 29 Mar 2022 10:19:02 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/hugo/</guid>
+      <guid>https://yagamo-style.com/tags/hugo/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Git</title>
-      <link>https://yagamo-style.com/tags/git/</link>
+      <title>タグ :: Git</title>
+      <link>https://yagamo-style.com/tags/git/index.html</link>
       <pubDate>Wed, 16 Mar 2022 14:59:46 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/git/</guid>
+      <guid>https://yagamo-style.com/tags/git/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>JSON</title>
-      <link>https://yagamo-style.com/tags/json/</link>
+      <title>タグ :: JSON</title>
+      <link>https://yagamo-style.com/tags/json/index.html</link>
       <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/json/</guid>
+      <guid>https://yagamo-style.com/tags/json/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Apple</title>
-      <link>https://yagamo-style.com/tags/apple/</link>
+      <title>タグ :: Apple</title>
+      <link>https://yagamo-style.com/tags/apple/index.html</link>
       <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/apple/</guid>
+      <guid>https://yagamo-style.com/tags/apple/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Certification</title>
-      <link>https://yagamo-style.com/tags/certification/</link>
+      <title>タグ :: Certification</title>
+      <link>https://yagamo-style.com/tags/certification/index.html</link>
       <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/certification/</guid>
+      <guid>https://yagamo-style.com/tags/certification/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>macOS</title>
-      <link>https://yagamo-style.com/tags/macos/</link>
+      <title>タグ :: MacOS</title>
+      <link>https://yagamo-style.com/tags/macos/index.html</link>
       <pubDate>Tue, 15 Oct 2019 13:22:13 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/macos/</guid>
+      <guid>https://yagamo-style.com/tags/macos/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Mac</title>
-      <link>https://yagamo-style.com/tags/mac/</link>
+      <title>タグ :: Mac</title>
+      <link>https://yagamo-style.com/tags/mac/index.html</link>
       <pubDate>Fri, 02 Aug 2019 21:49:24 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/mac/</guid>
+      <guid>https://yagamo-style.com/tags/mac/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Shell Script</title>
-      <link>https://yagamo-style.com/tags/shell-script/</link>
+      <title>タグ :: Shell Script</title>
+      <link>https://yagamo-style.com/tags/shell-script/index.html</link>
       <pubDate>Fri, 02 Aug 2019 21:49:24 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/shell-script/</guid>
+      <guid>https://yagamo-style.com/tags/shell-script/index.html</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>try! Swift</title>
-      <link>https://yagamo-style.com/tags/try-swift/</link>
+      <title>タグ :: Try! Swift</title>
+      <link>https://yagamo-style.com/tags/try-swift/index.html</link>
       <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/try-swift/</guid>
+      <guid>https://yagamo-style.com/tags/try-swift/index.html</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

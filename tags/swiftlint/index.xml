@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SwiftLint on Yagamo Style</title>
-    <link>https://yagamo-style.com/tags/swiftlint/</link>
-    <description>Recent content in SwiftLint on Yagamo Style</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>SwiftLint :: タグ :: Yagamo Style</title>
+    <link>https://yagamo-style.com/tags/swiftlint/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 01 Aug 2024 09:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swiftlint/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Aug 2024 09:00:00 +0900</lastBuildDate>
+    <atom:link href="https://yagamo-style.com/tags/swiftlint/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build Tool プラグインとしての SwiftLint 導入時のエラー対処</title>
-      <link>https://yagamo-style.com/2024/swiftlint-plugins/</link>
+      <link>https://yagamo-style.com/2024/swiftlint-plugins/index.html</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2024/swiftlint-plugins/</guid>
-      <description>2025.02.07 追記
-Run Script にペーストするスクリプトが公式サイトで変更されていたので修正
- はじめに Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。 基本的には SwiftLint パッケージをプロジェクトに導入 -&amp;gt; Build Phases の Run Build Tool Plug-ins に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。
-細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。 また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。
-執筆時点で最新の、Xcode 15.4 における回避方法を記載します。
-今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。 そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。
-検証環境  macOS Sonoma 14.5 (23F79) Xcode 15.4 (15F31d)  導入手順 SwiftPM を利用して SwiftLint への依存性を追加   Xcode メニュー -&amp;gt; Add Package Dependencies...
-  検索欄に https://github.</description>
+      <guid>https://yagamo-style.com/2024/swiftlint-plugins/index.html</guid>
+      <description>2025.02.07 追記&#xA;Run Script にペーストするスクリプトが公式サイトで変更されていたので修正&#xA;はじめに Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。 基本的には SwiftLint パッケージをプロジェクトに導入 -&gt; Build Phases の Run Build Tool Plug-ins に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。&#xA;細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。 また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。&#xA;執筆時点で最新の、Xcode 15.4 における回避方法を記載します。&#xA;今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。 そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。&#xA;検証環境 macOS Sonoma 14.5 (23F79) Xcode 15.4 (15F31d) 導入手順 SwiftPM を利用して SwiftLint への依存性を追加 Xcode メニュー -&gt; Add Package Dependencies...&#xA;検索欄に https://github.com/SimplyDanny/SwiftLintPlugins を入力し、Add Package ボタンをクリック&#xA;URL が SwiftLint 公式のものでない点に注意 以前の手順では、公式の https://github.com/realm/SwiftLint となっていた Dependency Rule は Up to Next Major Version のままで OK</description>
     </item>
-    
   </channel>
 </rss>

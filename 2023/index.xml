@@ -1,38 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2023 on Yagamo Style</title>
-    <link>https://yagamo-style.com/2023/</link>
-    <description>Recent content in 2023 on Yagamo Style</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>2023 :: Yagamo Style</title>
+    <link>https://yagamo-style.com/2023/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Tue, 05 Dec 2023 06:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2023/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Dec 2023 06:00:00 +0900</lastBuildDate>
+    <atom:link href="https://yagamo-style.com/2023/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す</title>
-      <link>https://yagamo-style.com/2023/12/05/dynamic-callable/</link>
+      <link>https://yagamo-style.com/2023/12/05/dynamic-callable/index.html</link>
       <pubDate>Tue, 05 Dec 2023 06:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2023/12/05/dynamic-callable/</guid>
-      <description>はじめに 以前の記事 SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？ で、callAsFunction メソッドについて説明しました。 簡単に説明すると、型に callAsFunction という名前のメソッドを定義すると、オブジェクト(引数)のような形でメソッドを呼び出せるようになる仕組みです。
-SwiftUI の DismissAction が、そのような形をとっていました。
-// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction  ...  // ビューを閉じる dismiss() // &amp;lt;--- dismiss.callAsFunction() の省略形 似たような仕組みがもうひとつあるので、今回はそちらについて紹介します。
-検証環境  Xcode 15.0 Swift 5.9  dynamicCallable @dynamicCallable で修飾した型には、以下のいずれかのメソッドの実装が必須となります。 メソッドの定義漏れやスペルミスをコンパイル時に気づける点が、callAsFunction とは異なりますね。
-   メソッド 説明     dynamicallyCall(withArguments:) 引数は ExpressibleByArrayLiteral プロトコルに準拠した型（配列など）   dynamicallyCall(withKeywordArguments:) 引数に ExpressibleByDictionaryLiteral プロトコルに準拠した型（ディクショナリなど）    dynamicallyCall(withArguments:) メソッド dynamicallyCall(withArguments:) は、可変長の引数を受け取れます。 メソッドの定義時には引数に配列などを指定しますが、メソッド名を省略した呼び出しの際には個別の値（本来、配列の要素とすべき値）をカンマ区切りで複数指定できます。</description>
+      <guid>https://yagamo-style.com/2023/12/05/dynamic-callable/index.html</guid>
+      <description>はじめに 以前の記事 SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？ で、callAsFunction メソッドについて説明しました。 簡単に説明すると、型に callAsFunction という名前のメソッドを定義すると、オブジェクト(引数)のような形でメソッドを呼び出せるようになる仕組みです。&#xA;SwiftUI の DismissAction が、そのような形をとっていました。&#xA;// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction ... // ビューを閉じる dismiss() // &lt;--- dismiss.callAsFunction() の省略形 似たような仕組みがもうひとつあるので、今回はそちらについて紹介します。&#xA;検証環境 Xcode 15.0 Swift 5.9 dynamicCallable @dynamicCallable で修飾した型には、以下のいずれかのメソッドの実装が必須となります。 メソッドの定義漏れやスペルミスをコンパイル時に気づける点が、callAsFunction とは異なりますね。&#xA;メソッド 説明 dynamicallyCall(withArguments:) 引数は ExpressibleByArrayLiteral プロトコルに準拠した型（配列など） dynamicallyCall(withKeywordArguments:) 引数に ExpressibleByDictionaryLiteral プロトコルに準拠した型（ディクショナリなど） dynamicallyCall(withArguments:) メソッド dynamicallyCall(withArguments:) は、可変長の引数を受け取れます。 メソッドの定義時には引数に配列などを指定しますが、メソッド名を省略した呼び出しの際には個別の値（本来、配列の要素とすべき値）をカンマ区切りで複数指定できます。&#xA;dynamicallyCall(withArguments:) の例 import Foundation // 足し算をするためだけの構造体 @dynamicCallable struct AddAction { // 引数はExpressibleByArrayLiteralに準拠した型とする public func dynamicallyCall(withArguments args: [Int]) -&gt; Int { return args.reduce(0, +) } } let add = AddAction() // 以下は add.dynamicallyCall(withArguments: [10, 20, 30]) の省略形 // この際、引数の配列は展開した状態で渡せる let result1 = add(10, 20, 30) print(result1) // メソッド名を記載した際には、引数は配列として渡す必要がある let result2 = add.dynamicallyCall(withArguments: [10, 20, 30, 40]) print(result2) 実行結果</description>
     </item>
-    
     <item>
       <title>SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？</title>
-      <link>https://yagamo-style.com/2023/12/04/call-as-function/</link>
+      <link>https://yagamo-style.com/2023/12/04/call-as-function/index.html</link>
       <pubDate>Mon, 04 Dec 2023 06:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2023/12/04/call-as-function/</guid>
-      <description>はじめに SwiftUI で多用されている Property Wrappers ですが、基本的に「なんか難しいことをやってくれてる」感じになってます。頻繁に利用される @Environment も、「こう書けばこう動く」という感じで何となく使っている人が多いと思います。
-ところで、Property Wrapper そのものの機能とは関係ないですが、以下のコードの @Environment の dismiss() の部分はよく考えると不思議な構文ではないでしょうか。
-// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction  ...  // ビューを閉じる dismiss() // &amp;lt;--- オブジェクト() という構文？？？ dismiss は DismissAction 型のオブジェクトなので、本来なら以下の形式でないと辻褄が合いませんよね。
-dismiss.何かメソッド名() // &amp;lt;--- オブジェクト.メソッド名() という構文ならわかる 検証環境  Xcode 15.0 Swift 5.9  callAsFunction メソッド 実は、これは dismiss.何かメソッド名() の省略形です。 具体的には dismiss.callAsFunction() です。
-callAsFunction の例 例として、単に「足し算をするためだけの構造体」を用意し、callAsFunction メソッドを実装して利用してみます。
-import Foundation // 足し算をするためだけの構造体 struct AddAction { public func callAsFunction(_ number1: Int, with number2: Int) -&amp;gt; Int { return number1 + number2 } } let add = AddAction() // 以下は add.</description>
+      <guid>https://yagamo-style.com/2023/12/04/call-as-function/index.html</guid>
+      <description>はじめに SwiftUI で多用されている Property Wrappers ですが、基本的に「なんか難しいことをやってくれてる」感じになってます。頻繁に利用される @Environment も、「こう書けばこう動く」という感じで何となく使っている人が多いと思います。&#xA;ところで、Property Wrapper そのものの機能とは関係ないですが、以下のコードの @Environment の dismiss() の部分はよく考えると不思議な構文ではないでしょうか。&#xA;// ビューを閉じるための DismissAction を取得 @Environment(\.dismiss) private var dismiss: DismissAction ... // ビューを閉じる dismiss() // &lt;--- オブジェクト() という構文？？？ dismiss は DismissAction 型のオブジェクトなので、本来なら以下の形式でないと辻褄が合いませんよね。&#xA;dismiss.何かメソッド名() // &lt;--- オブジェクト.メソッド名() という構文ならわかる 検証環境 Xcode 15.0 Swift 5.9 callAsFunction メソッド 実は、これは dismiss.何かメソッド名() の省略形です。 具体的には dismiss.callAsFunction() です。&#xA;callAsFunction の例 例として、単に「足し算をするためだけの構造体」を用意し、callAsFunction メソッドを実装して利用してみます。&#xA;import Foundation // 足し算をするためだけの構造体 struct AddAction { public func callAsFunction(_ number1: Int, with number2: Int) -&gt; Int { return number1 + number2 } } let add = AddAction() // 以下は add.callAsFunction(10, with: 20) の省略形 let result1 = add(10, with: 20) print(result1) // もちろん、メソッド名を書いても動作する let result2 = add.callAsFunction(50, with: 100) print(result2) 上記のコードでは、add は AddAction 型のオブジェクトですが、add(10, with: 20) の形で実行できていることがわかります。</description>
     </item>
-    
   </channel>
 </rss>

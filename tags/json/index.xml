@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JSON on Yagamo Style</title>
-    <link>https://yagamo-style.com/tags/json/</link>
-    <description>Recent content in JSON on Yagamo Style</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>JSON :: タグ :: Yagamo Style</title>
+    <link>https://yagamo-style.com/tags/json/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Sat, 12 Mar 2022 22:38:43 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Mar 2022 22:38:43 +0900</lastBuildDate>
+    <atom:link href="https://yagamo-style.com/tags/json/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>プロパティが nil の場合もエンコード先の JSON に属性を出力する</title>
-      <link>https://yagamo-style.com/2022/03/12/json-with-null-value/</link>
+      <link>https://yagamo-style.com/2022/03/12/json-with-null-value/index.html</link>
       <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/03/12/json-with-null-value/</guid>
-      <description>はじめに  JSON の解析をカスタマイズする方法については [ネストした JSON をフラットな構造体にマッピングする] で書きました 「Codable なオブジェクトに nil 値があると、 JSON ではその属性自体が省略されてしまう挙動を変えられないのか？」という質問を受講者から頂いたので、ここに記載しておきます  検証環境  macOS Big Sur 11.6 Xcode 13.2.1  サンプルコード 通常の挙動（nil を含む属性が出力されない） // JSON と対応させる Person 型（Codable に準拠） struct Person: Codable { let name: String let age: Int? // nil を許容 } let encoder = JSONEncoder() let yamada = Person(name: &amp;#34;山田二郎&amp;#34;, age: 53) let kawada = Person(name: &amp;#34;川田吾郎&amp;#34;, age: nil) let yamadaData = try! encoder.encode(yamada) let kawadaData = try!</description>
+      <guid>https://yagamo-style.com/2022/03/12/json-with-null-value/index.html</guid>
+      <description>はじめに JSON の解析をカスタマイズする方法については [ネストした JSON をフラットな構造体にマッピングする] で書きました 「Codable なオブジェクトに nil 値があると、 JSON ではその属性自体が省略されてしまう挙動を変えられないのか？」という質問を受講者から頂いたので、ここに記載しておきます 検証環境 macOS Big Sur 11.6 Xcode 13.2.1 サンプルコード 通常の挙動（nil を含む属性が出力されない） // JSON と対応させる Person 型（Codable に準拠） struct Person: Codable { let name: String let age: Int? // nil を許容 } let encoder = JSONEncoder() let yamada = Person(name: &#34;山田二郎&#34;, age: 53) let kawada = Person(name: &#34;川田吾郎&#34;, age: nil) let yamadaData = try! encoder.encode(yamada) let kawadaData = try! encoder.encode(kawada) print(&#34;==== 値が nil の属性は出力されない ====&#34;) print(String(data: yamadaData, encoding: .utf8)!) print(String(data: kawadaData, encoding: .utf8)!) 実行結果 ==== 値が nil の属性は出力されない ==== {&#34;name&#34;:&#34;山田二郎&#34;,&#34;age&#34;:53} {&#34;name&#34;:&#34;川田吾郎&#34;} nil を含む属性を出力するように変更したもの // JSON と対応させる CustomPerson 型（Codable に準拠） struct CustomPerson: Codable { let name: String let age: Int? // nil を許容 } // Encodable プロトコルの encode(to:) メソッドをオーバーライド // Codable は Encodable &amp; Decodable 型 extension CustomPerson { func encode(to encoder: Encoder) throws { var container = encoder.container(keyedBy: CodingKeys.self) try container.encode(self.name, forKey: .name) // 通常は nil なら無視されるが、明示的にこのフィールドを encode 処理する try container.encode(self.age, forKey: .age) } } let sunagawa = CustomPerson(name: &#34;砂川黄太郎&#34;, age: 87) let umino = CustomPerson(name: &#34;海野泳太郎&#34;, age: nil) let sunagawaData = try! encoder.encode(sunagawa) let uminoData = try! encoder.encode(umino) print(&#34;==== 値が nil の属性も出力される ====&#34;) print(String(data: sunagawaData, encoding: .utf8)!) print(String(data: uminoData, encoding: .utf8)!) 実行結果 ==== 値が nil の属性も出力される ==== {&#34;name&#34;:&#34;砂川黄太郎&#34;,&#34;age&#34;:87} {&#34;name&#34;:&#34;海野泳太郎&#34;,&#34;age&#34;:null} まとめ encode(to:) をオーバーライドして、全項目を明示的にエンコードするだけなので、それほど難しくはないです ただ、若干の手間なので、単にエンコード時にプロパティ指定をするなどの方法があると良いですね サンプルは GitHub に置きました</description>
     </item>
-    
     <item>
       <title>ネストした JSON をフラットな構造体にマッピングする</title>
-      <link>https://yagamo-style.com/2021/03/08/codable-container/</link>
+      <link>https://yagamo-style.com/2021/03/08/codable-container/index.html</link>
       <pubDate>Mon, 08 Mar 2021 10:17:14 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2021/03/08/codable-container/</guid>
-      <description>はじめに  Swift では Encodable, Decodableプロトコルと JSONEncoder, JSONDecoder を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂 が、ネストした JSON を扱う場合には Swift 側の対応する型（構造体を使うことが多い）も同じ構造にネストする必要があります😔 公開されている Web API では、何階層にもネストしてる JSON も多いので、ネストした階層分だけ構造体を定義するのは面倒ですし、扱いづらくなります そのような場合には、以下の 2 つを実装すると解決できます  Encodable のメソッド encode(to:) Decodable のイニシャライザ init(from:)   定義は少し面倒ですが、一度作成してしまえばとても使いやすくなります  検証環境  macOS Big Sur 11.2.1 Xcode 12.4  サンプル { &amp;#34;user_name&amp;#34;: &amp;#34;山田二郎&amp;#34;, &amp;#34;scores&amp;#34;: [ { &amp;#34;score&amp;#34;: 65 }, { &amp;#34;score&amp;#34;: 24 } ] } 上記の JSON は、構造として全体を表す {} の中に、 &amp;quot;scores&amp;quot; 部分が配列となっており、その要素が {} となっています。 つまり、「オブジェクト」-&amp;gt;「配列」-&amp;gt;「オブジェクト」の 3 階層です。 配列は Swift で Array 型が定義されているので、自分で用意する必要があるのは 2 つの構造体であることがわかります。</description>
+      <guid>https://yagamo-style.com/2021/03/08/codable-container/index.html</guid>
+      <description>はじめに Swift では Encodable, Decodableプロトコルと JSONEncoder, JSONDecoder を利用すれば、 HTTP 通信で取得した JSON と Swift オブジェクトを一発変換できます🙂 が、ネストした JSON を扱う場合には Swift 側の対応する型（構造体を使うことが多い）も同じ構造にネストする必要があります😔 公開されている Web API では、何階層にもネストしてる JSON も多いので、ネストした階層分だけ構造体を定義するのは面倒ですし、扱いづらくなります そのような場合には、以下の 2 つを実装すると解決できます Encodable のメソッド encode(to:) Decodable のイニシャライザ init(from:) 定義は少し面倒ですが、一度作成してしまえばとても使いやすくなります 検証環境 macOS Big Sur 11.2.1 Xcode 12.4 サンプル { &#34;user_name&#34;: &#34;山田二郎&#34;, &#34;scores&#34;: [ { &#34;score&#34;: 65 }, { &#34;score&#34;: 24 } ] } 上記の JSON は、構造として全体を表す {} の中に、 &#34;scores&#34; 部分が配列となっており、その要素が {} となっています。 つまり、「オブジェクト」-&gt;「配列」-&gt;「オブジェクト」の 3 階層です。 配列は Swift で Array 型が定義されているので、自分で用意する必要があるのは 2 つの構造体であることがわかります。</description>
     </item>
-    
   </channel>
 </rss>

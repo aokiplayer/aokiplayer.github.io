@@ -1,65 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2020 on Yagamo Style</title>
-    <link>https://yagamo-style.com/2020/</link>
-    <description>Recent content in 2020 on Yagamo Style</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>2020 :: Yagamo Style</title>
+    <link>https://yagamo-style.com/2020/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 03 Dec 2020 13:30:07 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2020/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Dec 2020 13:30:07 +0900</lastBuildDate>
+    <atom:link href="https://yagamo-style.com/2020/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS 14 以降の UITableViewCell のレイアウト（カスタムセル非使用）</title>
-      <link>https://yagamo-style.com/2020/12/03/tableview-cell-configure14/</link>
+      <link>https://yagamo-style.com/2020/12/03/tableview-cell-configure14/index.html</link>
       <pubDate>Thu, 03 Dec 2020 13:30:07 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2020/12/03/tableview-cell-configure14/</guid>
-      <description>はじめに テーブルビューでは、カスタムセルを作成しなくてもデフォルトで提供されている 4 種類のスタイルが利用できました。
-   IB 上での Style 設定 対応する UITableViewCell.CellStyle の定数 説明     Basic default 左端に imageView 、その隣に textLabel   Right Detail value1 左端に imageView 、その隣に textLabel、右端に detailTextLabel   Left Detail value2 左端に textLabel、またそのすぐ隣に detailTextLabel   Subtitle subtitle 左端に imageView 、その隣の上段に textLabel、下段に detailTextLabel    しかし、 iOS 14 では textLabel と detailTextLabel 、そして imageView も deprecated となっています。 その代わりにセルの defaultContentConfiguration() で取得したオブジェクトに設定を行い、それを contentConfiguration プロパティに渡せと書いてあります。 その辺りを、サンプルを書いて確認してみます。</description>
+      <guid>https://yagamo-style.com/2020/12/03/tableview-cell-configure14/index.html</guid>
+      <description>はじめに テーブルビューでは、カスタムセルを作成しなくてもデフォルトで提供されている 4 種類のスタイルが利用できました。&#xA;IB 上での Style 設定 対応する UITableViewCell.CellStyle の定数 説明 Basic default 左端に imageView 、その隣に textLabel Right Detail value1 左端に imageView 、その隣に textLabel、右端に detailTextLabel Left Detail value2 左端に textLabel、またそのすぐ隣に detailTextLabel Subtitle subtitle 左端に imageView 、その隣の上段に textLabel、下段に detailTextLabel しかし、 iOS 14 では textLabel と detailTextLabel 、そして imageView も deprecated となっています。 その代わりにセルの defaultContentConfiguration() で取得したオブジェクトに設定を行い、それを contentConfiguration プロパティに渡せと書いてあります。 その辺りを、サンプルを書いて確認してみます。&#xA;サンプルプロジェクトは、 GitHub に置きました。&#xA;検証環境 macOS 11.0.1 Big Sur Xcode 12.2 iOS 14.2 サンプル ストーリーボード Example1 シーンではセルの Style を Left Detail に、 Example2 シーンではセルの Style を Custom に設定しています。</description>
     </item>
-    
     <item>
       <title>map と compactMap と flatMap</title>
-      <link>https://yagamo-style.com/2020/11/10/maps/</link>
+      <link>https://yagamo-style.com/2020/11/10/maps/index.html</link>
       <pubDate>Tue, 10 Nov 2020 16:08:03 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2020/11/10/maps/</guid>
-      <description>はじめに コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 map があります。 が、 map にも亜種があって混乱しがちなので、整理しておきたいと思います。
-なお、この記事では配列を例としています。 実際には、配列でもディクショナリでも Optional でも「入れ物」にあたるものは似たような操作が提供されています（全く同じではないですが）。
-map の種類 map 配列内の各要素を変換します。全要素を変換するので、変換前後で要素数は変わりません。
-compactMap map と同じですが、要素のうち nil は除外し、 Optional は unwrap します。 nil を除外するため、 map と異なり変換前後で要素数が変わる（減る）場合もあります。
-flatMap 配列がネストされている場合、内側の配列から要素を取り出して平坦な配列にします（二次元配列 -&amp;gt; 一次元配列）。
-内側の「配列という 入れ物 」を「Optional という 入れ物 」に見立てれば「Optional の内容を取り出した配列」を作成することになり、 compactMap と同じ動作となります。
- Array&amp;lt;Array&amp;lt;要素&amp;gt; -（変換）-&amp;gt; Array&amp;lt;要素&amp;gt; Array&amp;lt;Optional&amp;lt;要素&amp;gt; -（変換）-&amp;gt; Array&amp;lt;要素&amp;gt;  compactMap が実装されていなかった Swift の初期のバージョンではこのような用途でも利用されていましたが、現在では deprecated です。素直に compactMap を使いましょう。
-サンプル map, compactMap, flatMap を利用したサンプルです。 上記 4 つの図と比較しながら読んでみてください。
-コード例 import Foundation  enum Category: String, CustomStringConvertible {  var description: String {  self.</description>
+      <guid>https://yagamo-style.com/2020/11/10/maps/index.html</guid>
+      <description>はじめに コレクションとかいわゆる「何かの中に値が入ってるやつ」に対する代表的な操作として、 map があります。 が、 map にも亜種があって混乱しがちなので、整理しておきたいと思います。&#xA;なお、この記事では配列を例としています。 実際には、配列でもディクショナリでも Optional でも「入れ物」にあたるものは似たような操作が提供されています（全く同じではないですが）。&#xA;map の種類 map 配列内の各要素を変換します。全要素を変換するので、変換前後で要素数は変わりません。&#xA;compactMap map と同じですが、要素のうち nil は除外し、 Optional は unwrap します。 nil を除外するため、 map と異なり変換前後で要素数が変わる（減る）場合もあります。&#xA;flatMap 配列がネストされている場合、内側の配列から要素を取り出して平坦な配列にします（二次元配列 -&gt; 一次元配列）。&#xA;内側の「配列という 入れ物 」を「Optional という 入れ物 」に見立てれば「Optional の内容を取り出した配列」を作成することになり、 compactMap と同じ動作となります。&#xA;Array&lt;Array&lt;要素&gt; -（変換）-&gt; Array&lt;要素&gt; Array&lt;Optional&lt;要素&gt; -（変換）-&gt; Array&lt;要素&gt;</description>
     </item>
-    
     <item>
       <title>ディクショナリからタプルの配列を作成する</title>
-      <link>https://yagamo-style.com/2020/07/20/dictionary-to-array/</link>
+      <link>https://yagamo-style.com/2020/07/20/dictionary-to-array/index.html</link>
       <pubDate>Mon, 20 Jul 2020 08:22:03 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2020/07/20/dictionary-to-array/</guid>
-      <description>はじめに  Swift には、連想配列的なデータ構造としてディクショナリがあります ディクショナリはデータの順序を保証しないので、そのままではテーブルビューやコレクションビューのデータソースとして利用しにくいです その場合は、タプルの配列に変換すると上手く行きます  検証環境  Xcode 11.5 Swift 5.2  利用する機能 sorted(by:)  ディクショナリのメソッド 引数に渡した関数 by がソート条件  関数 by の引数  2 つのタプル（それぞれディクショナリの n 番目の要素と n + 1 番目の要素に対応）   関数 by の戻り値  Bool（false なら並び替え）     戻り値は [(key: ディクショナリの key の型, value: ディクショナリの value の型)]  つまり、ディクショナリとほぼ同じ構造を持った「タプルの配列」    コード例  以下はディクショナリ [String: Int] からタプルの配列 [(key: String, value: Int)] に変換する例です  import Foundation var scores: [String: Int] = [ &amp;#34;Steve Yamada&amp;#34;: 34, &amp;#34;Jeff Takeshita&amp;#34;: 87, &amp;#34;Mickey Yoshida&amp;#34;: 100, &amp;#34;Charly Kinoshita&amp;#34;: 53, &amp;#34;Anna Saito&amp;#34;: 19, &amp;#34;Robert Suzuki&amp;#34;: 97, &amp;#34;Erick Kawakami&amp;#34;: 32, &amp;#34;John Miyabe&amp;#34;: 64, &amp;#34;Gregory Goto&amp;#34;: 76 ] print(&amp;#34;&amp;#34;&amp;#34; Ascending by key ======================== &amp;#34;&amp;#34;&amp;#34;) var sortedByNameAsc: [(key: String, value: Int)] = scores.</description>
+      <guid>https://yagamo-style.com/2020/07/20/dictionary-to-array/index.html</guid>
+      <description>はじめに Swift には、連想配列的なデータ構造としてディクショナリがあります ディクショナリはデータの順序を保証しないので、そのままではテーブルビューやコレクションビューのデータソースとして利用しにくいです その場合は、タプルの配列に変換すると上手く行きます 検証環境 Xcode 11.5 Swift 5.2 利用する機能 sorted(by:) ディクショナリのメソッド 引数に渡した関数 by がソート条件 関数 by の引数 2 つのタプル（それぞれディクショナリの n 番目の要素と n + 1 番目の要素に対応） 関数 by の戻り値 Bool（false なら並び替え） 戻り値は [(key: ディクショナリの key の型, value: ディクショナリの value の型)] つまり、ディクショナリとほぼ同じ構造を持った「タプルの配列」 コード例 以下はディクショナリ [String: Int] からタプルの配列 [(key: String, value: Int)] に変換する例です import Foundation var scores: [String: Int] = [ &#34;Steve Yamada&#34;: 34, &#34;Jeff Takeshita&#34;: 87, &#34;Mickey Yoshida&#34;: 100, &#34;Charly Kinoshita&#34;: 53, &#34;Anna Saito&#34;: 19, &#34;Robert Suzuki&#34;: 97, &#34;Erick Kawakami&#34;: 32, &#34;John Miyabe&#34;: 64, &#34;Gregory Goto&#34;: 76 ] print(&#34;&#34;&#34; Ascending by key ======================== &#34;&#34;&#34;) var sortedByNameAsc: [(key: String, value: Int)] = scores.sorted { $0.key &lt; $1.key } sortedByNameAsc.forEach { print(&#34;\($0.key): \($0.value)&#34;) } print(&#34;&#34;&#34; Descending by key ======================== &#34;&#34;&#34;) var sortedByNameDesc: [(key: String, value: Int)] = scores.sorted { $0.key &gt; $1.key } sortedByNameDesc.forEach { print(&#34;\($0.key): \($0.value)&#34;) } print(&#34;&#34;&#34; Ascending by value ======================== &#34;&#34;&#34;) var sortedByScoreAsc: [(key: String, value: Int)] = scores.sorted { $0.value &lt; $1.value } sortedByScoreAsc.forEach { print(&#34;\($0.value): \($0.key)&#34;) } print(&#34;&#34;&#34; Descending by value ======================== &#34;&#34;&#34;) var sortedByScoreDesc: [(key: String, value: Int)] = scores.sorted { $0.value &gt; $1.value } sortedByScoreDesc.forEach { print(&#34;\($0.value): \($0.key)&#34;) } Ascending by key ======================== Anna Saito: 19 Charly Kinoshita: 53 Erick Kawakami: 32 Gregory Goto: 76 Jeff Takeshita: 87 John Miyabe: 64 Mickey Yoshida: 100 Robert Suzuki: 97 Steve Yamada: 34 Descending by key ======================== Steve Yamada: 34 Robert Suzuki: 97 Mickey Yoshida: 100 John Miyabe: 64 Jeff Takeshita: 87 Gregory Goto: 76 Erick Kawakami: 32 Charly Kinoshita: 53 Anna Saito: 19 Ascending by value ======================== 19: Anna Saito 32: Erick Kawakami 34: Steve Yamada 53: Charly Kinoshita 64: John Miyabe 76: Gregory Goto 87: Jeff Takeshita 97: Robert Suzuki 100: Mickey Yoshida Descending by value ======================== 100: Mickey Yoshida 97: Robert Suzuki 87: Jeff Takeshita 76: Gregory Goto 64: John Miyabe 53: Charly Kinoshita 34: Steve Yamada 32: Erick Kawakami 19: Anna Saito まとめ 状況に応じたデータの形式変換をする方法を押さえておくと、いろいろ応用ができそうですね 今回のサンプルは GitHub: aokiplayer/swift-sandbox/SortedDictionary に置きました</description>
     </item>
-    
     <item>
       <title>配列要素をグループ化したディクショナリの作成</title>
-      <link>https://yagamo-style.com/2020/07/16/arraygrouping/</link>
+      <link>https://yagamo-style.com/2020/07/16/arraygrouping/index.html</link>
       <pubDate>Thu, 16 Jul 2020 08:39:32 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2020/07/16/arraygrouping/</guid>
-      <description>はじめに  テーブルビューやコレクションビューで、グループ化した表示はよく使います その場合、データソースとして二次元配列などを利用すると思います が、データソースが一次元配列だった場合は、少しデータの加工が必要ですよね  検証環境  Xcode 11.5 Swift 5.2  利用する機能 Dictionary(grouping: by:)  ディクショナリのイニシャライザ grouping  元データとなる配列 by で指定した key ごとに、部分配列として分割される   by  グループ化したディクショナリの key となる値を返す関数 引数は、配列の各要素    コード例  配列 [Product] を、 Product の要素である category（Product.Category 型）ごとにグループ化するサンプル 変換後のディクショナリは [Product.Category: [Product]] 型  サンプルコード import Foundation struct Product: CustomStringConvertible { var description: String { &amp;#34;(\(self.name), $\(self.price), \(self.category))&amp;#34; } var name: String var price: Int var category: Category enum Category: String { case food case drink case other } } // Array of Product var products: [Product] = [ Product(name: &amp;#34;Fried Potato&amp;#34;, price: 24, category: .</description>
+      <guid>https://yagamo-style.com/2020/07/16/arraygrouping/index.html</guid>
+      <description>はじめに テーブルビューやコレクションビューで、グループ化した表示はよく使います その場合、データソースとして二次元配列などを利用すると思います が、データソースが一次元配列だった場合は、少しデータの加工が必要ですよね 検証環境 Xcode 11.5 Swift 5.2 利用する機能 Dictionary(grouping: by:) ディクショナリのイニシャライザ grouping 元データとなる配列 by で指定した key ごとに、部分配列として分割される by グループ化したディクショナリの key となる値を返す関数 引数は、配列の各要素 コード例 配列 [Product] を、 Product の要素である category（Product.Category 型）ごとにグループ化するサンプル 変換後のディクショナリは [Product.Category: [Product]] 型 サンプルコード import Foundation struct Product: CustomStringConvertible { var description: String { &#34;(\(self.name), $\(self.price), \(self.category))&#34; } var name: String var price: Int var category: Category enum Category: String { case food case drink case other } } // Array of Product var products: [Product] = [ Product(name: &#34;Fried Potato&#34;, price: 24, category: .food), Product(name: &#34;Water&#34;, price: 12, category: .drink), Product(name: &#34;Dish&#34;, price: 40, category: .other), Product(name: &#34;Chai&#34;, price: 5, category: .drink), Product(name: &#34;Fork&#34;, price: 56, category: .other), Product(name: &#34;Bread&#34;, price: 35, category: .food), Product(name: &#34;Noodle&#34;, price: 80, category: .food), Product(name: &#34;Coffee&#34;, price: 98, category: .drink), ] print( &#34;&#34;&#34; Elements of Array =========================================== &#34;&#34;&#34; ) products.forEach { print($0) } // Grouping by Category var groupedProducts: [Product.Category: [Product]] = Dictionary( grouping: products, by: { $0.category } ) print( &#34;&#34;&#34; Grouping by Category =========================================== &#34;&#34;&#34; ) groupedProducts.forEach { print( &#34;&#34;&#34; \($0.key.rawValue) \($0.value) &#34;&#34;&#34; ) } 出力結果 Elements of Array =========================================== (Fried Potato, $24, food) (Water, $12, drink) (Dish, $40, other) (Chai, $5, drink) (Fork, $56, other) (Bread, $35, food) (Noodle, $80, food) (Coffee, $98, drink) Grouping by Category =========================================== food [(Fried Potato, $24, food), (Bread, $35, food), (Noodle, $80, food)] other [(Dish, $40, other), (Fork, $56, other)] drink [(Water, $12, drink), (Chai, $5, drink), (Coffee, $98, drink)] まとめ 配列要素を任意のグループにまとめられるので、とても便利ですね 今回のサンプルは GitHub: aokiplayer/swift-sandbox/ArrayGrouping に置きました</description>
     </item>
-    
     <item>
       <title>iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある</title>
-      <link>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/</link>
+      <link>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/index.html</link>
       <pubDate>Mon, 02 Mar 2020 18:03:25 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/</guid>
-      <description>はじめに  iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません  もちろん、 unwind セグエメソッドも呼ばれません unwind セグエから戻っても、ライフサイクルメソッドは呼ばれません（unwind セグエメソッドは呼ばれる）    サンプル 画面レイアウト New Default シーンへのセグエ  Xcode 11 でのデフォルト設定 Presentation が Same as Destination  Full Screen シーンへのセグエ  Presentation を Full Screen に変更 デフォルトと異なり、画面全体を覆う（iOS 12 までの Modal）  ソースコード ViewController（最初の画面） import UIKit  class ViewController: UIViewController {   override func viewDidLoad() {  super.viewDidLoad()  print(#function)  }   override func viewWillDisappear(_ animated: Bool) {  super.</description>
+      <guid>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/index.html</guid>
+      <description>はじめに iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません もちろん、 unwind セグエメソッドも呼ばれません unwind セグエから戻っても、ライフサイクルメソッドは呼ばれません（unwind セグエメソッドは呼ばれる） サンプル 画面レイアウト New Default シーンへのセグエ Xcode 11 でのデフォルト設定 Presentation が Same as Destination Full Screen シーンへのセグエ Presentation を Full Screen に変更 デフォルトと異なり、画面全体を覆う（iOS 12 までの Modal） ソースコード ViewController（最初の画面） import UIKit class ViewController: UIViewController { override func viewDidLoad() { super.viewDidLoad() print(#function) } override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated) print(#function) } override func viewDidDisappear(_ animated: Bool) { super.viewDidDisappear(animated) print(#function) } override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) print(#function) } override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated) print(#function) } @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) { print(&#34;Returned through unwind segue.&#34;) } override func prepare(for segue: UIStoryboardSegue, sender: Any?) { let style: String switch segue.destination.modalPresentationStyle { case .automatic: style = &#34;automatic&#34; case .currentContext: style = &#34;currentContext&#34; case .custom: style = &#34;custom&#34; case .formSheet: style = &#34;formSheet&#34; case .fullScreen: style = &#34;fullScreen&#34; case .none: style = &#34;none&#34; case .overCurrentContext: style = &#34;overCurrentContext&#34; case .overFullScreen: style = &#34;overFullScreen&#34; case .pageSheet: style = &#34;pageSheet&#34; case .popover: style = &#34;popOver&#34; @unknown default: fatalError(&#34;Maybe there will be new case.&#34;) } print(style) } } NewDefaultVC（NewDefault ボタンから遷移する画面） import UIKit class NewDefaultVC: UIViewController { override func viewDidLoad() { super.viewDidLoad() } override func prepare(for segue: UIStoryboardSegue, sender: Any?) { print(#file.components(separatedBy: &#34;/&#34;).last!) } } FullScreenVC（FullScreen ボタンから遷移する画面） import UIKit class FullScreenVC: UIViewController { override func viewDidLoad() { super.viewDidLoad() } override func prepare(for segue: UIStoryboardSegue, sender: Any?) { print(#file.components(separatedBy: &#34;/&#34;).last!) } } 実行結果 New Default ボタンで遷移 -&gt; Unwind ボタンで戻る pageSheet NewDefaultVC.swift Returned through unwind segue. unwind セグエメソッドは呼ばれていますが、戻ったシーンのライフサイクルメソッドが呼ばれていません New Default ボタンで遷移 -&gt; 画面上部からスワイプダウンで戻る pageSheet やはり、戻ったシーンのライフサイクルメソッドは呼ばれていません また、 unwind セグエを利用していないので、当然ですが unwind セグエメソッドも呼ばれていませんね 同様に、 New Default シーンの prepare(for:sender:) も呼ばれていません Full Screen ボタンで遷移 -&gt; Unwind ボタンで戻る fullScreen viewWillDisappear(_:) viewDidDisappear(_:) FullScreenVC.swift Returned through unwind segue. viewWillAppear(_:) viewDidAppear(_:) こちらは、 iOS 12 までと同じですね 戻ったシーンのライフサイクルメソッドおよび unwind セグエメソッドの、どちらも呼ばれています まとめ iOS 13 から新しくなったデフォルトのモーダルの挙動は、ユーザにとっては「メインとは別の流れにいる」のを認識しやすいと思います また、スワイプダウンで戻れるので、操作としても直感的です ただ、「戻った際に何か処理をさせる」必要がある場合は要注意ですね 今回のサンプルは、aokiplayer/ModalXcode11 に置きました</description>
     </item>
-    
   </channel>
 </rss>

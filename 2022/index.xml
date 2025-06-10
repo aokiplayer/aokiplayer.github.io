@@ -1,133 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2022 on Yagamo Style</title>
-    <link>https://yagamo-style.com/2022/</link>
-    <description>Recent content in 2022 on Yagamo Style</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>2022 :: Yagamo Style</title>
+    <link>https://yagamo-style.com/2022/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 12 Dec 2022 06:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2022/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Dec 2022 06:00:00 +0900</lastBuildDate>
+    <atom:link href="https://yagamo-style.com/2022/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SwiftUI でサイズクラスに対応する</title>
-      <link>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</link>
+      <link>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/index.html</link>
       <pubDate>Mon, 12 Dec 2022 06:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/</guid>
-      <description>はじめに Storyboard を利用していると、サイズクラスを利用して以下のように柔軟にビューのレイアウトを変更することが、比較的簡単に実現できていました。
- iPad で画面を分割していないので、幅が十分にあるからビューを横に並べよう iPad をマルチタスキングで画面分割して幅が狭くなったので、ビューを縦に並べよう  UIStackView で、幅と高さが Regular のデバイス（iPad で画面非分割時など）の場合のみサブビューを横に並べるのであれば、以下のような設定を行いました。
-サイズクラスは SwiftUI でも利用できるので、その使い方を記載します。
-今回のゴール 以下のように、画面幅の広い状態ではビューを横に、狭い状態では縦に並べるように設定します。
-   w:Regular w:Compact          検証環境  macOS Ventura 13.0.1 Xcode 14.1 iOS/iPadOS 16.1  サイズクラスとは サイズクラスは、その名のとおり「デバイスのサイズを分類する」概念です。サイズクラスでは、ざっくりとデバイスの縦横を「普通（Regular）」「小さい（Compact）」の組み合わせで表します。 それにより、最大で 4 通りの画面サイズ（w: Regular x h: Regular, &amp;hellip;, w: Compact x h: Compact）にデバイスを分類してビューのレイアウトを行います。 サイズクラスを使うことで、全部のデバイスに個々に対応せず、大まかな分類ごとにレイアウトを行えば済むので労力が削減できます。
-4 パターン全部に対応せずとも、iPad の画面分割のことを考えるのであれば、幅のみに着目して 2 パターンでレイアウトすることが多いのではないでしょうか。
-サイズクラス情報の取得 現在表示中のビューがどのサイズクラスなのかは、Environment から列挙型 UserInterfaceSizeClass 型の値として取得できます。
-@Environment(\.horizontalSizeClass) private var horizontalSizeClass @Environment(\.</description>
+      <guid>https://yagamo-style.com/2022/12/12/sizeclass-swiftui/index.html</guid>
+      <description>はじめに Storyboard を利用していると、サイズクラスを利用して以下のように柔軟にビューのレイアウトを変更することが、比較的簡単に実現できていました。&#xA;iPad で画面を分割していないので、幅が十分にあるからビューを横に並べよう iPad をマルチタスキングで画面分割して幅が狭くなったので、ビューを縦に並べよう UIStackView で、幅と高さが Regular のデバイス（iPad で画面非分割時など）の場合のみサブビューを横に並べるのであれば、以下のような設定を行いました。&#xA;サイズクラスは SwiftUI でも利用できるので、その使い方を記載します。&#xA;今回のゴール 以下のように、画面幅の広い状態ではビューを横に、狭い状態では縦に並べるように設定します。&#xA;w:Regular w:Compact 検証環境 macOS Ventura 13.0.1 Xcode 14.1 iOS/iPadOS 16.1 サイズクラスとは サイズクラスは、その名のとおり「デバイスのサイズを分類する」概念です。サイズクラスでは、ざっくりとデバイスの縦横を「普通（Regular）」「小さい（Compact）」の組み合わせで表します。 それにより、最大で 4 通りの画面サイズ（w: Regular x h: Regular, …, w: Compact x h: Compact）にデバイスを分類してビューのレイアウトを行います。 サイズクラスを使うことで、全部のデバイスに個々に対応せず、大まかな分類ごとにレイアウトを行えば済むので労力が削減できます。</description>
     </item>
-    
     <item>
       <title>Swift の型消去（Type Erasure）</title>
-      <link>https://yagamo-style.com/2022/10/26/type-erasure/</link>
+      <link>https://yagamo-style.com/2022/10/26/type-erasure/index.html</link>
       <pubDate>Wed, 26 Oct 2022 14:03:56 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/10/26/type-erasure/</guid>
-      <description>はじめに SwiftUI をしっかり理解しようとすると、これまで意識しなくて良かった多くの言語機能を知る必要があり、なかなか苦労します。 その 1 つとして、型消去（Type Erasure）があります。 ずっとわかったようなわからないような感じだったので、腰を据えて調べてみました。 まだこれについては自信がないので、ご指摘などあれば GitHub から頂けるとうれしいです。
-サンプルは GitHub に置きました。
-前提: プロトコルに関する制約事項 Swift では、associatedtype を持つプロトコルは、型宣言に利用できません。 以下のコードでは、最下部で Store 型の変数を宣言しようとしていますが、コンパイルが通りません。 これは、Store の持つ associatedtype の型が確定しないためです。
-// お店で扱う商品の種類 struct Drug {  var item: String }  /** 何らかのお店を表すプロトコル. 商品の種類は associatedtype により柔軟に指定できるようにしている. */ protocol Store {  associatedtype T   var kind: T { get }  func kindsOfStore() -&amp;gt; T }  /** 具体的なお店（マツモトキヨシ）. associatedtype は Drug として確定. */ class MatsumotoKiyoshi: Store {  var kind: Drug   init(kind: Drug) {  self.</description>
+      <guid>https://yagamo-style.com/2022/10/26/type-erasure/index.html</guid>
+      <description>はじめに SwiftUI をしっかり理解しようとすると、これまで意識しなくて良かった多くの言語機能を知る必要があり、なかなか苦労します。 その 1 つとして、型消去（Type Erasure）があります。 ずっとわかったようなわからないような感じだったので、腰を据えて調べてみました。 まだこれについては自信がないので、ご指摘などあれば GitHub から頂けるとうれしいです。&#xA;サンプルは GitHub に置きました。&#xA;前提: プロトコルに関する制約事項 Swift では、associatedtype を持つプロトコルは、型宣言に利用できません。 以下のコードでは、最下部で Store 型の変数を宣言しようとしていますが、コンパイルが通りません。 これは、Store の持つ associatedtype の型が確定しないためです。&#xA;// お店で扱う商品の種類 struct Drug { var item: String } /** 何らかのお店を表すプロトコル. 商品の種類は associatedtype により柔軟に指定できるようにしている. */ protocol Store { associatedtype T var kind: T { get } func kindsOfStore() -&gt; T } /** 具体的なお店（マツモトキヨシ）. associatedtype は Drug として確定. */ class MatsumotoKiyoshi: Store { var kind: Drug init(kind: Drug) { self.kind = kind } func kindsOfStore() -&gt; Drug { return kind } } /** 具体的なお店（赤ひげ） associatedtype は Drug として確定. */ class AkaHige: Store { var kind: Drug init(kind: Drug) { self.kind = kind } func kindsOfStore() -&gt; Drug { return kind } } /** MatsumotoKiyoshi は Store プロトコルに準拠しているので問題なさそうだが、 associatedtype を持つのでこの宣言はできない. */ var myStore1: Store = MatsumotoKiyoshi(kind: Drug(item: &#34;絆創膏&#34;)) 型消去による解決 associatedtype を持ったオブジェクトを別の型にラップして、associatedtype をジェネリクスで表現できるようにしてみます。こうすることで、Store プロトコル型ではないものの、型宣言からは MatsumotoKiyoshi という具体的な型の情報を消去し、抽象的な AnyStore 型として表現できるようになります。</description>
     </item>
-    
     <item>
       <title>SwiftUI のモディファイアの順序による結果の相違</title>
-      <link>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</link>
+      <link>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/index.html</link>
       <pubDate>Fri, 14 Oct 2022 10:17:36 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</guid>
-      <description>はじめに SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。 時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。
-簡単に扱えるモディファイアですが、順序には注意する必要があります。
-検証環境  macOS Monterey 12.6 Xcode 14.0.0  実験 Text に、frame(), padding(), border() の 3 つのモディファイアを設定してみます。 設定順序の組み合わせは 3! 通りあります。
-サンプルコード それぞれ、枠線を付けた同じサイズの VStack 内に上記 3 つのモディファイアの順序を変えた Text を配置しています。
-import SwiftUI  struct ContentView: View {  var body: some View {  VStack {  Text(&amp;#34;モディファイアの順序&amp;#34;)  .font(.title)   VStack {  Text(&amp;#34;frame -&amp;gt; border -&amp;gt; padding&amp;#34;)  .frame(width: 300, height: 60)  .border(.red, width: 3)  .</description>
+      <guid>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/index.html</guid>
+      <description>はじめに SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。 時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。&#xA;簡単に扱えるモディファイアですが、順序には注意する必要があります。&#xA;検証環境 macOS Monterey 12.6 Xcode 14.0.0 実験 Text に、frame(), padding(), border() の 3 つのモディファイアを設定してみます。 設定順序の組み合わせは 3! 通りあります。&#xA;サンプルコード それぞれ、枠線を付けた同じサイズの VStack 内に上記 3 つのモディファイアの順序を変えた Text を配置しています。&#xA;import SwiftUI struct ContentView: View { var body: some View { VStack { Text(&#34;モディファイアの順序&#34;) .font(.title) VStack { Text(&#34;frame -&gt; border -&gt; padding&#34;) .frame(width: 300, height: 60) .border(.red, width: 3) .padding() } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;frame -&gt; padding -&gt; border&#34;) .frame(width: 300, height: 60) .padding() .border(.red, width: 3) } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;border -&gt; frame -&gt; padding&#34;) .border(.red, width: 3) .frame(width: 300, height: 60) .padding() } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;border -&gt; padding -&gt; frame&#34;) .border(.red, width: 3) .padding() .frame(width: 300, height: 60) } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;padding -&gt; frame -&gt; border&#34;) .padding() .frame(width: 300, height: 60) .border(.red, width: 3) } .frame(width: 350, height: 100) .border(.indigo, width: 3) VStack { Text(&#34;padding -&gt; border -&gt; frame&#34;) .padding() .border(.red, width: 3) .frame(width: 300, height: 60) } .frame(width: 350, height: 100) .border(.indigo, width: 3) } } } struct ContentView_Previews: PreviewProvider { static var previews: some View { ContentView() } } 結果</description>
     </item>
-    
     <item>
       <title>iOSDC Japan 2022 参加レポート</title>
-      <link>https://yagamo-style.com/2022/09/12/iosdc2022/</link>
+      <link>https://yagamo-style.com/2022/09/12/iosdc2022/index.html</link>
       <pubDate>Mon, 12 Sep 2022 23:46:19 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/09/12/iosdc2022/</guid>
-      <description>不思議なことに、昨年の iOSDC Japan 2021 の終わったのが ほんの数日前のような気がします。
-今回は、熱いうちにレポートを書いておきます。
-公式サイト、ハッシュタグなど  https://iosdc.jp/2022/ @iosdcjp #iosdc  私の参加方針 昨年（2021） 昨年は「とにかくたくさんのトークを聞きたい！」との気持ちで、休むことなくたくさんのトークを聞いてフィードバックしました。 その結果として、ありがたいことにベストフィードバッカー賞を頂きました。
-今年（2022） 3 年ぶりに現地開催もある（オンラインと同時開催）ということで、私は現地で参加しました。 多くのトークを聞きたい気持ちは変わりませんが、現地でしかできない対話を大切にしよう（飢えてる）という思いが強く、また会場と自宅が遠いこともあり、タイムシフトでの視聴はほとんど行いませんでした。
-感想 スポンサーブース スポンサーブースは、全て訪問しました。 みなさん、各社サービスの紹介などもさることながら、抱えている課題や Swift の歴史にかかわる雑談など、たくさんされていました。前回（2019）の時と、印象が変わりました。
-こういう単なる雑談は、ブース要員と来訪者が知り合い同士の場合はよく見かけました（そしてそういう内輪っぽい会話をしている場には近づき難い）が、私のような初対面の人とはあまりしていなかったように思えます。参加者と同じで、コミュニケーションに飢えている部分があったのでしょうか？
-とにかく、スポンサー各社様の内情なども伺えて、とても有意義でした。
-トーク 現地チケットの数を絞ったことから、人気のところにも「満員で入れない」ということはありませんでした。オンライン・オフライン同時開催におけるメリットのひとつですね。ただ、QA の時間はその場では取られなかったので「現地のメリットは？」と思わなくもなかったです。
-トーク内容としては「Swift の文法が大きく変わった」という点を強く感じました。 新規開発で SwiftUI を使った案件が増えたこと、JavaScript などでは当然のように使われてきた async/await などが使えるようになり、コールバック地獄から抜け出せるようになったためでしょうか。
-そういう意味で、もっとも印象に残ったのは たまねぎ さんの「20分でわかる！速習resultBuilder」でした。
-SwiftUI の文法は元々の Swift の文法とは大きく異なりますが、とりあえず「こう書けば良い」で済ましてしまいがちです。 その文法がどうやって成り立っているのか、知ることは大きなステップアップになるでしょう。 SwiftUI で画面を組み立てたれるようになった（SwiftUI の文法に少し慣れた）ら、ぜひ見てみることをお勧めします。
-フィードバックを忘れずに！ これだけ大規模で楽しいカンファレンスが実施できるのは、運営・スポンサー・スピーカーおよびトークの応募者、そして我々参加者の力があってこそです。 昨年の参加レポート にも書きましたが、参加者からのフィードバックがモチベーションとなります。
-また、スポンサーについては「どれだけブースに立ち寄ってもらえたか」「どれだけアンケートの回答が集まったか」も、次回以降の継続可否に大きく関わります（実体験）。
- トークのフィードバック 全体アンケート スポンサー各社からのアンケート  これらも、忘れずにフィードバックしましょう。
-では、また次の iOSDC Japan 2023 で会いましょう！（そして私とも仲良くしてください）</description>
+      <guid>https://yagamo-style.com/2022/09/12/iosdc2022/index.html</guid>
+      <description>不思議なことに、昨年の iOSDC Japan 2021 の終わったのが ほんの数日前のような気がします。&#xA;今回は、熱いうちにレポートを書いておきます。&#xA;公式サイト、ハッシュタグなど https://iosdc.jp/2022/ @iosdcjp #iosdc 私の参加方針 昨年（2021） 昨年は「とにかくたくさんのトークを聞きたい！」との気持ちで、休むことなくたくさんのトークを聞いてフィードバックしました。 その結果として、ありがたいことにベストフィードバッカー賞を頂きました。&#xA;今年（2022） 3 年ぶりに現地開催もある（オンラインと同時開催）ということで、私は現地で参加しました。 多くのトークを聞きたい気持ちは変わりませんが、現地でしかできない対話を大切にしよう（飢えてる）という思いが強く、また会場と自宅が遠いこともあり、タイムシフトでの視聴はほとんど行いませんでした。&#xA;感想 スポンサーブース スポンサーブースは、全て訪問しました。 みなさん、各社サービスの紹介などもさることながら、抱えている課題や Swift の歴史にかかわる雑談など、たくさんされていました。前回（2019）の時と、印象が変わりました。&#xA;こういう単なる雑談は、ブース要員と来訪者が知り合い同士の場合はよく見かけました（そしてそういう内輪っぽい会話をしている場には近づき難い）が、私のような初対面の人とはあまりしていなかったように思えます。参加者と同じで、コミュニケーションに飢えている部分があったのでしょうか？&#xA;とにかく、スポンサー各社様の内情なども伺えて、とても有意義でした。&#xA;トーク 現地チケットの数を絞ったことから、人気のところにも「満員で入れない」ということはありませんでした。オンライン・オフライン同時開催におけるメリットのひとつですね。ただ、QA の時間はその場では取られなかったので「現地のメリットは？」と思わなくもなかったです。&#xA;トーク内容としては「Swift の文法が大きく変わった」という点を強く感じました。 新規開発で SwiftUI を使った案件が増えたこと、JavaScript などでは当然のように使われてきた async/await などが使えるようになり、コールバック地獄から抜け出せるようになったためでしょうか。&#xA;そういう意味で、もっとも印象に残ったのは たまねぎ さんの「20分でわかる！速習resultBuilder」でした。&#xA;SwiftUI の文法は元々の Swift の文法とは大きく異なりますが、とりあえず「こう書けば良い」で済ましてしまいがちです。 その文法がどうやって成り立っているのか、知ることは大きなステップアップになるでしょう。 SwiftUI で画面を組み立てたれるようになった（SwiftUI の文法に少し慣れた）ら、ぜひ見てみることをお勧めします。&#xA;フィードバックを忘れずに！ これだけ大規模で楽しいカンファレンスが実施できるのは、運営・スポンサー・スピーカーおよびトークの応募者、そして我々参加者の力があってこそです。 昨年の参加レポート にも書きましたが、参加者からのフィードバックがモチベーションとなります。&#xA;また、スポンサーについては「どれだけブースに立ち寄ってもらえたか」「どれだけアンケートの回答が集まったか」も、次回以降の継続可否に大きく関わります（実体験）。&#xA;トークのフィードバック 全体アンケート スポンサー各社からのアンケート これらも、忘れずにフィードバックしましょう。&#xA;では、また次の iOSDC Japan 2023 で会いましょう！（そして私とも仲良くしてください）</description>
     </item>
-    
     <item>
       <title>iOSDC Japan 2021 参加レポート - ベストフィードバッカー賞を頂きました</title>
-      <link>https://yagamo-style.com/2022/09/10/iosdc2021/</link>
+      <link>https://yagamo-style.com/2022/09/10/iosdc2021/index.html</link>
       <pubDate>Sat, 10 Sep 2022 11:25:14 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/09/10/iosdc2021/</guid>
-      <description>iOSDC Japan 2022 が、今日から始まりますね。 そんな中、昨年のレポートをいま書いてます。昨年のレポートが終わらないと、今年のイベントが始まりませんからね！
-本レポートでは、セッション内容などの感想には触れません。 私からみなさんに伝えたいのは「ほんの少しでもいいので、スピーカーには感想を伝えよう」だけです。
-ありがたいことに、ベストフィードバッカー賞を頂いたので、その点について書いてみたいと思います。
-公式サイト、ハッシュタグなど  https://iosdc.jp/2021/ @iosdcjp #iosdc  モチベーション iOSDC Japan に登壇してイベントを堪能した 2020 年。 しかし、2020 年は私自身に不幸()があり、辛い日々を過ごしていて参加する元気もなく、1,2 セッション覗いただけとなりました。
-その反動で、2021 年は「とにかくセッションをたくさん聞きたい」という気持ちでいっぱいでした。
-私はいかにベストフィードバッカー賞を頂いたのか モチベーションでも書いたように、とにかくたくさんのセッションを聞きたい気持ちが大きかったので、こんな過ごし方をしてました。
- セッションを聞く 次のセッションまでの間は、聞けなかったセッションをニコニコ動画の「追っかけ再生」 その日のクロージング後も「追っかけ再生」 翌日の開始までの間も「追っかけ再生」  こんな感じでした。結果として、全体の 3/4 くらいのセッションは期間中に聞いたのではないかと思います。オンライン参加ならではですね。 もちろん、ただ聞き流すのではなく
- 気づきはメモなども取りながら 楽しかったという気持ちを忘れないうちにフィードバック  を大切にしていました。そのためか、ベストフィードバッカー賞を頂くことができました。
-賞品は Grid 社の AppleWatch の壁掛けです。カッコイイ！
-こんなフィードバックでもいいのかな？ いざフィードバックしようとしても、みなさん気になるのが
- 一言だけのフィードバックなんてもらっても、嬉しくないのでは 自分には内容が難しくて理解できなかったのに、フィードバックしたら申し訳ない 全然的外れなことを書いて、がっかりされないだろうか  などだと思います。
-結論から言うと、そんなことは全くないです。 私は普段から仕事で登壇していますし、iOSDC Japan でも一度登壇していますが、「言葉でフィードバックをもらう」のはどんな些細なものでも嬉しいです（ネガティブなものも含めて）。
-私はあまり人に話しかけるのが得意ではない（カンファレンスの懇親会でもボッチ率が高い）ですし、同じ気持ちの方も多いのではないかと思います。 なら、まずは文字で感想を伝えてみましょう！
-最後に 今日からの iOSDC Japan 2022 は、久しぶりにオフラインも復活です。 文字でのフィードバックだけでなく、ぜひスピーカーの方々に直接感想を伝えてみましょう。文字でも嬉しいですが、直接だともっと嬉しいものですよ。</description>
+      <guid>https://yagamo-style.com/2022/09/10/iosdc2021/index.html</guid>
+      <description>iOSDC Japan 2022 が、今日から始まりますね。 そんな中、昨年のレポートをいま書いてます。昨年のレポートが終わらないと、今年のイベントが始まりませんからね！&#xA;本レポートでは、セッション内容などの感想には触れません。 私からみなさんに伝えたいのは「ほんの少しでもいいので、スピーカーには感想を伝えよう」だけです。&#xA;ありがたいことに、ベストフィードバッカー賞を頂いたので、その点について書いてみたいと思います。&#xA;公式サイト、ハッシュタグなど https://iosdc.jp/2021/ @iosdcjp #iosdc モチベーション iOSDC Japan に登壇してイベントを堪能した 2020 年。 しかし、2020 年は私自身に不幸()があり、辛い日々を過ごしていて参加する元気もなく、1,2 セッション覗いただけとなりました。&#xA;その反動で、2021 年は「とにかくセッションをたくさん聞きたい」という気持ちでいっぱいでした。&#xA;私はいかにベストフィードバッカー賞を頂いたのか モチベーションでも書いたように、とにかくたくさんのセッションを聞きたい気持ちが大きかったので、こんな過ごし方をしてました。&#xA;セッションを聞く 次のセッションまでの間は、聞けなかったセッションをニコニコ動画の「追っかけ再生」 その日のクロージング後も「追っかけ再生」 翌日の開始までの間も「追っかけ再生」 こんな感じでした。結果として、全体の 3/4 くらいのセッションは期間中に聞いたのではないかと思います。オンライン参加ならではですね。 もちろん、ただ聞き流すのではなく&#xA;気づきはメモなども取りながら 楽しかったという気持ちを忘れないうちにフィードバック を大切にしていました。そのためか、ベストフィードバッカー賞を頂くことができました。&#xA;賞品は Grid 社の AppleWatch の壁掛けです。カッコイイ！&#xA;こんなフィードバックでもいいのかな？ いざフィードバックしようとしても、みなさん気になるのが&#xA;一言だけのフィードバックなんてもらっても、嬉しくないのでは 自分には内容が難しくて理解できなかったのに、フィードバックしたら申し訳ない 全然的外れなことを書いて、がっかりされないだろうか などだと思います。&#xA;結論から言うと、そんなことは全くないです。 私は普段から仕事で登壇していますし、iOSDC Japan でも一度登壇していますが、「言葉でフィードバックをもらう」のはどんな些細なものでも嬉しいです（ネガティブなものも含めて）。&#xA;私はあまり人に話しかけるのが得意ではない（カンファレンスの懇親会でもボッチ率が高い）ですし、同じ気持ちの方も多いのではないかと思います。 なら、まずは文字で感想を伝えてみましょう！&#xA;最後に 今日からの iOSDC Japan 2022 は、久しぶりにオフラインも復活です。 文字でのフィードバックだけでなく、ぜひスピーカーの方々に直接感想を伝えてみましょう。文字でも嬉しいですが、直接だともっと嬉しいものですよ。</description>
     </item>
-    
     <item>
       <title>Hugo で記事の URL にエイリアスを設定する</title>
-      <link>https://yagamo-style.com/2022/03/29/hugo-url-aliases/</link>
+      <link>https://yagamo-style.com/2022/03/29/hugo-url-aliases/index.html</link>
       <pubDate>Tue, 29 Mar 2022 10:19:02 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/03/29/hugo-url-aliases/</guid>
-      <description>はじめに  静的サイトジェネレータ Hugo の設定のお話です 記事が増えると、 Web サイトを整理したくなりますよね。また、 URL を後から変えたくなることもあります。 ただ、そうするとどこかからリンクされているページであればリンク切れを起こしてしまい、全部修正して回る羽目になります 自分のサイト内のリンクであればそれでもいいかも知れませんが、サイト外からリンクされている場合にはそういう訳にもいかないでしょう そのような場合は、記事にエイリアスを設定すれば解決します  検証環境  hugo v0.93.3  エイリアスの設定  ページヘッダの Front Matter に aliases を記載することで、通常の URL に加えて、エイリアスによるアクセスが可能となります 実際には、エイリアスにアクセスすると本来の URL にリダイレクトされます  +++ title = &amp;#34;iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました&amp;#34; date = &amp;#34;2019-09-07T07:33:45+09:00&amp;#34; draft = false toc = true tags = [ &amp;#34;iOSDC&amp;#34;, &amp;#34;iOS&amp;#34;, &amp;#34;Swift&amp;#34;, &amp;#34;macOS&amp;#34; ] aliases = [ &amp;#34;/posts/iosdc2019day1/&amp;#34; ] ogimage = &amp;#34;images/open_graph_logo.png&amp;#34; +++ [iOSDC 2019 に Mac の環境構築の内容で LT 登壇します](/2019/09/03/iosdc2019pre/) で書いていましたが…  上記の記事に設定される本来のパスは /2019/09/07/iosdc2019day1/ ですが、 /posts/iosdc2019day1/ でもアクセスできます 実際にアクセスして、動作を確認してみてください  まとめ  一度公開した Web ページの URL を変えるのは、いろいろと面倒です  でもやりたくなっちゃう   そんな時は、この記事のようにエイリアスで対応しましょう  参考  URL Management | Hugo  </description>
+      <guid>https://yagamo-style.com/2022/03/29/hugo-url-aliases/index.html</guid>
+      <description>はじめに 静的サイトジェネレータ Hugo の設定のお話です 記事が増えると、 Web サイトを整理したくなりますよね。また、 URL を後から変えたくなることもあります。 ただ、そうするとどこかからリンクされているページであればリンク切れを起こしてしまい、全部修正して回る羽目になります 自分のサイト内のリンクであればそれでもいいかも知れませんが、サイト外からリンクされている場合にはそういう訳にもいかないでしょう そのような場合は、記事にエイリアスを設定すれば解決します 検証環境 hugo v0.93.3 エイリアスの設定 ページヘッダの Front Matter に aliases を記載することで、通常の URL に加えて、エイリアスによるアクセスが可能となります 実際には、エイリアスにアクセスすると本来の URL にリダイレクトされます +++ title = &#34;iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました&#34; date = &#34;2019-09-07T07:33:45+09:00&#34; draft = false toc = true tags = [ &#34;iOSDC&#34;, &#34;iOS&#34;, &#34;Swift&#34;, &#34;macOS&#34; ] aliases = [ &#34;/posts/iosdc2019day1/&#34; ] ogimage = &#34;images/open_graph_logo.png&#34; +++ [iOSDC 2019 に Mac の環境構築の内容で LT 登壇します](https://yagamo-style.com/2019/09/03/iosdc2019pre/) で書いていましたが… 上記の記事に設定される本来のパスは /2019/09/07/iosdc2019day1/ ですが、 /posts/iosdc2019day1/ でもアクセスできます 実際にアクセスして、動作を確認してみてください まとめ 一度公開した Web ページの URL を変えるのは、いろいろと面倒です でもやりたくなっちゃう そんな時は、この記事のようにエイリアスで対応しましょう 参考 URL Management | Hugo</description>
     </item>
-    
     <item>
       <title>Hugo で記事の URL をカスタマイズ</title>
-      <link>https://yagamo-style.com/2022/03/17/hugo-custom-url/</link>
+      <link>https://yagamo-style.com/2022/03/17/hugo-custom-url/index.html</link>
       <pubDate>Thu, 17 Mar 2022 09:50:39 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/03/17/hugo-custom-url/</guid>
-      <description>はじめに  静的サイトジェネレータの Hugo では、記事の URL 階層はデフォルトではディレクトリ階層と一致します ですが、場合によっては変更したい場合があります  ブログ記事などでは、たとえば /diary/2020/04/19 のような形式にしたい場合もあるでしょう そのためにディレクトリを細かく設定していくのは面倒です   その際に、必要な設定について記載します  検証環境  hugo v0.93.3  カスタム URL の指定（Permalinks の設定）  config.toml に [permalinks] 項目を追加することで、記事のパスを自由に設定できます  サンプル [permalinks] posts = &amp;#39;/:year/:month/:day/:filename/&amp;#39;  上記の例では、 contents/posts に配置された各記事の URL は 2020/04/19/拡張子を除いた記事のファイル名/ のような形式となります  出力イメージは、この記事の URL をご覧ください   :year のような設定値は他にも用意されているので、必要に応じて公式サイトで確認すると良いでしょう  まとめ  URL を物理的なディレクトリ階層と分けられれば、記事の管理がグッと楽になります また、途中でディレクトリ階層を変更しても、記事の URL が変わらないのがありがたいですね  参考  URL Management | Hugo  </description>
+      <guid>https://yagamo-style.com/2022/03/17/hugo-custom-url/index.html</guid>
+      <description>はじめに 静的サイトジェネレータの Hugo では、記事の URL 階層はデフォルトではディレクトリ階層と一致します ですが、場合によっては変更したい場合があります ブログ記事などでは、たとえば /diary/2020/04/19 のような形式にしたい場合もあるでしょう そのためにディレクトリを細かく設定していくのは面倒です その際に、必要な設定について記載します 検証環境 hugo v0.93.3 カスタム URL の指定（Permalinks の設定） config.toml に [permalinks] 項目を追加することで、記事のパスを自由に設定できます サンプル [permalinks] posts = &#39;/:year/:month/:day/:filename/&#39; 上記の例では、 contents/posts に配置された各記事の URL は 2020/04/19/拡張子を除いた記事のファイル名/ のような形式となります 出力イメージは、この記事の URL をご覧ください :year のような設定値は他にも用意されているので、必要に応じて公式サイトで確認すると良いでしょう まとめ URL を物理的なディレクトリ階層と分けられれば、記事の管理がグッと楽になります また、途中でディレクトリ階層を変更しても、記事の URL が変わらないのがありがたいですね 参考 URL Management | Hugo</description>
     </item>
-    
     <item>
       <title>いつも忘れる Git の設定（日本語ファイル名を正しく表示）</title>
-      <link>https://yagamo-style.com/2022/03/16/git-unusual-filename/</link>
+      <link>https://yagamo-style.com/2022/03/16/git-unusual-filename/index.html</link>
       <pubDate>Wed, 16 Mar 2022 14:59:46 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/03/16/git-unusual-filename/</guid>
-      <description>はじめに  この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます  Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね  これを設定しておく（グローバルでやっちゃってもいいとは思うけど）  git config --local core.quotepath false 参考  Git の man より  core.quotePath  Commands that output paths (e.g. ls-files, diff), will quote &amp;#34;unusual&amp;#34; characters in the  pathname by enclosing the pathname in double-quotes and escaping those characters with  backslashes in the same way C escapes control characters (e.g. \t for TAB, \n for LF, \\ for  backslash) or bytes with values larger than 0x80 (e.</description>
+      <guid>https://yagamo-style.com/2022/03/16/git-unusual-filename/index.html</guid>
+      <description>はじめに この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね これを設定しておく（グローバルでやっちゃってもいいとは思うけど） git config --local core.quotepath false 参考 Git の man より core.quotePath Commands that output paths (e.g. ls-files, diff), will quote &#34;unusual&#34; characters in the pathname by enclosing the pathname in double-quotes and escaping those characters with backslashes in the same way C escapes control characters (e.g. \t for TAB, \n for LF, \\ for backslash) or bytes with values larger than 0x80 (e.g. octal \302\265 for &#34;micro&#34; in UTF-8). If this variable is set to false, bytes higher than 0x80 are not considered &#34;unusual&#34; any more. Double-quotes, backslash and control characters are always escaped regardless of the setting of this variable. A simple space character is not considered &#34;unusual&#34;. Many commands can output pathnames completely verbatim using the -z option. The default value is true.</description>
     </item>
-    
     <item>
       <title>プロパティが nil の場合もエンコード先の JSON に属性を出力する</title>
-      <link>https://yagamo-style.com/2022/03/12/json-with-null-value/</link>
+      <link>https://yagamo-style.com/2022/03/12/json-with-null-value/index.html</link>
       <pubDate>Sat, 12 Mar 2022 22:38:43 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2022/03/12/json-with-null-value/</guid>
-      <description>はじめに  JSON の解析をカスタマイズする方法については [ネストした JSON をフラットな構造体にマッピングする] で書きました 「Codable なオブジェクトに nil 値があると、 JSON ではその属性自体が省略されてしまう挙動を変えられないのか？」という質問を受講者から頂いたので、ここに記載しておきます  検証環境  macOS Big Sur 11.6 Xcode 13.2.1  サンプルコード 通常の挙動（nil を含む属性が出力されない） // JSON と対応させる Person 型（Codable に準拠） struct Person: Codable { let name: String let age: Int? // nil を許容 } let encoder = JSONEncoder() let yamada = Person(name: &amp;#34;山田二郎&amp;#34;, age: 53) let kawada = Person(name: &amp;#34;川田吾郎&amp;#34;, age: nil) let yamadaData = try! encoder.encode(yamada) let kawadaData = try!</description>
+      <guid>https://yagamo-style.com/2022/03/12/json-with-null-value/index.html</guid>
+      <description>はじめに JSON の解析をカスタマイズする方法については [ネストした JSON をフラットな構造体にマッピングする] で書きました 「Codable なオブジェクトに nil 値があると、 JSON ではその属性自体が省略されてしまう挙動を変えられないのか？」という質問を受講者から頂いたので、ここに記載しておきます 検証環境 macOS Big Sur 11.6 Xcode 13.2.1 サンプルコード 通常の挙動（nil を含む属性が出力されない） // JSON と対応させる Person 型（Codable に準拠） struct Person: Codable { let name: String let age: Int? // nil を許容 } let encoder = JSONEncoder() let yamada = Person(name: &#34;山田二郎&#34;, age: 53) let kawada = Person(name: &#34;川田吾郎&#34;, age: nil) let yamadaData = try! encoder.encode(yamada) let kawadaData = try! encoder.encode(kawada) print(&#34;==== 値が nil の属性は出力されない ====&#34;) print(String(data: yamadaData, encoding: .utf8)!) print(String(data: kawadaData, encoding: .utf8)!) 実行結果 ==== 値が nil の属性は出力されない ==== {&#34;name&#34;:&#34;山田二郎&#34;,&#34;age&#34;:53} {&#34;name&#34;:&#34;川田吾郎&#34;} nil を含む属性を出力するように変更したもの // JSON と対応させる CustomPerson 型（Codable に準拠） struct CustomPerson: Codable { let name: String let age: Int? // nil を許容 } // Encodable プロトコルの encode(to:) メソッドをオーバーライド // Codable は Encodable &amp; Decodable 型 extension CustomPerson { func encode(to encoder: Encoder) throws { var container = encoder.container(keyedBy: CodingKeys.self) try container.encode(self.name, forKey: .name) // 通常は nil なら無視されるが、明示的にこのフィールドを encode 処理する try container.encode(self.age, forKey: .age) } } let sunagawa = CustomPerson(name: &#34;砂川黄太郎&#34;, age: 87) let umino = CustomPerson(name: &#34;海野泳太郎&#34;, age: nil) let sunagawaData = try! encoder.encode(sunagawa) let uminoData = try! encoder.encode(umino) print(&#34;==== 値が nil の属性も出力される ====&#34;) print(String(data: sunagawaData, encoding: .utf8)!) print(String(data: uminoData, encoding: .utf8)!) 実行結果 ==== 値が nil の属性も出力される ==== {&#34;name&#34;:&#34;砂川黄太郎&#34;,&#34;age&#34;:87} {&#34;name&#34;:&#34;海野泳太郎&#34;,&#34;age&#34;:null} まとめ encode(to:) をオーバーライドして、全項目を明示的にエンコードするだけなので、それほど難しくはないです ただ、若干の手間なので、単にエンコード時にプロパティ指定をするなどの方法があると良いですね サンプルは GitHub に置きました</description>
     </item>
-    
   </channel>
 </rss>
