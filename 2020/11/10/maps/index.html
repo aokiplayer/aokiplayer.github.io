@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja-JP" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
-  <head><meta name="description" content="技術メモとかイベントレポートとか">
+  <head><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Steven Hiroyuki Aoki">
 <meta property="og:url" content="https://yagamo-style.com/2020/11/10/maps/">
 <meta property="og:title" content="map と compactMap と flatMap">
 <meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <title>map と compactMap と flatMap :: Yagamo Style</title>
-    <link href="/images/favicon.png?1749539841" rel="icon" type="image/png">
-    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1749539841" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1749539841" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1749539841" rel="stylesheet">
-    <link href="/css/theme.min.css?1749539841" rel="stylesheet">
-    <link href="/css/format-html.min.css?1749539841" rel="stylesheet" id="R-format-style">
-    <link href="/css/auto-complete/auto-complete.min.css?1749539841" rel="stylesheet">
-    <script src="/js/auto-complete/auto-complete.min.js?1749539841" defer></script>
-    <script src="/js/lunr/lunr.min.js?1749539841" defer></script>
-    <script src="/js/lunr/lunr.stemmer.support.min.js?1749539841" defer></script>
-    <script src="/js/lunr/lunr.multi.min.js?1749539841" defer></script>
-    <script src="/js/lunr/tinyseg.js?1749539841" defer></script>
-    <script src="/js/lunr/lunr.ja.min.js?1749539841" defer></script>
-    <script src="/js/search.min.js?1749539841" defer></script>
+    <link href="/images/favicon.png?1749543595" rel="icon" type="image/png">
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1749543595" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1749543595" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1749543595" rel="stylesheet">
+    <link href="/css/theme.min.css?1749543595" rel="stylesheet">
+    <link href="/css/format-html.min.css?1749543595" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1749543595" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1749543595" defer></script>
+    <script src="/js/lunr/lunr.min.js?1749543595" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1749543595" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1749543595" defer></script>
+    <script src="/js/lunr/tinyseg.js?1749543595" defer></script>
+    <script src="/js/lunr/lunr.ja.min.js?1749543595" defer></script>
+    <script src="/js/search.min.js?1749543595" defer></script>
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -28,7 +29,7 @@
       window.relearn.relBaseUri='..\/..\/..\/..';
       window.relearn.absBaseUri='https:\/\/yagamo-style.com';
       window.relearn.contentLangs=['ja'];
-      window.relearn.index_js_url="/searchindex.ja.js?1749539841";
+      window.relearn.index_js_url="/searchindex.ja.js?1749543595";
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       window.relearn.disableInlineCopyToClipboard=true;
@@ -74,8 +75,8 @@
       window.T_No_results_found = `"{0}" の結果が見つかりません`;
       window.T_N_results_found = `"{0}" で {1} 件の結果が見つかりました`;
     </script>
-    <link href="/css/custom.css?1749539841" rel="stylesheet">
-    <script src="/js/custom.js?1749539841" defer></script>
+    <link href="/css/custom.css?1749543595" rel="stylesheet">
+    <script src="/js/custom.js?1749543595" defer></script>
   </head>
   <body class="mobile-support html" data-url="/2020/11/10/maps/index.html">
     <div id="R-body" class="default-animation">
@@ -156,23 +157,23 @@
 <h2 id="map-の種類">map の種類</h2>
 <h3 id="map">map</h3>
 <p>配列内の各要素を変換します。全要素を変換するので、変換前後で要素数は変わりません。</p>
-<p><a href="#R-image-e7493eb593ea361611028776c3d5d495" class="lightbox-link"><img alt="map.png?width=25pc" class="lazy lightbox figure-image" loading="lazy" src="/images/maps/map.png?width=25pc" style=" height: auto; width: 25pc;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-e7493eb593ea361611028776c3d5d495"><img alt="map.png?width=25pc" class="lazy lightbox lightbox-image" loading="lazy" src="/images/maps/map.png?width=25pc"></a></p>
+<p><a href="#R-image-322fe6300e500ff3c0a89519f6795edf" class="lightbox-link"><img alt="map.png?width=25pc" class="lazy lightbox figure-image" loading="lazy" src="/images/maps/map.png?width=25pc" style=" height: auto; width: 25pc;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-322fe6300e500ff3c0a89519f6795edf"><img alt="map.png?width=25pc" class="lazy lightbox lightbox-image" loading="lazy" src="/images/maps/map.png?width=25pc"></a></p>
 <h3 id="compactmap">compactMap</h3>
 <p><code>map</code> と同じですが、要素のうち <code>nil</code> は除外し、 Optional は unwrap します。 <code>nil</code> を除外するため、 <code>map</code> と異なり変換前後で要素数が変わる（減る）場合もあります。</p>
-<p><a href="#R-image-99b6064237b35e51274a24951c0848b3" class="lightbox-link"><img alt="compactMap.png?width=25pc" class="lazy lightbox figure-image" loading="lazy" src="/images/maps/compactMap.png?width=25pc" style=" height: auto; width: 25pc;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-99b6064237b35e51274a24951c0848b3"><img alt="compactMap.png?width=25pc" class="lazy lightbox lightbox-image" loading="lazy" src="/images/maps/compactMap.png?width=25pc"></a></p>
+<p><a href="#R-image-3badcbb1dd2f3e03f1d2bf25450027c1" class="lightbox-link"><img alt="compactMap.png?width=25pc" class="lazy lightbox figure-image" loading="lazy" src="/images/maps/compactMap.png?width=25pc" style=" height: auto; width: 25pc;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-3badcbb1dd2f3e03f1d2bf25450027c1"><img alt="compactMap.png?width=25pc" class="lazy lightbox lightbox-image" loading="lazy" src="/images/maps/compactMap.png?width=25pc"></a></p>
 <h3 id="flatmap">flatMap</h3>
 <p>配列がネストされている場合、内側の配列から要素を取り出して平坦な配列にします（二次元配列 -&gt; 一次元配列）。</p>
-<p><a href="#R-image-7e66588f2a7d13646416ca4e19d59971" class="lightbox-link"><img alt="flatMap1.png?width=25pc" class="lazy lightbox figure-image" loading="lazy" src="/images/maps/flatMap1.png?width=25pc" style=" height: auto; width: 25pc;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-7e66588f2a7d13646416ca4e19d59971"><img alt="flatMap1.png?width=25pc" class="lazy lightbox lightbox-image" loading="lazy" src="/images/maps/flatMap1.png?width=25pc"></a></p>
+<p><a href="#R-image-7957a94c23314399fe7bb80324108a21" class="lightbox-link"><img alt="flatMap1.png?width=25pc" class="lazy lightbox figure-image" loading="lazy" src="/images/maps/flatMap1.png?width=25pc" style=" height: auto; width: 25pc;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7957a94c23314399fe7bb80324108a21"><img alt="flatMap1.png?width=25pc" class="lazy lightbox lightbox-image" loading="lazy" src="/images/maps/flatMap1.png?width=25pc"></a></p>
 <p>内側の「配列という <strong>入れ物</strong> 」を「Optional という <strong>入れ物</strong> 」に見立てれば「Optional の内容を取り出した配列」を作成することになり、 <code>compactMap</code> と同じ動作となります。</p>
 <ul>
 <li><code>Array&lt;Array&lt;要素&gt;</code> -（変換）-&gt; <code>Array&lt;要素&gt;</code></li>
 <li><code>Array&lt;Optional&lt;要素&gt;</code> -（変換）-&gt; <code>Array&lt;要素&gt;</code></li>
 </ul>
-<p><a href="#R-image-fea07737e34ea1de940674952b73efd4" class="lightbox-link"><img alt="flatMap2.png?width=25pc" class="lazy lightbox figure-image" loading="lazy" src="/images/maps/flatMap2.png?width=25pc" style=" height: auto; width: 25pc;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-fea07737e34ea1de940674952b73efd4"><img alt="flatMap2.png?width=25pc" class="lazy lightbox lightbox-image" loading="lazy" src="/images/maps/flatMap2.png?width=25pc"></a></p>
+<p><a href="#R-image-542ce0fea5d6b5902cd3069ff061a595" class="lightbox-link"><img alt="flatMap2.png?width=25pc" class="lazy lightbox figure-image" loading="lazy" src="/images/maps/flatMap2.png?width=25pc" style=" height: auto; width: 25pc;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-542ce0fea5d6b5902cd3069ff061a595"><img alt="flatMap2.png?width=25pc" class="lazy lightbox lightbox-image" loading="lazy" src="/images/maps/flatMap2.png?width=25pc"></a></p>
 <p><code>compactMap</code> が実装されていなかった Swift の初期のバージョンではこのような用途でも利用されていましたが、現在では deprecated です。素直に <code>compactMap</code> を使いましょう。</p>
 <h2 id="サンプル">サンプル</h2>
 <p><code>map</code>, <code>compactMap</code>, <code>flatMap</code> を利用したサンプルです。
@@ -366,9 +367,9 @@
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard/clipboard.min.js?1749539841" defer></script>
-    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1749539841" defer></script>
-    <script src="/js/theme.min.js?1749539841" defer></script>
-<script src="/js/custom.js?1749539842"></script>
+    <script src="/js/clipboard/clipboard.min.js?1749543595" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1749543595" defer></script>
+    <script src="/js/theme.min.js?1749543595" defer></script>
+<script src="/js/custom.js?1749543597"></script>
   </body>
 </html>
