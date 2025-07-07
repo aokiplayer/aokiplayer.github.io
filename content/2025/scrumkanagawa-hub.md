@@ -14,7 +14,7 @@ ogimage = "images/open_graph_logo.png"
 
 ### イベント概要
 - スクラムフェス神奈川 2025 -町田へ出陣-
-- https://www.scrumfestkanagawa.org/
+- https://www.scrumfestkanagawa.org/2025summer
 
 ## なぜ登壇してみようと思ったのか
 - 公募制による審査形式ではなく先着順だった
