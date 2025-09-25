@@ -6,8 +6,8 @@ toc: true
 tags: []
 ---
 
-- Hiroyuki Aoki
-- トレーナー、インストラクター、トレーニングコンテンツ企画・開発
+- Steve Aoki(Hiroyuki Aoki)
+- スクラムマスター、トレーナー、インストラクター、トレーニングコンテンツ企画・開発
 - Swift, Kotlin, Java, iOS, Android, macOS, MDM
 
 ## Apple Certified Trainer（Apple 認定トレーナー）
@@ -38,6 +38,7 @@ tags: []
 - 体験！アジャイルな開発プロジェクト
 
 ## カンファレンス、セミナー登壇
+- [[iOSDC Japan 2025] 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025](https://fortee.jp/iosdc-japan-2025/proposal/45b0c1e2-8f11-44b5-b376-595dd8a57932)
 - [[スクラムフェス神奈川 2025 -町田へ出陣-]初参加の RSGT で HUB 割引おじさんとして認識してもらった話](https://www.scrumfestkanagawa.org/)
 - [[iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術](https://fortee.jp/iosdc-japan-2019/proposal/973963ea-c6b2-46aa-a15b-1b34af099c84)
 - [[iOS コンソーシアム] Apple Professional Learningを体験しよう -認定講師によるオンライン研修を無料体験できる特別な4日間-](https://giga.ios.or.jp/event/apl_gw_special/)
