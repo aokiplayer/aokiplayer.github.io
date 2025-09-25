@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://yagamo-style.com/</loc>
-    <lastmod>2025-07-14T11:58:34+00:00</lastmod>
+    <lastmod>2025-09-25T08:30:00+00:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2018/</loc>
     <lastmod>2018-09-15T21:32:57+09:00</lastmod>
@@ -27,7 +27,25 @@
     <lastmod>2024-08-01T09:00:00+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2025/</loc>
-    <lastmod>2025-07-14T11:58:34+00:00</lastmod>
+    <lastmod>2025-09-25T08:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/ios/</loc>
+    <lastmod>2025-09-25T08:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/iosdc/</loc>
+    <lastmod>2025-09-25T08:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/2025/iosdc2025talk/</loc>
+    <lastmod>2025-09-25T08:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/macos/</loc>
+    <lastmod>2025-09-25T08:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/swift/</loc>
+    <lastmod>2025-09-25T08:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://yagamo-style.com/tags/</loc>
+    <lastmod>2025-09-25T08:30:00+00:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/tags/agile/</loc>
     <lastmod>2025-07-14T11:58:34+00:00</lastmod>
@@ -36,9 +54,6 @@
     <lastmod>2025-07-14T11:58:34+00:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/tags/scrum/</loc>
-    <lastmod>2025-07-14T11:58:34+00:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/</loc>
     <lastmod>2025-07-14T11:58:34+00:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/tags/%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%A0%E3%83%95%E3%82%A7%E3%82%B9/</loc>
@@ -54,12 +69,6 @@
     <lastmod>2025-03-14T23:58:47+00:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2024/swiftlint-plugins/</loc>
-    <lastmod>2024-08-01T09:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/ios/</loc>
-    <lastmod>2024-08-01T09:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/swift/</loc>
     <lastmod>2024-08-01T09:00:00+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/tags/swift-package-manager/</loc>
@@ -91,9 +100,6 @@
   </url><url>
     <loc>https://yagamo-style.com/2022/10/14/swiftui-modifier-order/</loc>
     <lastmod>2022-10-14T10:17:36+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/iosdc/</loc>
-    <lastmod>2022-09-12T23:46:19+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2022/09/12/iosdc2022/</loc>
     <lastmod>2022-09-12T23:46:19+09:00</lastmod>
@@ -162,9 +168,6 @@
     <lastmod>2019-12-02T16:38:56+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2019/10/15/asr-restore-basic/</loc>
-    <lastmod>2019-10-15T13:22:13+09:00</lastmod>
-  </url><url>
-    <loc>https://yagamo-style.com/tags/macos/</loc>
     <lastmod>2019-10-15T13:22:13+09:00</lastmod>
   </url><url>
     <loc>https://yagamo-style.com/2019/09/08/iosdc2019day2/</loc>

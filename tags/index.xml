@@ -6,7 +6,43 @@
     <description>Recent content in Tags on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 14 Jul 2025 11:58:34 +0000</lastBuildDate><atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Sep 2025 08:30:00 +0000</lastBuildDate><atom:link href="https://yagamo-style.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS</title>
+      <link>https://yagamo-style.com/tags/ios/</link>
+      <pubDate>Thu, 25 Sep 2025 08:30:00 +0000</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iOSDC</title>
+      <link>https://yagamo-style.com/tags/iosdc/</link>
+      <pubDate>Thu, 25 Sep 2025 08:30:00 +0000</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/iosdc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macOS</title>
+      <link>https://yagamo-style.com/tags/macos/</link>
+      <pubDate>Thu, 25 Sep 2025 08:30:00 +0000</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>https://yagamo-style.com/tags/swift/</link>
+      <pubDate>Thu, 25 Sep 2025 08:30:00 +0000</pubDate>
+      
+      <guid>https://yagamo-style.com/tags/swift/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Agile</title>
       <link>https://yagamo-style.com/tags/agile/</link>
@@ -44,24 +80,6 @@
     </item>
     
     <item>
-      <title>iOS</title>
-      <link>https://yagamo-style.com/tags/ios/</link>
-      <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/ios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Swift</title>
-      <link>https://yagamo-style.com/tags/swift/</link>
-      <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/swift/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Swift Package Manager</title>
       <link>https://yagamo-style.com/tags/swift-package-manager/</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
@@ -94,15 +112,6 @@
       <pubDate>Tue, 05 Dec 2023 06:00:00 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/swiftui/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOSDC</title>
-      <link>https://yagamo-style.com/tags/iosdc/</link>
-      <pubDate>Mon, 12 Sep 2022 23:46:19 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/iosdc/</guid>
       <description></description>
     </item>
     
@@ -148,15 +157,6 @@
       <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
       
       <guid>https://yagamo-style.com/tags/certification/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>macOS</title>
-      <link>https://yagamo-style.com/tags/macos/</link>
-      <pubDate>Tue, 15 Oct 2019 13:22:13 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/tags/macos/</guid>
       <description></description>
     </item>
     

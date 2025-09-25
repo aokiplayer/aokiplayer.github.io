@@ -63,6 +63,48 @@
 	"content": ""
 },
 {
+	"uri": "https://yagamo-style.com/tags/ios/",
+	"title": "iOS",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/iosdc/",
+	"title": "iOSDC",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/2025/iosdc2025talk/",
+	"title": "iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました",
+	"tags": ["iOSDC", "iOS", "Swift", "macOS"],
+	"description": "",
+	"content": "はじめに 今回 10 回目の開催となる、iOSDC Japan 2025 で LT を採択いただき、トークしてきました。 前回は 2019 の LT なので、実に 6 年ぶりです。\nその登壇について、ふりかえってみます。\nプロポーザル提出 iOSDC Japan は参加者も年々増え、プロポーザルの採択も狭き門となってきています。 私は企業研修のトレーナー、そして最近はスクラムマスターとしての仕事が増えていることもあり、Swift や SwiftUI の最新の機能や実開発での深い知見は持ち合わせていません。\nただ、iOS に少しでも関係していてかつ「自分しか知見のないもの」という観点で、前回と同じ Mac の環境構築の話にしました。 年月が経っていたこともあり、取れる手段も変わっていたので、ちょうど良いかなと思いました。 私の肌感ですが、独自性の強い内容であれば比較的採択いただきやすいのかなと思っています。\n直接的に iOS アプリに組み込めるような内容でなくても、広くトークを採用しているのも iOSDC Japan の特徴のように感じています。\n話したこと トークの内容は「研修で利用する多数の Mac を以下に効率よく同じ状態にセットアップするか」というものです。 Apple はセキュリティを強化するための仕組みを次々と導入しており、その影響で我々のできることの自由度が下がっています。 その制限された中で、その仕様を調査したり試行錯誤してベターな方法を探っています。 Mac 自体に詳しくなるので、興味がある方はぜひ覗いてみてください。\nトークのスライドは、以下をご覧ください\n 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025 - Speaker Deck  動画は、いずれ fortee からも YouTube の録画が視聴できるのかな？\n 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 2025 by Steve Aoki | トーク | iOSDC Japan 2025 #iosdc - fortee.jp  反響と感想 私のトークの内容は、必要となる人は少ない（ほぼいない）のでどうかなと思っていました。 ただ、終わった後に「CCC は自分も昔使ってた」など、話しかけていただける方もいらっしゃいました。 また、Twitter でも「有用な知見だ」というようなコメントもいただいていました。誰か 1 人にでも役に立つのであれば、発信は続けていきたいです。\nまた、ネットワークチームの シークレット LT でも「温かみのある」キーワードを使ってくれたり、みなさんの記憶には多少なりとも残ったようです。\n個人的には、LT らしい LT ができたかなと思ってます。\n他の方々はよく練り込んで内容を取捨選択し、時間内でしっかりと伝わる素晴らしい LT をされていました。 一方、私は「限られた時間内で時間を超過するかどうかギリギリのラインで、勢いに任せて話す」緊迫した昔ながらの LT でした。 賛否はあるかと思いますが、このスタイルは気に入ってます。LT 大会はお祭りですし。\n最後に iOSDC は技術系カンファレンスながら、「交流の場」としてのスタンスを貫いています。そのため、運営のみなさんは毎年、交流するための取り組みをさまざま取り入れています。\nそこが、私が「iOSDC Japan は一番好きなカンファレンス」と言い続けている点です。\n初登壇の 2019 年はとても不安でした。たまたまオープニングで隣にいた方（@rikusouda）に話しかけ、仲良くなりました（その時にも、主催の長谷川さんが \u0026ldquo;ぜひ交流を楽しんください\u0026rdquo; という趣旨のことをおっしゃっていたように記憶しています）。 今年はその方が LT の私の直前という並びであり、何か感慨深いものを感じました。\nまた、その年にはルーキーズ LT の練習会にも参加し、そこで一緒に練習した方々とも未だに繋がっています。\n技術を学び・持ち帰ることも大切ですが、技術を楽しむには仲間を作るのはもっと大切だと思っています。 このような場で、2 度も発表の機会をいただけたことに感謝します。\nまたプロポーザル応募します！\n"
+},
+{
+	"uri": "https://yagamo-style.com/tags/macos/",
+	"title": "macOS",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/swift/",
+	"title": "Swift",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://yagamo-style.com/tags/agile/",
 	"title": "Agile",
 	"tags": [],
@@ -79,13 +121,6 @@
 {
 	"uri": "https://yagamo-style.com/tags/scrum/",
 	"title": "SCRUM",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/",
-	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -124,20 +159,6 @@
 	"tags": ["iOS", "Swift", "SwiftLint", "Swift Package Manager"],
 	"description": "",
 	"content": " 2025.02.07 追記\nRun Script にペーストするスクリプトが公式サイトで変更されていたので修正\n はじめに Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。 基本的には SwiftLint パッケージをプロジェクトに導入 -\u0026gt; Build Phases の Run Build Tool Plug-ins に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。\n細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。 また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。\n執筆時点で最新の、Xcode 15.4 における回避方法を記載します。\n今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。 そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。\n検証環境  macOS Sonoma 14.5 (23F79) Xcode 15.4 (15F31d)  導入手順 SwiftPM を利用して SwiftLint への依存性を追加   Xcode メニュー -\u0026gt; Add Package Dependencies...\n  検索欄に https://github.com/SimplyDanny/SwiftLintPlugins を入力し、Add Package ボタンをクリック\n URL が SwiftLint 公式のものでない点に注意  以前の手順では、公式の https://github.com/realm/SwiftLint となっていた   Dependency Rule は Up to Next Major Version のままで OK    Build Phases から Run Script を追加   アプリターゲットを選択し、Build Phases タブを選択\n  + アイコンから New Run Script Phase を選択して Run Script を追加し、ドラッグして Compile Sources の後へ移動\n  以下の内容を Run Script で実行するスクリプトとして貼り付け\nSWIFT_PACKAGE_DIR=\u0026#34;${BUILD_DIR%Build/*}SourcePackages/artifacts\u0026#34; SWIFTLINT_CMD=$(ls \u0026#34;$SWIFT_PACKAGE_DIR\u0026#34;/swiftlintplugins/SwiftLintBinary/SwiftLintBinary.artifactbundle/swiftlint-*-macos/bin/swiftlint | head -n 1)  if test -f \u0026#34;$SWIFTLINT_CMD\u0026#34; 2\u0026gt;\u0026amp;1 then  \u0026#34;$SWIFTLINT_CMD\u0026#34; else  echo \u0026#34;warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\u0026#34; fi   本来は Build Phases の Run Build Tool Plug-ins に SwiftLintBuildToolPlugin を追加するだけで OK なはずですが、プロジェクトのディレクトリ構成など様々な理由により上手くいかないことがあるようです。 その回避策として、SwiftLint の公式サイトで上記の方法が示されていました。\n実行 command + B などでビルドを実行すると、SwiftLint が実行されます。 通常通り設定ファイル .swiftlint.yml をプロジェクトのルートディレクトリに配置して、チェックするルールをカスタマイズできます。ルールについて詳しくは、公式サイト内の Rules の項目をご覧ください。\nまとめ SwiftPM の Build Tool プラグインや、Xcode の Build Phases などに関してはまだ理解が浅い点が多いのですが、SwiftLint の公式サイトを見ても「Xcode 15 でパーミッションが変わった」とか「Apple Silicon だと Homebrew でインストールされるパスが変わった」とかいろいろ書かれています（後者は今回の件とは無関係ですが）。 まずは、公式の情報を見て環境を構築できるのが大切ですね。その上で、必要な部分を深掘りしていきたいと思います。\n参考 realm/SwiftLint: A tool to enforce Swift style and conventions.\n"
-},
-{
-	"uri": "https://yagamo-style.com/tags/ios/",
-	"title": "iOS",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/swift/",
-	"title": "Swift",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://yagamo-style.com/tags/swift-package-manager/",
@@ -208,13 +229,6 @@
 	"tags": ["iOS", "Swift", "SwiftUI"],
 	"description": "",
 	"content": "はじめに SwiftUI は、ビューに対してモディファイアをメソッドチェーン形式で追加していくという統一的な操作ができるので、とてもわかりやすいですよね。 時にはモディファイアが多すぎて、見通しが悪くなることはありますが…。\n簡単に扱えるモディファイアですが、順序には注意する必要があります。\n検証環境  macOS Monterey 12.6 Xcode 14.0.0  実験 Text に、frame(), padding(), border() の 3 つのモディファイアを設定してみます。 設定順序の組み合わせは 3! 通りあります。\nサンプルコード それぞれ、枠線を付けた同じサイズの VStack 内に上記 3 つのモディファイアの順序を変えた Text を配置しています。\nimport SwiftUI  struct ContentView: View {  var body: some View {  VStack {  Text(\u0026#34;モディファイアの順序\u0026#34;)  .font(.title)   VStack {  Text(\u0026#34;frame -\u0026gt; border -\u0026gt; padding\u0026#34;)  .frame(width: 300, height: 60)  .border(.red, width: 3)  .padding()  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;frame -\u0026gt; padding -\u0026gt; border\u0026#34;)  .frame(width: 300, height: 60)  .padding()  .border(.red, width: 3)  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;border -\u0026gt; frame -\u0026gt; padding\u0026#34;)  .border(.red, width: 3)  .frame(width: 300, height: 60)  .padding()  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;border -\u0026gt; padding -\u0026gt; frame\u0026#34;)  .border(.red, width: 3)  .padding()  .frame(width: 300, height: 60)  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;padding -\u0026gt; frame -\u0026gt; border\u0026#34;)  .padding()  .frame(width: 300, height: 60)  .border(.red, width: 3)  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)   VStack {  Text(\u0026#34;padding -\u0026gt; border -\u0026gt; frame\u0026#34;)  .padding()  .border(.red, width: 3)  .frame(width: 300, height: 60)  }  .frame(width: 350, height: 100)  .border(.indigo, width: 3)  }  } }  struct ContentView_Previews: PreviewProvider {  static var previews: some View {  ContentView()  } } 結果 考察 border() を最初に設定しているものは、後から設定される frame() や padding() の設定値を知らないので、テキストがちょうど収まるサイズに枠線が引かれていることがわかります。\nこれは、モディファイアが「そのモディファイアの適用結果のビューを返す」メソッドであるためです。 つまり、以下のコードでは\n まずはサイズが設定されていない Text（固有サイズとして文字列がちょうど収まるサイズ）に、枠線を設定 ビューのサイズを幅 300, 高さ 60 に設定 ビューの外側に、標準サイズの余白を設定  という流れとなっています。 そのため、ビューのサイズを設定しているにもかからわず、枠線がそれよりも狭い範囲に引かれているように見えてしまいます。 ですが、「その時点のビューのサイズ」に対しては正しく枠線が設定されていたということになります。\nText(\u0026#34;border -\u0026gt; frame -\u0026gt; padding\u0026#34;)  .border(.red, width: 3)  .frame(width: 300, height: 60)  .padding() まとめ モディファイアは「単にビューに設定を追加するもの」と考えてしまうと順序は関係ないように思えてしまいます。\nですが、あくまでも「モディファイアで設定した結果のビューを返す」という意識があれば、ひとつのモディファイアを実行した結果のビューがその時点で返っているので、最初に border() を持ってくると期待した結果にならないことがわかりますね。\n作成したサンプルは、GitHub: aokiplayer/swift-sandbox/ModifierOrder に置きました。\n参考 Why modifier order matters - a free Hacking with iOS: SwiftUI Edition tutorial\n上記のサイトは、この記事を書いた後に気付きました。 最後に掲載されている、padding() と background() を何度も呼び出すことでサイズの異なる塗りつぶしを重ねるサンプルを実行してみると、この「モディファイアで設定した結果のビューを返す」のイメージがわかりやすいと思います。\n"
-},
-{
-	"uri": "https://yagamo-style.com/tags/iosdc/",
-	"title": "iOSDC",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://yagamo-style.com/2022/09/12/iosdc2022/",
@@ -376,13 +390,6 @@
 	"tags": ["macOS"],
 	"description": "",
 	"content": "はじめに  Apple 標準の asr コマンドを利用して、 Mac の起動ボリューム（デフォルトでは Macintosh HD）をリストアする方法です とはいえ、起動ボリュームか否かは関係なく、どのボリュームでも扱い方は同じです  むしろ、起動可能なボリュームのイメージ作成の方にコツがある 今回は、イメージ作成についての詳細には触れません    検証環境  MacBook Pro without T2 Security Chip (-2017) MacBook Pro with T2 Security Chip (2018-) macOS Mojave 10.14.6  asr コマンド  asr は、 Apple Software Restore の略であり、その名の通りリストアを目的としたコマンドです Apple がどこまで公式にサポートしているのかはわかりませんが、起動ボリューム自体もリストア可能です  ソースとなるディスクイメージの作成方法にコツがあったり、いろいろ苦労はありますが…   主に利用するのは、 asr restore の形式です  asr restore  asr restore は、以下のような形式で記述します  asr restore --source リカバリ元のディスクイメージやボリューム --target リカバリ先のディスクやボリューム --erase オプションの説明  --source or -s  リカバリ元のソースを指定 ディスクイメージ でもいいし、それをマウントしたボリュームでも OK  DMG 形式はそのまま指定できるが、 Sparse Bundle などではマウントしなければ指定不可能     --target or -t  リカバリ先のターゲットを指定 /Volume/... のようにボリュームを指定しても、 /disk/disk1s2 のようにディスクを指定する形式でも OK   --erase リストア先のデータを削除する  利用例 トレーニング用に複数 Mac をリストアする  iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました でご紹介したように、トレーニング環境のセットアップに利用しています  全受講者の環境を、完全に揃えることができるメリットは大きいです iOSDC での発表時から、利用する方法は若干変わってます（T2 Security Chip 搭載の Mac への対応のため）    手順  あらかじめ、全 Mac にパーティションを切っておく（ここでは Setup というパーティションとする） Carbon Copy Cloner （以下、 CCC）を使って、リストアイメージを格納したディスクイメージを作成する（ここでは Setup.sparsebundle とする）  CCC を利用するのは、 Disk Utility で作成したイメージから戻すと bless に失敗して起動できず、その対処方法がわからなかったためです T2 Security Chip あり/なしの Mac 間では、同じイメージを使い回すことはできません   イメージを全リストア対象の Mac の Setup パーティションにコピーする（残念ながらここは手作業） asr restore でリストア（2,3 分で完了）  最後に  Apple としてはモノリシックイメージからのリストアは推奨していないものの、 asr コマンドについては WWDC 2019 のセッションで紹介しています  What\u0026rsquo;s New in Apple File Systems   APFS や T2 Security Chip との付き合い方は考える必要がありますが、学校やトレーニング企業ではイメージからのリストアは必須なので、今後も引き続き使い方を探っていきます  "
-},
-{
-	"uri": "https://yagamo-style.com/tags/macos/",
-	"title": "macOS",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://yagamo-style.com/2019/09/08/iosdc2019day2/",

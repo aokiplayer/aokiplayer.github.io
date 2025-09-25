@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Steven Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/2023/12/05/dynamic-callable/">
-<meta property="og:title" content="Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す">
+<meta property="og:url" content="https://yagamo-style.com/2025/iosdc2025talk/">
+<meta property="og:title" content="iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました">
 <meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す :: Yagamo Style</title>
+    <title>iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1758844124" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2023/12/05/dynamic-callable/">
+  <body class="" data-url="/2025/iosdc2025talk/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2025/" title="2025" class="dd-item
-        
+        parent
         
         
         ">
@@ -124,7 +124,7 @@
  
   
     
-      <li data-nav-id="/2025/iosdc2025talk/" title="iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました" class="dd-item ">
+      <li data-nav-id="/2025/iosdc2025talk/" title="iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました" class="dd-item active">
         <a href="/2025/iosdc2025talk/">
         iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました
         
@@ -292,7 +292,7 @@
   
     
     <li data-nav-id="/2023/" title="2023" class="dd-item
-        parent
+        
         
         
         ">
@@ -318,7 +318,7 @@
  
   
     
-      <li data-nav-id="/2023/12/05/dynamic-callable/" title="Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す" class="dd-item active">
+      <li data-nav-id="/2023/12/05/dynamic-callable/" title="Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す" class="dd-item ">
         <a href="/2023/12/05/dynamic-callable/">
         Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す
         
@@ -1243,7 +1243,7 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > <a href='/2023/'>2023</a> > Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す
+            <a href='/'>Yagamo Style</a> > <a href='/2025/'>2025</a> > iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました
           
         
           
@@ -1259,16 +1259,10 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#検証環境">検証環境</a></li>
-    <li><a href="#dynamiccallable">dynamicCallable</a>
-      <ul>
-        <li><a href="#dynamicallycallwitharguments-メソッド">dynamicallyCall(withArguments:) メソッド</a></li>
-        <li><a href="#dynamicallycallwithkeywordarguments-メソッド">dynamicallyCall(withKeywordArguments:) メソッド</a></li>
-        <li><a href="#dynamicallycallwithkeywordarguments-の例-2">dynamicallyCall(withKeywordArguments:) の例 2</a></li>
-      </ul>
-    </li>
-    <li><a href="#まとめ">まとめ</a></li>
-    <li><a href="#参考">参考</a></li>
+    <li><a href="#プロポーザル提出">プロポーザル提出</a></li>
+    <li><a href="#話したこと">話したこと</a></li>
+    <li><a href="#反響と感想">反響と感想</a></li>
+    <li><a href="#最後に">最後に</a></li>
   </ul>
 </nav>
     </div>
@@ -1282,11 +1276,13 @@
         
 <div class="tags">
 
+  <a class="tag-link" href="/tags/iosdc">iOSDC</a>
+
   <a class="tag-link" href="/tags/ios">iOS</a>
 
   <a class="tag-link" href="/tags/swift">Swift</a>
 
-  <a class="tag-link" href="/tags/swiftui">SwiftUI</a>
+  <a class="tag-link" href="/tags/macos">macOS</a>
 
 </div>
 
@@ -1296,7 +1292,7 @@
           
             <h1>
               
-              Swift の dynamicCallable を利用して「オブジェクト(引数)」の形でメソッドを呼び出す
+              iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました
             </h1>
           
 
@@ -1304,181 +1300,47 @@
 
 
 <h2 id="はじめに">はじめに</h2>
-<p>以前の記事 <a href="/2023/12/04/call-as-function/">SwiftUI の dismiss() って「関数()」じゃなくて「オブジェクト()」だよね？</a> で、<code>callAsFunction</code> メソッドについて説明しました。
-簡単に説明すると、型に <code>callAsFunction</code> という名前のメソッドを定義すると、<code>オブジェクト(引数)</code>のような形でメソッドを呼び出せるようになる仕組みです。</p>
-<p>SwiftUI の DismissAction が、そのような形をとっていました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// ビューを閉じるための DismissAction を取得</span>
-</span></span><span style="display:flex;"><span>@Environment(<span style="color:#960050;background-color:#1e0010">\</span>.dismiss) <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> dismiss: DismissAction
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// ビューを閉じる</span>
-</span></span><span style="display:flex;"><span>dismiss() <span style="color:#75715e">// &lt;--- dismiss.callAsFunction() の省略形</span>
-</span></span></code></pre></div><p>似たような仕組みがもうひとつあるので、今回はそちらについて紹介します。</p>
-<h2 id="検証環境">検証環境</h2>
+<p>今回 10 回目の開催となる、<a href="https://iosdc.jp/2025/">iOSDC Japan 2025</a> で LT を採択いただき、トークしてきました。
+前回は 2019 の LT なので、実に 6 年ぶりです。</p>
+<p>その登壇について、ふりかえってみます。</p>
+<h2 id="プロポーザル提出">プロポーザル提出</h2>
+<p>iOSDC Japan は参加者も年々増え、プロポーザルの採択も狭き門となってきています。
+私は企業研修のトレーナー、そして最近はスクラムマスターとしての仕事が増えていることもあり、Swift や SwiftUI の最新の機能や実開発での深い知見は持ち合わせていません。</p>
+<p>ただ、iOS に少しでも関係していてかつ「自分しか知見のないもの」という観点で、前回と同じ Mac の環境構築の話にしました。
+年月が経っていたこともあり、取れる手段も変わっていたので、ちょうど良いかなと思いました。
+私の肌感ですが、独自性の強い内容であれば比較的採択いただきやすいのかなと思っています。</p>
+<p>直接的に iOS アプリに組み込めるような内容でなくても、広くトークを採用しているのも iOSDC Japan の特徴のように感じています。</p>
+<h2 id="話したこと">話したこと</h2>
+<p>トークの内容は「研修で利用する多数の Mac を以下に効率よく同じ状態にセットアップするか」というものです。
+Apple はセキュリティを強化するための仕組みを次々と導入しており、その影響で我々のできることの自由度が下がっています。
+その制限された中で、その仕様を調査したり試行錯誤してベターな方法を探っています。
+Mac 自体に詳しくなるので、興味がある方はぜひ覗いてみてください。</p>
+<p>トークのスライドは、以下をご覧ください</p>
 <ul>
-<li>Xcode 15.0</li>
-<li>Swift 5.9</li>
+<li><a href="https://speakerdeck.com/aokiplayer/macos-restore-history-2025">〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025 - Speaker Deck</a></li>
 </ul>
-<h2 id="dynamiccallable">dynamicCallable</h2>
-<p><code>@dynamicCallable</code> で修飾した型には、以下のいずれかのメソッドの実装が必須となります。
-メソッドの定義漏れやスペルミスをコンパイル時に気づける点が、<code>callAsFunction</code> とは異なりますね。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">メソッド</th>
-<th style="text-align:left">説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>dynamicallyCall(withArguments:)</code></td>
-<td style="text-align:left">引数は <code>ExpressibleByArrayLiteral</code> プロトコルに準拠した型（配列など）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>dynamicallyCall(withKeywordArguments:)</code></td>
-<td style="text-align:left">引数に <code>ExpressibleByDictionaryLiteral</code> プロトコルに準拠した型（ディクショナリなど）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="dynamicallycallwitharguments-メソッド">dynamicallyCall(withArguments:) メソッド</h3>
-<p><code>dynamicallyCall(withArguments:)</code> は、可変長の引数を受け取れます。
-メソッドの定義時には引数に配列などを指定しますが、メソッド名を省略した呼び出しの際には個別の値（本来、配列の要素とすべき値）をカンマ区切りで複数指定できます。</p>
-<h4 id="dynamicallycallwitharguments-の例">dynamicallyCall(withArguments:) の例</h4>
-<pre tabindex="0"><code class="language-swift:dynamicallyCall(withArguments:)" data-lang="swift:dynamicallyCall(withArguments:)">import Foundation
-
-// 足し算をするためだけの構造体
-@dynamicCallable
-struct AddAction {
-    // 引数はExpressibleByArrayLiteralに準拠した型とする
-    public func dynamicallyCall(withArguments args: [Int]) -&gt; Int {
-        return args.reduce(0, +)
-    }
-}
-
-let add = AddAction()
-
-// 以下は add.dynamicallyCall(withArguments: [10, 20, 30]) の省略形
-// この際、引数の配列は展開した状態で渡せる
-let result1 = add(10, 20, 30)
-print(result1)
-
-// メソッド名を記載した際には、引数は配列として渡す必要がある
-let result2 = add.dynamicallyCall(withArguments: [10, 20, 30, 40])
-print(result2)
-</code></pre><p>実行結果</p>
-<pre tabindex="0"><code class="language-zsh:実行結果" data-lang="zsh:実行結果">60
-100
-</code></pre><h3 id="dynamicallycallwithkeywordarguments-メソッド">dynamicallyCall(withKeywordArguments:) メソッド</h3>
-<p><code>dynamicallyCall(withKeywordArguments:)</code> は、ラベル付き引数を複数指定できます。
-Swift では関数やメソッドの引数ラベルはその宣言時に決めておく必要がありますが、<code>dynamicallyCall(withKeywordArguments:)</code> では呼び出し時に任意のラベルを指定できます。</p>
-<h4 id="dynamicallycallwithkeywordarguments-の例">dynamicallyCall(withKeywordArguments:) の例</h4>
-<pre tabindex="0"><code class="language-swift:dynamicallyCall(withKeywordArguments:)" data-lang="swift:dynamicallyCall(withKeywordArguments:)">import Foundation
-
-// 足し算をするためだけの構造体
-@dynamicCallable
-struct AddAction {
-    // 引数はExpressibleByDictionaryLiteralに準拠した型とする
-    public func dynamicallyCall(withKeywordArguments args: [String: Int]) -&gt; Int {
-        var sum = 0
-        
-        print(&#34;[引数リスト]&#34;)
-        
-        for (name, value) in args {
-            print(&#34;  \(name), \(value)&#34;)
-            sum += value
-        }
-        
-        return sum
-    }
-}
-
-let add = AddAction()
-
-// メソッド名は省略でき、引数のラベルと個数は自由に設定できる
-let result1 = add(a: 10, b: 20, c: 30)
-print(&#34;合計: \(result1)&#34;, terminator: &#34;\n\n&#34;)
-
-// メソッド名は省略でき、引数のラベルと個数は自由に設定できる
-let result2 = add(x: 5, y: 10)
-print(&#34;合計: \(result2)&#34;, terminator: &#34;\n\n&#34;)
-
-// メソッド名を記載した際には、引数はディクショナリとして渡す必要がある
-// キーはStringなので、ダブルクォートで囲む
-let result3 = add.dynamicallyCall(withKeywordArguments: [&#34;num1&#34;: 20, &#34;num2&#34;: 40])
-print(&#34;合計: \(result3)&#34;, terminator: &#34;\n\n&#34;)
-</code></pre><p>実行結果</p>
-<pre tabindex="0"><code class="language-zsh:実行結果" data-lang="zsh:実行結果">[引数リスト]
-  c, 30
-  a, 10
-  b, 20
-合計: 60
-
-[引数リスト]
-  y, 10
-  x, 5
-合計: 15
-
-[引数リスト]
-  num2, 40
-  num1, 20
-合計: 60
-</code></pre><h3 id="dynamicallycallwithkeywordarguments-の例-2">dynamicallyCall(withKeywordArguments:) の例 2</h3>
-<p>通常、Swift では同じ引数ラベルを複数指定できません。
-しかし、<code>dynamicallyCall(withKeywordArguments:)</code> の引数を <code>KeyValuePairs</code>（ディクショナリ同様、<code>ExpressibleByDictionaryLiteral</code> プロトコルに準拠）とすることにより、同じ引数ラベルを複数指定することも可能となります。</p>
-<p>例として、同じ引数ラベルを複数指定し、ラベルごとの数値の合計を求める機能を作成してみます。</p>
-<pre tabindex="0"><code class="language-swift:dynamicallyCall(withKeywordArguments:)" data-lang="swift:dynamicallyCall(withKeywordArguments:)">import Foundation
-
-// 足し算をするためだけの構造体
-@dynamicCallable
-struct AddAction {
-    // 引数はExpressibleByDictionaryLiteralに準拠した型とする
-    // KeyValuePairs型なら、同じラベルの引数を複数指定できる（ディクショナリではキーを重複できない）
-    public func dynamicallyCall(withKeywordArguments args: KeyValuePairs&lt;String, Int&gt;) -&gt; [String: Int] {
-        var sum = 0
-        
-        let groupedSum = Dictionary(grouping: args, by: { $0.key })
-            .mapValues { values in
-                values.compactMap { key, value in
-                    value
-                }
-                .reduce(0, +)
-            }
-
-        return groupedSum
-    }
-}
-
-let add = AddAction()
-
-// メソッド名は省略でき、引数のラベルと個数は自由に設定できる
-// 今回は引数をKeyValuePairs型にしているので、キーの重複もOK
-let result1 = add(john: 3, mary: 5, mary: 2, john: 4, ben: 10, john: 8, ben: 9)
-print(&#34;個人別の合計点数&#34;)
-print(result1, terminator: &#34;\n\n&#34;)
-
-// メソッド名を記載した際には、引数はディクショナリとして渡す必要がある
-// キーはStringなので、ダブルクォートで囲む
-let result2 = add.dynamicallyCall(withKeywordArguments: [
-    &#34;john&#34;: 3, &#34;mary&#34;: 5, &#34;mary&#34;: 2, &#34;john&#34;: 4, &#34;ben&#34;: 10, &#34;john&#34;: 8, &#34;ben&#34;: 9
-])
-print(&#34;個人別の合計点数&#34;)
-print(result2, terminator: &#34;\n\n&#34;)
-</code></pre><p>実行結果</p>
-<pre tabindex="0"><code class="language-zsh:実行結果" data-lang="zsh:実行結果">個人別の合計点数
-[&#34;ben&#34;: 19, &#34;john&#34;: 15, &#34;mary&#34;: 7]
-
-個人別の合計点数
-[&#34;mary&#34;: 7, &#34;ben&#34;: 19, &#34;john&#34;: 15]
-</code></pre><h2 id="まとめ">まとめ</h2>
-<p><code>dynamicCallable</code> を利用すると、引数が<code>callAsFunction</code> メソッドよりも柔軟に指定できますね。
-また、定義時にメソッド名にミスがあればコンパイルエラーとして気づける点もありがたいです。</p>
-<p>ただし、受け入れる引数のラベルと個数を宣言時に固定できない点には注意が必要です。</p>
-<p>作成したサンプルは、<a href="https://github.com/aokiplayer/swift-sandbox/tree/master/CallAsFunction">GitHub: aokiplayer/swift-sandboxCallAsFunction.playground</a> に置きました。</p>
-<h2 id="参考">参考</h2>
+<p>動画は、いずれ fortee からも YouTube の録画が視聴できるのかな？</p>
 <ul>
-<li><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#Methods-with-Special-Names">Methods with Special Names (The Swift Programming Language)</a></li>
+<li><a href="https://fortee.jp/iosdc-japan-2025/proposal/45b0c1e2-8f11-44b5-b376-595dd8a57932">〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 2025 by Steve Aoki | トーク | iOSDC Japan 2025 #iosdc - fortee.jp</a></li>
 </ul>
+<h2 id="反響と感想">反響と感想</h2>
+<p>私のトークの内容は、必要となる人は少ない（ほぼいない）のでどうかなと思っていました。
+ただ、終わった後に「CCC は自分も昔使ってた」など、話しかけていただける方もいらっしゃいました。
+また、Twitter でも「有用な知見だ」というようなコメントもいただいていました。誰か 1 人にでも役に立つのであれば、発信は続けていきたいです。</p>
+<p>また、ネットワークチームの シークレット LT でも「温かみのある」キーワードを使ってくれたり、みなさんの記憶には多少なりとも残ったようです。</p>
+<p>個人的には、LT らしい LT ができたかなと思ってます。</p>
+<p>他の方々はよく練り込んで内容を取捨選択し、時間内でしっかりと伝わる素晴らしい LT をされていました。
+一方、私は「限られた時間内で時間を超過するかどうかギリギリのラインで、勢いに任せて話す」緊迫した昔ながらの LT でした。
+賛否はあるかと思いますが、このスタイルは気に入ってます。LT 大会はお祭りですし。</p>
+<h2 id="最後に">最後に</h2>
+<p>iOSDC は技術系カンファレンスながら、「交流の場」としてのスタンスを貫いています。そのため、運営のみなさんは毎年、交流するための取り組みをさまざま取り入れています。</p>
+<p>そこが、私が「iOSDC Japan は一番好きなカンファレンス」と言い続けている点です。</p>
+<p>初登壇の 2019 年はとても不安でした。たまたまオープニングで隣にいた方（<a href="https://x.com/rikusouda">@rikusouda</a>）に話しかけ、仲良くなりました（その時にも、主催の長谷川さんが &ldquo;ぜひ交流を楽しんください&rdquo; という趣旨のことをおっしゃっていたように記憶しています）。
+今年はその方が LT の私の直前という並びであり、何か感慨深いものを感じました。</p>
+<p>また、その年にはルーキーズ LT の練習会にも参加し、そこで一緒に練習した方々とも未だに繋がっています。</p>
+<p>技術を学び・持ち帰ることも大切ですが、技術を楽しむには仲間を作るのはもっと大切だと思っています。
+このような場で、2 度も発表の機会をいただけたことに感謝します。</p>
+<p>またプロポーザル応募します！</p>
 
 
 <footer class="footline">
@@ -2095,59 +1957,6 @@ print(result2, terminator: &#34;\n\n&#34;)
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                 
                 
 
@@ -2224,6 +2033,59 @@ print(result2, terminator: &#34;\n\n&#34;)
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -2286,16 +2148,16 @@ print(result2, terminator: &#34;\n\n&#34;)
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1758844126"></script>
-    <script src="/js/perfect-scrollbar.min.js?1758844126"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1758844126"></script>
-    <script src="/js/jquery.sticky.js?1758844126"></script>
-    <script src="/js/featherlight.min.js?1758844126"></script>
-    <script src="/js/highlight.pack.js?1758844126"></script>
+    <script src="/js/clipboard.min.js?1758844125"></script>
+    <script src="/js/perfect-scrollbar.min.js?1758844125"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1758844125"></script>
+    <script src="/js/jquery.sticky.js?1758844125"></script>
+    <script src="/js/featherlight.min.js?1758844125"></script>
+    <script src="/js/highlight.pack.js?1758844125"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1758844126"></script>
-    <script src="/js/learn.js?1758844126"></script>
-    <script src="/js/hugo-learn.js?1758844126"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1758844125"></script>
+    <script src="/js/learn.js?1758844125"></script>
+    <script src="/js/hugo-learn.js?1758844125"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>

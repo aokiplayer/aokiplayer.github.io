@@ -6,7 +6,24 @@
     <description>Recent content in 2025 on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 14 Jul 2025 11:58:34 +0000</lastBuildDate><atom:link href="https://yagamo-style.com/2025/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Sep 2025 08:30:00 +0000</lastBuildDate><atom:link href="https://yagamo-style.com/2025/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました</title>
+      <link>https://yagamo-style.com/2025/iosdc2025talk/</link>
+      <pubDate>Thu, 25 Sep 2025 08:30:00 +0000</pubDate>
+      
+      <guid>https://yagamo-style.com/2025/iosdc2025talk/</guid>
+      <description>はじめに 今回 10 回目の開催となる、iOSDC Japan 2025 で LT を採択いただき、トークしてきました。 前回は 2019 の LT なので、実に 6 年ぶりです。
+その登壇について、ふりかえってみます。
+プロポーザル提出 iOSDC Japan は参加者も年々増え、プロポーザルの採択も狭き門となってきています。 私は企業研修のトレーナー、そして最近はスクラムマスターとしての仕事が増えていることもあり、Swift や SwiftUI の最新の機能や実開発での深い知見は持ち合わせていません。
+ただ、iOS に少しでも関係していてかつ「自分しか知見のないもの」という観点で、前回と同じ Mac の環境構築の話にしました。 年月が経っていたこともあり、取れる手段も変わっていたので、ちょうど良いかなと思いました。 私の肌感ですが、独自性の強い内容であれば比較的採択いただきやすいのかなと思っています。
+直接的に iOS アプリに組み込めるような内容でなくても、広くトークを採用しているのも iOSDC Japan の特徴のように感じています。
+話したこと トークの内容は「研修で利用する多数の Mac を以下に効率よく同じ状態にセットアップするか」というものです。 Apple はセキュリティを強化するための仕組みを次々と導入しており、その影響で我々のできることの自由度が下がっています。 その制限された中で、その仕様を調査したり試行錯誤してベターな方法を探っています。 Mac 自体に詳しくなるので、興味がある方はぜひ覗いてみてください。
+トークのスライドは、以下をご覧ください
+ 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025 - Speaker Deck  動画は、いずれ fortee からも YouTube の録画が視聴できるのかな？
+ 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 2025 by Steve Aoki | トーク | iOSDC Japan 2025 #iosdc - fortee.</description>
+    </item>
+    
     <item>
       <title>スクラムフェス神奈川 2025 -町田へ出陣- 感想</title>
       <link>https://yagamo-style.com/2025/scrumkanagawa-report/</link>
