@@ -59,3 +59,4 @@ git clone --recursive <repository-url>
 - Theme variant: blue
 - Custom styling in `static/css/custom.css`
 - Permalink structure: `/:year/:month/:day/:filename/`
+- 記事作成時は、write ブランチから article ブランチを作成。記事作成後は、article ブランチをローカルで write ブランチにマージ。write ブランチをプッシュ後は、article ブランチは削除
