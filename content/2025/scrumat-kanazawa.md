@@ -103,4 +103,5 @@ Gemini の DeepResearch に "エフェクチュエーション" を調べさせ�
 本当にありがとうございます。
 
 ## リンク
-- [Scrum Fest Mikawa 2025 - 線虫から学ぶ　“弱さ”が武器になるAI時代のチーム論 | ConfEngine - Conference Platform](https://confengine.com/conferences/scrum-fest-mikawa-2025/proposal/22898/ai)
+- [Scrum Fest Mikawa 2025 - 線虫から学ぶ　“弱さ”が武器になるAI時代のチーム論](https://confengine.com/conferences/scrum-fest-mikawa-2025/proposal/22898/ai)
+  - Keitaro Oshikata さん
