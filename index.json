@@ -63,6 +63,48 @@
 	"content": ""
 },
 {
+	"uri": "https://yagamo-style.com/tags/agile/",
+	"title": "Agile",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/rsgt/",
+	"title": "RSGT",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/scrum/",
+	"title": "SCRUM",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/tags/%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%A0%E3%83%95%E3%82%A7%E3%82%B9/",
+	"title": "スクラムフェス",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://yagamo-style.com/2025/scrumat-kanazawa/",
+	"title": "スクラム祭り 2025 金沢トラックで登壇してきました",
+	"tags": ["スクラムフェス", "RSGT", "Agile", "SCRUM"],
+	"description": "",
+	"content": "はじめに スクラムフェス神奈川でのトーク（スクラムフェス神奈川で \u0026ldquo;HUB 割引おじさん\u0026rdquo; として登壇してきました）後、「これをもとに公募形式のカンファレンスにもプロポーザルを出してみると良い」とのアドバイスをいただきました。 また、スクラムフェス神奈川ではトークを録画しないこともあり、自分としても「もっと多くの人に聞いていただきたい」との気持ちも強く、思い切ってスクラム祭りにプロポーザルを出してみました。\nその結果、ドラフト会議にて金沢トラックで採択いただきました。\n本記事では、自分自身の登壇部分について書いていきます。 他の方々のトークや金沢トラック全体の感想については、また別の記事として書きますね。\nカンファレンス概要 今年から始まったカンファレンスで、スクラムフェスを開催している各地の会場で同時に開催します。 また、XP 祭りとも同時開催となっています。\nスクラム祭りでは、以下の目的を掲げています。\n   地域コミュニティをはじめとした濃い繋がりが持てる少人数の良質なコミュニティを生み出したり育む\n  良質なコミュニティを繋げることで、新たな知見や経験をつむぎ出す\n  アジャイル開発、スクラムについての知見や経験、想いを共有する\n   私のお伝えしたい内容とも方向性が同じであることから、登壇できたことがとてもうれしいです。\nスクラム祭り 2025 公式サイト https://www.scrummatsuri.org/\nスクラム祭り 2025 金沢トラック 申込サイト https://agile-hokuriku.connpass.com/event/367958/\n自分の登壇について 神奈川での登壇内容をベースに\n いただいたフィードバックからの気づき モヤっとしていた部分の、他の方のトークによる気づき  などを追加して再構成しました。\n登壇資料はこちらです。 https://speakerdeck.com/aokiplayer/first-conversation-discount\n伝えたかったこと 神奈川の時から一貫して、以下をお伝えしたいと思っていました。\n カンファレンスや勉強会など、うまく対話できないのではないかと不安で参加できない人の背中を押したい 過去に辛い経験があっても、その経験はきっと役に立つから大丈夫  伝えたかった人 現地に参加しているような方々には、正直不要かなと思っていました。 どちらかというと、その場にいない人（= 参加を躊躇している人）にお伝えしたい内容でした。 オンライン配信である（そして YouTube で後から見返せる）ことから、ぜひこのトークを見つけてご覧いただきたいです。\nいただいた反応と気づき 登壇後、「コミュニケーション苦手な人の方が多いので、共感した」というような声をたくさんいただきました。現地で登壇していたので、その場に参加されている方々は苦手意識を持っていないものだと思っていました。 みなさんがどうコミュニケーションの不安を克服しているのか、ぜひ伺ってみたいと思います。いろんなパターンがあると思うので、それを集められたらもっと多くの方が参加しやすくなりそうですね。\nトークの中で、スクラムフェス三河の以下のトークについて引用させていただきました。\n線虫から学ぶ　“弱さ”が武器になるAI時代のチーム論（Keitaro Oshikata さん）\nその中で、「偶発的計画性理論」というものに触れられていました。 神奈川での登壇時から、「単に自分がたまたま会話のきっかけを作れた」内容をお話しして意味があるのか？と思っていました。 しかし、Oshikata さんの話されていた\n キャリアや学びのほとんどは、偶然の出来事から生まれる 必要なのはその偶然を活かす準備\n という言葉で、すべてが繋がった気がしました。 偶然だったけど、自分はその機会を活かせていたんだと納得しました。\nOhikata さん、本当に素晴らしいトークありがとうございました。\nさらなる気づき トークへの Discord でのコメントで「どっちかというエフェクチュエーション的な話に聞こえました！」という内容をいただきました。 Gemini の DeepResearch に \u0026ldquo;エフェクチュエーション\u0026rdquo; を調べさせたところ、以下のようなもののようでした。\n エフェクチュエーションとは、未来は予測不能であるという前提に立ち、壮大な目標から逆算するのではなく、今ある手持ちの手段（自分自身、知識、人脈）から「何ができるか」を問い、行動を始める意思決定理論です。期待されるリターンを追うのではなく「許容可能な損失」の範囲で小さく始め、協力者と共に目的を共創し、予期せぬ出来事さえも機会として活用します。これにより、計画に依存せず、自らの行動を通じて市場や未来そのものを創造していく、熟達した起業家特有のアプローチを体系化したものです。\n 偶然を活かすために「準備していた」点もありますが、偶然に出会った際に「自分の手持ちの何が使えるのか」というアプローチを取っていたので、エフェクチュエーションだったかもしれません。\n「計画的偶発性理論」も「エフェクチュエーション」も、聞いたばかりで深く理解できていないので、さらに文献にも当たってみようと思います。 とても興味が湧きました。\n登壇というアウトプットしたことで、さらなる気づきが得られたことも、本当に価値があったと感じています。\nSpecial Thanks 今回、スクラムフェス神奈川での登壇時の反応として引用させていただいたナカグチさん、あらたまさん、本当にありがとうございました。 私のささやかな行動を受け取り、その価値を気づかせてくれたナカグチさん、コミュニティを作る立場として私のような辛い立場の人間を作らないという強い信念をお持ちのあらたまさん、素晴らしいマインドをお持ちだと思いました。\nまた、引用こそしていませんが、スクラムフェス神奈川のメンバーがあたたかな言葉をかけてくださったので、今回の金沢での登壇ができました。 本当にありがとうございます。\n参考情報  Scrum Fest Mikawa 2025 - 線虫から学ぶ　“弱さ”が武器になるAI時代のチーム論 | ConfEngine - Conference Platform  "
+},
+{
 	"uri": "https://yagamo-style.com/tags/ios/",
 	"title": "iOS",
 	"tags": [],
@@ -93,41 +135,6 @@
 {
 	"uri": "https://yagamo-style.com/tags/swift/",
 	"title": "Swift",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/",
-	"title": "Tags",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/agile/",
-	"title": "Agile",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/rsgt/",
-	"title": "RSGT",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/scrum/",
-	"title": "SCRUM",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://yagamo-style.com/tags/%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%A0%E3%83%95%E3%82%A7%E3%82%B9/",
-	"title": "スクラムフェス",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -249,7 +256,7 @@
 	"title": "About",
 	"tags": [],
 	"description": "",
-	"content": " Steve Aoki(Hiroyuki Aoki) スクラムマスター、トレーナー、インストラクター、トレーニングコンテンツ企画・開発 Swift, Kotlin, Java, iOS, Android, macOS, MDM  Apple Certified Trainer（Apple 認定トレーナー）  2015- macOS Support Essentials (OS X Support Essentials) iOS Deployment Essentials Introduction to Swift Introduction to the iOS SDK App Development with Swift  Apple Professional Learning Provider  2019-2022 学校の先生向けに、授業にアプリケーションやプログラミングを導入する支援を行います  Apple Teacher  2019- Apple Teacher Apple Teacher Swift Playgrounds  Scrum Alliance Certified ScrumMaster  2023-  トレーニングコンテンツ  速習 Swift プログラミング言語 Swift による iOS アプリ開発入門 Swift による iOS アプリ開発応用 Swift による iOS アプリ開発実践 体験！アジャイルな開発プロジェクト  カンファレンス、セミナー登壇  [iOSDC Japan 2025] 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025 [スクラムフェス神奈川 2025 -町田へ出陣-]初参加の RSGT で HUB 割引おじさんとして認識してもらった話 [iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 [iOS コンソーシアム] Apple Professional Learningを体験しよう -認定講師によるオンライン研修を無料体験できる特別な4日間- [iOS コンソーシアム] すぐに始められるiPadの活用研修  その他登壇/出演情報  Schoo  【2017年版】Kotlinで始めるAndroidアプリ開発入門   プログラミング少女  【アンプラグド・プログラミング前編】パソコンを使わないでプログラミングを学ぶ方法って！？ - YouTube 【アンプラグド・プログラミング後編】iPadは誰の手に！？ARの道を早くゴールした方が勝ち！！ - YouTube    "
+	"content": " Steve Aoki(Hiroyuki Aoki) スクラムマスター、トレーナー、インストラクター、トレーニングコンテンツ企画・開発 アジャイル, スクラム, Swift（iOS）, Android（Kotlin, Java）, macOS, MDM  Apple Certified Trainer（Apple 認定トレーナー）  2015-  macOS Support Essentials (OS X Support Essentials) iOS Deployment Essentials Introduction to Swift Introduction to the iOS SDK App Development with Swift    Apple Professional Learning Provider  2019-2022 学校の先生向けに、授業にアプリケーションやプログラミングを導入する支援を行います  Apple Teacher  2019- Apple Teacher Apple Teacher Swift Playgrounds  Scrum Alliance Certified ScrumMaster  2023-  トレーニングコンテンツ  速習 Swift プログラミング言語 Swift による iOS アプリ開発入門 Swift による iOS アプリ開発応用 Swift による iOS アプリ開発実践 体験！アジャイルな開発プロジェクト  カンファレンス、セミナー登壇  [スクラム祭り 2025 金沢トラック]他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 [iOSDC Japan 2025] 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025 [スクラムフェス神奈川 2025 -町田へ出陣-]初参加の RSGT で HUB 割引おじさんとして認識してもらった話 [iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 [iOS コンソーシアム] Apple Professional Learningを体験しよう -認定講師によるオンライン研修を無料体験できる特別な4日間- [iOS コンソーシアム] すぐに始められるiPadの活用研修  その他登壇/出演情報  Schoo  【2017年版】Kotlinで始めるAndroidアプリ開発入門   プログラミング少女  【アンプラグド・プログラミング前編】パソコンを使わないでプログラミングを学ぶ方法って！？ - YouTube 【アンプラグド・プログラミング後編】iPadは誰の手に！？ARの道を早くゴールした方が勝ち！！ - YouTube    "
 },
 {
 	"uri": "https://yagamo-style.com/tags/hugo/",
