@@ -6,12 +6,12 @@
     <meta name="generator" content="Hugo 0.94.1" />
     <meta name="description" content="技術メモとかイベントレポートとか">
 <meta name="author" content="Steven Hiroyuki Aoki">
-<meta property="og:url" content="https://yagamo-style.com/2024/js-logical-and/">
-<meta property="og:title" content="JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない">
+<meta property="og:url" content="https://yagamo-style.com/2025/retrospective/">
+<meta property="og:title" content="アジャイル界隈に一歩を踏み出した、2025 年のふりかえり">
 <meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない :: Yagamo Style</title>
+    <title>アジャイル界隈に一歩を踏み出した、2025 年のふりかえり :: Yagamo Style</title>
 
     
     <link href="/css/nucleus.css?1767182619" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2024/js-logical-and/">
+  <body class="" data-url="/2025/retrospective/">
     <nav id="sidebar" class="">
 
 
@@ -98,7 +98,7 @@
   
     
     <li data-nav-id="/2025/" title="2025" class="dd-item
-        
+        parent
         
         
         ">
@@ -124,7 +124,7 @@
  
   
     
-      <li data-nav-id="/2025/retrospective/" title="アジャイル界隈に一歩を踏み出した、2025 年のふりかえり" class="dd-item ">
+      <li data-nav-id="/2025/retrospective/" title="アジャイル界隈に一歩を踏み出した、2025 年のふりかえり" class="dd-item active">
         <a href="/2025/retrospective/">
         アジャイル界隈に一歩を踏み出した、2025 年のふりかえり
         
@@ -258,7 +258,7 @@
   
     
     <li data-nav-id="/2024/" title="2024" class="dd-item
-        parent
+        
         
         
         ">
@@ -305,7 +305,7 @@
  
   
     
-      <li data-nav-id="/2024/js-logical-and/" title="JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない" class="dd-item active">
+      <li data-nav-id="/2024/js-logical-and/" title="JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない" class="dd-item ">
         <a href="/2024/js-logical-and/">
         JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない
         
@@ -1285,7 +1285,7 @@
             
           
           
-            <a href='/'>Yagamo Style</a> > <a href='/2024/'>2024</a> > JavaScript の && 演算子は true/false を返すとは限らない
+            <a href='/'>Yagamo Style</a> > <a href='/2025/'>2025</a> > アジャイル界隈に一歩を踏み出した、2025 年のふりかえり
           
         
           
@@ -1301,14 +1301,16 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#-演算子の基本">&amp;&amp; 演算子の基本</a></li>
-    <li><a href="#ちょっと変わった使い方">ちょっと変わった使い方</a>
+    <li><a href="#コミュニティへの復帰">コミュニティへの復帰</a></li>
+    <li><a href="#登壇とフィードバックループ">登壇とフィードバックループ</a>
       <ul>
-        <li><a href="#では最初の例は">では最初の例は？</a></li>
+        <li><a href="#スクラムフェス神奈川-2025--町田へ出陣-">スクラムフェス神奈川 2025 -町田へ出陣-</a></li>
+        <li><a href="#スクラム祭り-2025-金沢トラック">スクラム祭り 2025 金沢トラック</a></li>
+        <li><a href="#no-me-in-agile-2-忘年会をしよう">no me in agile #2 忘年会をしよう！</a></li>
       </ul>
     </li>
-    <li><a href="#まとめ">まとめ</a></li>
-    <li><a href="#参考">参考</a></li>
+    <li><a href="#昨年の自分に向けて">昨年の自分に向けて</a></li>
+    <li><a href="#来年">来年</a></li>
   </ul>
 </nav>
     </div>
@@ -1322,7 +1324,9 @@
         
 <div class="tags">
 
-  <a class="tag-link" href="/tags/javascript">JavaScript</a>
+  <a class="tag-link" href="/tags/agile">Agile</a>
+
+  <a class="tag-link" href="/tags/scrum">SCRUM</a>
 
 </div>
 
@@ -1332,7 +1336,7 @@
           
             <h1>
               
-              JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない
+              アジャイル界隈に一歩を踏み出した、2025 年のふりかえり
             </h1>
           
 
@@ -1340,87 +1344,51 @@
 
 
 <h2 id="はじめに">はじめに</h2>
-<p>React Hook Form のサンプルを見ていたら、こんなコードがありました。</p>
-<blockquote>
-<p>というか、React 本家のチュートリアルにもありますね。
-<a href="https://ja.react.dev/learn/conditional-rendering#logical-and-operator-">https://ja.react.dev/learn/conditional-rendering#logical-and-operator-</a></p>
-</blockquote>
-<pre tabindex="0"><code class="language-react:エラーがあれば&&の右を出力" data-lang="react:エラーがあれば&&の右を出力">{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;}
-</code></pre><p>普段 JavaScript を書かない立場としては、すぐには理解できませんでした。
-入力チェックの結果、エラーがある場合ならこういう挙動のはず。</p>
-<ol>
-<li><code>errors.exampleRequired</code> に何らかのオブジェクトが入っている</li>
-<li><code>true</code> と評価される</li>
-<li>右オペランドが評価される
-<ol>
-<li>右オペランドが <code>true</code> と評価されれば、<code>true</code> が返される</li>
-<li>右オペランドが <code>false</code> と評価されれば、<code>false</code> が返される</li>
-</ol>
-</li>
-</ol>
-<p>入力チェックの結果、エラーがない場合ならこうなるよね？</p>
-<ol>
-<li><code>errors.exampleRequired</code> が <code>undefined</code></li>
-<li><code>false</code> と評価される</li>
-<li>右オペランドを評価せず、<code>false</code> が返される</li>
-</ol>
-<p>どちらにせよ、<code>true</code>/<code>false</code> のいずれかが返されるので <code>&lt;span&gt;This field is required&lt;/span&gt;</code> は出力されないように思えます。
-正しく動作させるなら、普通に考えればこうなるかなと。</p>
-<pre tabindex="0"><code class="language-react:条件演算子を使うよね" data-lang="react:条件演算子を使うよね">{errors.exampleRequired ? &lt;span&gt;This field is required&lt;/span&gt; : &#39;&#39;}
-</code></pre><p>JavaScript の <code>&amp;&amp;</code> 演算子が Java などと比べて特殊なので、確認してみます。</p>
-<h2 id="-演算子の基本">&amp;&amp; 演算子の基本</h2>
-<p>JavaScript も C 言語の流れを汲んでいる（基本的な文法の面では）ので、基本的には同じです。</p>
+<p>今年は、アジャイル関連で自分の中でいろいろと変化のあった年でした。<br>
+年越しを前に、簡単にふりかえってみたいと思います。</p>
+<h2 id="コミュニティへの復帰">コミュニティへの復帰</h2>
+<p>実際には「スクラムフェス神奈川 2024 -秋の陣-」がきっかけですが、それを契機としてアジャイルのコミュニティに少しずつ戻ってくることができました。</p>
+<p>以前にも触れましたが、スクラムフェス神奈川とは以下の点で良い出会いだったと思います。</p>
 <ul>
-<li>AND（論理積）を求める</li>
-<li>ショートカット演算子なので、左オペランドを評価して式全体の結果が確定すれば、右オペランドは評価しない</li>
+<li>東京西部からアクセスしやすかった</li>
+<li>初参加者を受け入れてくれる、懐の深いコミュニティ</li>
+<li>新卒時の <a href="xhttps://x.com/sasatoshin3104">同僚</a>との 25 年以上ぶりの再会</li>
 </ul>
-<pre tabindex="0"><code class="language-javascript:論理積を求める" data-lang="javascript:論理積を求める">const t1 = true;
-const t2 = true;
-const f1 = false;
-const f2 = false;
-t1 &amp;&amp; t2    // true
-t1 &amp;&amp; f2    // false
-f1 &amp;&amp; t1    // false, f1 を評価した時点で全体の結果が確定するので t1 は評価されない
-</code></pre><h2 id="ちょっと変わった使い方">ちょっと変わった使い方</h2>
-<p>MDN を見ると、以下のような説明があります。</p>
-<blockquote>
-<p>一般的には、この演算子は左から右に向けて評価した際に最初の偽値のオペランドに遭遇したときにはその値を、またはすべてが真値であった場合は最後のオペランドの値を返します。</p>
-</blockquote>
-<p>つまり、論理演算子なので常に <code>true</code>/<code>false</code> の真偽値を返すと思いがちですが、実際には以下のような挙動となっています。</p>
-<ul>
-<li>左オペランドが <code>false</code> として扱われる値の場合: 左オペランドを返す</li>
-<li>左オペランドが <code>true</code> として扱われる値の場合: 右オペランドを返す</li>
-</ul>
-<p>上記の挙動に当てはめた結果、真偽値型の場合は我々のよく知る挙動となっているわけですね。</p>
-<p>ということで、真偽値型以外に適用するとこんなことが起こってしまうわけです。
-直感に反しますよね。</p>
-<pre tabindex="0"><code class="language-javascript:田中さん" data-lang="javascript:田中さん">const tanaka = &#39;田中まさひろ&#39;;
-const satoda = &#39;里田まい&#39;;
-
-tanaka &amp;&amp; satoda  // &#39;里田まい&#39;
-</code></pre><h3 id="では最初の例は">では最初の例は？</h3>
-<pre tabindex="0"><code class="language-react:エラーがあれば&&の右を出力" data-lang="react:エラーがあれば&&の右を出力">{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;}
-</code></pre><p>以下の挙動となります。</p>
-<h4 id="入力チェックの結果エラーがある場合">入力チェックの結果、エラーがある場合</h4>
-<ol>
-<li><code>errors.exampleRequired</code> に何らかのオブジェクトが入っている</li>
-<li><code>true</code> と評価される</li>
-<li>右オペランドが返されて、メッセージを出力</li>
-</ol>
-<h4 id="入力チェックの結果エラーがない場合">入力チェックの結果、エラーがない場合</h4>
-<ol>
-<li><code>errors.exampleRequired</code> は <code>undefined</code></li>
-<li><code>false</code> と評価される</li>
-<li>左オペランドが返されて、<code>undefined</code> なので React は何も出力しない</li>
-</ol>
-<h2 id="まとめ">まとめ</h2>
-<p>Java などの、型を厳密に扱う言語に慣れていると JavaScript の <code>&amp;&amp;</code> の挙動は不思議に思えますね。
-ですが、ドキュメントをしっかり読めば説明はあるので、注意して少しずつ慣れていきましょう。</p>
-<h2 id="参考">参考</h2>
-<ul>
-<li><a href="https://ja.react.dev/learn/conditional-rendering#logical-and-operator-">論理 AND 演算子 (&amp;&amp;): 条件付きレンダー – React</a></li>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND">論理積 (&amp;&amp;) - JavaScript | MDN</a></li>
-</ul>
+<p>今年に入って合宿型の「スクラムフェス神奈川 2025 -春の陣-」にも参加し、心に火が灯ったり出会いがあったり。<br>
+さらに「スクラムフェス神奈川 2025 -町田へ出陣-」で、登壇してみようという気持ちとなりました。</p>
+<h2 id="登壇とフィードバックループ">登壇とフィードバックループ</h2>
+<p>今年の登壇は、以下の 3 本でした（それ以外に iOSDC Japan 2025 での LT もありましたが、アジャイル関連として）。<br>
+多くの方々が何度も登壇されているこの界隈ですが、外部勉強会やイベントでほぼ登壇したことのない私にとっては大きな進歩でした。</p>
+<p>3 つの登壇内容はベースが同じなのですが、登壇後のフィードバックや他の方々の登壇から気づきを得て次の登壇内容に繋げた形となった点も、非常に興味深かったです。</p>
+<h3 id="スクラムフェス神奈川-2025--町田へ出陣-">スクラムフェス神奈川 2025 -町田へ出陣-</h3>
+<p>&ldquo;初心者&rdquo; をキーワードとしていたので、ここしかないと思い、登壇枠で申し込んでました。<br>
+私はアジャイルに関する深い知見があるわけではないのですが、「自分と同じように踏み出せない人」向けの内容としました。</p>
+<p><a href="https://speakerdeck.com/aokiplayer/rsgt2025-hub-discount-guy">初参加の RSGT で HUB 割引おじさんとして認識してもらった話 - Speaker Deck</a></p>
+<p>聞いていただいた方々からは、ありがたいことに多くの反響をいただきました。<br>
+また、懇親会ではふりかえりエバンジェリストの <a href="https://x.com/viva_tweet_x">びばさん</a> から「先着順ではなく、公募制のカンファレンスにも出してみると良い」とのアドバイスをいただきました。</p>
+<h3 id="スクラム祭り-2025-金沢トラック">スクラム祭り 2025 金沢トラック</h3>
+<p>スクラムフェス神奈川は録画や配信もなかったので、より多くの方に聞いていただきたい思いが強くなりプロポーザルを出してみました。<br>
+ありがたいことに採択いただき、金沢現地で登壇してきました。</p>
+<p><a href="https://speakerdeck.com/aokiplayer/first-conversation-discount">他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 - Speaker Deck</a></p>
+<p>当初は町田での内容をそのままブラッシュアップした内容で考えていたのですが、オンラインで参加した「スクラムフェス三河 2025」での <a href="https://x.com/oshikata200">Keitaro Oshikata さん</a> のトークから私の行動が「計画的偶発性理論」ではないかと思い、その点を盛り込んだ内容としました。</p>
+<p>登壇中のフィードバックで「それは計画的偶発性理論ではなくて、どちらかというとエフェクチュエーションのように聞こえた」との声をいくつかいただきました。<br>
+それが気になり、エフェクチュエーションに関する書籍や論文に目を通してみることになりました。</p>
+<h3 id="no-me-in-agile-2-忘年会をしよう">no me in agile #2 忘年会をしよう！</h3>
+<p>計画的偶発性理論とエフェクチュエーションについてせっかく調べてみたのでどこかで話してみたいと思っていたところ、同じ「スクラムフェス神奈川 2025 -町田へ出陣-」の場で登壇してから仲良くしていただいている <a href="https://x.com/nb_rady">Harady さん</a> 主催のイベントで LT 枠があったので発表してみました。</p>
+<p><a href="https://speakerdeck.com/aokiplayer/planned-happenstance-and-effectuation">計画的偶発性理論じゃなくてエフェクチュエーションだったのかもしれない - Speaker Deck</a></p>
+<p>LT 準備する中で、自分の中でこの 2 つの理論がある程度整理できた気がします。<br>
+もっと解像度を上げて活用してみて、またどこかで発表したい気持ちになりました。</p>
+<h2 id="昨年の自分に向けて">昨年の自分に向けて</h2>
+<p>正確には「昨年の自分と同じように踏み出せない人に向けて」です。</p>
+<p>大丈夫、「下手くそでも踏み出してみた」人には必ず何らかの形で気づきやフィードバックがあります。<br>
+踏み出す前は、「自分の経験」や「ちょっとした気づき」や「考えたこと」は大したことないし、誰でもそんなのわかってるのではないかと思いがちです。<br>
+そうかもしれないし、そうじゃないかもしれないです。</p>
+<p>誰か 1 人に届けばいい、という気持ちで踏み出してみてください😉</p>
+<h2 id="来年">来年</h2>
+<p>仕事では引き続き技術研修を担当する予定ですが、アジャイルのサポートのお仕事も少しずついただけるようになってきました。<br>
+良くも悪くも、今は「テクノロジー大好き」集団にいるので、少し異なる視点からサービスを提案・提供したいです。</p>
+<p>そして、今年こそメンバーを巻き込んでいきたい！（巻き込み力には課題を感じてます）<br>
+そのためにも、自分自身が学び・試し・成長してアウトプットし、フィードバックループを回していくつもりです💪</p>
 
 
 <footer class="footline">
@@ -2085,62 +2053,6 @@ tanaka &amp;&amp; satoda  // &#39;里田まい&#39;
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -2169,6 +2081,59 @@ tanaka &amp;&amp; satoda  // &#39;里田まい&#39;
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -2263,16 +2228,16 @@ tanaka &amp;&amp; satoda  // &#39;里田まい&#39;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1767182621"></script>
-    <script src="/js/perfect-scrollbar.min.js?1767182621"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1767182621"></script>
-    <script src="/js/jquery.sticky.js?1767182621"></script>
-    <script src="/js/featherlight.min.js?1767182621"></script>
-    <script src="/js/highlight.pack.js?1767182621"></script>
+    <script src="/js/clipboard.min.js?1767182620"></script>
+    <script src="/js/perfect-scrollbar.min.js?1767182620"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1767182620"></script>
+    <script src="/js/jquery.sticky.js?1767182620"></script>
+    <script src="/js/featherlight.min.js?1767182620"></script>
+    <script src="/js/highlight.pack.js?1767182620"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1767182621"></script>
-    <script src="/js/learn.js?1767182621"></script>
-    <script src="/js/hugo-learn.js?1767182621"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1767182620"></script>
+    <script src="/js/learn.js?1767182620"></script>
+    <script src="/js/hugo-learn.js?1767182620"></script>
     
         
             <script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script>
