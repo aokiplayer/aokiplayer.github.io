@@ -39,15 +39,23 @@ tags: []
 - アプリケーションエンジニアのための生成 AI との付き合い方
 
 ## カンファレンス、セミナー、勉強会登壇
-プロポーザル採択型のもの、先着順のもの、カンファレンス、勉強会などさまざま登壇してます。
+プロポーザル採択型のもの、先着順のもの、カンファレンス、勉強会、LT などさまざま登壇してます。
 
+### 2026
+- [[【増枠】【聖蹟桜ヶ丘開催】多摩.dev #1]多摩ニュータウンを、味わう](https://tamadev.connpass.com/event/379782/)
+
+### 2025
 - [[no me in agile #2 忘年会をしよう！]計画的偶発性理論じゃなくてエフェクチュエーションだったのかもしれない](https://nomi-agile.connpass.com/event/372170/)
 - [[スクラム祭り 2025 金沢トラック]他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』](https://agile-hokuriku.connpass.com/event/367958/)
 - [[iOSDC Japan 2025] 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025](https://fortee.jp/iosdc-japan-2025/proposal/45b0c1e2-8f11-44b5-b376-595dd8a57932)
 - [[スクラムフェス神奈川 2025 -町田へ出陣-]初参加の RSGT で HUB 割引おじさんとして認識してもらった話](https://www.scrumfestkanagawa.org/)
-- [[iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術](https://fortee.jp/iosdc-japan-2019/proposal/973963ea-c6b2-46aa-a15b-1b34af099c84)
-- [[iOS コンソーシアム] Apple Professional Learningを体験しよう -認定講師によるオンライン研修を無料体験できる特別な4日間-](https://giga.ios.or.jp/event/apl_gw_special/)
+
+### 2021
 - [[iOS コンソーシアム] すぐに始められるiPadの活用研修](https://giga.ios.or.jp/event/ipadweek2021/)
+- [[iOS コンソーシアム] Apple Professional Learningを体験しよう -認定講師によるオンライン研修を無料体験できる特別な4日間-](https://giga.ios.or.jp/event/apl_gw_special/)
+
+### 2019
+- [[iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術](https://fortee.jp/iosdc-japan-2019/proposal/973963ea-c6b2-46aa-a15b-1b34af099c84)
 
 ## その他登壇/出演情報
 - Schoo
