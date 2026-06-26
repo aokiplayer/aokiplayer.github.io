@@ -8,6 +8,9 @@ jobs:
       - image: hugomods/hugo:reg-exts-0.154.5
     working_directory: ~/project
     steps:
+      - run:
+          name: "Install dependencies"
+          command: apk add --no-cache openssh-client
       - checkout
       - run:
           name: "Git config"
