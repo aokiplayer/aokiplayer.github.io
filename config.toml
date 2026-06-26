@@ -17,11 +17,13 @@ path = "github.com/imfing/hextra"
 [markup.goldmark.renderer]
 unsafe = true
 
+# シンタックスハイライト: Hextra の CSS テーマと連動させるため class ベース出力
+[markup.highlight]
+noClasses = false
+
 # 既存 URL を維持するためのパーマリンク設定
+# 注意: 2024 年以降は明示しない（既存サイトのデフォルト挙動 /:section/:filename/ を維持するため）
 [permalinks]
-2026 = '/:year/:month/:day/:filename/'
-2025 = '/:year/:month/:day/:filename/'
-2024 = '/:year/:month/:day/:filename/'
 2023 = '/:year/:month/:day/:filename/'
 2022 = '/:year/:month/:day/:filename/'
 2021 = '/:year/:month/:day/:filename/'
