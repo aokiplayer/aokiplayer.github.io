@@ -8,46 +8,63 @@
 <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
-<title>JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない – Yagamo Style</title>
-  <meta name="description" content="はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。
-というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
-{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。
-errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される 右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される 入力チェックの結果、エラーがない場合ならこうなるよね？" /><link rel="canonical" href="https://yagamo-style.com/2024/01/24/js-logical-and/" itemprop="url" />
+<title>アジャイル界隈に一歩を踏み出した、2025 年のふりかえり – Yagamo Style</title>
+  <meta name="description" content="はじめに 今年は、アジャイル関連で自分の中でいろいろと変化のあった年でした。
+年越しを前に、簡単にふりかえってみたいと思います。
+コミュニティへの復帰 実際には「スクラムフェス神奈川 2024 -秋の陣-」がきっかけですが、それを契機としてアジャイルのコミュニティに少しずつ戻ってくることができました。
+以前にも触れましたが、スクラムフェス神奈川とは以下の点で良い出会いだったと思います。
+東京西部からアクセスしやすかった 初参加者を受け入れてくれる、懐の深いコミュニティ 新卒時の 同僚との 25 年以上ぶりの再会 今年に入って合宿型の「スクラムフェス神奈川 2025 -春の陣-」にも参加し、心に火が灯ったり出会いがあったり。
+さらに「スクラムフェス神奈川 2025 -町田へ出陣-」で、登壇してみようという気持ちとなりました。
+登壇とフィードバックループ 今年の登壇は、以下の 3 本でした（それ以外に iOSDC Japan 2025 での LT もありましたが、アジャイル関連として）。
+多くの方々が何度も登壇されているこの界隈ですが、外部勉強会やイベントでほぼ登壇したことのない私にとっては大きな進歩でした。
+3 つの登壇内容はベースが同じなのですが、登壇後のフィードバックや他の方々の登壇から気づきを得て次の登壇内容に繋げた形となった点も、非常に興味深かったです。
+スクラムフェス神奈川 2025 -町田へ出陣- “初心者” をキーワードとしていたので、ここしかないと思い、登壇枠で申し込んでました。
+私はアジャイルに関する深い知見があるわけではないのですが、「自分と同じように踏み出せない人」向けの内容としました。
+初参加の RSGT で HUB 割引おじさんとして認識してもらった話 - Speaker Deck
+聞いていただいた方々からは、ありがたいことに多くの反響をいただきました。
+また、懇親会ではふりかえりエバンジェリストの びばさん から「先着順ではなく、公募制のカンファレンスにも出してみると良い」とのアドバイスをいただきました。
+スクラム祭り 2025 金沢トラック スクラムフェス神奈川は録画や配信もなかったので、より多くの方に聞いていただきたい思いが強くなりプロポーザルを出してみました。
+ありがたいことに採択いただき、金沢現地で登壇してきました。
+他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 - Speaker Deck
+当初は町田での内容をそのままブラッシュアップした内容で考えていたのですが、オンラインで参加した「スクラムフェス三河 2025」での Keitaro Oshikata さん のトークから私の行動が「計画的偶発性理論」ではないかと思い、その点を盛り込んだ内容としました。
+登壇中のフィードバックで「それは計画的偶発性理論ではなくて、どちらかというとエフェクチュエーションのように聞こえた」との声をいくつかいただきました。
+それが気になり、エフェクチュエーションに関する書籍や論文に目を通してみることになりました。" /><link rel="canonical" href="https://yagamo-style.com/2025/retrospective/" itemprop="url" />
 
-<meta property="og:title" content="JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない">
+<meta property="og:title" content="アジャイル界隈に一歩を踏み出した、2025 年のふりかえり">
 <meta
   property="og:description"
   content="
     
       はじめに
-    React Hook Form のサンプルを見ていたら、こんなコードがありました。
+    今年は、アジャイル関連で自分の中でいろいろと変化のあった年でした。
+年越しを前に、簡単にふりかえってみたいと思います。
+コミュニティへの復帰
+    実際には「スクラムフェス神奈川 2024 -秋の陣-」がきっかけですが、それを契機としてアジャイルのコミュニティに少しずつ戻ってくることができました。
+以前にも触れましたが、スクラムフェス神奈川とは以下の点で良い出会いだったと思います。
 
-  というか、React 本家のチュートリアルにもありますね。
-https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
+東京西部からアクセスしやすかった
+初参加者を受け入れてくれる、懐の深いコミュニティ
+新卒時の 同僚との 25 年以上ぶりの再会
 
-
-
-
-{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;}
-  
-    
-
-  
-
-
-普段 JavaScript を書かない立場としては、すぐには理解できませんでした。
-入力チェックの結果、エラーがある場合ならこういう挙動のはず。
-
-errors.exampleRequired に何らかのオブジェクトが入っている
-true と評価される
-右オペランドが評価される
-
-右オペランドが true と評価されれば、true が返される
-右オペランドが false と評価されれば、false が返される
-
-
-
-入力チェックの結果、エラーがない場合ならこうなるよね？
+今年に入って合宿型の「スクラムフェス神奈川 2025 -春の陣-」にも参加し、心に火が灯ったり出会いがあったり。
+さらに「スクラムフェス神奈川 2025 -町田へ出陣-」で、登壇してみようという気持ちとなりました。
+登壇とフィードバックループ
+    今年の登壇は、以下の 3 本でした（それ以外に iOSDC Japan 2025 での LT もありましたが、アジャイル関連として）。
+多くの方々が何度も登壇されているこの界隈ですが、外部勉強会やイベントでほぼ登壇したことのない私にとっては大きな進歩でした。
+3 つの登壇内容はベースが同じなのですが、登壇後のフィードバックや他の方々の登壇から気づきを得て次の登壇内容に繋げた形となった点も、非常に興味深かったです。
+スクラムフェス神奈川 2025 -町田へ出陣-
+    &ldquo;初心者&rdquo; をキーワードとしていたので、ここしかないと思い、登壇枠で申し込んでました。
+私はアジャイルに関する深い知見があるわけではないのですが、「自分と同じように踏み出せない人」向けの内容としました。
+初参加の RSGT で HUB 割引おじさんとして認識してもらった話 - Speaker Deck
+聞いていただいた方々からは、ありがたいことに多くの反響をいただきました。
+また、懇親会ではふりかえりエバンジェリストの びばさん から「先着順ではなく、公募制のカンファレンスにも出してみると良い」とのアドバイスをいただきました。
+スクラム祭り 2025 金沢トラック
+    スクラムフェス神奈川は録画や配信もなかったので、より多くの方に聞いていただきたい思いが強くなりプロポーザルを出してみました。
+ありがたいことに採択いただき、金沢現地で登壇してきました。
+他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 - Speaker Deck
+当初は町田での内容をそのままブラッシュアップした内容で考えていたのですが、オンラインで参加した「スクラムフェス三河 2025」での Keitaro Oshikata さん のトークから私の行動が「計画的偶発性理論」ではないかと思い、その点を盛り込んだ内容としました。
+登壇中のフィードバックで「それは計画的偶発性理論ではなくて、どちらかというとエフェクチュエーションのように聞こえた」との声をいくつかいただきました。
+それが気になり、エフェクチュエーションに関する書籍や論文に目を通してみることになりました。
     
   ">
 <meta
@@ -55,37 +72,69 @@ true と評価される
   content="
     article
   ">
-<meta property="og:url" content="https://yagamo-style.com/2024/01/24/js-logical-and/">
-      <meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png"><meta property="article:section" content="2024">
+<meta property="og:url" content="https://yagamo-style.com/2025/retrospective/">
+      <meta property="og:image" content="https://yagamo-style.com/images/open_graph_logo.png"><meta property="article:section" content="2025">
 
 <meta
   property="article:published_time"
-  content="2024-01-24T09:00:00+09:00">
+  content="2025-12-31T09:00:00+00:00">
 
 
 <meta
   property="article:modified_time"
-  content="2024-01-24T09:00:00+09:00">
+  content="2025-12-31T09:00:00+00:00">
 
 
 
-  <meta itemprop="name" content="JavaScript の && 演算子は true/false を返すとは限らない">
-  <meta itemprop="description" content="はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。
-というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
-{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。
-errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される 右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される 入力チェックの結果、エラーがない場合ならこうなるよね？">
-  <meta itemprop="datePublished" content="2024-01-24T09:00:00+09:00">
-  <meta itemprop="dateModified" content="2024-01-24T09:00:00+09:00">
-  <meta itemprop="wordCount" content="181">
+  <meta itemprop="name" content="アジャイル界隈に一歩を踏み出した、2025 年のふりかえり">
+  <meta itemprop="description" content="はじめに 今年は、アジャイル関連で自分の中でいろいろと変化のあった年でした。
+年越しを前に、簡単にふりかえってみたいと思います。
+コミュニティへの復帰 実際には「スクラムフェス神奈川 2024 -秋の陣-」がきっかけですが、それを契機としてアジャイルのコミュニティに少しずつ戻ってくることができました。
+以前にも触れましたが、スクラムフェス神奈川とは以下の点で良い出会いだったと思います。
+東京西部からアクセスしやすかった 初参加者を受け入れてくれる、懐の深いコミュニティ 新卒時の 同僚との 25 年以上ぶりの再会 今年に入って合宿型の「スクラムフェス神奈川 2025 -春の陣-」にも参加し、心に火が灯ったり出会いがあったり。
+さらに「スクラムフェス神奈川 2025 -町田へ出陣-」で、登壇してみようという気持ちとなりました。
+登壇とフィードバックループ 今年の登壇は、以下の 3 本でした（それ以外に iOSDC Japan 2025 での LT もありましたが、アジャイル関連として）。
+多くの方々が何度も登壇されているこの界隈ですが、外部勉強会やイベントでほぼ登壇したことのない私にとっては大きな進歩でした。
+3 つの登壇内容はベースが同じなのですが、登壇後のフィードバックや他の方々の登壇から気づきを得て次の登壇内容に繋げた形となった点も、非常に興味深かったです。
+スクラムフェス神奈川 2025 -町田へ出陣- “初心者” をキーワードとしていたので、ここしかないと思い、登壇枠で申し込んでました。
+私はアジャイルに関する深い知見があるわけではないのですが、「自分と同じように踏み出せない人」向けの内容としました。
+初参加の RSGT で HUB 割引おじさんとして認識してもらった話 - Speaker Deck
+聞いていただいた方々からは、ありがたいことに多くの反響をいただきました。
+また、懇親会ではふりかえりエバンジェリストの びばさん から「先着順ではなく、公募制のカンファレンスにも出してみると良い」とのアドバイスをいただきました。
+スクラム祭り 2025 金沢トラック スクラムフェス神奈川は録画や配信もなかったので、より多くの方に聞いていただきたい思いが強くなりプロポーザルを出してみました。
+ありがたいことに採択いただき、金沢現地で登壇してきました。
+他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 - Speaker Deck
+当初は町田での内容をそのままブラッシュアップした内容で考えていたのですが、オンラインで参加した「スクラムフェス三河 2025」での Keitaro Oshikata さん のトークから私の行動が「計画的偶発性理論」ではないかと思い、その点を盛り込んだ内容としました。
+登壇中のフィードバックで「それは計画的偶発性理論ではなくて、どちらかというとエフェクチュエーションのように聞こえた」との声をいくつかいただきました。
+それが気になり、エフェクチュエーションに関する書籍や論文に目を通してみることになりました。">
+  <meta itemprop="datePublished" content="2025-12-31T09:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-12-31T09:00:00+00:00">
+  <meta itemprop="wordCount" content="104">
   <meta itemprop="image" content="https://yagamo-style.com/images/open_graph_logo.png">
-  <meta itemprop="keywords" content="JavaScript">
+  <meta itemprop="keywords" content="Agile,SCRUM">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://yagamo-style.com/images/open_graph_logo.png">
-  <meta name="twitter:title" content="JavaScript の && 演算子は true/false を返すとは限らない">
-  <meta name="twitter:description" content="はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。
-というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
-{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。
-errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される 右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される 入力チェックの結果、エラーがない場合ならこうなるよね？">
+  <meta name="twitter:title" content="アジャイル界隈に一歩を踏み出した、2025 年のふりかえり">
+  <meta name="twitter:description" content="はじめに 今年は、アジャイル関連で自分の中でいろいろと変化のあった年でした。
+年越しを前に、簡単にふりかえってみたいと思います。
+コミュニティへの復帰 実際には「スクラムフェス神奈川 2024 -秋の陣-」がきっかけですが、それを契機としてアジャイルのコミュニティに少しずつ戻ってくることができました。
+以前にも触れましたが、スクラムフェス神奈川とは以下の点で良い出会いだったと思います。
+東京西部からアクセスしやすかった 初参加者を受け入れてくれる、懐の深いコミュニティ 新卒時の 同僚との 25 年以上ぶりの再会 今年に入って合宿型の「スクラムフェス神奈川 2025 -春の陣-」にも参加し、心に火が灯ったり出会いがあったり。
+さらに「スクラムフェス神奈川 2025 -町田へ出陣-」で、登壇してみようという気持ちとなりました。
+登壇とフィードバックループ 今年の登壇は、以下の 3 本でした（それ以外に iOSDC Japan 2025 での LT もありましたが、アジャイル関連として）。
+多くの方々が何度も登壇されているこの界隈ですが、外部勉強会やイベントでほぼ登壇したことのない私にとっては大きな進歩でした。
+3 つの登壇内容はベースが同じなのですが、登壇後のフィードバックや他の方々の登壇から気づきを得て次の登壇内容に繋げた形となった点も、非常に興味深かったです。
+スクラムフェス神奈川 2025 -町田へ出陣- “初心者” をキーワードとしていたので、ここしかないと思い、登壇枠で申し込んでました。
+私はアジャイルに関する深い知見があるわけではないのですが、「自分と同じように踏み出せない人」向けの内容としました。
+初参加の RSGT で HUB 割引おじさんとして認識してもらった話 - Speaker Deck
+聞いていただいた方々からは、ありがたいことに多くの反響をいただきました。
+また、懇親会ではふりかえりエバンジェリストの びばさん から「先着順ではなく、公募制のカンファレンスにも出してみると良い」とのアドバイスをいただきました。
+スクラム祭り 2025 金沢トラック スクラムフェス神奈川は録画や配信もなかったので、より多くの方に聞いていただきたい思いが強くなりプロポーザルを出してみました。
+ありがたいことに採択いただき、金沢現地で登壇してきました。
+他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 - Speaker Deck
+当初は町田での内容をそのままブラッシュアップした内容で考えていたのですが、オンラインで参加した「スクラムフェス三河 2025」での Keitaro Oshikata さん のトークから私の行動が「計画的偶発性理論」ではないかと思い、その点を盛り込んだ内容としました。
+登壇中のフィードバックで「それは計画的偶発性理論ではなくて、どちらかというとエフェクチュエーションのように聞こえた」との声をいくつかいただきました。
+それが気になり、エフェクチュエーションに関する書籍や論文に目を通してみることになりました。">
 
     <link rel="preload" href="/css/compiled/main.min.1a431501cdeb52323c920e7761f7d9e327b2bee53160196c4bd1d34a3fd9fbc9.css" as="style" integrity="sha256-GkMVAc3rUjI8kg53YffZ4yeyvuUxYBlsS9HTSj/Z&#43;8k=" />
     <link href="/css/compiled/main.min.1a431501cdeb52323c920e7761f7d9e327b2bee53160196c4bd1d34a3fd9fbc9.css" rel="stylesheet" integrity="sha256-GkMVAc3rUjI8kg53YffZ4yeyvuUxYBlsS9HTSj/Z&#43;8k=" />
@@ -166,7 +215,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
         <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2026/06/22/scrumfestkanazawa/"
+      href="/2026/scrumfestkanazawa/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">スクラムフェス金沢 2026 に、HUB おじさんとして登壇してきました</span>
@@ -175,7 +224,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
               
             </li></ul>
       </div></li>
-            <li class=""><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+            <li class="open"><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:ltr:pr-8 hx:rtl:pl-8 hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
       href="/2025/"
@@ -183,97 +232,15 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
     >
       <span class="hx:min-w-0 [word-break:break-word]">2025</span>
     </a>
-      <button type="button" class="hextra-sidebar-collapsible-button hx:absolute hx:top-1/2 hx:-translate-y-1/2 hx:ltr:right-2 hx:rtl:left-2 hx:shrink-0 hx:cursor-pointer hx:p-0 hx:text-gray-500 hx:dark:text-neutral-400 hx:group-hover:text-gray-900 hx:dark:group-hover:text-gray-50 hx:group-data-[active=true]:text-primary-800 hx:group-data-[active=true]:dark:text-primary-600 hx:hextra-focus-visible-inset" aria-label="セクションの切り替え" aria-expanded="false"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></button>
+      <button type="button" class="hextra-sidebar-collapsible-button hx:absolute hx:top-1/2 hx:-translate-y-1/2 hx:ltr:right-2 hx:rtl:left-2 hx:shrink-0 hx:cursor-pointer hx:p-0 hx:text-gray-500 hx:dark:text-neutral-400 hx:group-hover:text-gray-900 hx:dark:group-hover:text-gray-50 hx:group-data-[active=true]:text-primary-800 hx:group-data-[active=true]:dark:text-primary-600 hx:hextra-focus-visible-inset" aria-label="セクションの切り替え" aria-expanded="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></button>
   </div><div class="hextra-sidebar-children hx:ltr:pr-0 hx:rtl:pl-0 hx:overflow-hidden">
-        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col open"><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="true">
     <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/12/31/retrospective/"
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+      href="/2025/retrospective/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">アジャイル界隈に一歩を踏み出した、2025 年のふりかえり</span>
-    </a>
-  </div>
-              
-            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
-    <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/10/06/scrumat-kanazawa/"
-      
-    >
-      <span class="hx:min-w-0 [word-break:break-word]">スクラム祭り 2025 金沢トラックで登壇してきました</span>
-    </a>
-  </div>
-              
-            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
-    <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/09/25/iosdc2025talk/"
-      
-    >
-      <span class="hx:min-w-0 [word-break:break-word]">iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました</span>
-    </a>
-  </div>
-              
-            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
-    <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/07/14/scrumkanagawa-report/"
-      
-    >
-      <span class="hx:min-w-0 [word-break:break-word]">スクラムフェス神奈川 2025 -町田へ出陣- 感想</span>
-    </a>
-  </div>
-              
-            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
-    <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/07/06/scrumkanagawa-hub/"
-      
-    >
-      <span class="hx:min-w-0 [word-break:break-word]">スクラムフェス神奈川で “HUB 割引おじさん” として登壇してきました</span>
-    </a>
-  </div>
-              
-            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
-    <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/03/14/rsgt2025/"
-      
-    >
-      <span class="hx:min-w-0 [word-break:break-word]">RSGT 2025 に初参加、そして小田原へ</span>
-    </a>
-  </div>
-              
-            </li></ul>
-      </div></li>
-            <li class="open"><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
-    <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:ltr:pr-8 hx:rtl:pl-8 hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2024/"
-      
-    >
-      <span class="hx:min-w-0 [word-break:break-word]">2024</span>
-    </a>
-      <button type="button" class="hextra-sidebar-collapsible-button hx:absolute hx:top-1/2 hx:-translate-y-1/2 hx:ltr:right-2 hx:rtl:left-2 hx:shrink-0 hx:cursor-pointer hx:p-0 hx:text-gray-500 hx:dark:text-neutral-400 hx:group-hover:text-gray-900 hx:dark:group-hover:text-gray-50 hx:group-data-[active=true]:text-primary-800 hx:group-data-[active=true]:dark:text-primary-600 hx:hextra-focus-visible-inset" aria-label="セクションの切り替え" aria-expanded="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></button>
-  </div><div class="hextra-sidebar-children hx:ltr:pr-0 hx:rtl:pl-0 hx:overflow-hidden">
-        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
-    <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2024/08/01/swiftlint-plugins/"
-      
-    >
-      <span class="hx:min-w-0 [word-break:break-word]">Build Tool プラグインとしての SwiftLint 導入時のエラー対処</span>
-    </a>
-  </div>
-              
-            </li><li class="hx:flex hx:flex-col open"><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="true">
-    <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
-      href="/2024/01/24/js-logical-and/"
-      
-    >
-      <span class="hx:min-w-0 [word-break:break-word]">JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</span>
     </a>
   </div>
   
@@ -285,30 +252,112 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
             </li>
           <li>
               <a
-                href="#-%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e5%9f%ba%e6%9c%ac"
+                href="#%e3%82%b3%e3%83%9f%e3%83%a5%e3%83%8b%e3%83%86%e3%82%a3%e3%81%b8%e3%81%ae%e5%be%a9%e5%b8%b0"
                 class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >&amp;&amp; 演算子の基本</a>
+              >コミュニティへの復帰</a>
             </li>
           <li>
               <a
-                href="#%e3%81%a1%e3%82%87%e3%81%a3%e3%81%a8%e5%a4%89%e3%82%8f%e3%81%a3%e3%81%9f%e4%bd%bf%e3%81%84%e6%96%b9"
+                href="#%e7%99%bb%e5%a3%87%e3%81%a8%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%83%90%e3%83%83%e3%82%af%e3%83%ab%e3%83%bc%e3%83%97"
                 class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >ちょっと変わった使い方</a>
+              >登壇とフィードバックループ</a>
             </li>
           <li>
               <a
-                href="#%e3%81%be%e3%81%a8%e3%82%81"
+                href="#%e6%98%a8%e5%b9%b4%e3%81%ae%e8%87%aa%e5%88%86%e3%81%ab%e5%90%91%e3%81%91%e3%81%a6"
                 class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >まとめ</a>
+              >昨年の自分に向けて</a>
             </li>
           <li>
               <a
-                href="#%e5%8f%82%e8%80%83"
+                href="#%e6%9d%a5%e5%b9%b4"
                 class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >参考</a>
+              >来年</a>
             </li>
           </ul>
   
+              
+            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+    <a
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2025/scrumat-kanazawa/"
+      
+    >
+      <span class="hx:min-w-0 [word-break:break-word]">スクラム祭り 2025 金沢トラックで登壇してきました</span>
+    </a>
+  </div>
+              
+            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+    <a
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2025/iosdc2025talk/"
+      
+    >
+      <span class="hx:min-w-0 [word-break:break-word]">iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました</span>
+    </a>
+  </div>
+              
+            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+    <a
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2025/scrumkanagawa-report/"
+      
+    >
+      <span class="hx:min-w-0 [word-break:break-word]">スクラムフェス神奈川 2025 -町田へ出陣- 感想</span>
+    </a>
+  </div>
+              
+            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+    <a
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2025/scrumkanagawa-hub/"
+      
+    >
+      <span class="hx:min-w-0 [word-break:break-word]">スクラムフェス神奈川で “HUB 割引おじさん” として登壇してきました</span>
+    </a>
+  </div>
+              
+            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+    <a
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2025/rsgt2025/"
+      
+    >
+      <span class="hx:min-w-0 [word-break:break-word]">RSGT 2025 に初参加、そして小田原へ</span>
+    </a>
+  </div>
+              
+            </li></ul>
+      </div></li>
+            <li class=""><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+    <a
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:ltr:pr-8 hx:rtl:pl-8 hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2024/"
+      
+    >
+      <span class="hx:min-w-0 [word-break:break-word]">2024</span>
+    </a>
+      <button type="button" class="hextra-sidebar-collapsible-button hx:absolute hx:top-1/2 hx:-translate-y-1/2 hx:ltr:right-2 hx:rtl:left-2 hx:shrink-0 hx:cursor-pointer hx:p-0 hx:text-gray-500 hx:dark:text-neutral-400 hx:group-hover:text-gray-900 hx:dark:group-hover:text-gray-50 hx:group-data-[active=true]:text-primary-800 hx:group-data-[active=true]:dark:text-primary-600 hx:hextra-focus-visible-inset" aria-label="セクションの切り替え" aria-expanded="false"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></button>
+  </div><div class="hextra-sidebar-children hx:ltr:pr-0 hx:rtl:pl-0 hx:overflow-hidden">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+    <a
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2024/swiftlint-plugins/"
+      
+    >
+      <span class="hx:min-w-0 [word-break:break-word]">Build Tool プラグインとしての SwiftLint 導入時のエラー対処</span>
+    </a>
+  </div>
+              
+            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+    <a
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2024/js-logical-and/"
+      
+    >
+      <span class="hx:min-w-0 [word-break:break-word]">JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</span>
+    </a>
+  </div>
               
             </li></ul>
       </div></li>
@@ -740,7 +789,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
         <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2026/06/22/scrumfestkanazawa/"
+      href="/2026/scrumfestkanazawa/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">スクラムフェス金沢 2026 に、HUB おじさんとして登壇してきました</span>
@@ -749,7 +798,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
               
             </li></ul>
       </div></li>
-            <li class=""><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+            <li class="open"><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:ltr:pr-8 hx:rtl:pl-8 hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
       href="/2025/"
@@ -757,12 +806,12 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
     >
       <span class="hx:min-w-0 [word-break:break-word]">2025</span>
     </a>
-      <button type="button" class="hextra-sidebar-collapsible-button hx:absolute hx:top-1/2 hx:-translate-y-1/2 hx:ltr:right-2 hx:rtl:left-2 hx:shrink-0 hx:cursor-pointer hx:p-0 hx:text-gray-500 hx:dark:text-neutral-400 hx:group-hover:text-gray-900 hx:dark:group-hover:text-gray-50 hx:group-data-[active=true]:text-primary-800 hx:group-data-[active=true]:dark:text-primary-600 hx:hextra-focus-visible-inset" aria-label="セクションの切り替え" aria-expanded="false"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></button>
+      <button type="button" class="hextra-sidebar-collapsible-button hx:absolute hx:top-1/2 hx:-translate-y-1/2 hx:ltr:right-2 hx:rtl:left-2 hx:shrink-0 hx:cursor-pointer hx:p-0 hx:text-gray-500 hx:dark:text-neutral-400 hx:group-hover:text-gray-900 hx:dark:group-hover:text-gray-50 hx:group-data-[active=true]:text-primary-800 hx:group-data-[active=true]:dark:text-primary-600 hx:hextra-focus-visible-inset" aria-label="セクションの切り替え" aria-expanded="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></button>
   </div><div class="hextra-sidebar-children hx:ltr:pr-0 hx:rtl:pl-0 hx:overflow-hidden">
-        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+        <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col open"><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="true">
     <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/12/31/retrospective/"
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
+      href="/2025/retrospective/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">アジャイル界隈に一歩を踏み出した、2025 年のふりかえり</span>
@@ -772,7 +821,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
             </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/10/06/scrumat-kanazawa/"
+      href="/2025/scrumat-kanazawa/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">スクラム祭り 2025 金沢トラックで登壇してきました</span>
@@ -782,7 +831,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
             </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/09/25/iosdc2025talk/"
+      href="/2025/iosdc2025talk/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました</span>
@@ -792,7 +841,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
             </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/07/14/scrumkanagawa-report/"
+      href="/2025/scrumkanagawa-report/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">スクラムフェス神奈川 2025 -町田へ出陣- 感想</span>
@@ -802,7 +851,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
             </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/07/06/scrumkanagawa-hub/"
+      href="/2025/scrumkanagawa-hub/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">スクラムフェス神奈川で “HUB 割引おじさん” として登壇してきました</span>
@@ -812,7 +861,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
             </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2025/03/14/rsgt2025/"
+      href="/2025/rsgt2025/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">RSGT 2025 に初参加、そして小田原へ</span>
@@ -821,7 +870,7 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
               
             </li></ul>
       </div></li>
-            <li class="open"><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
+            <li class=""><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:ltr:pr-8 hx:rtl:pl-8 hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
       href="/2024/"
@@ -829,22 +878,22 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
     >
       <span class="hx:min-w-0 [word-break:break-word]">2024</span>
     </a>
-      <button type="button" class="hextra-sidebar-collapsible-button hx:absolute hx:top-1/2 hx:-translate-y-1/2 hx:ltr:right-2 hx:rtl:left-2 hx:shrink-0 hx:cursor-pointer hx:p-0 hx:text-gray-500 hx:dark:text-neutral-400 hx:group-hover:text-gray-900 hx:dark:group-hover:text-gray-50 hx:group-data-[active=true]:text-primary-800 hx:group-data-[active=true]:dark:text-primary-600 hx:hextra-focus-visible-inset" aria-label="セクションの切り替え" aria-expanded="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></button>
+      <button type="button" class="hextra-sidebar-collapsible-button hx:absolute hx:top-1/2 hx:-translate-y-1/2 hx:ltr:right-2 hx:rtl:left-2 hx:shrink-0 hx:cursor-pointer hx:p-0 hx:text-gray-500 hx:dark:text-neutral-400 hx:group-hover:text-gray-900 hx:dark:group-hover:text-gray-50 hx:group-data-[active=true]:text-primary-800 hx:group-data-[active=true]:dark:text-primary-600 hx:hextra-focus-visible-inset" aria-label="セクションの切り替え" aria-expanded="false"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false" class="hx:h-[18px] hx:min-w-[18px] hx:rounded-xs hx:p-0.5 hx:hover:bg-gray-800/5 hx:dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx:origin-center hx:transition-transform hx:rtl:-rotate-180"></path></svg></button>
   </div><div class="hextra-sidebar-children hx:ltr:pr-0 hx:rtl:pl-0 hx:overflow-hidden">
         <ul class='hx:relative hx:flex hx:flex-col hx:gap-1 hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:ltr:ml-3 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:mr-3 hx:rtl:pr-3 hx:rtl:before:right-0 hx:dark:before:bg-neutral-800'><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
       class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
-      href="/2024/08/01/swiftlint-plugins/"
+      href="/2024/swiftlint-plugins/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">Build Tool プラグインとしての SwiftLint 導入時のエラー対処</span>
     </a>
   </div>
               
-            </li><li class="hx:flex hx:flex-col open"><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="true">
+            </li><li class="hx:flex hx:flex-col "><div class="hextra-sidebar-item hx:group hx:relative hx:flex hx:items-center" data-active="false">
     <a
-      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hextra-sidebar-active-item hx:bg-primary-100 hx:font-semibold hx:text-primary-800 hx:contrast-more:border hx:contrast-more:border-primary-500 hx:dark:bg-primary-400/10 hx:dark:text-primary-600 hx:contrast-more:dark:border-primary-500"
-      href="/2024/01/24/js-logical-and/"
+      class="hx:flex hx:items-center hx:justify-between hx:gap-2 hx:grow hx:cursor-pointer hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:hextra-focus-visible-inset hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:contrast-more:border hx:contrast-more:border-transparent hx:contrast-more:text-gray-900 hx:contrast-more:hover:border-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:dark:text-gray-50 hx:contrast-more:dark:hover:border-gray-50"
+      href="/2024/js-logical-and/"
       
     >
       <span class="hx:min-w-0 [word-break:break-word]">JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</span>
@@ -1341,31 +1390,31 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:font-medium hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#-%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e5%9f%ba%e6%9c%ac">&amp;&amp; 演算子の基本
+        <a class="hx:font-medium hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e3%82%b3%e3%83%9f%e3%83%a5%e3%83%8b%e3%83%86%e3%82%a3%e3%81%b8%e3%81%ae%e5%be%a9%e5%b8%b0">コミュニティへの復帰
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:font-medium hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e3%81%a1%e3%82%87%e3%81%a3%e3%81%a8%e5%a4%89%e3%82%8f%e3%81%a3%e3%81%9f%e4%bd%bf%e3%81%84%e6%96%b9">ちょっと変わった使い方
+        <a class="hx:font-medium hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e7%99%bb%e5%a3%87%e3%81%a8%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%83%90%e3%83%83%e3%82%af%e3%83%ab%e3%83%bc%e3%83%97">登壇とフィードバックループ
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e3%81%a7%e3%81%af%e6%9c%80%e5%88%9d%e3%81%ae%e4%be%8b%e3%81%af">では最初の例は？
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e3%82%b9%e3%82%af%e3%83%a9%e3%83%a0%e3%83%95%e3%82%a7%e3%82%b9%e7%a5%9e%e5%a5%88%e5%b7%9d-2025--%e7%94%ba%e7%94%b0%e3%81%b8%e5%87%ba%e9%99%a3-">スクラムフェス神奈川 2025 -町田へ出陣-
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e5%85%a5%e5%8a%9b%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%ae%e7%b5%90%e6%9e%9c%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%8c%e3%81%82%e3%82%8b%e5%a0%b4%e5%90%88">入力チェックの結果、エラーがある場合
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e3%82%b9%e3%82%af%e3%83%a9%e3%83%a0%e7%a5%ad%e3%82%8a-2025-%e9%87%91%e6%b2%a2%e3%83%88%e3%83%a9%e3%83%83%e3%82%af">スクラム祭り 2025 金沢トラック
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:ltr:pl-8 hx:rtl:pr-8 hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e5%85%a5%e5%8a%9b%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%ae%e7%b5%90%e6%9e%9c%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%8c%e3%81%aa%e3%81%84%e5%a0%b4%e5%90%88">入力チェックの結果、エラーがない場合
+        <a class="hx:ltr:pl-4 hx:rtl:pr-4 hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#no-me-in-agile-2-%e5%bf%98%e5%b9%b4%e4%bc%9a%e3%82%92%e3%81%97%e3%82%88%e3%81%86">no me in agile #2 忘年会をしよう！
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:font-medium hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e3%81%be%e3%81%a8%e3%82%81">まとめ
+        <a class="hx:font-medium hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e6%98%a8%e5%b9%b4%e3%81%ae%e8%87%aa%e5%88%86%e3%81%ab%e5%90%91%e3%81%91%e3%81%a6">昨年の自分に向けて
         </a>
       </li>
       <li class="hx:my-2 hx:scroll-my-6 hx:scroll-py-6">
-        <a class="hx:font-medium hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e5%8f%82%e8%80%83">参考
+        <a class="hx:font-medium hx:inline-block hx:rounded-sm hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-300 hx:contrast-more:text-gray-900 hx:contrast-more:underline hx:contrast-more:dark:text-gray-50 hx:w-full hx:wrap-break-word hx:hextra-focus-visible-inset" href="#%e6%9d%a5%e5%b9%b4">来年
         </a>
       </li></ul>
       <div class="hx:mt-8 hx:border-t hx:bg-white hx:pt-8 hx:shadow-[0_-12px_16px_white] hx:dark:bg-dark hx:dark:shadow-[0_-12px_16px_#111] hx:sticky hx:bottom-0 hx:flex hx:flex-col hx:items-start hx:gap-2 hx:pb-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-t hx:contrast-more:border-neutral-400 hx:contrast-more:shadow-none hx:contrast-more:dark:border-neutral-400">
@@ -1384,173 +1433,70 @@ errors.exampleRequired に何らかのオブジェクトが入っている true 
       <main id="content" class="hx:w-full hx:min-w-0 hextra-max-content-width hx:px-6 hx:pt-4 hx:md:px-12">
         <div class="hx:mt-1.5 hx:flex hx:items-center hx:gap-1 hx:overflow-hidden hx:text-sm hx:text-gray-500 hx:dark:text-gray-400 hx:contrast-more:text-current">
         <div class="hx:whitespace-nowrap hx:transition-colors hx:min-w-[24px] hx:overflow-hidden hx:text-ellipsis hx:hover:text-gray-900 hx:dark:hover:text-gray-100">
-          <a href="/2024/" class="hx:inline-block hx:rounded-sm hx:hextra-focus-visible-inset">2024</a>
-        </div><svg class="hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx:whitespace-nowrap hx:transition-colors hx:font-medium hx:text-gray-700 hx:contrast-more:font-bold hx:contrast-more:text-current hx:dark:text-gray-100 hx:contrast-more:dark:text-current">JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</div>
+          <a href="/2025/" class="hx:inline-block hx:rounded-sm hx:hextra-focus-visible-inset">2025</a>
+        </div><svg class="hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx:whitespace-nowrap hx:transition-colors hx:font-medium hx:text-gray-700 hx:contrast-more:font-bold hx:contrast-more:text-current hx:dark:text-gray-100 hx:contrast-more:dark:text-current">アジャイル界隈に一歩を踏み出した、2025 年のふりかえり</div>
   </div>
 
         <div class="content">
           
           <div class="hx:flex hx:flex-col hx:sm:flex-row hx:items-start hx:sm:items-center hx:sm:justify-between hx:gap-4 hx:mb-4">
-            <h1 class="hx:mb-0">JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</h1>
+            <h1 class="hx:mb-0">アジャイル界隈に一歩を踏み出した、2025 年のふりかえり</h1>
             
           </div>
           
           <h2>はじめに<span class="hx:absolute hx:-mt-20" id="はじめに"></span>
-    <a href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>React Hook Form のサンプルを見ていたら、こんなコードがありました。</p>
-<blockquote>
-  <p>というか、React 本家のチュートリアルにもありますね。
-<a href="https://ja.react.dev/learn/conditional-rendering#logical-and-operator-"target="_blank" rel="noopener">https://ja.react.dev/learn/conditional-rendering#logical-and-operator-</a></p>
-
-</blockquote>
-<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
-
-<div><pre><code>{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;}</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
-  <button
-    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-    title="コードをコピー"
-    aria-label="コードをコピー"
-    data-copied-label="コピーしました！"
-  >
-    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
-<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
-  </button>
-</div>
-</div>
-<p>普段 JavaScript を書かない立場としては、すぐには理解できませんでした。
-入力チェックの結果、エラーがある場合ならこういう挙動のはず。</p>
-<ol>
-<li><code>errors.exampleRequired</code> に何らかのオブジェクトが入っている</li>
-<li><code>true</code> と評価される</li>
-<li>右オペランドが評価される
-<ol>
-<li>右オペランドが <code>true</code> と評価されれば、<code>true</code> が返される</li>
-<li>右オペランドが <code>false</code> と評価されれば、<code>false</code> が返される</li>
-</ol>
-</li>
-</ol>
-<p>入力チェックの結果、エラーがない場合ならこうなるよね？</p>
-<ol>
-<li><code>errors.exampleRequired</code> が <code>undefined</code></li>
-<li><code>false</code> と評価される</li>
-<li>右オペランドを評価せず、<code>false</code> が返される</li>
-</ol>
-<p>どちらにせよ、<code>true</code>/<code>false</code> のいずれかが返されるので <code>&lt;span&gt;This field is required&lt;/span&gt;</code> は出力されないように思えます。
-正しく動作させるなら、普通に考えればこうなるかなと。</p>
-<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
-
-<div><pre><code>{errors.exampleRequired ? &lt;span&gt;This field is required&lt;/span&gt; : &#39;&#39;}</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
-  <button
-    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-    title="コードをコピー"
-    aria-label="コードをコピー"
-    data-copied-label="コピーしました！"
-  >
-    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
-<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
-  </button>
-</div>
-</div>
-<p>JavaScript の <code>&amp;&amp;</code> 演算子が Java などと比べて特殊なので、確認してみます。</p>
-<h2>&amp;&amp; 演算子の基本<span class="hx:absolute hx:-mt-20" id="-演算子の基本"></span>
-    <a href="#-%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e5%9f%ba%e6%9c%ac" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>JavaScript も C 言語の流れを汲んでいる（基本的な文法の面では）ので、基本的には同じです。</p>
+    <a href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>今年は、アジャイル関連で自分の中でいろいろと変化のあった年でした。<br>
+年越しを前に、簡単にふりかえってみたいと思います。</p>
+<h2>コミュニティへの復帰<span class="hx:absolute hx:-mt-20" id="コミュニティへの復帰"></span>
+    <a href="#%e3%82%b3%e3%83%9f%e3%83%a5%e3%83%8b%e3%83%86%e3%82%a3%e3%81%b8%e3%81%ae%e5%be%a9%e5%b8%b0" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>実際には「スクラムフェス神奈川 2024 -秋の陣-」がきっかけですが、それを契機としてアジャイルのコミュニティに少しずつ戻ってくることができました。</p>
+<p>以前にも触れましたが、スクラムフェス神奈川とは以下の点で良い出会いだったと思います。</p>
 <ul>
-<li>AND（論理積）を求める</li>
-<li>ショートカット演算子なので、左オペランドを評価して式全体の結果が確定すれば、右オペランドは評価しない</li>
+<li>東京西部からアクセスしやすかった</li>
+<li>初参加者を受け入れてくれる、懐の深いコミュニティ</li>
+<li>新卒時の <a href="xhttps://x.com/sasatoshin3104">同僚</a>との 25 年以上ぶりの再会</li>
 </ul>
-<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
-
-<div><pre><code>const t1 = true;
-const t2 = true;
-const f1 = false;
-const f2 = false;
-t1 &amp;&amp; t2    // true
-t1 &amp;&amp; f2    // false
-f1 &amp;&amp; t1    // false, f1 を評価した時点で全体の結果が確定するので t1 は評価されない</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
-  <button
-    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-    title="コードをコピー"
-    aria-label="コードをコピー"
-    data-copied-label="コピーしました！"
-  >
-    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
-<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
-  </button>
-</div>
-</div>
-<h2>ちょっと変わった使い方<span class="hx:absolute hx:-mt-20" id="ちょっと変わった使い方"></span>
-    <a href="#%e3%81%a1%e3%82%87%e3%81%a3%e3%81%a8%e5%a4%89%e3%82%8f%e3%81%a3%e3%81%9f%e4%bd%bf%e3%81%84%e6%96%b9" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>MDN を見ると、以下のような説明があります。</p>
-<blockquote>
-  <p>一般的には、この演算子は左から右に向けて評価した際に最初の偽値のオペランドに遭遇したときにはその値を、またはすべてが真値であった場合は最後のオペランドの値を返します。</p>
-
-</blockquote>
-<p>つまり、論理演算子なので常に <code>true</code>/<code>false</code> の真偽値を返すと思いがちですが、実際には以下のような挙動となっています。</p>
-<ul>
-<li>左オペランドが <code>false</code> として扱われる値の場合: 左オペランドを返す</li>
-<li>左オペランドが <code>true</code> として扱われる値の場合: 右オペランドを返す</li>
-</ul>
-<p>上記の挙動に当てはめた結果、真偽値型の場合は我々のよく知る挙動となっているわけですね。</p>
-<p>ということで、真偽値型以外に適用するとこんなことが起こってしまうわけです。
-直感に反しますよね。</p>
-<div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
-
-<div><pre><code>const tanaka = &#39;田中まさひろ&#39;;
-const satoda = &#39;里田まい&#39;;
-
-tanaka &amp;&amp; satoda  // &#39;里田まい&#39;</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
-  <button
-    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-    title="コードをコピー"
-    aria-label="コードをコピー"
-    data-copied-label="コピーしました！"
-  >
-    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
-<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
-  </button>
-</div>
-</div>
-<h3>では最初の例は？<span class="hx:absolute hx:-mt-20" id="では最初の例は"></span>
-    <a href="#%e3%81%a7%e3%81%af%e6%9c%80%e5%88%9d%e3%81%ae%e4%be%8b%e3%81%af" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h3><div class="hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code">
-
-<div><pre><code>{errors.exampleRequired &amp;&amp; &lt;span&gt;This field is required&lt;/span&gt;}</code></pre></div><div class="hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0">
-  <button
-    class="hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50"
-    title="コードをコピー"
-    aria-label="コードをコピー"
-    data-copied-label="コピーしました！"
-  >
-    <div class="hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4"></div>
-<div class="hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4"></div>
-  </button>
-</div>
-</div>
-<p>以下の挙動となります。</p>
-<h4>入力チェックの結果、エラーがある場合<span class="hx:absolute hx:-mt-20" id="入力チェックの結果エラーがある場合"></span>
-    <a href="#%e5%85%a5%e5%8a%9b%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%ae%e7%b5%90%e6%9e%9c%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%8c%e3%81%82%e3%82%8b%e5%a0%b4%e5%90%88" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h4><ol>
-<li><code>errors.exampleRequired</code> に何らかのオブジェクトが入っている</li>
-<li><code>true</code> と評価される</li>
-<li>右オペランドが返されて、メッセージを出力</li>
-</ol>
-<h4>入力チェックの結果、エラーがない場合<span class="hx:absolute hx:-mt-20" id="入力チェックの結果エラーがない場合"></span>
-    <a href="#%e5%85%a5%e5%8a%9b%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%ae%e7%b5%90%e6%9e%9c%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%8c%e3%81%aa%e3%81%84%e5%a0%b4%e5%90%88" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h4><ol>
-<li><code>errors.exampleRequired</code> は <code>undefined</code></li>
-<li><code>false</code> と評価される</li>
-<li>左オペランドが返されて、<code>undefined</code> なので React は何も出力しない</li>
-</ol>
-<h2>まとめ<span class="hx:absolute hx:-mt-20" id="まとめ"></span>
-    <a href="#%e3%81%be%e3%81%a8%e3%82%81" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>Java などの、型を厳密に扱う言語に慣れていると JavaScript の <code>&amp;&amp;</code> の挙動は不思議に思えますね。
-ですが、ドキュメントをしっかり読めば説明はあるので、注意して少しずつ慣れていきましょう。</p>
-<h2>参考<span class="hx:absolute hx:-mt-20" id="参考"></span>
-    <a href="#%e5%8f%82%e8%80%83" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><ul>
-<li><a href="https://ja.react.dev/learn/conditional-rendering#logical-and-operator-"target="_blank" rel="noopener">論理 AND 演算子 (&amp;&amp;): 条件付きレンダー – React</a></li>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND"target="_blank" rel="noopener">論理積 (&amp;&amp;) - JavaScript | MDN</a></li>
-</ul>
+<p>今年に入って合宿型の「スクラムフェス神奈川 2025 -春の陣-」にも参加し、心に火が灯ったり出会いがあったり。<br>
+さらに「スクラムフェス神奈川 2025 -町田へ出陣-」で、登壇してみようという気持ちとなりました。</p>
+<h2>登壇とフィードバックループ<span class="hx:absolute hx:-mt-20" id="登壇とフィードバックループ"></span>
+    <a href="#%e7%99%bb%e5%a3%87%e3%81%a8%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%83%90%e3%83%83%e3%82%af%e3%83%ab%e3%83%bc%e3%83%97" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>今年の登壇は、以下の 3 本でした（それ以外に iOSDC Japan 2025 での LT もありましたが、アジャイル関連として）。<br>
+多くの方々が何度も登壇されているこの界隈ですが、外部勉強会やイベントでほぼ登壇したことのない私にとっては大きな進歩でした。</p>
+<p>3 つの登壇内容はベースが同じなのですが、登壇後のフィードバックや他の方々の登壇から気づきを得て次の登壇内容に繋げた形となった点も、非常に興味深かったです。</p>
+<h3>スクラムフェス神奈川 2025 -町田へ出陣-<span class="hx:absolute hx:-mt-20" id="スクラムフェス神奈川-2025--町田へ出陣-"></span>
+    <a href="#%e3%82%b9%e3%82%af%e3%83%a9%e3%83%a0%e3%83%95%e3%82%a7%e3%82%b9%e7%a5%9e%e5%a5%88%e5%b7%9d-2025--%e7%94%ba%e7%94%b0%e3%81%b8%e5%87%ba%e9%99%a3-" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h3><p>&ldquo;初心者&rdquo; をキーワードとしていたので、ここしかないと思い、登壇枠で申し込んでました。<br>
+私はアジャイルに関する深い知見があるわけではないのですが、「自分と同じように踏み出せない人」向けの内容としました。</p>
+<p><a href="https://speakerdeck.com/aokiplayer/rsgt2025-hub-discount-guy"target="_blank" rel="noopener">初参加の RSGT で HUB 割引おじさんとして認識してもらった話 - Speaker Deck</a></p>
+<p>聞いていただいた方々からは、ありがたいことに多くの反響をいただきました。<br>
+また、懇親会ではふりかえりエバンジェリストの <a href="https://x.com/viva_tweet_x"target="_blank" rel="noopener">びばさん</a> から「先着順ではなく、公募制のカンファレンスにも出してみると良い」とのアドバイスをいただきました。</p>
+<h3>スクラム祭り 2025 金沢トラック<span class="hx:absolute hx:-mt-20" id="スクラム祭り-2025-金沢トラック"></span>
+    <a href="#%e3%82%b9%e3%82%af%e3%83%a9%e3%83%a0%e7%a5%ad%e3%82%8a-2025-%e9%87%91%e6%b2%a2%e3%83%88%e3%83%a9%e3%83%83%e3%82%af" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h3><p>スクラムフェス神奈川は録画や配信もなかったので、より多くの方に聞いていただきたい思いが強くなりプロポーザルを出してみました。<br>
+ありがたいことに採択いただき、金沢現地で登壇してきました。</p>
+<p><a href="https://speakerdeck.com/aokiplayer/first-conversation-discount"target="_blank" rel="noopener">他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 - Speaker Deck</a></p>
+<p>当初は町田での内容をそのままブラッシュアップした内容で考えていたのですが、オンラインで参加した「スクラムフェス三河 2025」での <a href="https://x.com/oshikata200"target="_blank" rel="noopener">Keitaro Oshikata さん</a> のトークから私の行動が「計画的偶発性理論」ではないかと思い、その点を盛り込んだ内容としました。</p>
+<p>登壇中のフィードバックで「それは計画的偶発性理論ではなくて、どちらかというとエフェクチュエーションのように聞こえた」との声をいくつかいただきました。<br>
+それが気になり、エフェクチュエーションに関する書籍や論文に目を通してみることになりました。</p>
+<h3>no me in agile #2 忘年会をしよう！<span class="hx:absolute hx:-mt-20" id="no-me-in-agile-2-忘年会をしよう"></span>
+    <a href="#no-me-in-agile-2-%e5%bf%98%e5%b9%b4%e4%bc%9a%e3%82%92%e3%81%97%e3%82%88%e3%81%86" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h3><p>計画的偶発性理論とエフェクチュエーションについてせっかく調べてみたのでどこかで話してみたいと思っていたところ、同じ「スクラムフェス神奈川 2025 -町田へ出陣-」の場で登壇してから仲良くしていただいている <a href="https://x.com/nb_rady"target="_blank" rel="noopener">Harady さん</a> 主催のイベントで LT 枠があったので発表してみました。</p>
+<p><a href="https://speakerdeck.com/aokiplayer/planned-happenstance-and-effectuation"target="_blank" rel="noopener">計画的偶発性理論じゃなくてエフェクチュエーションだったのかもしれない - Speaker Deck</a></p>
+<p>LT 準備する中で、自分の中でこの 2 つの理論がある程度整理できた気がします。<br>
+もっと解像度を上げて活用してみて、またどこかで発表したい気持ちになりました。</p>
+<h2>昨年の自分に向けて<span class="hx:absolute hx:-mt-20" id="昨年の自分に向けて"></span>
+    <a href="#%e6%98%a8%e5%b9%b4%e3%81%ae%e8%87%aa%e5%88%86%e3%81%ab%e5%90%91%e3%81%91%e3%81%a6" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>正確には「昨年の自分と同じように踏み出せない人に向けて」です。</p>
+<p>大丈夫、「下手くそでも踏み出してみた」人には必ず何らかの形で気づきやフィードバックがあります。<br>
+踏み出す前は、「自分の経験」や「ちょっとした気づき」や「考えたこと」は大したことないし、誰でもそんなのわかってるのではないかと思いがちです。<br>
+そうかもしれないし、そうじゃないかもしれないです。</p>
+<p>誰か 1 人に届けばいい、という気持ちで踏み出してみてください😉</p>
+<h2>来年<span class="hx:absolute hx:-mt-20" id="来年"></span>
+    <a href="#%e6%9d%a5%e5%b9%b4" class="subheading-anchor" aria-label="このセクションへのパーマリンク"></a></h2><p>仕事では引き続き技術研修を担当する予定ですが、アジャイルのサポートのお仕事も少しずついただけるようになってきました。<br>
+良くも悪くも、今は「テクノロジー大好き」集団にいるので、少し異なる視点からサービスを提案・提供したいです。</p>
+<p>そして、今年こそメンバーを巻き込んでいきたい！（巻き込み力には課題を感じてます）<br>
+そのためにも、自分自身が学び・試し・成長してアウトプットし、フィードバックループを回していくつもりです💪</p>
 
         </div>
         <div class="hx:mt-16"></div><div class="hx:mb-8 hx:flex hx:items-center hx:border-t hx:pt-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-neutral-400 hx:dark:contrast-more:border-neutral-400 hx:print:hidden"><a
-        href="/2024/08/01/swiftlint-plugins/"
-        title="Build Tool プラグインとしての SwiftLint 導入時のエラー対処"
-        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:pr-4 hx:rtl:pl-4"
-      ><svg class="hx:inline hx:h-5 hx:shrink-0 hx:ltr:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>Build Tool プラグインとしての SwiftLint 導入時のエラー対処</a></div>
+        href="/2025/scrumat-kanazawa/"
+        title="スクラム祭り 2025 金沢トラックで登壇してきました"
+        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:ml-auto hx:ltr:pl-4 hx:ltr:text-right hx:rtl:mr-auto hx:rtl:pr-4 hx:rtl:text-left"
+      >スクラム祭り 2025 金沢トラックで登壇してきました<svg class="hx:inline hx:h-5 hx:shrink-0 hx:rtl:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></a></div>
       </main>
     </article>
   </div>
