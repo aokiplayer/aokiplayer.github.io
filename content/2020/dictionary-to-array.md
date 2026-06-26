@@ -5,7 +5,7 @@ draft = false
 toc = true
 tags = [ "iOS", "Swift" ]
 aliases = [ "/posts/dictionary-to-array/" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

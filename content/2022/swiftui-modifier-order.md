@@ -3,7 +3,7 @@ title = "SwiftUI のモディファイアの順序による結果の相違"
 date = "2022-10-14T10:17:36+09:00"
 draft = false
 tags = [ "iOS", "Swift", "SwiftUI" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

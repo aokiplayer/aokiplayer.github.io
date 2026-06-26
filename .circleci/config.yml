@@ -5,7 +5,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cibuilds/hugo:0.94.1
+      - image: hugomods/hugo:reg-exts-0.154.5
     working_directory: ~/project
     steps:
       - checkout
@@ -21,7 +21,7 @@ jobs:
           name: "Build"
           command: |
               git branch -vv
-              git submodule update -i # git submodule init; git submodule update
+              hugo mod download
               hugo
               echo yagamo-style.com >> public/CNAME
               git add public; git commit -m "generated pages"

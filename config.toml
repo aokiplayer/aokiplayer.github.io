@@ -3,94 +3,45 @@ languageCode = "ja-JP"
 defaultContentLanguage = "ja"
 title = "Yagamo Style"
 
-# 適用するテーマの名前
-theme = "hugo-theme-learn"
+# ref / relref で見つからない参照はビルドを止めず warning に
+refLinksErrorLevel = "WARNING"
 
-# テーマのディレクトリ（ルートからの相対パス）
-themesdir = "themes"
+# Hugo Modules で Hextra テーマを取得
+[module]
+[[module.imports]]
+path = "github.com/imfing/hextra"
 
-[params]
-# Prefix URL to edit current page. Will display an "Edit this page" button on top right hand corner of every page.
-# Useful to give opportunity to people to create merge request for your doc.
-# See the config.toml file from this documentation site to have an example.
-#editURL = ""
+# 既存記事の HTML を壊さないため goldmark で raw HTML 許可
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 
-# Author of the site, will be used in meta information. [不明] 著者
-author = "Steven Hiroyuki Aoki"
-
-# Description of the site, will be used in meta information. [不明] ページの説明
-description = "技術メモとかイベントレポートとか"
-
-# Shows a checkmark for visited pages on the menu. 訪問済みページのチェック表示
-showVisitedLinks = false
-
-# Disable search function. It will hide search bar. メニューの検索ボックス表示
-disableSearch = false
-
-# Javascript and CSS cache are automatically busted when new version of site is generated.
-# Set this to true to disable this behavior (some proxies don't handle well this optimization). ページ更新時の JS や CSS のキャッシュ破棄
-disableAssetsBusting = false
-
-# Set this to true to disable copy-to-clipboard button for inline code. インラインコードのクリップボードへのコピー機能（コードブロックではなく）
-disableInlineCopyToClipBoard = true
-
-# A title for shortcuts in menu is set by default. Set this to true to disable it. これを true にしないとメニューに「更に」という日本語が出てくる
-disableShortcutsTitle = true
-
-# If set to false, a Home button will appear below the search bar on the menu.
-# It is redirecting to the landing page of the current language if specified. (Default is "/"). Home ボタンの表示
-disableLandingPageButton = false
-
-# When using mulitlingual website, disable the switch language button. 言語切り替えボタン
-# disableLanguageSwitchingButton = false
-
-# Hide breadcrumbs in the header and only show the current page title. ページ上部のパンくずリスト
-disableBreadcrumb = false
-
-# If set to true, prevents Hugo from including the mermaid module if not needed (will reduce load times and traffic). mermade のインクルードしないかどうか
-disableMermaid = false
-
-# Specifies the remote location of the mermaid js. mermaid モジュールの URL
-customMermaidURL = "https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"
-
-# Hide Next and Previous page buttons normally displayed full height beside content. ページ左右の次へリンク
-disableNextPrev = true
-
-# Order sections in menu by "weight" or "title". Default to "weight". メニューでのコンテンツの並び順
-ordersectionsby = "weight"
-
-# Change default color scheme with a variant one. Can be "red", "blue", "green". テーマカラー（少ないね）
-themeVariant = "blue"
-
-# Provide a list of custom css files to load relative from the `static/` folder in the site root. カスタム CSS ファイルのパス
-# custom_css = ["css/foo.css", "css/bar.css"]
-
-# Change the title separator. Default to "::". [不明] タイトルのセパレータ
-# titleSeparator = "-"
-
-# テーマとは別のスタイルを当てる
-custom_css = ["css/custom.css"]
-
-# ページ横断の検索
-[outputs]
-home = [ "HTML", "RSS", "JSON"]
-
-[menu]
-[[menu.shortcuts]]
-name = "<i class='fas fa-tags'></i> Tags"
-url = "/tags"
-weight = 10
-
-[[menu.shortcuts]] 
-name = "<i class='fab fa-github'></i> GitHub"
-# identifier = "ds"
-url = "https://github.com/aokiplayer"
-weight = 50
-
+# 既存 URL を維持するためのパーマリンク設定
 [permalinks]
+2026 = '/:year/:month/:day/:filename/'
+2025 = '/:year/:month/:day/:filename/'
+2024 = '/:year/:month/:day/:filename/'
 2023 = '/:year/:month/:day/:filename/'
 2022 = '/:year/:month/:day/:filename/'
 2021 = '/:year/:month/:day/:filename/'
 2020 = '/:year/:month/:day/:filename/'
 2019 = '/:year/:month/:day/:filename/'
 2018 = '/:year/:month/:day/:filename/'
+
+[outputs]
+home = ["HTML", "RSS"]
+
+[params]
+description = "技術メモとかイベントレポートとか"
+
+# サイト全体のデフォルト OG 画像（SNS リンク共有時のプレビュー画像）
+# 各ページのフロントマターで images = [...] を指定すれば上書き可能
+images = ["images/open_graph_logo.png"]
+
+# 自分のカスタム CSS（既存）も残す
+custom_css = ["css/custom.css"]
+
+[params.author]
+name = "Steven Hiroyuki Aoki"
+email = ""

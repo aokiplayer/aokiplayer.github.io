@@ -5,7 +5,7 @@ draft = false
 toc = true
 categories = ["Report"]
 tags = ["try! Swift", "iOS", "Swift"]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 try! Swift Tokyo 2019 に参加してきました。

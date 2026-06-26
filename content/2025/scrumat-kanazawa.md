@@ -3,7 +3,7 @@ title = "スクラム祭り 2025 金沢トラックで登壇してきました"
 date = "2025-10-06T00:00:00+09:00"
 draft = false
 tags = [ "スクラムフェス", "RSGT", "Agile", "SCRUM" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

@@ -8,5 +8,5 @@ docker container run \
 --platform linux/amd64 \
 -v $(pwd):/src \
 -w /src \
-hugomods/hugo:0.112.1 \
+hugomods/hugo:reg-exts-0.154.5 \
 hugo "$@"

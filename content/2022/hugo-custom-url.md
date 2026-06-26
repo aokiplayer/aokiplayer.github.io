@@ -3,7 +3,7 @@ title = "Hugo で記事の URL をカスタマイズ"
 date = "2022-03-17T09:50:39+09:00"
 draft = false
 tags = [ "Hugo" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

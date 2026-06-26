@@ -1,10 +1,14 @@
 +++
 title = "Yagamo Style"
-chapter = true
-weight = 1
+breadcrumbs = false
+
+# 全コンテンツを Hextra の docs 型として扱い、サイドバーに年別を表示
+[cascade]
+type = "docs"
 +++
 
-# Yagamo Style
 技術メモとか、カンファレンスの感想とかを書いてます。
 
-[About me]({{< ref "/about.md">}} "Profile")
+## 最新記事
+
+{{< latest-articles 10 >}}

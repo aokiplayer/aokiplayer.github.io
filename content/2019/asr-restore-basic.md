@@ -4,7 +4,7 @@ date = "2019-10-15T13:22:13+09:00"
 draft = false
 toc = true
 tags = [ "macOS" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

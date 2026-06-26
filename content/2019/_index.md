@@ -1,5 +1,7 @@
 +++
 title = "2019"
-chapter = true
-weight = 2019
+weight = -2019
+breadcrumbs = false
 +++
+
+{{< articles-in-year >}}

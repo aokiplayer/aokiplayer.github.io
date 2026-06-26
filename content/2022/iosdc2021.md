@@ -3,7 +3,7 @@ title = "iOSDC Japan 2021 参加レポート - ベストフィードバッカー
 date = "2022-09-10T11:25:14+09:00"
 draft = false
 tags = [ "iOSDC", "iOS", "Swift" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 iOSDC Japan 2022 が、今日から始まりますね。

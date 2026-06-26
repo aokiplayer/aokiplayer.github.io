@@ -3,7 +3,7 @@ title = "Swift の型消去（Type Erasure）"
 date = "2022-10-26T14:03:56+09:00"
 draft = false
 tags = [ "iOS", "Swift", "SwiftUI" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

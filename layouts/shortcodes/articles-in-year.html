@@ -1,0 +1,9 @@
+{{- $section := .Get 0 | default .Page.Section -}}
+<ul class="latest-articles">
+  {{- range where (where .Site.RegularPages "Section" $section) "Params.draft" "!=" true }}
+  <li>
+    <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </li>
+  {{- end }}
+</ul>

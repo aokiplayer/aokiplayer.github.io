@@ -3,7 +3,7 @@ title = "iOSDC Japan 2022 参加レポート"
 date = "2022-09-12T23:46:19+09:00"
 draft = false
 tags = [ "iOSDC", "iOS", "Swift" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 不思議なことに、昨年の iOSDC Japan 2021 の終わったのが [ほんの数日前のような気がします]({{< ref "/2022/iosdc2021.md">}})。

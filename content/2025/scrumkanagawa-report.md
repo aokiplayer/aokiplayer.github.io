@@ -3,7 +3,7 @@ title = "スクラムフェス神奈川 2025 -町田へ出陣- 感想"
 date = "2025-07-14T11:58:34Z"
 draft = false
 tags = [ "スクラムフェス", "RSGT", "Agile", "SCRUM" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

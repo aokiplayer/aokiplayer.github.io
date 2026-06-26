@@ -4,7 +4,7 @@ date = "2019-08-02T21:49:24+09:00"
 draft = false
 toc = true
 tags = ["Mac", "Shell Script"] 
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

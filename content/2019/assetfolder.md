@@ -4,7 +4,7 @@ date = "2019-06-21T09:09:14+09:00"
 draft = false
 toc = true
 tags = [ "iOS", "Swift" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

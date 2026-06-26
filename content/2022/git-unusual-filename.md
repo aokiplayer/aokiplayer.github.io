@@ -4,7 +4,7 @@ date = "2022-03-16T14:59:46+09:00"
 draft = false
 toc = true
 tags = [ "Git" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

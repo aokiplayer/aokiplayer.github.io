@@ -3,7 +3,7 @@ title = "アジャイル界隈に一歩を踏み出した、2025 年のふりか
 date = "2025-12-31T09:00:00Z"
 draft = false
 tags = [ "Agile", "SCRUM" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

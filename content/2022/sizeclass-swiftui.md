@@ -3,7 +3,7 @@ title = "SwiftUI でサイズクラスに対応する"
 date = "2022-12-12T06:00:00+09:00"
 draft = false
 tags = [ "iOS", "Swift", "SwiftUI" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

@@ -5,7 +5,7 @@ draft = false
 toc = true
 categories = [ "Technical" ]
 tags = [ "iOS", "Swift" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに

@@ -1,0 +1,10 @@
+{{- $count := .Get 0 | default 10 -}}
+{{- $years := slice "2018" "2019" "2020" "2021" "2022" "2023" "2024" "2025" "2026" -}}
+<ul class="latest-articles">
+  {{- range first ($count | int) (where (where .Site.RegularPages "Section" "in" $years) "Params.draft" "!=" true) }}
+  <li>
+    <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </li>
+  {{- end }}
+</ul>

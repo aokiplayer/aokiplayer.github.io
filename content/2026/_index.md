@@ -1,5 +1,7 @@
 +++
 title = "2026"
-chapter = true
-weight = 2026
+weight = -2026
+breadcrumbs = false
 +++
+
+{{< articles-in-year >}}

@@ -3,7 +3,7 @@ title = "JavaScript の && 演算子は true/false を返すとは限らない"
 date = "2024-01-24T9:00:00+09:00"
 draft = false
 tags = [ "JavaScript" ]
-ogimage = "images/open_graph_logo.png"
+images = ["images/open_graph_logo.png"]
 +++
 
 ## はじめに
