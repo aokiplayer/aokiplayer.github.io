@@ -21,7 +21,6 @@ jobs:
           name: "Build"
           command: |
               git branch -vv
-              hugo mod download
               hugo
               echo yagamo-style.com >> public/CNAME
               git add public; git commit -m "generated pages"
