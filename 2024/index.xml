@@ -1,41 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2024 on Yagamo Style</title>
+    <title>Yagamo Style – 2024</title>
     <link>https://yagamo-style.com/2024/</link>
     <description>Recent content in 2024 on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 01 Aug 2024 09:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/2024/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Build Tool プラグインとしての SwiftLint 導入時のエラー対処</title>
-      <link>https://yagamo-style.com/2024/swiftlint-plugins/</link>
-      <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
-      
-      <guid>https://yagamo-style.com/2024/swiftlint-plugins/</guid>
-      <description>2025.02.07 追記
-Run Script にペーストするスクリプトが公式サイトで変更されていたので修正
- はじめに Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。 基本的には SwiftLint パッケージをプロジェクトに導入 -&amp;gt; Build Phases の Run Build Tool Plug-ins に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。
-細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。 また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。
-執筆時点で最新の、Xcode 15.4 における回避方法を記載します。
-今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。 そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。
-検証環境  macOS Sonoma 14.5 (23F79) Xcode 15.4 (15F31d)  導入手順 SwiftPM を利用して SwiftLint への依存性を追加   Xcode メニュー -&amp;gt; Add Package Dependencies...
-  検索欄に https://github.</description>
-    </item>
+    <lastBuildDate>Thu, 01 Aug 2024 09:00:00 +0900</lastBuildDate>
     
-    <item>
-      <title>JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</title>
-      <link>https://yagamo-style.com/2024/js-logical-and/</link>
-      <pubDate>Wed, 24 Jan 2024 09:00:00 +0900</pubDate>
+	  <atom:link href="https://yagamo-style.com/2024/index.xml" rel="self" type="application/rss+xml" />
+    
+    
       
-      <guid>https://yagamo-style.com/2024/js-logical-and/</guid>
-      <description>はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。
- というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
- {errors.exampleRequired &amp;amp;&amp;amp; &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。
- errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される  右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される    入力チェックの結果、エラーがない場合ならこうなるよね？
- errors.exampleRequired が undefined false と評価される 右オペランドを評価せず、false が返される  どちらにせよ、true/false のいずれかが返されるので &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; は出力されないように思えます。 正しく動作させるなら、普通に考えればこうなるかなと。
-{errors.exampleRequired ? &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; : &amp;#39;&amp;#39;} JavaScript の &amp;amp;&amp;amp; 演算子が Java などと比べて特殊なので、確認してみます。</description>
-    </item>
+        
+      
+    
     
   </channel>
 </rss>

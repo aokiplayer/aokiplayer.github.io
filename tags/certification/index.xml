@@ -1,26 +1,121 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Certification on Yagamo Style</title>
+    <title>Yagamo Style – Certification</title>
     <link>https://yagamo-style.com/tags/certification/</link>
     <description>Recent content in Certification on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/certification/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Dec 2019 16:56:23 +0900</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/tags/certification/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>Apple の iOS/Swift 認定資格を受験してみた</title>
       <link>https://yagamo-style.com/2019/12/20/swift-exam-impression/</link>
       <pubDate>Fri, 20 Dec 2019 16:56:23 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/12/20/swift-exam-impression/</guid>
-      <description>2018 年 11 月 26 日の Apple の Newsroom 記事 Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本) で述べられているように、 Apple は主に学生をターゲットとした iOS および Swift の認定資格をリリースしました。
- このカリキュラムを履修した学生は、Swiftについての知識、アプリケーション開発ツール、アプリケーションのコアコンポーネントの知識について認定を受けることもできます。App Development with Swift Level 1認定試験は、世界中のCertiport認定試験センターを通じて実施されます。
- 日本ではこれまで試験が配信されていませんでしたが、約 1 年後の 2019 年 12 月 10 日から、 Certiport の代理店である オデッセイ コミュニケーションズ から配信が開始されました。
-配信開始日の一番早い時間に受験し、日本での認定第一号として合格してきました。 興味のある方もいらっしゃると思うので、 NDA に抵触しない程度に感想などをまとめてみます。
-なお、この記事は日本でのリリース当初（2019 年 12 月 10 日）の情報です。 今後のアップデートで、変わる可能性がありますのでご注意ください。
-試験の概要 詳しくは、公式サイトをご覧ください。
-名称 App Development with Swfit Level 1
-試験の範囲 App Development with Swift の内容</description>
+      <description>
+        
+        
+        &lt;p&gt;2018 年 11 月 26 日の Apple の Newsroom 記事 &lt;a href=&#34;https://www.apple.com/jp/newsroom/2018/11/apple-brings-coding-education-to-more-students-for-computer-science-education-week/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Apple、Hour of Codeにより、さらに多くの学生にプログラミング教育を提供 - Apple (日本)&lt;/a&gt; で述べられているように、 Apple は主に学生をターゲットとした iOS および Swift の認定資格をリリースしました。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;このカリキュラムを履修した学生は、Swiftについての知識、アプリケーション開発ツール、アプリケーションのコアコンポーネントの知識について認定を受けることもできます。App Development with Swift Level 1認定試験は、世界中のCertiport認定試験センターを通じて実施されます。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;日本ではこれまで試験が配信されていませんでしたが、約 1 年後の 2019 年 12 月 10 日から、 Certiport の代理店である &lt;a href=&#34;https://www.odyssey-com.co.jp/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;オデッセイ コミュニケーションズ&lt;/a&gt; から配信が開始されました。&lt;/p&gt;
+&lt;p&gt;配信開始日の一番早い時間に受験し、日本での認定第一号として合格してきました。
+興味のある方もいらっしゃると思うので、 NDA に抵触しない程度に感想などをまとめてみます。&lt;/p&gt;
+&lt;p&gt;なお、この記事は日本でのリリース当初（2019 年 12 月 10 日）の情報です。
+今後のアップデートで、変わる可能性がありますのでご注意ください。&lt;/p&gt;
+&lt;h2&gt;試験の概要&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;試験の概要&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%a9%a6%e9%a8%93%e3%81%ae%e6%a6%82%e8%a6%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;詳しくは、&lt;a href=&#34;https://www.odyssey-com.co.jp/app-dev-with-swift/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;公式サイト&lt;/a&gt;をご覧ください。&lt;/p&gt;
+&lt;h3&gt;名称&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;名称&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%90%8d%e7%a7%b0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;App Development with Swfit Level 1&lt;/p&gt;
+&lt;h3&gt;試験の範囲&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;試験の範囲&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%a9%a6%e9%a8%93%e3%81%ae%e7%af%84%e5%9b%b2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;https://books.apple.com/jp/book/id1219117996&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;App Development with Swift&lt;/a&gt;  の内容&lt;/p&gt;
+&lt;h3&gt;出題数/時間&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;出題数時間&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%87%ba%e9%a1%8c%e6%95%b0%e6%99%82%e9%96%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;45 問/50 分&lt;/p&gt;
+&lt;h3&gt;受験料&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;受験料&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%97%e9%a8%93%e6%96%99&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;一般 ¥9,800, 学生 ¥7,800&lt;/p&gt;
+&lt;h2&gt;想定されるターゲット層&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;想定されるターゲット層&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%83%b3%e5%ae%9a%e3%81%95%e3%82%8c%e3%82%8b%e3%82%bf%e3%83%bc%e3%82%b2%e3%83%83%e3%83%88%e5%b1%a4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;試験は、主に学生向けのプログラミング学習コンテンツ Everyone Can Code の 1 つとして Apple がリリースしている電子書籍 &lt;a href=&#34;https://books.apple.com/jp/book/id1219117996&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;App Development with Swift&lt;/a&gt; に沿った内容です。
+ですので、主なターゲットは学生のようです。
+受験料も、学生向けには低く設定されています。&lt;/p&gt;
+&lt;h2&gt;試験の形式&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;試験の形式&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%a9%a6%e9%a8%93%e3%81%ae%e5%bd%a2%e5%bc%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;試験の言語&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;試験の言語&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%a9%a6%e9%a8%93%e3%81%ae%e8%a8%80%e8%aa%9e&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;試験は、全て英語で出題されます。
+日本語での提供は、現時点では考えていないとのことでした。&lt;/p&gt;
+&lt;h3&gt;出題形式&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;出題形式&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%87%ba%e9%a1%8c%e5%bd%a2%e5%bc%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;基本的に、一般的なオンライン形式の IT 系試験と同じです。
+以下のパターンがあります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多岐選択式&lt;/li&gt;
+&lt;li&gt;選択肢を回答欄にドラッグ&lt;/li&gt;
+&lt;li&gt;画像の対象部分をクリックしてマーク&lt;/li&gt;
+&lt;li&gt;キーワードを入力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;出題の傾向&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;出題の傾向&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%87%ba%e9%a1%8c%e3%81%ae%e5%82%be%e5%90%91&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;基本を押さえていれば解ける文法&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;基本を押さえていれば解ける文法&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9f%ba%e6%9c%ac%e3%82%92%e6%8a%bc%e3%81%95%e3%81%88%e3%81%a6%e3%81%84%e3%82%8c%e3%81%b0%e8%a7%a3%e3%81%91%e3%82%8b%e6%96%87%e6%b3%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;利用頻度がそれほど高くないものや、フレームワークを作るような人であれば使うが一般の開発者が使う頻度は低いようなもの、などは出題されません。
+よく使うもので、かつ最低限の文法を押さえていれば迷わず解けるものばかりです。&lt;/p&gt;
+&lt;h4&gt;Xcode の画面構成の把握&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;xcode-の画面構成の把握&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#xcode-%e3%81%ae%e7%94%bb%e9%9d%a2%e6%a7%8b%e6%88%90%e3%81%ae%e6%8a%8a%e6%8f%a1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;iOS アプリの開発では、 Xcode を利用することが必須です。
+そのためなのか、 Xcode のどこからどんな機能が利用できるのか？ということを問われます。&lt;/p&gt;
+&lt;p&gt;ただし、受験時の最新であった Xcode 11 ではなかったです。
+おそらく、 電子書籍（現時点では Xcode 10  対応）のバージョンに合わせているのだと思われます。&lt;/p&gt;
+&lt;h2&gt;感想&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;感想&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%84%9f%e6%83%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;英語での出題に関して&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;英語での出題に関して&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%8b%b1%e8%aa%9e%e3%81%a7%e3%81%ae%e5%87%ba%e9%a1%8c%e3%81%ab%e9%96%a2%e3%81%97%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Twitter で見ていると「試験が英語だから心配」との声が聞こえてきます。
+が、私が受験した感じでは「全く問題ない」です。&lt;/p&gt;
+&lt;p&gt;英語とはいえ、「正しい選択肢を選べ」「画面の正しい位置をクリックしてマークしろ」「ドラッグして選択肢を空欄に入れろ」程度です。
+あとは Swift や iOS に関する技術用語なので、それはわかるはずです（わからないなら、日本語でも合格できないです）。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;参考までに、私が以前に一度だけ受けた TOEIC のスコアは 280 点です（Writing: 140, Speaking:140）😑&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h3&gt;難易度&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;難易度&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%9b%a3%e6%98%93%e5%ba%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;難易度は決して高くないです。
+意地悪な問題は出ないので、 iOS アプリの開発をすでに行っている方であれば、問題なく合格できると思います。
+そうでなくても、入門書を 1 冊こなしていれば十分でしょう。&lt;/p&gt;
+&lt;p&gt;ロジックをじっくり追うような問題はほとんど出ないので、時間も余裕があります。
+私は大体 20 分ちょっとで解き終わり、 10 分くらいで見直して終了しました。
+「英語を読むのがちょっと遅い」という方でも、時間は十分だと思います。&lt;/p&gt;
+&lt;h3&gt;出題範囲&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;出題範囲&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%87%ba%e9%a1%8c%e7%af%84%e5%9b%b2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;https://books.apple.com/jp/book/id1219117996&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;App Development with Swift&lt;/a&gt;  の範囲なので、広くはないです。
+携わっているアプリによっては、この本の中で使ってない機能などもあるかと思います。
+そこだけキャッチアップしておくと良いかな、と思います。&lt;/p&gt;
+&lt;p&gt;例えば、以下の API や機能などは上記の電子書籍で扱っています。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UITableViewController&lt;/li&gt;
+&lt;li&gt;UIAlertController&lt;/li&gt;
+&lt;li&gt;UIImagePickerController&lt;/li&gt;
+&lt;li&gt;UIActivityViewController&lt;/li&gt;
+&lt;li&gt;SFSafariViewController&lt;/li&gt;
+&lt;li&gt;MFMailComposeViewController&lt;/li&gt;
+&lt;li&gt;MFMessageComposeViewController&lt;/li&gt;
+&lt;li&gt;JSONSerialization&lt;/li&gt;
+&lt;li&gt;Codable&lt;/li&gt;
+&lt;li&gt;JSONDecoder, JSONEncoder&lt;/li&gt;
+&lt;li&gt;PropertyListEncoder, PropertyListDecoder&lt;/li&gt;
+&lt;li&gt;FileManager&lt;/li&gt;
+&lt;li&gt;URLSession&lt;/li&gt;
+&lt;li&gt;NotificationCenter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;また、ビューコントローラの各ライフサイクルメソッドで何をするべきか、だったり Auto Layout の基本なども確認しておくと良いでしょう。&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;まとめ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%be%e3%81%a8%e3%82%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;この試験は難易度的に「エンジニアの能力の証明」よりも「学び始めの人が基本を確認」するような用途に向いていると思います。
+&lt;a href=&#34;https://books.apple.com/jp/book/id1219117996&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;App Development with Swift&lt;/a&gt; のコンテンツは、思った以上に役に立つ内容が詰まっています。&lt;/p&gt;
+&lt;p&gt;「開発には入っているけど、基本の抜けがないか心配」という方は、一度目を通してみると良いでしょう。
+その上で、せっかくなので試験も受けてみてはいかがでしょうか？&lt;/p&gt;
+
+      </description>
     </item>
     
   </channel>

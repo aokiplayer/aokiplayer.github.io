@@ -1,21 +1,83 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>try! Swift on Yagamo Style</title>
+    <title>Yagamo Style – Try! Swift</title>
     <link>https://yagamo-style.com/tags/try-swift/</link>
-    <description>Recent content in try! Swift on Yagamo Style</description>
+    <description>Recent content in Try! Swift on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 17 Apr 2019 19:16:50 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/try-swift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Apr 2019 19:16:50 +0900</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/tags/try-swift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>try! Swift Tokyo 2019 感想など</title>
       <link>https://yagamo-style.com/2019/04/17/tryswifttokyo2019/</link>
       <pubDate>Wed, 17 Apr 2019 19:16:50 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/04/17/tryswifttokyo2019/</guid>
-      <description>try! Swift Tokyo 2019 に参加してきました。 今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。
-だいぶ時間が経ってしまったけど、感想を少し書いてみます。
-公式サイト、ハッシュタグなど  https://www.tryswift.co/events/2019/tokyo/jp/ @tryswiftconf #tryswiftconf  ここが良かった スポンサーとして 知名度が少し上がってきた  Java 系ではそれなりに知名度がある弊社ですが、モバイル系のカンファレンスに継続して参加することでこちらでも知名度が少しずつ上がってきました。 いろいろな方から、声を掛けて頂けました。  商品をお見せするのが大事  今回はマーケティングチームのアイディアで、主に私の執筆したトレーニングテキストのサンプルを展示しました。 実際に手に取ってご覧頂くことで、以下の効果が得られました。  弊社の業務やトレーニング内容をイメージ頂けた -&amp;gt; 参加者の皆様との会話のきっかけとなった たくさんのご意見を頂けた  「市販書籍よりもわかりやすい」「ここに書いてるのよりも、こっちのライブラリを使ったほうがいい」 「テキストを売って欲しい」「現場に出る前の教育に使いたい」      エンジニアとして 世界的なエンジニアに直接聞ける  私は IBM Kitura を使い始めているのですが、せっかく Kitura の開発チームが来日されていたので、うまくいかない点を思い切って質問してみました。  その上で、Kituraのドキュメント自体に誤りがあることなどを発見できました。 &amp;lt;- 貢献できた！   セッション自体はあとで動画がアップロードされますが、質問はその場でしかできないので、貴重な経験でした。 英語は、できなくてもこわくないです（もちろん、できた方がいいけど）。  言いたいことがはっきりしていれば、文法を多少誤っていたり単語が出てこなかったりしても伝わります。 カンファレンス前日の Global Communication Workshop for try! Swift で、背中を押してもらえた気がします。    今後に向けて  個人・企業ともスポンサーは続けていきたいです。 参加して良かった！で終わらせない。今は IBM Kitura ブースで頂いた本（抽選に当たりました）も使いながら Kitura を学習してます。  </description>
+      <description>
+        
+        
+        &lt;p&gt;try! Swift Tokyo 2019 に参加してきました。
+今年も会社のブースにいたのでセッション自体はあまり聞くことができませんでしたが、得るものはたくさんありました。&lt;/p&gt;
+&lt;p&gt;だいぶ時間が経ってしまったけど、感想を少し書いてみます。&lt;/p&gt;
+&lt;h2&gt;公式サイト、ハッシュタグなど&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;公式サイトハッシュタグなど&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%85%ac%e5%bc%8f%e3%82%b5%e3%82%a4%e3%83%88%e3%83%8f%e3%83%83%e3%82%b7%e3%83%a5%e3%82%bf%e3%82%b0%e3%81%aa%e3%81%a9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tryswift.co/events/2019/tokyo/jp/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.tryswift.co/events/2019/tokyo/jp/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/tryswiftconf&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@tryswiftconf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/hashtag/tryswiftconf?src=hash&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#tryswiftconf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;ここが良かった&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ここが良かった&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%93%e3%81%93%e3%81%8c%e8%89%af%e3%81%8b%e3%81%a3%e3%81%9f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;スポンサーとして&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;スポンサーとして&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b9%e3%83%9d%e3%83%b3%e3%82%b5%e3%83%bc%e3%81%a8%e3%81%97%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;知名度が少し上がってきた&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;知名度が少し上がってきた&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%9f%a5%e5%90%8d%e5%ba%a6%e3%81%8c%e5%b0%91%e3%81%97%e4%b8%8a%e3%81%8c%e3%81%a3%e3%81%a6%e3%81%8d%e3%81%9f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Java 系ではそれなりに知名度がある弊社ですが、モバイル系のカンファレンスに継続して参加することでこちらでも知名度が少しずつ上がってきました。&lt;/li&gt;
+&lt;li&gt;いろいろな方から、声を掛けて頂けました。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;商品をお見せするのが大事&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;商品をお見せするのが大事&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%95%86%e5%93%81%e3%82%92%e3%81%8a%e8%a6%8b%e3%81%9b%e3%81%99%e3%82%8b%e3%81%ae%e3%81%8c%e5%a4%a7%e4%ba%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;今回はマーケティングチームのアイディアで、主に私の執筆したトレーニングテキストのサンプルを展示しました。&lt;/li&gt;
+&lt;li&gt;実際に手に取ってご覧頂くことで、以下の効果が得られました。
+&lt;ul&gt;
+&lt;li&gt;弊社の業務やトレーニング内容をイメージ頂けた -&amp;gt; 参加者の皆様との会話のきっかけとなった&lt;/li&gt;
+&lt;li&gt;たくさんのご意見を頂けた
+&lt;ul&gt;
+&lt;li&gt;「市販書籍よりもわかりやすい」「ここに書いてるのよりも、こっちのライブラリを使ったほうがいい」&lt;/li&gt;
+&lt;li&gt;「テキストを売って欲しい」「現場に出る前の教育に使いたい」&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;エンジニアとして&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;エンジニアとして&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%a8%e3%83%b3%e3%82%b8%e3%83%8b%e3%82%a2%e3%81%a8%e3%81%97%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;世界的なエンジニアに直接聞ける&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;世界的なエンジニアに直接聞ける&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%96%e7%95%8c%e7%9a%84%e3%81%aa%e3%82%a8%e3%83%b3%e3%82%b8%e3%83%8b%e3%82%a2%e3%81%ab%e7%9b%b4%e6%8e%a5%e8%81%9e%e3%81%91%e3%82%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;私は IBM Kitura を使い始めているのですが、せっかく Kitura の開発チームが来日されていたので、うまくいかない点を思い切って質問してみました。
+&lt;ul&gt;
+&lt;li&gt;その上で、Kituraのドキュメント自体に誤りがあることなどを発見できました。 &amp;lt;- 貢献できた！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;セッション自体はあとで動画がアップロードされますが、質問はその場でしかできないので、貴重な経験でした。&lt;/li&gt;
+&lt;li&gt;英語は、できなくてもこわくないです（もちろん、できた方がいいけど）。
+&lt;ul&gt;
+&lt;li&gt;言いたいことがはっきりしていれば、文法を多少誤っていたり単語が出てこなかったりしても伝わります。&lt;/li&gt;
+&lt;li&gt;カンファレンス前日の &lt;a href=&#34;https://tryswifttokyo.connpass.com/event/118413/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Global Communication Workshop for try! Swift&lt;/a&gt; で、背中を押してもらえた気がします。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;今後に向けて&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;今後に向けて&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bb%8a%e5%be%8c%e3%81%ab%e5%90%91%e3%81%91%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;個人・企業ともスポンサーは続けていきたいです。&lt;/li&gt;
+&lt;li&gt;参加して良かった！で終わらせない。今は IBM Kitura ブースで頂いた本（抽選に当たりました）も使いながら Kitura を学習してます。&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
   </channel>

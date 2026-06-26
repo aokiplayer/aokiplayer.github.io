@@ -1,19 +1,139 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shell Script on Yagamo Style</title>
+    <title>Yagamo Style – Shell Script</title>
     <link>https://yagamo-style.com/tags/shell-script/</link>
     <description>Recent content in Shell Script on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Fri, 02 Aug 2019 21:49:24 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/shell-script/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Aug 2019 21:49:24 +0900</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/tags/shell-script/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>MACアドレスを取得してファイルに書き出すシェルスクリプト</title>
       <link>https://yagamo-style.com/2019/08/02/getmacaddress/</link>
       <pubDate>Fri, 02 Aug 2019 21:49:24 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/08/02/getmacaddress/</guid>
-      <description>はじめに  トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります 未認証のデバイスを接続させないため、MACアドレスでフィルタリングを掛ける目的です 手作業で取得するのは辛いので、シェルスクリプトを用意しました あとで集約する際のために、ファイル名にはMacのSerial Numberを付けるようにしました  検証環境  macOS 10.14.6 Mojave  シェルスクリプトの内容 #!/bin/sh  ## GET Serial Number of this Mac SERIAL=`ioreg -l | awk &amp;#39;/IOPlatformSerialNumber/ { if (gsub(/&amp;#34;/, &amp;#34;&amp;#34;)) print $4 }&amp;#39;`  ## Write MAC address of primary WiFi interfce in &amp;#34;{SERIAL NUMBER}.txt&amp;#34; on this user&amp;#39;s Desktop ifconfig en0 ether | awk &amp;#39;/ether/ { print $2 }&amp;#39; &amp;gt; ~/Desktop/${SERIAL}.txt Serial Numberを取得して、変数に代入 SERIAL=`ioreg -l | awk &amp;#39;/IOPlatformSerialNumber/ { if (gsub(/&amp;#34;/, &amp;#34;&amp;#34;)) print $4 }&amp;#39;`  ioregで、ハードウェアデバイスとドライバの情報を取得 awkを利用して、以下の処理を実行  IOPlatformSerialNumberを含む行だけを抽出  　| &amp;quot;IOPlatformSerialNumber&amp;quot; = &amp;quot;C0XXXXXXXXXX&amp;quot;   &amp;quot;を除去する  　| IOPlatformSerialNumber = C0XXXXXXXXXX   スペースで区切った4つ目のフィールドを出力  C0XXXXXXXXXX      WiFiインターフェイスのMACアドレスを取得し、ファイルに書き込み ifconfig en0 ether | awk &amp;#39;/ether/ { print $2 }&amp;#39; &amp;gt; ~/Desktop/${SERIAL}.</description>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;トレーニングをお客様先で実施する際、持ち込んだMacを現地のWiFiに接続するためにMACアドレスを求められる場合があります&lt;/li&gt;
+&lt;li&gt;未認証のデバイスを接続させないため、MACアドレスでフィルタリングを掛ける目的です&lt;/li&gt;
+&lt;li&gt;手作業で取得するのは辛いので、シェルスクリプトを用意しました&lt;/li&gt;
+&lt;li&gt;あとで集約する際のために、ファイル名にはMacのSerial Numberを付けるようにしました&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;検証環境&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;検証環境&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a4%9c%e8%a8%bc%e7%92%b0%e5%a2%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;macOS 10.14.6 Mojave&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;シェルスクリプトの内容&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;シェルスクリプトの内容&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b7%e3%82%a7%e3%83%ab%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%81%ae%e5%86%85%e5%ae%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell:getMACaddr.sh&#34; data-lang=&#34;shell:getMACaddr.sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## GET Serial Number of this Mac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SERIAL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;ioreg -l | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/IOPlatformSerialNumber/ { if (gsub(/&amp;#34;/, &amp;#34;&amp;#34;)) print $4 }&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Write MAC address of primary WiFi interfce in &amp;#34;{SERIAL NUMBER}.txt&amp;#34; on this user&amp;#39;s Desktop&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ifconfig en0 ether | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/ether/ { print $2 }&amp;#39;&lt;/span&gt; &amp;gt; ~/Desktop/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;SERIAL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;.txt&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Serial Numberを取得して、変数に代入&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;serial-numberを取得して変数に代入&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#serial-number%e3%82%92%e5%8f%96%e5%be%97%e3%81%97%e3%81%a6%e5%a4%89%e6%95%b0%e3%81%ab%e4%bb%a3%e5%85%a5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SERIAL&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;ioreg -l | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/IOPlatformSerialNumber/ { if (gsub(/&amp;#34;/, &amp;#34;&amp;#34;)) print $4 }&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ioreg&lt;/code&gt;で、ハードウェアデバイスとドライバの情報を取得&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;awk&lt;/code&gt;を利用して、以下の処理を実行
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;IOPlatformSerialNumber&lt;/code&gt;を含む行だけを抽出
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;　　　　|   &amp;quot;IOPlatformSerialNumber&amp;quot; = &amp;quot;C0XXXXXXXXXX&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;&lt;/code&gt;を除去する
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;　　　　|   IOPlatformSerialNumber = C0XXXXXXXXXX&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;スペースで区切った4つ目のフィールドを出力
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;C0XXXXXXXXXX&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;WiFiインターフェイスのMACアドレスを取得し、ファイルに書き込み&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;wifiインターフェイスのmacアドレスを取得しファイルに書き込み&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#wifi%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%bc%e3%83%95%e3%82%a7%e3%82%a4%e3%82%b9%e3%81%aemac%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%82%92%e5%8f%96%e5%be%97%e3%81%97%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ab%e6%9b%b8%e3%81%8d%e8%be%bc%e3%81%bf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ifconfig en0 ether | awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/ether/ { print $2 }&amp;#39;&lt;/span&gt; &amp;gt; ~/Desktop/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;SERIAL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;.txt&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ifconfig&lt;/code&gt;でインターフェイスを指定して、MACアドレスの情報を取得&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;awk&lt;/code&gt;を利用して、以下の処理を実行
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ether&lt;/code&gt;を含む行だけを抽出
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;　ether XX:XX:XX:XX:XX:XX　&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;スペースで区切った2つ目のフィールドを出力
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;XX:XX:XX:XX:XX:XX&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;デスクトップ上の、ファイル名&lt;code&gt;{Serial Number}.txt&lt;/code&gt;のファイルに書き込み&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;最後に&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;最後に&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%80%e5%be%8c%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;awkとか正規表現とか、いまだに苦手です&lt;/li&gt;
+&lt;li&gt;「こう書いたほうがいいよ」などあれば、教えてください！&lt;/li&gt;
+&lt;li&gt;作成したシェルスクリプト は、&lt;a href=&#34;https://github.com/aokiplayer/scripts&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aokiplayer/scripts&lt;/a&gt;に置きました&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
   </channel>

@@ -1,19 +1,79 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on Yagamo Style</title>
+    <title>Yagamo Style – Git</title>
     <link>https://yagamo-style.com/tags/git/</link>
     <description>Recent content in Git on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 16 Mar 2022 14:59:46 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Mar 2022 14:59:46 +0900</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>いつも忘れる Git の設定（日本語ファイル名を正しく表示）</title>
       <link>https://yagamo-style.com/2022/03/16/git-unusual-filename/</link>
       <pubDate>Wed, 16 Mar 2022 14:59:46 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2022/03/16/git-unusual-filename/</guid>
-      <description>はじめに  この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます  Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね  これを設定しておく（グローバルでやっちゃってもいいとは思うけど）  git config --local core.quotepath false 参考  Git の man より  core.quotePath  Commands that output paths (e.g. ls-files, diff), will quote &amp;#34;unusual&amp;#34; characters in the  pathname by enclosing the pathname in double-quotes and escaping those characters with  backslashes in the same way C escapes control characters (e.g. \t for TAB, \n for LF, \\ for  backslash) or bytes with values larger than 0x80 (e.</description>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;この記事は、いつも必要だけどいつも忘れる設定なので、単なるメモとして作成してます&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Git でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;git-でリポジトリをクローンしてくるといつも日本語ファイル名がエスケープされて正しく表示されないよね&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-%e3%81%a7%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%82%92%e3%82%af%e3%83%ad%e3%83%bc%e3%83%b3%e3%81%97%e3%81%a6%e3%81%8f%e3%82%8b%e3%81%a8%e3%81%84%e3%81%a4%e3%82%82%e6%97%a5%e6%9c%ac%e8%aa%9e%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e5%90%8d%e3%81%8c%e3%82%a8%e3%82%b9%e3%82%b1%e3%83%bc%e3%83%97%e3%81%95%e3%82%8c%e3%81%a6%e6%ad%a3%e3%81%97%e3%81%8f%e8%a1%a8%e7%a4%ba%e3%81%95%e3%82%8c%e3%81%aa%e3%81%84%e3%82%88%e3%81%ad&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;これを設定しておく（グローバルでやっちゃってもいいとは思うけど）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --local core.quotepath false&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;参考&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;参考&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%82%e8%80%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Git の man より&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;core.quotePath
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           Commands that output paths &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;e.g.  ls-files, diff&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, will quote &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;unusual&amp;#34;&lt;/span&gt; characters in the
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           pathname by enclosing the pathname in double-quotes and escaping those characters with
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           backslashes in the same way C escapes control characters &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;e.g.  &lt;span style=&#34;color:#ae81ff&#34;&gt;\t&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; TAB, &lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; LF, &lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           backslash&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; or bytes with values larger than 0x80 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;e.g. octal &lt;span style=&#34;color:#ae81ff&#34;&gt;\3&lt;/span&gt;02&lt;span style=&#34;color:#ae81ff&#34;&gt;\2&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;65&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;micro&amp;#34;&lt;/span&gt; in UTF-8&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;. If
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           this variable is set to false, bytes higher than 0x80 are not considered &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;unusual&amp;#34;&lt;/span&gt; any more.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           Double-quotes, backslash and control characters are always escaped regardless of the setting of
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           this variable. A simple space character is not considered &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;unusual&amp;#34;&lt;/span&gt;. Many commands can output
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           pathnames completely verbatim using the -z option. The default value is true.&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+      </description>
     </item>
     
   </channel>

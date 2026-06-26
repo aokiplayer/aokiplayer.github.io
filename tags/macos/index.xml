@@ -1,27 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>macOS on Yagamo Style</title>
+    <title>Yagamo Style – MacOS</title>
     <link>https://yagamo-style.com/tags/macos/</link>
-    <description>Recent content in macOS on Yagamo Style</description>
+    <description>Recent content in MacOS on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 25 Sep 2025 08:30:00 +0000</lastBuildDate><atom:link href="https://yagamo-style.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Sep 2025 08:30:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>iOSDC Japan 2025 で 6 年ぶりに温かみのある手作業の Mac セットアップの話をしてきました</title>
-      <link>https://yagamo-style.com/2025/iosdc2025talk/</link>
+      <link>https://yagamo-style.com/2025/09/25/iosdc2025talk/</link>
       <pubDate>Thu, 25 Sep 2025 08:30:00 +0000</pubDate>
       
-      <guid>https://yagamo-style.com/2025/iosdc2025talk/</guid>
-      <description>はじめに 今回 10 回目の開催となる、iOSDC Japan 2025 で LT を採択いただき、トークしてきました。 前回は 2019 の LT なので、実に 6 年ぶりです。
-その登壇について、ふりかえってみます。
-プロポーザル提出 iOSDC Japan は参加者も年々増え、プロポーザルの採択も狭き門となってきています。 私は企業研修のトレーナー、そして最近はスクラムマスターとしての仕事が増えていることもあり、Swift や SwiftUI の最新の機能や実開発での深い知見は持ち合わせていません。
-ただ、iOS に少しでも関係していてかつ「自分しか知見のないもの」という観点で、前回と同じ Mac の環境構築の話にしました。 年月が経っていたこともあり、取れる手段も変わっていたので、ちょうど良いかなと思いました。 私の肌感ですが、独自性の強い内容であれば比較的採択いただきやすいのかなと思っています。
-直接的に iOS アプリに組み込めるような内容でなくても、広くトークを採用しているのも iOSDC Japan の特徴のように感じています。
-話したこと トークの内容は「研修で利用する多数の Mac を以下に効率よく同じ状態にセットアップするか」というものです。 Apple はセキュリティを強化するための仕組みを次々と導入しており、その影響で我々のできることの自由度が下がっています。 その制限された中で、その仕様を調査したり試行錯誤してベターな方法を探っています。 Mac 自体に詳しくなるので、興味がある方はぜひ覗いてみてください。
-トークのスライドは、以下をご覧ください
- 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025 - Speaker Deck  動画は、いずれ fortee からも YouTube の録画が視聴できるのかな？
- 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 2025 by Steve Aoki | トーク | iOSDC Japan 2025 #iosdc - fortee.</description>
+      <guid>https://yagamo-style.com/2025/09/25/iosdc2025talk/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;今回 10 回目の開催となる、&lt;a href=&#34;https://iosdc.jp/2025/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iOSDC Japan 2025&lt;/a&gt; で LT を採択いただき、トークしてきました。
+前回は 2019 の LT なので、実に 6 年ぶりです。&lt;/p&gt;
+&lt;p&gt;その登壇について、ふりかえってみます。&lt;/p&gt;
+&lt;h2&gt;プロポーザル提出&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;プロポーザル提出&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%97%e3%83%ad%e3%83%9d%e3%83%bc%e3%82%b6%e3%83%ab%e6%8f%90%e5%87%ba&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;iOSDC Japan は参加者も年々増え、プロポーザルの採択も狭き門となってきています。
+私は企業研修のトレーナー、そして最近はスクラムマスターとしての仕事が増えていることもあり、Swift や SwiftUI の最新の機能や実開発での深い知見は持ち合わせていません。&lt;/p&gt;
+&lt;p&gt;ただ、iOS に少しでも関係していてかつ「自分しか知見のないもの」という観点で、前回と同じ Mac の環境構築の話にしました。
+年月が経っていたこともあり、取れる手段も変わっていたので、ちょうど良いかなと思いました。
+私の肌感ですが、独自性の強い内容であれば比較的採択いただきやすいのかなと思っています。&lt;/p&gt;
+&lt;p&gt;直接的に iOS アプリに組み込めるような内容でなくても、広くトークを採用しているのも iOSDC Japan の特徴のように感じています。&lt;/p&gt;
+&lt;h2&gt;話したこと&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;話したこと&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%a9%b1%e3%81%97%e3%81%9f%e3%81%93%e3%81%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;トークの内容は「研修で利用する多数の Mac を以下に効率よく同じ状態にセットアップするか」というものです。
+Apple はセキュリティを強化するための仕組みを次々と導入しており、その影響で我々のできることの自由度が下がっています。
+その制限された中で、その仕様を調査したり試行錯誤してベターな方法を探っています。
+Mac 自体に詳しくなるので、興味がある方はぜひ覗いてみてください。&lt;/p&gt;
+&lt;p&gt;トークのスライドは、以下をご覧ください&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/aokiplayer/macos-restore-history-2025&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025 - Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;動画は、いずれ fortee からも YouTube の録画が視聴できるのかな？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://fortee.jp/iosdc-japan-2025/proposal/45b0c1e2-8f11-44b5-b376-595dd8a57932&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる（もしくはできない）技術 2025 by Steve Aoki | トーク | iOSDC Japan 2025 #iosdc - fortee.jp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;反響と感想&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;反響と感想&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%8d%e9%9f%bf%e3%81%a8%e6%84%9f%e6%83%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;私のトークの内容は、必要となる人は少ない（ほぼいない）のでどうかなと思っていました。
+ただ、終わった後に「CCC は自分も昔使ってた」など、話しかけていただける方もいらっしゃいました。
+また、Twitter でも「有用な知見だ」というようなコメントもいただいていました。誰か 1 人にでも役に立つのであれば、発信は続けていきたいです。&lt;/p&gt;
+&lt;p&gt;また、ネットワークチームの シークレット LT でも「温かみのある」キーワードを使ってくれたり、みなさんの記憶には多少なりとも残ったようです。&lt;/p&gt;
+&lt;p&gt;個人的には、LT らしい LT ができたかなと思ってます。&lt;/p&gt;
+&lt;p&gt;他の方々はよく練り込んで内容を取捨選択し、時間内でしっかりと伝わる素晴らしい LT をされていました。
+一方、私は「限られた時間内で時間を超過するかどうかギリギリのラインで、勢いに任せて話す」緊迫した昔ながらの LT でした。
+賛否はあるかと思いますが、このスタイルは気に入ってます。LT 大会はお祭りですし。&lt;/p&gt;
+&lt;h2&gt;最後に&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;最後に&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%80%e5%be%8c%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;iOSDC は技術系カンファレンスながら、「交流の場」としてのスタンスを貫いています。そのため、運営のみなさんは毎年、交流するための取り組みをさまざま取り入れています。&lt;/p&gt;
+&lt;p&gt;そこが、私が「iOSDC Japan は一番好きなカンファレンス」と言い続けている点です。&lt;/p&gt;
+&lt;p&gt;初登壇の 2019 年はとても不安でした。たまたまオープニングで隣にいた方（&lt;a href=&#34;https://x.com/rikusouda&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@rikusouda&lt;/a&gt;）に話しかけ、仲良くなりました（その時にも、主催の長谷川さんが &amp;ldquo;ぜひ交流を楽しんください&amp;rdquo; という趣旨のことをおっしゃっていたように記憶しています）。
+今年はその方が LT の私の直前という並びであり、何か感慨深いものを感じました。&lt;/p&gt;
+&lt;p&gt;また、その年にはルーキーズ LT の練習会にも参加し、そこで一緒に練習した方々とも今でも繋がっています。&lt;/p&gt;
+&lt;p&gt;技術を学び・持ち帰ることも大切ですが、技術を楽しむには仲間を作るのはもっと大切だと思っています。
+このような場で、2 度も発表の機会をいただけたことに感謝します。&lt;/p&gt;
+&lt;p&gt;またプロポーザル応募します！&lt;/p&gt;
+
+      </description>
     </item>
     
     <item>
@@ -30,7 +76,106 @@
       <pubDate>Tue, 15 Oct 2019 13:22:13 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/10/15/asr-restore-basic/</guid>
-      <description>はじめに  Apple 標準の asr コマンドを利用して、 Mac の起動ボリューム（デフォルトでは Macintosh HD）をリストアする方法です とはいえ、起動ボリュームか否かは関係なく、どのボリュームでも扱い方は同じです  むしろ、起動可能なボリュームのイメージ作成の方にコツがある 今回は、イメージ作成についての詳細には触れません    検証環境  MacBook Pro without T2 Security Chip (-2017) MacBook Pro with T2 Security Chip (2018-) macOS Mojave 10.14.6  asr コマンド  asr は、 Apple Software Restore の略であり、その名の通りリストアを目的としたコマンドです Apple がどこまで公式にサポートしているのかはわかりませんが、起動ボリューム自体もリストア可能です  ソースとなるディスクイメージの作成方法にコツがあったり、いろいろ苦労はありますが…   主に利用するのは、 asr restore の形式です  asr restore  asr restore は、以下のような形式で記述します  asr restore --source リカバリ元のディスクイメージやボリューム --target リカバリ先のディスクやボリューム --erase オプションの説明  --source or -s  リカバリ元のソースを指定 ディスクイメージ でもいいし、それをマウントしたボリュームでも OK  DMG 形式はそのまま指定できるが、 Sparse Bundle などではマウントしなければ指定不可能     --target or -t  リカバリ先のターゲットを指定 /Volume/.</description>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Apple 標準の asr コマンドを利用して、 Mac の起動ボリューム（デフォルトでは Macintosh HD）をリストアする方法です&lt;/li&gt;
+&lt;li&gt;とはいえ、起動ボリュームか否かは関係なく、どのボリュームでも扱い方は同じです
+&lt;ul&gt;
+&lt;li&gt;むしろ、起動可能なボリュームのイメージ作成の方にコツがある&lt;/li&gt;
+&lt;li&gt;今回は、イメージ作成についての詳細には触れません&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;検証環境&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;検証環境&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a4%9c%e8%a8%bc%e7%92%b0%e5%a2%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;MacBook Pro without T2 Security Chip (-2017)&lt;/li&gt;
+&lt;li&gt;MacBook Pro with T2 Security Chip (2018-)&lt;/li&gt;
+&lt;li&gt;macOS Mojave 10.14.6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;asr コマンド&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;asr-コマンド&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#asr-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;asr は、 Apple Software Restore の略であり、その名の通りリストアを目的としたコマンドです&lt;/li&gt;
+&lt;li&gt;Apple がどこまで公式にサポートしているのかはわかりませんが、起動ボリューム自体もリストア可能です
+&lt;ul&gt;
+&lt;li&gt;ソースとなるディスクイメージの作成方法にコツがあったり、いろいろ苦労はありますが…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;主に利用するのは、 &lt;code&gt;asr restore&lt;/code&gt; の形式です&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;asr restore&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;asr-restore&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#asr-restore&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;asr restore&lt;/code&gt; は、以下のような形式で記述します&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;asr restore --source リカバリ元のディスクイメージやボリューム --target リカバリ先のディスクやボリューム --erase&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;オプションの説明&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;オプションの説明&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ae%e8%aa%ac%e6%98%8e&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--source or -s&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;リカバリ元のソースを指定&lt;/li&gt;
+&lt;li&gt;ディスクイメージ でもいいし、それをマウントしたボリュームでも OK
+&lt;ul&gt;
+&lt;li&gt;DMG 形式はそのまま指定できるが、 Sparse Bundle などではマウントしなければ指定不可能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--target or -t&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;リカバリ先のターゲットを指定&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/Volume/...&lt;/code&gt; のようにボリュームを指定しても、 &lt;code&gt;/disk/disk1s2&lt;/code&gt; のようにディスクを指定する形式でも OK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--erase&lt;/code&gt; リストア先のデータを削除する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;利用例&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;利用例&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%88%a9%e7%94%a8%e4%be%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;トレーニング用に複数 Mac をリストアする&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;トレーニング用に複数-mac-をリストアする&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%88%e3%83%ac%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0%e7%94%a8%e3%81%ab%e8%a4%87%e6%95%b0-mac-%e3%82%92%e3%83%aa%e3%82%b9%e3%83%88%e3%82%a2%e3%81%99%e3%82%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yagamo-style.com/2019/09/07/iosdc2019day1/&#34;&gt;iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました&lt;/a&gt; でご紹介したように、トレーニング環境のセットアップに利用しています
+&lt;ul&gt;
+&lt;li&gt;全受講者の環境を、完全に揃えることができるメリットは大きいです&lt;/li&gt;
+&lt;li&gt;iOSDC での発表時から、利用する方法は若干変わってます（T2 Security Chip 搭載の Mac への対応のため）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;手順&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;手順&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%89%8b%e9%a0%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;あらかじめ、全 Mac にパーティションを切っておく（ここでは Setup というパーティションとする）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bombich.com/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Carbon Copy Cloner&lt;/a&gt; （以下、 CCC）を使って、リストアイメージを格納したディスクイメージを作成する（ここでは Setup.sparsebundle とする）
+&lt;ul&gt;
+&lt;li&gt;CCC を利用するのは、 Disk Utility で作成したイメージから戻すと bless に失敗して起動できず、その対処方法がわからなかったためです&lt;/li&gt;
+&lt;li&gt;T2 Security Chip あり/なしの Mac 間では、同じイメージを使い回すことはできません&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;イメージを全リストア対象の Mac の Setup パーティションにコピーする（残念ながらここは手作業）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;asr restore&lt;/code&gt; でリストア（2,3 分で完了）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;最後に&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;最後に&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%80%e5%be%8c%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Apple としてはモノリシックイメージからのリストアは推奨していないものの、 asr コマンドについては WWDC 2019 のセッションで紹介しています
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/710/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;What&amp;rsquo;s New in Apple File Systems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;APFS や T2 Security Chip との付き合い方は考える必要がありますが、学校やトレーニング企業ではイメージからのリストアは必須なので、今後も引き続き使い方を探っていきます&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
     <item>
@@ -39,11 +184,252 @@
       <pubDate>Sun, 08 Sep 2019 19:57:25 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/09/08/iosdc2019day2/</guid>
-      <description>2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&amp;ldquo;ブログを書くまでが iOSDC&amp;rdquo;）。
-私自身の登壇に関しては、前回のエントリ iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました をぜひご覧ください。
-ここでは、それ以外について振り返りたいと思います。
-公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  イベント全体について もちろん、最高のスタッフで全体的に素晴らしかったです！ が、いくつかピックアップします。
-良かったこと 公式アプリ  アプリ自体も良かったですし、フィードバックを素早く反映されていてすごいなと思いました 具体的には、練習会のときに「スピーカーだけじゃなくて、スタッフの方の Twitter リンクはないのですか？」とお伝えしたら直後のリリースで対応されていました！  ネットワーク  毎年改善が目覚ましいです ごく短時間、繋がりにくいのと WiFi の先でインターネットに接続できないこともありましたが、ほぼ問題なく接続できていました  1,000 人越えのしかもコミュニティベースのイベントで、これは本当にすごいなと思います   Aruba の最新の機器をこのカンファレンスで（たぶん）国内初の利用とか、気合入ってますね！  映像技術  登壇者のスライドとそこから切り替えてデモ実施時の映像、登壇者の映像をセッションタイトル付きの枠にその場で合成して配信してました また、スライドの縦横比によって即座に切り替えたりも ボーッとしてると当たり前のように思えますが、冷静に考えてとてもすごい！  スピーカーディナーでの 1min ピッチ  文章からだけじゃなくて、動画でトークの内容を事前に宣伝する試みは面白いなと思いました スピーカーの立場としても、これを行うことで話す練習にもなるし、考えをまとめるいい機会になりました  ルーキーズ LT 練習会  Twitter や別のエントリで何度も書いてますが、これは練習という意味だけでなく最高でした！ 練習会の参加者（スピーカーだけじゃなくてスタッフの皆さん）は、顔を合わせるたびに話が盛り上がる感じになってました どなたかがツイートしていましたが、この &amp;ldquo;文化祭&amp;rdquo; みたいな感じがすごくいいなーと思いました この練習会は、次に採択されてももう二度と参加できないのが寂しいです😢  座席予約  個人サポーターおよびジョーカーチケットを持ってる人が、あらかじめ聞きたいセッションの席を予約できるシステムです 人気のセッションは前のセッションを諦めて並ぶ必要があったりしたけど、それを（ある程度）解消できます 私は並ぶのが苦手なタイプなので、これはありがたかったです！  オープニングパーティ、茶会、懇親会  交流を測る場としては同じだけど、それぞれコンセプトが違っていて楽しかったです  オープニングパーティは話す、というよりもみんなで踊って楽しむ（音量大きめ） 茶会は &amp;ldquo;ノンアルコールがマジョリティ&amp;rdquo;。着席でカテゴリ別のテーブルや、ボードゲームなどもあり 懇親会は立食で、いわゆる普通の懇親会   多くのカンファレンスは最終日の懇親会のみだけなので都合がつかないこともあるけど、複数あると参加できる可能性が増えていいですね  もっと良くできるかも iOSDC チャレンジ  これ自体は、ゲーム性があってとても楽しいものでした トークンを探すために、多くのスポンサーブースにも自然と足が向くという、よく考えられた仕組みです  2017 年の、スポンサーロゴ缶バッジと近いですね   が、例年の自分の行動と照らし合わせてみると、いつもであれば聞いたセッションのフィードバックをしていた時間を、トークン探しに費やしていました そのため、聞いてすぐにフィードバックが送れず、ほとんどは全日程が終わった後に書くことになりました そこは、どちらを優先するかの参加者の問題なので、私の考え方次第ですね  セッションのバランス  これも感じ方次第なのですが、 iOS やその周辺技術以外のトークが比較的固まっている時間帯がありました  最終日 LT の後半   全体からすると割合はそこまで多くなかったと思うのですが、印象的にそう見えてしまった感じがします でも、トークの題材を限定しすぎるよりも自分の知らなかったいろんな内容を知るのは楽しいです！  茶会の流動性  茶会は基本、着席でテーブルを囲んで話すスタイルでした そのため、人の流動性は少なく、多くの人との交流という点ではちょっともったいなかったです  意図して動かないというわけではなくて、座ってるとじっくり話し込んじゃって気付いたら時間が経過している   どなたか言ってましたが、スタッフが途中でアナウンスをしてみてもいいのかなと思いました  名札のプロフィール QR  参加者同士のアカウント交換しやすいように、名札に fortee のアカウント情報へアクセスする QR コードが付いていました これはすごく便利！だったのですが、私は活用できていませんでした（活用したつもりになっていました） スピーカー情報を登録していたので、それが表示されるものと思っていたのですが、それとは別に入力が必要でした それに気付いたのが終盤だったので、私の QR コードを読み込んでくださっていた方々は無を見ていたことになります… スピーカーに対して、「スピーカー情報だけ入力してもダメだよ」とのアナウンスが事前にあると良かったかも知れません  次回への抱負  今回の私のトークは「試行錯誤してる」状態で終わってしまいました 引き続き試すので、そこで得られた知見などをまたお話ししたいなと思ってます 今回は参加できなかった、企業スポンサーとしてもまた帰って来るために組織もなんとかしたい…  参加したセッションについての一言感想 たくさん感想はあるのですが、ものすごい量になりそうなのでそれぞれ一言だけ感想を書きます。</description>
+      <description>
+        
+        
+        &lt;p&gt;2.5 日間にわたって開催されていた iOSDC 2019 が終了しました。正確には、今はまだこのブログを書いている途中なので終了ではないですが（&amp;ldquo;ブログを書くまでが iOSDC&amp;rdquo;）。&lt;/p&gt;
+&lt;p&gt;私自身の登壇に関しては、前回のエントリ &lt;a href=&#34;https://yagamo-style.com/2019/09/07/iosdc2019day1/&#34;&gt;iOSDC 2019 に Mac の環境構築に関する内容で登壇してきました&lt;/a&gt; をぜひご覧ください。&lt;/p&gt;
+&lt;p&gt;ここでは、それ以外について振り返りたいと思います。&lt;/p&gt;
+&lt;h2&gt;公式サイト、ハッシュタグなど&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;公式サイトハッシュタグなど&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%85%ac%e5%bc%8f%e3%82%b5%e3%82%a4%e3%83%88%e3%83%8f%e3%83%83%e3%82%b7%e3%83%a5%e3%82%bf%e3%82%b0%e3%81%aa%e3%81%a9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://iosdc.jp/2019/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://iosdc.jp/2019/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/iosdcjp&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@iosdcjp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/hashtag/iosdc?src=hash&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#iosdc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;イベント全体について&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;イベント全体について&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e5%85%a8%e4%bd%93%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;もちろん、最高のスタッフで全体的に素晴らしかったです！
+が、いくつかピックアップします。&lt;/p&gt;
+&lt;h3&gt;良かったこと&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;良かったこと&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%89%af%e3%81%8b%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;公式アプリ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;公式アプリ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%85%ac%e5%bc%8f%e3%82%a2%e3%83%97%e3%83%aa&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;アプリ自体も良かったですし、フィードバックを素早く反映されていてすごいなと思いました&lt;/li&gt;
+&lt;li&gt;具体的には、練習会のときに「スピーカーだけじゃなくて、スタッフの方の Twitter リンクはないのですか？」とお伝えしたら直後のリリースで対応されていました！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;ネットワーク&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ネットワーク&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;毎年改善が目覚ましいです&lt;/li&gt;
+&lt;li&gt;ごく短時間、繋がりにくいのと WiFi の先でインターネットに接続できないこともありましたが、ほぼ問題なく接続できていました
+&lt;ul&gt;
+&lt;li&gt;1,000 人越えのしかもコミュニティベースのイベントで、これは本当にすごいなと思います&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Aruba の最新の機器をこのカンファレンスで（たぶん）国内初の利用とか、気合入ってますね！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;映像技術&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;映像技術&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%98%a0%e5%83%8f%e6%8a%80%e8%a1%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;登壇者のスライドとそこから切り替えてデモ実施時の映像、登壇者の映像をセッションタイトル付きの枠にその場で合成して配信してました&lt;/li&gt;
+&lt;li&gt;また、スライドの縦横比によって即座に切り替えたりも&lt;/li&gt;
+&lt;li&gt;ボーッとしてると当たり前のように思えますが、冷静に考えてとてもすごい！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;スピーカーディナーでの 1min ピッチ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;スピーカーディナーでの-1min-ピッチ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b9%e3%83%94%e3%83%bc%e3%82%ab%e3%83%bc%e3%83%87%e3%82%a3%e3%83%8a%e3%83%bc%e3%81%a7%e3%81%ae-1min-%e3%83%94%e3%83%83%e3%83%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;文章からだけじゃなくて、動画でトークの内容を事前に宣伝する試みは面白いなと思いました&lt;/li&gt;
+&lt;li&gt;スピーカーの立場としても、これを行うことで話す練習にもなるし、考えをまとめるいい機会になりました&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;ルーキーズ LT 練習会&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ルーキーズ-lt-練習会&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%ab%e3%83%bc%e3%82%ad%e3%83%bc%e3%82%ba-lt-%e7%b7%b4%e7%bf%92%e4%bc%9a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Twitter や別のエントリで何度も書いてますが、これは練習という意味だけでなく最高でした！&lt;/li&gt;
+&lt;li&gt;練習会の参加者（スピーカーだけじゃなくてスタッフの皆さん）は、顔を合わせるたびに話が盛り上がる感じになってました&lt;/li&gt;
+&lt;li&gt;どなたかがツイートしていましたが、この &amp;ldquo;文化祭&amp;rdquo; みたいな感じがすごくいいなーと思いました&lt;/li&gt;
+&lt;li&gt;この練習会は、次に採択されてももう二度と参加できないのが寂しいです😢&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;座席予約&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;座席予約&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ba%a7%e5%b8%ad%e4%ba%88%e7%b4%84&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;個人サポーターおよびジョーカーチケットを持ってる人が、あらかじめ聞きたいセッションの席を予約できるシステムです&lt;/li&gt;
+&lt;li&gt;人気のセッションは前のセッションを諦めて並ぶ必要があったりしたけど、それを（ある程度）解消できます&lt;/li&gt;
+&lt;li&gt;私は並ぶのが苦手なタイプなので、これはありがたかったです！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;オープニングパーティ、茶会、懇親会&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;オープニングパーティ茶会懇親会&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%aa%e3%83%bc%e3%83%97%e3%83%8b%e3%83%b3%e3%82%b0%e3%83%91%e3%83%bc%e3%83%86%e3%82%a3%e8%8c%b6%e4%bc%9a%e6%87%87%e8%a6%aa%e4%bc%9a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;交流を測る場としては同じだけど、それぞれコンセプトが違っていて楽しかったです
+&lt;ul&gt;
+&lt;li&gt;オープニングパーティは話す、というよりもみんなで踊って楽しむ（音量大きめ）&lt;/li&gt;
+&lt;li&gt;茶会は &amp;ldquo;ノンアルコールがマジョリティ&amp;rdquo;。着席でカテゴリ別のテーブルや、ボードゲームなどもあり&lt;/li&gt;
+&lt;li&gt;懇親会は立食で、いわゆる普通の懇親会&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;多くのカンファレンスは最終日の懇親会のみだけなので都合がつかないこともあるけど、複数あると参加できる可能性が増えていいですね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;もっと良くできるかも&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;もっと良くできるかも&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%82%e3%81%a3%e3%81%a8%e8%89%af%e3%81%8f%e3%81%a7%e3%81%8d%e3%82%8b%e3%81%8b%e3%82%82&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;iOSDC チャレンジ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;iosdc-チャレンジ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#iosdc-%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;これ自体は、ゲーム性があってとても楽しいものでした&lt;/li&gt;
+&lt;li&gt;トークンを探すために、多くのスポンサーブースにも自然と足が向くという、よく考えられた仕組みです
+&lt;ul&gt;
+&lt;li&gt;2017 年の、スポンサーロゴ缶バッジと近いですね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;が、例年の自分の行動と照らし合わせてみると、いつもであれば聞いたセッションのフィードバックをしていた時間を、トークン探しに費やしていました&lt;/li&gt;
+&lt;li&gt;そのため、聞いてすぐにフィードバックが送れず、ほとんどは全日程が終わった後に書くことになりました&lt;/li&gt;
+&lt;li&gt;そこは、どちらを優先するかの参加者の問題なので、私の考え方次第ですね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;セッションのバランス&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;セッションのバランス&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%bb%e3%83%83%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ae%e3%83%90%e3%83%a9%e3%83%b3%e3%82%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;これも感じ方次第なのですが、 iOS やその周辺技術以外のトークが比較的固まっている時間帯がありました
+&lt;ul&gt;
+&lt;li&gt;最終日 LT の後半&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;全体からすると割合はそこまで多くなかったと思うのですが、印象的にそう見えてしまった感じがします&lt;/li&gt;
+&lt;li&gt;でも、トークの題材を限定しすぎるよりも自分の知らなかったいろんな内容を知るのは楽しいです！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;茶会の流動性&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;茶会の流動性&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%8c%b6%e4%bc%9a%e3%81%ae%e6%b5%81%e5%8b%95%e6%80%a7&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;茶会は基本、着席でテーブルを囲んで話すスタイルでした&lt;/li&gt;
+&lt;li&gt;そのため、人の流動性は少なく、多くの人との交流という点ではちょっともったいなかったです
+&lt;ul&gt;
+&lt;li&gt;意図して動かないというわけではなくて、座ってるとじっくり話し込んじゃって気付いたら時間が経過している&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;どなたか言ってましたが、スタッフが途中でアナウンスをしてみてもいいのかなと思いました&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;名札のプロフィール QR&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;名札のプロフィール-qr&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%90%8d%e6%9c%ad%e3%81%ae%e3%83%97%e3%83%ad%e3%83%95%e3%82%a3%e3%83%bc%e3%83%ab-qr&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;参加者同士のアカウント交換しやすいように、名札に fortee のアカウント情報へアクセスする QR コードが付いていました&lt;/li&gt;
+&lt;li&gt;これはすごく便利！だったのですが、私は活用できていませんでした（活用したつもりになっていました）&lt;/li&gt;
+&lt;li&gt;スピーカー情報を登録していたので、それが表示されるものと思っていたのですが、それとは別に入力が必要でした&lt;/li&gt;
+&lt;li&gt;それに気付いたのが終盤だったので、私の QR コードを読み込んでくださっていた方々は無を見ていたことになります…&lt;/li&gt;
+&lt;li&gt;スピーカーに対して、「スピーカー情報だけ入力してもダメだよ」とのアナウンスが事前にあると良かったかも知れません&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;次回への抱負&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;次回への抱負&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%ac%a1%e5%9b%9e%e3%81%b8%e3%81%ae%e6%8a%b1%e8%b2%a0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;今回の私のトークは「試行錯誤してる」状態で終わってしまいました&lt;/li&gt;
+&lt;li&gt;引き続き試すので、そこで得られた知見などをまたお話ししたいなと思ってます&lt;/li&gt;
+&lt;li&gt;今回は参加できなかった、企業スポンサーとしてもまた帰って来るために組織もなんとかしたい…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参加したセッションについての一言感想&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;参加したセッションについての一言感想&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%82%e5%8a%a0%e3%81%97%e3%81%9f%e3%82%bb%e3%83%83%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e3%81%ae%e4%b8%80%e8%a8%80%e6%84%9f%e6%83%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;たくさん感想はあるのですが、ものすごい量になりそうなのでそれぞれ一言だけ感想を書きます。&lt;/p&gt;
+&lt;h3&gt;day 0 - 前夜祭&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;day-0---前夜祭&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#day-0---%e5%89%8d%e5%a4%9c%e7%a5%ad&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;普通に書くと即メモリーリーク！こんなに大変だけど俺はXamarin.iOSを使い続けるぜ！&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;普通に書くと即メモリーリークこんなに大変だけど俺はxamariniosを使い続けるぜ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%99%ae%e9%80%9a%e3%81%ab%e6%9b%b8%e3%81%8f%e3%81%a8%e5%8d%b3%e3%83%a1%e3%83%a2%e3%83%aa%e3%83%bc%e3%83%aa%e3%83%bc%e3%82%af%e3%81%93%e3%82%93%e3%81%aa%e3%81%ab%e5%a4%a7%e5%a4%89%e3%81%a0%e3%81%91%e3%81%a9%e4%bf%ba%e3%81%afxamarinios%e3%82%92%e4%bd%bf%e3%81%84%e7%b6%9a%e3%81%91%e3%82%8b%e3%81%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Xamarin.iOS は、何だかんだ言っても考慮することが多くてすっごく大変。でも技術や探究が好きな人には最高に楽しめそう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;day 1&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;day-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#day-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;めくるめくシェーダアートの世界&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;めくるめくシェーダアートの世界&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%81%e3%81%8f%e3%82%8b%e3%82%81%e3%81%8f%e3%82%b7%e3%82%a7%e3%83%bc%e3%83%80%e3%82%a2%e3%83%bc%e3%83%88%e3%81%ae%e4%b8%96%e7%95%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;難しそうなイメージがあったけど、簡単な処理であればすぐにでも試すことができそう。記憶の彼方にある（もうないかも）行列などを思い出すきっかけになる気がします&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;ランチセッション（ランチスポンサー: CREW 様）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ランチセッションランチスポンサー-crew-様&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%a9%e3%83%b3%e3%83%81%e3%82%bb%e3%83%83%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%a9%e3%83%b3%e3%83%81%e3%82%b9%e3%83%9d%e3%83%b3%e3%82%b5%e3%83%bc-crew-%e6%a7%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;ユーザからの 5 段階評価は基準がブレるので難しいのはすごく納得。「こんなことがあったら 4」みたいに、例示をするのは確かに良さそう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Swiftクリーンコードアドベンチャー　&lt;del&gt;日々の苦悩を乗り越え、確かな選択をするために&lt;/del&gt;&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;swiftクリーンコードアドベンチャー日々の苦悩を乗り越え確かな選択をするために&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#swift%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%82%b3%e3%83%bc%e3%83%89%e3%82%a2%e3%83%89%e3%83%99%e3%83%b3%e3%83%81%e3%83%a3%e3%83%bc%e6%97%a5%e3%80%85%e3%81%ae%e8%8b%a6%e6%82%a9%e3%82%92%e4%b9%97%e3%82%8a%e8%b6%8a%e3%81%88%e7%a2%ba%e3%81%8b%e3%81%aa%e9%81%b8%e6%8a%9e%e3%82%92%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;丁寧な例示があったので、まずはなぞってやってみたい。 Swift では全然ジェネリクスを活用できてないので、それもキャッチアップしつつかな&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;画像処理における、UIImageとCGImageとCIImageの効果的な使い分け&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;画像処理におけるuiimageとcgimageとciimageの効果的な使い分け&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%94%bb%e5%83%8f%e5%87%a6%e7%90%86%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8buiimage%e3%81%a8cgimage%e3%81%a8ciimage%e3%81%ae%e5%8a%b9%e6%9e%9c%e7%9a%84%e3%81%aa%e4%bd%bf%e3%81%84%e5%88%86%e3%81%91&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;UIImage しか使ってこなかった、かつカメラ機能なんていつ実装したかな勢なので、またやってみたい。リサイズは絶対必要になるし、そのときは今回の知見が役立ちそう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;iOSアプリのリジェクトリスクを早期に発見するための取り組み&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;iosアプリのリジェクトリスクを早期に発見するための取り組み&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ios%e3%82%a2%e3%83%97%e3%83%aa%e3%81%ae%e3%83%aa%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%83%aa%e3%82%b9%e3%82%af%e3%82%92%e6%97%a9%e6%9c%9f%e3%81%ab%e7%99%ba%e8%a6%8b%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e5%8f%96%e3%82%8a%e7%b5%84%e3%81%bf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;ipa ファイルの中身を詳しく見たことはなかったので、そこまでいろいろ情報が取れるとは思ってなかった。しかもそれをもとにチェックツールを作ってしまうとは。これは欲しい！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;LT - Track A&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;lt---track-a&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lt---track-a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h5&gt;日本のサマータイムに苦しめられた話&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;日本のサマータイムに苦しめられた話&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%97%a5%e6%9c%ac%e3%81%ae%e3%82%b5%e3%83%9e%e3%83%bc%e3%82%bf%e3%82%a4%e3%83%a0%e3%81%ab%e8%8b%a6%e3%81%97%e3%82%81%e3%82%89%e3%82%8c%e3%81%9f%e8%a9%b1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;サマータイム実施してた年の特定日時だけ特別対応が必要とか、すごく大変。これって、定常的にサマータイムやってる国の情報だったら問題ないのかな？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Property Delegatesがもたらす新しいSwiftプログラミング&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;property-delegatesがもたらす新しいswiftプログラミング&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#property-delegates%e3%81%8c%e3%82%82%e3%81%9f%e3%82%89%e3%81%99%e6%96%b0%e3%81%97%e3%81%84swift%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9f%e3%83%b3%e3%82%b0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;この秋までに理解が必須な、新しい言語仕様。だけど理解が追いついてない。サンプルに挙げて頂いたコードを読み直そう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;LLDBデバッガで不具合の原因を特定して開発速度を上げよう&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;lldbデバッガで不具合の原因を特定して開発速度を上げよう&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lldb%e3%83%87%e3%83%90%e3%83%83%e3%82%ac%e3%81%a7%e4%b8%8d%e5%85%b7%e5%90%88%e3%81%ae%e5%8e%9f%e5%9b%a0%e3%82%92%e7%89%b9%e5%ae%9a%e3%81%97%e3%81%a6%e9%96%8b%e7%99%ba%e9%80%9f%e5%ba%a6%e3%82%92%e4%b8%8a%e3%81%92%e3%82%88%e3%81%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;po しか使ってなかった人のための技術。 LLDB のコマンド、いろいろ使おうと思いつつ今に至るので、これをきっかけにまずは発表にあった v とか使ってみよう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Core MLで実現する爆速のARサイズ計測&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;core-mlで実現する爆速のarサイズ計測&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#core-ml%e3%81%a7%e5%ae%9f%e7%8f%be%e3%81%99%e3%82%8b%e7%88%86%e9%80%9f%e3%81%aear%e3%82%b5%e3%82%a4%e3%82%ba%e8%a8%88%e6%b8%ac&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;サイズ計測の精度を上げるのが大変そうだけど、それができたら本当に使いやすそう。撮影条件さえ整えば、このままでも実用に耐えられそう。こうやって実際に役立つ場面があると、すごく試したくなります&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;1ヶ月半でプッシュ通知許諾率を17％から40％にあげた話&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;1ヶ月半でプッシュ通知許諾率を17から40にあげた話&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1%e3%83%b6%e6%9c%88%e5%8d%8a%e3%81%a7%e3%83%97%e3%83%83%e3%82%b7%e3%83%a5%e9%80%9a%e7%9f%a5%e8%a8%b1%e8%ab%be%e7%8e%87%e3%82%9217%e3%81%8b%e3%82%8940%e3%81%ab%e3%81%82%e3%81%92%e3%81%9f%e8%a9%b1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;まさに試行錯誤って感じでした。やっぱり、シンプルな方法はストレートに効いてくるのがわかりました&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;もし文系卒の女子エンジニアが 5年もののiOSアプリにユニットテストを導入しようとしたら&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;もし文系卒の女子エンジニアが-5年もののiosアプリにユニットテストを導入しようとしたら&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%82%e3%81%97%e6%96%87%e7%b3%bb%e5%8d%92%e3%81%ae%e5%a5%b3%e5%ad%90%e3%82%a8%e3%83%b3%e3%82%b8%e3%83%8b%e3%82%a2%e3%81%8c-5%e5%b9%b4%e3%82%82%e3%81%ae%e3%81%aeios%e3%82%a2%e3%83%97%e3%83%aa%e3%81%ab%e3%83%a6%e3%83%8b%e3%83%83%e3%83%88%e3%83%86%e3%82%b9%e3%83%88%e3%82%92%e5%b0%8e%e5%85%a5%e3%81%97%e3%82%88%e3%81%86%e3%81%a8%e3%81%97%e3%81%9f%e3%82%89&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;最初から壮大な夢を描いて完璧を求めるんじゃなくて、できるところからやることの重要さがよく伝わりました。私も、できるところからやろう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;AR Quick Lookを家具ECサイトに導入した話&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ar-quick-lookを家具ecサイトに導入した話&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ar-quick-look%e3%82%92%e5%ae%b6%e5%85%b7ec%e3%82%b5%e3%82%a4%e3%83%88%e3%81%ab%e5%b0%8e%e5%85%a5%e3%81%97%e3%81%9f%e8%a9%b1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;AR Quick Look は全く使ったことがなかったけど、意外と簡単に使えそう。やっぱり、ブラウザで AR ってユーザにとっては気軽だしいいよね！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;個人開発のアプリが輝くために&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;個人開発のアプリが輝くために&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%80%8b%e4%ba%ba%e9%96%8b%e7%99%ba%e3%81%ae%e3%82%a2%e3%83%97%e3%83%aa%e3%81%8c%e8%bc%9d%e3%81%8f%e3%81%9f%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;アプリそのものが良くても、検索にヒットしないともったいない。その後の茶会で、実際にそういう例に遭遇してなるほど！と思いました&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;GitLabRunnerで始める自前CI環境&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;gitlabrunnerで始める自前ci環境&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#gitlabrunner%e3%81%a7%e5%a7%8b%e3%82%81%e3%82%8b%e8%87%aa%e5%89%8dci%e7%92%b0%e5%a2%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;弊社も GitLab 立ててる（Mac ではないけど）ので、やってみたくなった。トレーニングで使わなくなった、ちょっと古い Mac で試してみようかな？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Swiftでつくるファミコンエミュレータのススメ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;swiftでつくるファミコンエミュレータのススメ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#swift%e3%81%a7%e3%81%a4%e3%81%8f%e3%82%8b%e3%83%95%e3%82%a1%e3%83%9f%e3%82%b3%e3%83%b3%e3%82%a8%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%bf%e3%81%ae%e3%82%b9%e3%82%b9%e3%83%a1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;Swift には unsigned があるから、エミュレータに適しているらしいです。それは俄然興味が湧きます。 Swift の夢が広がりますね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;day 2&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;day-2&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#day-2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;iOSアプリに「意識」は宿るのか？ディープラーニングの先にある人工知能（AI）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;iosアプリに意識は宿るのかディープラーニングの先にある人工知能ai&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ios%e3%82%a2%e3%83%97%e3%83%aa%e3%81%ab%e6%84%8f%e8%ad%98%e3%81%af%e5%ae%bf%e3%82%8b%e3%81%ae%e3%81%8b%e3%83%87%e3%82%a3%e3%83%bc%e3%83%97%e3%83%a9%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0%e3%81%ae%e5%85%88%e3%81%ab%e3%81%82%e3%82%8b%e4%ba%ba%e5%b7%a5%e7%9f%a5%e8%83%bdai&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;脳そのものについての説明が多く、生物学好きな私にはとても興味深い内容でした。 AI を理解するには、やはりそこまで学ぶ必要があるんですね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;今こそwatchOS&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;今こそwatchos&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bb%8a%e3%81%93%e3%81%9dwatchos&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;通知の確認と Suica 以外、なかなか活用されない（あとは時間を見る） Apple Watch ですが、思ったよりできることが増えてました。あの画面上で、 3D モデルがグリグリ動くのはテンション上がりますね！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;多言語対応と戦う 2019年版&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;多言語対応と戦う-2019年版&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%a4%9a%e8%a8%80%e8%aa%9e%e5%af%be%e5%bf%9c%e3%81%a8%e6%88%a6%e3%81%86-2019%e5%b9%b4%e7%89%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;多言語対応、いつも「どこまで分解するか」悩むけど、その辺りの指針もあっていい感じでした。でも実は多言語対応とかしてないので、そろそろやってみるかな&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;LT - Track A + B&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;lt---track-a--b&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#lt---track-a--b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h5&gt;俺たちのARKitでめちゃめちゃ表情豊かなVTuber向け表情トラッカーを作るぞ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;俺たちのarkitでめちゃめちゃ表情豊かなvtuber向け表情トラッカーを作るぞ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bf%ba%e3%81%9f%e3%81%a1%e3%81%aearkit%e3%81%a7%e3%82%81%e3%81%a1%e3%82%83%e3%82%81%e3%81%a1%e3%82%83%e8%a1%a8%e6%83%85%e8%b1%8a%e3%81%8b%e3%81%aavtuber%e5%90%91%e3%81%91%e8%a1%a8%e6%83%85%e3%83%88%e3%83%a9%e3%83%83%e3%82%ab%e3%83%bc%e3%82%92%e4%bd%9c%e3%82%8b%e3%81%9e&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;顔のトラッキングで、数十個もの特徴点？があるのは知りませんでした。この辺の技術も、一度試しておきたいです&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;iOS 12以下でDark modeに対応した地獄の話&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ios-12以下でdark-modeに対応した地獄の話&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ios-12%e4%bb%a5%e4%b8%8b%e3%81%a7dark-mode%e3%81%ab%e5%af%be%e5%bf%9c%e3%81%97%e3%81%9f%e5%9c%b0%e7%8d%84%e3%81%ae%e8%a9%b1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;Dark Mode のことを考えているか？と言われたら No なので、その対応を考えさせられる内容でした。 Dark Mode にも対応した Type は使いやすいエディタなのでみんな使おう！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Swiftのスタック変数とCPUレジスタの関係を読み解いた&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;swiftのスタック変数とcpuレジスタの関係を読み解いた&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#swift%e3%81%ae%e3%82%b9%e3%82%bf%e3%83%83%e3%82%af%e5%a4%89%e6%95%b0%e3%81%a8cpu%e3%83%ac%e3%82%b8%e3%82%b9%e3%82%bf%e3%81%ae%e9%96%a2%e4%bf%82%e3%82%92%e8%aa%ad%e3%81%bf%e8%a7%a3%e3%81%84%e3%81%9f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;やっぱり低レイヤーの処理って、知っておいた方がいいのかな？とても楽しそうにお話しされてたので、触れてみたくなりました&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;モノレポで複数アプリをリリースする場合のGit運用戦略&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;モノレポで複数アプリをリリースする場合のgit運用戦略&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%a2%e3%83%8e%e3%83%ac%e3%83%9d%e3%81%a7%e8%a4%87%e6%95%b0%e3%82%a2%e3%83%97%e3%83%aa%e3%82%92%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88%e3%81%aegit%e9%81%8b%e7%94%a8%e6%88%a6%e7%95%a5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;複数アプリで共通するようなコードは、現時点ではあまり持ってないけど、将来のために試してみようかな？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;SwiftUIでの開発に向けた我々が出来る既存アプリのリファクタリング&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;swiftuiでの開発に向けた我々が出来る既存アプリのリファクタリング&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#swiftui%e3%81%a7%e3%81%ae%e9%96%8b%e7%99%ba%e3%81%ab%e5%90%91%e3%81%91%e3%81%9f%e6%88%91%e3%80%85%e3%81%8c%e5%87%ba%e6%9d%a5%e3%82%8b%e6%97%a2%e5%ad%98%e3%82%a2%e3%83%97%e3%83%aa%e3%81%ae%e3%83%aa%e3%83%95%e3%82%a1%e3%82%af%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;コンポーネントをしっかり分けておけば影響範囲は最小限に抑えられる、というお話でした。が、さて自分のコードを省みると…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;ARKitの壁認識で、壁にぶち当たった話&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;arkitの壁認識で壁にぶち当たった話&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#arkit%e3%81%ae%e5%a3%81%e8%aa%8d%e8%ad%98%e3%81%a7%e5%a3%81%e3%81%ab%e3%81%b6%e3%81%a1%e5%bd%93%e3%81%9f%e3%81%a3%e3%81%9f%e8%a9%b1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;ARKit の面白さと、特徴の少ない床や壁への対応の大変さがよくわかりました。スタンドを立てて、最後にそれを消せばいいとは。発想の転換ですね！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;iOSDCのプロポーサル判別器をつくろう&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;iosdcのプロポーサル判別器をつくろう&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#iosdc%e3%81%ae%e3%83%97%e3%83%ad%e3%83%9d%e3%83%bc%e3%82%b5%e3%83%ab%e5%88%a4%e5%88%a5%e5%99%a8%e3%82%92%e3%81%a4%e3%81%8f%e3%82%8d%e3%81%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;プロポーザルの生成ではすごい文章がで出来上がっていました。いずれはこれらの技術の精度が上がると思うと、これは興味深いです&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Write the &amp;ldquo;code&amp;rdquo;, Change the world. 〜エンジニアと法律〜&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;write-the-code-change-the-world-エンジニアと法律&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#write-the-code-change-the-world-%e3%82%a8%e3%83%b3%e3%82%b8%e3%83%8b%e3%82%a2%e3%81%a8%e6%b3%95%e5%be%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;技術が正しく使われて発展しやすい環境を作るには、我々のような技術を理解した者の働きかけが必要なんですね。今まで考えもしませんでした&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Getting Started with Swift WebAssembly&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;getting-started-with-swift-webassembly&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#getting-started-with-swift-webassembly&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;Swift がブラウザ上でも使えるようになると思うと、テンションが上がります。簡単には行かなさそうですが、望みはありそうで楽しみです&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;これデフォルトで作れないんだ！？を解消した話&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;これデフォルトで作れないんだを解消した話&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%93%e3%82%8c%e3%83%87%e3%83%95%e3%82%a9%e3%83%ab%e3%83%88%e3%81%a7%e4%bd%9c%e3%82%8c%e3%81%aa%e3%81%84%e3%82%93%e3%81%a0%e3%82%92%e8%a7%a3%e6%b6%88%e3%81%97%e3%81%9f%e8%a9%b1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;デザイナーとエンジニア間の、認識の齟齬を解消する取り組みの話でした。仕組みとして取り入れて実際に改善するのが、やはり重要ですね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;フィードやチャットのスクロールを全力でなめらかにする&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;フィードやチャットのスクロールを全力でなめらかにする&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%82%84%e3%83%81%e3%83%a3%e3%83%83%e3%83%88%e3%81%ae%e3%82%b9%e3%82%af%e3%83%ad%e3%83%bc%e3%83%ab%e3%82%92%e5%85%a8%e5%8a%9b%e3%81%a7%e3%81%aa%e3%82%81%e3%82%89%e3%81%8b%e3%81%ab%e3%81%99%e3%82%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;テキストの内容でセルの高さをあらかじめ計算する、という内容でした。少しコード量は増えますが、パフォーマンスが改善するなら、やってみる価値はありそうですね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;令和時代のゲームボーイ開発 👾&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;令和時代のゲームボーイ開発-&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bb%a4%e5%92%8c%e6%99%82%e4%bb%a3%e3%81%ae%e3%82%b2%e3%83%bc%e3%83%a0%e3%83%9c%e3%83%bc%e3%82%a4%e9%96%8b%e7%99%ba-&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;ゲームボーイの実機で動くものが作れるのは、とても魅力的です。実装言語が Swift だったら、もっと良かったですね&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
     <item>
@@ -52,13 +438,126 @@
       <pubDate>Sat, 07 Sep 2019 07:33:45 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/09/07/iosdc2019day1/</guid>
-      <description>iOSDC 2019 に Mac の環境構築の内容で LT 登壇します で書いていましたが、ルーキーズ LT に登壇してきました。 普段からトレーニングで話してはいますが、全くの別物なのでずっと緊張してました。
-若干のミス（残り時間を間違えて、 15 秒余らせたまま最後の部分を省略してしまった）はあったものの、お伝えできたかなと思います。
-公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  発表スライド Speaker Deck に上げたので、ぜひご覧ください。
- 完全に同じ開発環境を素早く用意できる（もしくはできない）技術  モチベーション トレーニングの環境作成って、とても気をつかいます。特に、 Mac を使うトレーニングの場合、多くの受講者が Windows しか触ったことがないです。 そのため、トレーナーがデモしている環境と、受講者の環境にちょっとでも差があると、受講者はとても戸惑います。 なので、環境は少しの違いもなく揃えておく必要があります。
-ただし、全部手作業で行うのは効率的ではなく、ミスも発生します。それに、セットアップ自体は技術に長けた我々トレーナーではなく、別の部隊です。なので、技術的に難しい手順は踏ませられません。
-話したこと いかにミスを防ぎ、大量の Mac を素早く正確にセットアップするかという点について、これまで取ってきた様々な手法についてお話ししました。 現在、残念ながら以前と比較して手間のかかる方式で行わざるを得ず、まだ模索している状況です。 それも含め、現状をお伝えしました。
-紹介した技術 Apple の提供する機能 NetRestore  macOS Server の 1 機能として提供されていました  Apple の「モノリシックイメージからのリストアは推奨しない」方針により、現在は利用できません macOS Server にはまだ機能が残っていますが、 GUI の画面は削除されました 2018 年以降（T2 Security Chip搭載）の Mac ではネットワークブート機能が削除されたため、 NetRestore が機能したとしても、各 Mac からは NetRestore イメージにはアクセスできません   事前に作成しておいたシステムイメージと完全に同じ環境がリストアできます とても素早い（リストア開始から完了まで 5,6 分）  Time Machine  履歴を持ったバックアップを取れる機能です 基本的に、同じバックアップから複数の Mac をリストアすることは前提にしていません  そのためか、複数の Mac から同時にリストアできません   Time Machine からのリストアは、 NetRestore のようなブロックコピーではないので時間がかかります  MDM(Mobile Device Management)  社内で iOS を集中管理する際などに利用しますが、 macOS にも対応しています Configuration Profile に設定を記述し、それをサーバからプッシュすることで設定を強制します Apple Business Manager(ABM) と連携することで、 VPP(Volume Purchase Program) で購入した App Store のアプリのインストールを各クライアントに強制できます  ただし、 App Store にある最新のアプリがインストールされるため、「チームで Xcode のバージョンを固定している」場合などには別の策を取る必要があります   ABM は、 VPP と DEP を統合したものです  VPP(Volume Purchase Program) DEP(Device Enrollment Program)    ASR(Apple Software Restore)  今回紹介した技術の中では NetRestore 以外唯一、インストールではなくイメージのコピーを行う技術  なので、リストアは速いです（数分） ただし、イメージは各 Mac に個別にコピーしておく必要があります   Disk Utility を利用してシステムのイメージを DMG ファイルとして作成し、それをもとに macOS Recovery 上でコマンドラインからリストアします macOS 10.</description>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;https://yagamo-style.com/2019/09/03/iosdc2019pre/&#34;&gt;iOSDC 2019 に Mac の環境構築の内容で LT 登壇します&lt;/a&gt; で書いていましたが、ルーキーズ LT に登壇してきました。
+普段からトレーニングで話してはいますが、全くの別物なのでずっと緊張してました。&lt;/p&gt;
+&lt;p&gt;若干のミス（残り時間を間違えて、 15  秒余らせたまま最後の部分を省略してしまった）はあったものの、お伝えできたかなと思います。&lt;/p&gt;
+&lt;h2&gt;公式サイト、ハッシュタグなど&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;公式サイトハッシュタグなど&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%85%ac%e5%bc%8f%e3%82%b5%e3%82%a4%e3%83%88%e3%83%8f%e3%83%83%e3%82%b7%e3%83%a5%e3%82%bf%e3%82%b0%e3%81%aa%e3%81%a9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://iosdc.jp/2019/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://iosdc.jp/2019/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/iosdcjp&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@iosdcjp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/hashtag/iosdc?src=hash&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#iosdc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;発表スライド&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;発表スライド&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%99%ba%e8%a1%a8%e3%82%b9%e3%83%a9%e3%82%a4%e3%83%89&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Speaker Deck に上げたので、ぜひご覧ください。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/aokiplayer/macos-restore-history&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;完全に同じ開発環境を素早く用意できる（もしくはできない）技術&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;モチベーション&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;モチベーション&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%a2%e3%83%81%e3%83%99%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;トレーニングの環境作成って、とても気をつかいます。特に、 Mac を使うトレーニングの場合、多くの受講者が Windows しか触ったことがないです。
+そのため、トレーナーがデモしている環境と、受講者の環境にちょっとでも差があると、受講者はとても戸惑います。
+なので、環境は少しの違いもなく揃えておく必要があります。&lt;/p&gt;
+&lt;p&gt;ただし、全部手作業で行うのは効率的ではなく、ミスも発生します。それに、セットアップ自体は技術に長けた我々トレーナーではなく、別の部隊です。なので、技術的に難しい手順は踏ませられません。&lt;/p&gt;
+&lt;h2&gt;話したこと&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;話したこと&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%a9%b1%e3%81%97%e3%81%9f%e3%81%93%e3%81%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;いかにミスを防ぎ、大量の Mac を素早く正確にセットアップするかという点について、これまで取ってきた様々な手法についてお話ししました。
+現在、残念ながら以前と比較して手間のかかる方式で行わざるを得ず、まだ模索している状況です。
+それも含め、現状をお伝えしました。&lt;/p&gt;
+&lt;h2&gt;紹介した技術&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;紹介した技術&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%b4%b9%e4%bb%8b%e3%81%97%e3%81%9f%e6%8a%80%e8%a1%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Apple の提供する機能&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;apple-の提供する機能&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#apple-%e3%81%ae%e6%8f%90%e4%be%9b%e3%81%99%e3%82%8b%e6%a9%9f%e8%83%bd&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;NetRestore&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;netrestore&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#netrestore&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;macOS Server の 1 機能として提供されていました
+&lt;ul&gt;
+&lt;li&gt;Apple の「モノリシックイメージからのリストアは推奨しない」方針により、現在は利用できません&lt;/li&gt;
+&lt;li&gt;macOS Server にはまだ機能が残っていますが、 GUI の画面は削除されました&lt;/li&gt;
+&lt;li&gt;2018 年以降（T2 Security Chip搭載）の Mac ではネットワークブート機能が削除されたため、 NetRestore が機能したとしても、各 Mac からは NetRestore イメージにはアクセスできません&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;事前に作成しておいたシステムイメージと完全に同じ環境がリストアできます&lt;/li&gt;
+&lt;li&gt;とても素早い（リストア開始から完了まで 5,6 分）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Time Machine&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;time-machine&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#time-machine&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;履歴を持ったバックアップを取れる機能です&lt;/li&gt;
+&lt;li&gt;基本的に、同じバックアップから複数の Mac をリストアすることは前提にしていません
+&lt;ul&gt;
+&lt;li&gt;そのためか、複数の Mac から同時にリストアできません&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Time Machine からのリストアは、 NetRestore のようなブロックコピーではないので時間がかかります&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;MDM(Mobile Device Management)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;mdmmobile-device-management&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mdmmobile-device-management&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;社内で iOS を集中管理する際などに利用しますが、 macOS にも対応しています&lt;/li&gt;
+&lt;li&gt;Configuration Profile に設定を記述し、それをサーバからプッシュすることで設定を強制します&lt;/li&gt;
+&lt;li&gt;Apple Business Manager(ABM) と連携することで、 VPP(Volume Purchase Program) で購入した App Store のアプリのインストールを各クライアントに強制できます
+&lt;ul&gt;
+&lt;li&gt;ただし、 App Store にある最新のアプリがインストールされるため、「チームで Xcode のバージョンを固定している」場合などには別の策を取る必要があります&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ABM は、 VPP と DEP を統合したものです
+&lt;ul&gt;
+&lt;li&gt;VPP(Volume Purchase Program)&lt;/li&gt;
+&lt;li&gt;DEP(Device Enrollment Program)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;ASR(Apple Software Restore)&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;asrapple-software-restore&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#asrapple-software-restore&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;今回紹介した技術の中では NetRestore 以外唯一、インストールではなくイメージのコピーを行う技術
+&lt;ul&gt;
+&lt;li&gt;なので、リストアは速いです（数分）&lt;/li&gt;
+&lt;li&gt;ただし、イメージは各 Mac に個別にコピーしておく必要があります&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Disk Utility を利用してシステムのイメージを DMG ファイルとして作成し、それをもとに macOS Recovery 上でコマンドラインからリストアします&lt;/li&gt;
+&lt;li&gt;macOS 10.14 Mojave まではうまく動作したのですが、 10.14.1 以降必ず失敗するので、断念しました
+&lt;ul&gt;
+&lt;li&gt;原因は追い切れていないので、場合によってはまた利用できるかもしれません&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;サードパーティの機能&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;サードパーティの機能&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b5%e3%83%bc%e3%83%89%e3%83%91%e3%83%bc%e3%83%86%e3%82%a3%e3%81%ae%e6%a9%9f%e8%83%bd&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;AutoDMG&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;autodmg&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#autodmg&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;現在、暫定的に利用している機能です&lt;/li&gt;
+&lt;li&gt;macOS のインストーラをカスタマイズし、/Applications へ配置したいアプリケーションなどはあらかじめ仕込んでおくことができます
+&lt;ul&gt;
+&lt;li&gt;通常手順での Xcode のインストールなどは非常に時間がかかる（ダウンロード、 xip の展開）ので、その時間をなくすことができます&lt;/li&gt;
+&lt;li&gt;そのため、「クリーンインストールして、アプリを手動インストール」よりはだいぶマシです&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;各種設定はできない（クリーンインストールと同じで、 macOS インストール後のユーザの作成から先は手作業）ので、 Configuration Profile やシェルスクリプト で対応しています&lt;/li&gt;
+&lt;li&gt;macOS の設定を行うコマンドとしては、以下などを利用しています
+&lt;ul&gt;
+&lt;li&gt;defaults コマンド
+&lt;ul&gt;
+&lt;li&gt;ユーザの設定を管理するコマンド&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;scutil コマンド
+&lt;ul&gt;
+&lt;li&gt;システムの設定を管理するコマンド&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;登壇した感想&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;登壇した感想&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%99%bb%e5%a3%87%e3%81%97%e3%81%9f%e6%84%9f%e6%83%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;内容的にあまり刺さる方はいないだろうな、とは思っていましたが、 Twitter や対面で感想を頂くことができました。
+誰か 1 人でも、役に立った（もしくは面白かった）と思って頂けたなら、話した意味はあったのかな、と思います。&lt;/p&gt;
+&lt;p&gt;また、特にルーキーズ LT では、事前に運営側主催で練習会を開いて頂き、アドバイスも頂けました。
+その際に、練習会参加者同士の繋がりも生まれ、良い仲間ができました。&lt;/p&gt;
+&lt;p&gt;運営側、そしてルーキーズ仲間には本当に感謝しています。もちろん、私の LT を聞いて頂いた皆さま、このポストを読んで下さった皆さま、ありがとうございます。&lt;/p&gt;
+&lt;p&gt;本当に iOSDC は楽しいので、次はあなたもぜひトークに応募してみてください！&lt;/p&gt;
+&lt;h2&gt;勉強会会場&amp;amp;機材お貸ししてます&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;勉強会会場機材お貸ししてます&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8b%89%e5%bc%b7%e4%bc%9a%e4%bc%9a%e5%a0%b4%e6%a9%9f%e6%9d%90%e3%81%8a%e8%b2%b8%e3%81%97%e3%81%97%e3%81%a6%e3%81%be%e3%81%99&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;都内で勉強会を開きたい方、ご連絡ください！
+セミナールームだけではなく、 MacBook Pro や iPad などもご利用頂けます。
+try! Swift のワークショップでご利用頂いた実績もあります。どうぞ、お気軽に声をかけてください。&lt;/p&gt;
+
+      </description>
     </item>
     
     <item>
@@ -67,8 +566,49 @@
       <pubDate>Tue, 03 Sep 2019 13:14:41 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/09/03/iosdc2019pre/</guid>
-      <description>2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。 昨年までは個人サポーター（およびスポンサー企業の社員）として参加していましたが、今年は LT に登壇します！ なので、スピーカー兼個人サポーターとしての参加です（今期から、弊社は技術系のカンファレンスにスポンサーを出さない方針になってしまいました…）。
-公式サイト、ハッシュタグなど  https://iosdc.jp/2019/ @iosdcjp #iosdc  私（Hiroyuki Aoki）について  株式会社カサレアルで、研修のトレーナーをしています iOS や Android アプリ開発コースも担当していますが、国内唯一の Apple 認定トレーナーとして macOS のシステム管理コースなども担当しています  ちなみに、カサレアルは国内唯一の Apple 認定トレーニングプロバイダーです Apple の macOS 認定資格（Apple Certified Support Professional）の試験も、弊社で受験可能です   業務を行う中で得た知見から、今回の LT では Mac の環境構築に関する内容を話します  こんなことを話します 完全に同じ開発環境を素早く用意できる（もしくはできない）技術  弊社では、トレーニングで利用するために、たくさんの Mac を全部同じ状態にセットアップしています 手作業で設定すると、ちょっとずつ設定がズレてしまい、受講者に同じ体験をして頂くことができません そのため、素早く・簡単に・完全に同じ状態の Mac をセットアップする必要性があります 以前は利用できた方法が使えなくなったりと一筋縄では行かないのですが、これまでどうやってきて今後どうして行くのか、お話しします  私の登壇は 9 月 6 日の 16:35 、 Track Aの LT 前半の最後です。 アプリの開発技術ではないですが、 Mac の設定も奥が深くて楽しいですよ！ それに、みなさんの普段の Mac 環境準備にも、もしかしたら役に立つ情報があるかも知れません。</description>
+      <description>
+        
+        
+        &lt;p&gt;2016 年の初回開催から参加している、 iOSDC に今年も参加します（9/5-7 開催）。
+昨年までは個人サポーター（およびスポンサー企業の社員）として参加していましたが、今年は LT に登壇します！
+なので、スピーカー兼個人サポーターとしての参加です（今期から、弊社は技術系のカンファレンスにスポンサーを出さない方針になってしまいました…）。&lt;/p&gt;
+&lt;h2&gt;公式サイト、ハッシュタグなど&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;公式サイトハッシュタグなど&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%85%ac%e5%bc%8f%e3%82%b5%e3%82%a4%e3%83%88%e3%83%8f%e3%83%83%e3%82%b7%e3%83%a5%e3%82%bf%e3%82%b0%e3%81%aa%e3%81%a9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://iosdc.jp/2019/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://iosdc.jp/2019/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/iosdcjp&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@iosdcjp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/hashtag/iosdc?src=hash&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#iosdc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;私（Hiroyuki Aoki）について&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;私hiroyuki-aokiについて&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%a7%81hiroyuki-aoki%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.casareal.co.jp/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;株式会社カサレアル&lt;/a&gt;で、研修のトレーナーをしています&lt;/li&gt;
+&lt;li&gt;iOS や Android アプリ開発コースも担当していますが、国内唯一の Apple 認定トレーナーとして macOS のシステム管理コースなども担当しています
+&lt;ul&gt;
+&lt;li&gt;ちなみに、カサレアルは国内唯一の Apple 認定トレーニングプロバイダーです&lt;/li&gt;
+&lt;li&gt;Apple の macOS 認定資格（&lt;a href=&#34;https://training.apple.com/us/en/recognition&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Apple Certified Support Professional&lt;/a&gt;）の試験も、弊社で受験可能です&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;業務を行う中で得た知見から、今回の LT では Mac の環境構築に関する内容を話します&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;こんなことを話します&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;こんなことを話します&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%93%e3%82%93%e3%81%aa%e3%81%93%e3%81%a8%e3%82%92%e8%a9%b1%e3%81%97%e3%81%be%e3%81%99&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;&lt;a href=&#34;https://fortee.jp/iosdc-japan-2019/proposal/973963ea-c6b2-46aa-a15b-1b34af099c84&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;完全に同じ開発環境を素早く用意できる（もしくはできない）技術&lt;/a&gt;&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;完全に同じ開発環境を素早く用意できるもしくはできない技術&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%8c%e5%85%a8%e3%81%ab%e5%90%8c%e3%81%98%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%82%92%e7%b4%a0%e6%97%a9%e3%81%8f%e7%94%a8%e6%84%8f%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%97%e3%81%8f%e3%81%af%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e6%8a%80%e8%a1%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;弊社では、トレーニングで利用するために、たくさんの Mac を全部同じ状態にセットアップしています&lt;/li&gt;
+&lt;li&gt;手作業で設定すると、ちょっとずつ設定がズレてしまい、受講者に同じ体験をして頂くことができません&lt;/li&gt;
+&lt;li&gt;そのため、素早く・簡単に・完全に同じ状態の Mac をセットアップする必要性があります&lt;/li&gt;
+&lt;li&gt;以前は利用できた方法が使えなくなったりと一筋縄では行かないのですが、これまでどうやってきて今後どうして行くのか、お話しします&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;私の登壇は 9 月 6 日の 16:35 、 Track Aの LT 前半の最後です。
+アプリの開発技術ではないですが、 Mac の設定も奥が深くて楽しいですよ！
+それに、みなさんの普段の Mac 環境準備にも、もしかしたら役に立つ情報があるかも知れません。&lt;/p&gt;
+&lt;h2&gt;iOSDC の好きなところ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;iosdc-の好きなところ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#iosdc-%e3%81%ae%e5%a5%bd%e3%81%8d%e3%81%aa%e3%81%a8%e3%81%93%e3%82%8d&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;このイベントは、参加者同士のコミュニケーションを特に大事にしていて、「パックマンルール」や「機械的席詰めタイム」など、面白い取り組みをたくさん取り入れています。
+また、&lt;a href=&#34;https://blog.iosdc.jp/2019/08/28/rookies-lt-practice-session/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ルーキーズ LT 練習会&lt;/a&gt;を開催して、初めて登壇する人がより良いプレゼンをできるようにサポートしてくれたりもしています。
+このように、参加者のことを本当に大事にしている、誰でも楽しめるイベントです。&lt;/p&gt;
+&lt;h2&gt;ぜひお話ししましょう&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ぜひお話ししましょう&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%9c%e3%81%b2%e3%81%8a%e8%a9%b1%e3%81%97%e3%81%97%e3%81%be%e3%81%97%e3%82%87%e3%81%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;iOSDC は、参加者同士のコミュニケーションを特に大事にしている、私の大好きなカンファレンスです。
+私を見つけたら、ぜひ声をかけてください。とても喜びます！&lt;/p&gt;
+
+      </description>
     </item>
     
   </channel>

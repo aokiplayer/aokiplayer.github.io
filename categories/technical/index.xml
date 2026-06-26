@@ -1,19 +1,262 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Technical on Yagamo Style</title>
+    <title>Yagamo Style – Technical</title>
     <link>https://yagamo-style.com/categories/technical/</link>
     <description>Recent content in Technical on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 02 Mar 2020 18:03:25 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/categories/technical/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Mar 2020 18:03:25 +0900</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/categories/technical/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>iOS/iPadOS 13 のモーダル画面から戻った際に、ライフサイクルメソッドが呼ばれないパターンがある</title>
       <link>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/</link>
       <pubDate>Mon, 02 Mar 2020 18:03:25 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2020/03/02/default-modal-segue-xcode11/</guid>
-      <description>はじめに  iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません  もちろん、 unwind セグエメソッドも呼ばれません unwind セグエから戻っても、ライフサイクルメソッドは呼ばれません（unwind セグエメソッドは呼ばれる）    サンプル 画面レイアウト New Default シーンへのセグエ  Xcode 11 でのデフォルト設定 Presentation が Same as Destination  Full Screen シーンへのセグエ  Presentation を Full Screen に変更 デフォルトと異なり、画面全体を覆う（iOS 12 までの Modal）  ソースコード ViewController（最初の画面） import UIKit  class ViewController: UIViewController {   override func viewDidLoad() {  super.viewDidLoad()  print(#function)  }   override func viewWillDisappear(_ animated: Bool) {  super.</description>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;iOS/iPadOS 13 から、モーダルで画面遷移した際はデフォルトでは全画面ではなく少し小さい表示になります&lt;/li&gt;
+&lt;li&gt;その画面から戻る際、これまでは unwind セグエを呼ぶか dismiss する必要がありましたが、モーダルの画面をスワイプダウンすることで遷移が可能となりました&lt;/li&gt;
+&lt;li&gt;その場合、本来呼ばれるはずのライフサイクルメソッドが呼ばれません
+&lt;ul&gt;
+&lt;li&gt;もちろん、 unwind セグエメソッドも呼ばれません&lt;/li&gt;
+&lt;li&gt;unwind セグエから戻っても、ライフサイクルメソッドは呼ばれません（unwind セグエメソッドは呼ばれる）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;サンプル&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;サンプル&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;画面レイアウト&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;画面レイアウト&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%94%bb%e9%9d%a2%e3%83%ac%e3%82%a4%e3%82%a2%e3%82%a6%e3%83%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/default-modal-segue-xcode11/storyboard.png?width=25pc&#34; alt=&#34;storyboard&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;New Default シーンへのセグエ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;new-default-シーンへのセグエ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#new-default-%e3%82%b7%e3%83%bc%e3%83%b3%e3%81%b8%e3%81%ae%e3%82%bb%e3%82%b0%e3%82%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/default-modal-segue-xcode11/segue_for_new_default.png?width=25pc&#34; alt=&#34;segue_for_new_default&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Xcode 11 でのデフォルト設定&lt;/li&gt;
+&lt;li&gt;Presentation  が Same as Destination&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Full Screen シーンへのセグエ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;full-screen-シーンへのセグエ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#full-screen-%e3%82%b7%e3%83%bc%e3%83%b3%e3%81%b8%e3%81%ae%e3%82%bb%e3%82%b0%e3%82%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/default-modal-segue-xcode11/segue_for_full_screen.png?width=25pc&#34; alt=&#34;segue_for_full_screen&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Presentation を Full Screen に変更&lt;/li&gt;
+&lt;li&gt;デフォルトと異なり、画面全体を覆う（iOS 12 までの Modal）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;ソースコード&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ソースコード&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b3%e3%83%bc%e3%83%89&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;ViewController（最初の画面）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;viewcontroller最初の画面&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#viewcontroller%e6%9c%80%e5%88%9d%e3%81%ae%e7%94%bb%e9%9d%a2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UIKit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ViewController&lt;/span&gt;: UIViewController {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;viewDidLoad&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.viewDidLoad()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#66d9ef&#34;&gt;#function&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;viewWillDisappear&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; animated: Bool) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.viewWillDisappear(animated)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#66d9ef&#34;&gt;#function&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;viewDidDisappear&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; animated: Bool) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.viewDidDisappear(animated)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#66d9ef&#34;&gt;#function&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;viewWillAppear&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; animated: Bool) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.viewWillAppear(animated)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#66d9ef&#34;&gt;#function&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;viewDidAppear&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; animated: Bool) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.viewDidAppear(animated)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#66d9ef&#34;&gt;#function&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;@IBAction&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;unwindToMain&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; unwindSegue: UIStoryboardSegue) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Returned through unwind segue.&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;prepare&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; segue: UIStoryboardSegue, sender: Any?) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; style: String
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;switch&lt;/span&gt; segue.destination.modalPresentationStyle {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .automatic:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;automatic&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .currentContext:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;currentContext&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .custom:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;custom&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .formSheet:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;formSheet&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .fullScreen:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fullScreen&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .&lt;span style=&#34;color:#66d9ef&#34;&gt;none&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .overCurrentContext:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;overCurrentContext&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .overFullScreen:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;overFullScreen&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .pageSheet:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pageSheet&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; .popover:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            style = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;popOver&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        @unknown &lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            fatalError(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Maybe there will be new case.&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(style)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;NewDefaultVC（NewDefault ボタンから遷移する画面）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;newdefaultvcnewdefault-ボタンから遷移する画面&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#newdefaultvcnewdefault-%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%8b%e3%82%89%e9%81%b7%e7%a7%bb%e3%81%99%e3%82%8b%e7%94%bb%e9%9d%a2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UIKit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;NewDefaultVC&lt;/span&gt;: UIViewController {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;viewDidLoad&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.viewDidLoad()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;prepare&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; segue: UIStoryboardSegue, sender: Any?) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#66d9ef&#34;&gt;#file&lt;/span&gt;.components(separatedBy: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;).last!)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4&gt;FullScreenVC（FullScreen ボタンから遷移する画面）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;fullscreenvcfullscreen-ボタンから遷移する画面&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#fullscreenvcfullscreen-%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%8b%e3%82%89%e9%81%b7%e7%a7%bb%e3%81%99%e3%82%8b%e7%94%bb%e9%9d%a2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UIKit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;FullScreenVC&lt;/span&gt;: UIViewController {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;viewDidLoad&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.viewDidLoad()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;prepare&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; segue: UIStoryboardSegue, sender: Any?) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#66d9ef&#34;&gt;#file&lt;/span&gt;.components(separatedBy: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;).last!)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;実行結果&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;実行結果&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%9f%e8%a1%8c%e7%b5%90%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;New Default ボタンで遷移 -&amp;gt; Unwind ボタンで戻る&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;new-default-ボタンで遷移---unwind-ボタンで戻る&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#new-default-%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%a7%e9%81%b7%e7%a7%bb---unwind-%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%a7%e6%88%bb%e3%82%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;pageSheet
+NewDefaultVC.swift
+Returned through unwind segue.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;unwind セグエメソッドは呼ばれていますが、戻ったシーンのライフサイクルメソッドが呼ばれていません&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;New Default ボタンで遷移 -&amp;gt; 画面上部からスワイプダウンで戻る&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;new-default-ボタンで遷移---画面上部からスワイプダウンで戻る&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#new-default-%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%a7%e9%81%b7%e7%a7%bb---%e7%94%bb%e9%9d%a2%e4%b8%8a%e9%83%a8%e3%81%8b%e3%82%89%e3%82%b9%e3%83%af%e3%82%a4%e3%83%97%e3%83%80%e3%82%a6%e3%83%b3%e3%81%a7%e6%88%bb%e3%82%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;pageSheet&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;やはり、戻ったシーンのライフサイクルメソッドは呼ばれていません&lt;/li&gt;
+&lt;li&gt;また、 unwind セグエを利用していないので、当然ですが unwind セグエメソッドも呼ばれていませんね
+&lt;ul&gt;
+&lt;li&gt;同様に、 New Default シーンの &lt;code&gt;prepare(for:sender:)&lt;/code&gt; も呼ばれていません&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Full Screen ボタンで遷移 -&amp;gt; Unwind ボタンで戻る&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;full-screen-ボタンで遷移---unwind-ボタンで戻る&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#full-screen-%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%a7%e9%81%b7%e7%a7%bb---unwind-%e3%83%9c%e3%82%bf%e3%83%b3%e3%81%a7%e6%88%bb%e3%82%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;fullScreen
+viewWillDisappear(_:)
+viewDidDisappear(_:)
+FullScreenVC.swift
+Returned through unwind segue.
+viewWillAppear(_:)
+viewDidAppear(_:)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;こちらは、 iOS 12 までと同じですね&lt;/li&gt;
+&lt;li&gt;戻ったシーンのライフサイクルメソッドおよび unwind セグエメソッドの、どちらも呼ばれています&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;まとめ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;まとめ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%be%e3%81%a8%e3%82%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;iOS 13 から新しくなったデフォルトのモーダルの挙動は、ユーザにとっては「メインとは別の流れにいる」のを認識しやすいと思います&lt;/li&gt;
+&lt;li&gt;また、スワイプダウンで戻れるので、操作としても直感的です&lt;/li&gt;
+&lt;li&gt;ただ、「戻った際に何か処理をさせる」必要がある場合は要注意ですね&lt;/li&gt;
+&lt;li&gt;今回のサンプルは、&lt;a href=&#34;https://github.com/aokiplayer/ModalXcode11&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aokiplayer/ModalXcode11&lt;/a&gt; に置きました&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
     <item>
@@ -22,9 +265,218 @@
       <pubDate>Tue, 21 May 2019 12:19:51 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/05/21/viewcontrollerlifecycle/</guid>
-      <description>はじめに  iOSアプリを作成していて、どのタイミングでどのメソッドが呼ばれるんだっけ？となることは多いです 特に、画面遷移の際に困ることがあります なので、非常に単純なサンプルを作成しておきました  各メソッド内で、コンソール出力をしているのみです    検証環境  Xcode 10.2 iOS 12.2 Swift 5  サンプルプロジェクト  aokiplayer/ViewControllerLifeCycleSample  サンプルの画面構成   画面はストーリーボードで作成しています
-  A, Bの2画面があり、以下のように遷移します（Aが初期画面）
- A -&amp;gt; Bは、単純にPresent Modallyなセグエで遷移 B -&amp;gt; Aは、unwindセグエで遷移    コンソール出力例 アプリ起動（Aを表示）  レイアウト系が2度呼ばれています  レイアウトは、様々なタイミングで呼ばれるのでこのように複数回呼ばれる可能性があるためです  boundsが変更されたり、サブビューが追加されたりしても呼ばれます   Auto Layoutの制約を明示的に設定せず、Autoresizing maskをAuto Layoutに変換した場合などは1度しか呼ばれなかったりします    A: init(coder:) A: loadView() A: viewDidLoad() A: viewWillAppear(_:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewDidAppear(_:) 画面を回転（A画面表示中）  レイアウトを組み直す必要が発生するので、こんな感じですね  A: viewWillTransition(to:with:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() HOMEボタンを押す（A画面表示中）  画面は表示されなくなりますが、実際にはいずれのコールバックも呼ばれていません  このあたりの挙動は、Androidとは異なりますね（Androidではこのタイミングでもコールバック呼ばれる）    HOME画面でアイコンをタップ（上記の操作後）  非表示状態からの復帰ですが、いずれのコールバックも呼ばれていません  これも、Androidの場合はコールバックが呼ばれますね    Bへ遷移（Present Modallyセグエ）  ポイントはAのprepare(for:sender:)のタイミングです  ここで必要なデータの受け渡しを行いますが、BのviewDidLoad()よりも前です そのため、この時点ではBの持っているビューはnilであり、データを渡そうとすると実行時エラーとなります     B: init(coder:) A: prepare(for:sender:)  B: loadView()  B: viewDidLoad() A: viewWillDisappear(_:)  B: viewWillAppear(_:)  B: viewWillLayoutSubviews()  B: viewDidLayoutSubviews() A: viewWillLayoutSubviews() A: viewDidLayoutSubviews()  B: viewWillLayoutSubviews()  B: viewDidLayoutSubviews()  B: viewDidAppear(_:) A: viewDidDisappear(_:) Aへ戻る（unwindセグエ）  unwindセグエで戻る際も、prepare(for:sender:)は呼ばれています   B: prepare(for:sender:) A: unwindToFirst(_:)  B: viewWillDisappear(_:) A: viewWillAppear(_:) A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() A: viewDidAppear(_:)  B: viewDidDisappear(_:)  B: deinit A: viewWillLayoutSubviews() A: viewDidLayoutSubviews() まとめ  初心者の陥りやすい点としては、prepare(for:sender:)内でのデータの受け渡しです 「遷移先画面のビューはまだnil」という点は、しっかり認識しておきましょう  </description>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;iOSアプリを作成していて、どのタイミングでどのメソッドが呼ばれるんだっけ？となることは多いです&lt;/li&gt;
+&lt;li&gt;特に、画面遷移の際に困ることがあります&lt;/li&gt;
+&lt;li&gt;なので、非常に単純なサンプルを作成しておきました
+&lt;ul&gt;
+&lt;li&gt;各メソッド内で、コンソール出力をしているのみです&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;検証環境&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;検証環境&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a4%9c%e8%a8%bc%e7%92%b0%e5%a2%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Xcode 10.2&lt;/li&gt;
+&lt;li&gt;iOS 12.2&lt;/li&gt;
+&lt;li&gt;Swift 5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;サンプルプロジェクト&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;サンプルプロジェクト&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aokiplayer/ViewControllerLifeCycleSample&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aokiplayer/ViewControllerLifeCycleSample&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;サンプルの画面構成&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;サンプルの画面構成&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%81%ae%e7%94%bb%e9%9d%a2%e6%a7%8b%e6%88%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;画面はストーリーボードで作成しています&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A, Bの2画面があり、以下のように遷移します（Aが初期画面）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A -&amp;gt; Bは、単純にPresent Modallyなセグエで遷移&lt;/li&gt;
+&lt;li&gt;B -&amp;gt; Aは、unwindセグエで遷移&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/viewcontrollerlifecycle/vc_lifecycle_segue.png&#34; alt=&#34;segue_image&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;コンソール出力例&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;コンソール出力例&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b3%e3%83%b3%e3%82%bd%e3%83%bc%e3%83%ab%e5%87%ba%e5%8a%9b%e4%be%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;アプリ起動（Aを表示）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;アプリ起動aを表示&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%a2%e3%83%97%e3%83%aa%e8%b5%b7%e5%8b%95a%e3%82%92%e8%a1%a8%e7%a4%ba&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;レイアウト系が2度呼ばれています
+&lt;ul&gt;
+&lt;li&gt;レイアウトは、様々なタイミングで呼ばれるのでこのように複数回呼ばれる可能性があるためです
+&lt;ul&gt;
+&lt;li&gt;boundsが変更されたり、サブビューが追加されたりしても呼ばれます&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Auto Layoutの制約を明示的に設定せず、Autoresizing maskをAuto Layoutに変換した場合などは1度しか呼ばれなかったりします&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: init(coder:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: loadView()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidLoad()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillAppear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidAppear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;画面を回転（A画面表示中）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;画面を回転a画面表示中&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%94%bb%e9%9d%a2%e3%82%92%e5%9b%9e%e8%bb%a2a%e7%94%bb%e9%9d%a2%e8%a1%a8%e7%a4%ba%e4%b8%ad&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;レイアウトを組み直す必要が発生するので、こんな感じですね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillTransition(to:with:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;HOMEボタンを押す（A画面表示中）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;homeボタンを押すa画面表示中&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#home%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e6%8a%bc%e3%81%99a%e7%94%bb%e9%9d%a2%e8%a1%a8%e7%a4%ba%e4%b8%ad&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;画面は表示されなくなりますが、実際にはいずれのコールバックも呼ばれていません
+&lt;ul&gt;
+&lt;li&gt;このあたりの挙動は、Androidとは異なりますね（Androidではこのタイミングでもコールバック呼ばれる）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;HOME画面でアイコンをタップ（上記の操作後）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;home画面でアイコンをタップ上記の操作後&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#home%e7%94%bb%e9%9d%a2%e3%81%a7%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e3%82%92%e3%82%bf%e3%83%83%e3%83%97%e4%b8%8a%e8%a8%98%e3%81%ae%e6%93%8d%e4%bd%9c%e5%be%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;非表示状態からの復帰ですが、いずれのコールバックも呼ばれていません
+&lt;ul&gt;
+&lt;li&gt;これも、Androidの場合はコールバックが呼ばれますね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Bへ遷移（Present Modallyセグエ）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;bへ遷移present-modallyセグエ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#b%e3%81%b8%e9%81%b7%e7%a7%bbpresent-modally%e3%82%bb%e3%82%b0%e3%82%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ポイントはAの&lt;code&gt;prepare(for:sender:)&lt;/code&gt;のタイミングです
+&lt;ul&gt;
+&lt;li&gt;ここで必要なデータの受け渡しを行いますが、Bの&lt;code&gt;viewDidLoad()&lt;/code&gt;よりも前です&lt;/li&gt;
+&lt;li&gt;そのため、この時点ではBの持っているビューはnilであり、データを渡そうとすると実行時エラーとなります&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: init(coder:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: prepare(for:sender:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: loadView()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewDidLoad()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillDisappear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewWillAppear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewWillLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewDidLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewWillLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewDidLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewDidAppear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidDisappear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Aへ戻る（unwindセグエ）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;aへ戻るunwindセグエ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#a%e3%81%b8%e6%88%bb%e3%82%8bunwind%e3%82%bb%e3%82%b0%e3%82%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;unwindセグエで戻る際も、&lt;code&gt;prepare(for:sender:)&lt;/code&gt;は呼ばれています&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: prepare(for:sender:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: unwindToFirst(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewWillDisappear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillAppear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidAppear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: viewDidDisappear(_:)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    B: deinit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewWillLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A: viewDidLayoutSubviews()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;まとめ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;まとめ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%be%e3%81%a8%e3%82%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;初心者の陥りやすい点としては、&lt;code&gt;prepare(for:sender:)&lt;/code&gt;内でのデータの受け渡しです&lt;/li&gt;
+&lt;li&gt;「遷移先画面のビューはまだnil」という点は、しっかり認識しておきましょう&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
     <item>
@@ -33,8 +485,528 @@
       <pubDate>Thu, 18 Apr 2019 09:30:15 +0900</pubDate>
       
       <guid>https://yagamo-style.com/2019/04/18/remotenotification01/</guid>
-      <description>はじめに  Push通知は、使い方によっては非常に効果的です  通知しすぎると、邪魔になってしまいますが   ここでは、Push通知の基本的な実装方法を説明します Push通知の実装には、UserNotificationsフレームワークを利用します  ローカル通知にも、同じフレームワークを利用します 昔と違って、ひとつのフレームワークで両方に対応できていいですね    検証環境  Xcode 10.2 iOS 12.2 Swift 5 iPod touch 6th generation  必要なもの  Apple Developer Programのアカウント  Apple Developerサイト上で、以下の確認・作成が必要なため  Team ID Authentication Key     APNs（Apple Push Notification Service）に対応した、Push通知を送信するサーバ  FirebaseとかMicrosoft Azureとか、いろいろなサービスが対応してます テストするだけなら、APNsに対応したいろいろなツールがあります  Dwarven/PushMeBaby onmyway133/PushNotifications   APNsは、その名のとおりAppleのPush通知サービスです  Push通知の送信は、必ずこのサービスを経由します     iPhoneやiPadなどの実デバイス   シミュレータではPush通知が利用できないため
-  シミュレータでPush通知の登録をしようとすると、コンソールに以下のようなメッセージが出力されます</description>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Push通知は、使い方によっては非常に効果的です
+&lt;ul&gt;
+&lt;li&gt;通知しすぎると、邪魔になってしまいますが&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ここでは、Push通知の基本的な実装方法を説明します&lt;/li&gt;
+&lt;li&gt;Push通知の実装には、UserNotificationsフレームワークを利用します
+&lt;ul&gt;
+&lt;li&gt;ローカル通知にも、同じフレームワークを利用します&lt;/li&gt;
+&lt;li&gt;昔と違って、ひとつのフレームワークで両方に対応できていいですね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;検証環境&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;検証環境&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a4%9c%e8%a8%bc%e7%92%b0%e5%a2%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Xcode 10.2&lt;/li&gt;
+&lt;li&gt;iOS 12.2&lt;/li&gt;
+&lt;li&gt;Swift 5&lt;/li&gt;
+&lt;li&gt;iPod touch 6th generation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;必要なもの&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;必要なもの&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%bf%85%e8%a6%81%e3%81%aa%e3%82%82%e3%81%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Apple Developer Programのアカウント
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/account/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Apple Developer&lt;/a&gt;サイト上で、以下の確認・作成が必要なため
+&lt;ul&gt;
+&lt;li&gt;Team ID&lt;/li&gt;
+&lt;li&gt;Authentication Key&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;APNs（Apple Push Notification Service）に対応した、Push通知を送信するサーバ
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://firebase.google.com/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Firebase&lt;/a&gt;とか&lt;a href=&#34;https://azure.microsoft.com/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Microsoft Azure&lt;/a&gt;とか、いろいろなサービスが対応してます&lt;/li&gt;
+&lt;li&gt;テストするだけなら、APNsに対応したいろいろなツールがあります
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Dwarven/PushMeBaby&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dwarven/PushMeBaby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/onmyway133/PushNotifications&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;onmyway133/PushNotifications&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;APNsは、その名のとおりAppleのPush通知サービスです
+&lt;ul&gt;
+&lt;li&gt;Push通知の送信は、必ずこのサービスを経由します&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;iPhoneやiPadなどの実デバイス
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;シミュレータではPush通知が利用できないため&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;シミュレータでPush通知の登録をしようとすると、コンソールに以下のようなメッセージが出力されます&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Failed to register: Error Domain=NSCocoaErrorDomain Code=3010 &amp;#34;remote notifications are not supported in the simulator&amp;#34; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;事前準備（Apple Developerサイト上）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;事前準備apple-developerサイト上&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%ba%8b%e5%89%8d%e6%ba%96%e5%82%99apple-developer%e3%82%b5%e3%82%a4%e3%83%88%e4%b8%8a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Team IDの確認&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;team-idの確認&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#team-id%e3%81%ae%e7%a2%ba%e8%aa%8d&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.apple.com/account/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Apple Developer&lt;/a&gt;サイトにログイン&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左側のMembershipを選択して、Membership Detailsに表示されたTeam IDをメモしておく&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/remotenotification01/team_id.png&#34; alt=&#34;team_id&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Authentication Keyの作成とダウンロード&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;authentication-keyの作成とダウンロード&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#authentication-key%e3%81%ae%e4%bd%9c%e6%88%90%e3%81%a8%e3%83%80%e3%82%a6%e3%83%b3%e3%83%ad%e3%83%bc%e3%83%89&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.apple.com/account/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Apple Developer&lt;/a&gt;サイトにログイン&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左側のCertificates, IDs &amp;amp; Profilesを選択&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;表示された画面で左側のKeysからAllを選択、右上の+をクリックしてキーを作成&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nameには、キーに設定する任意の名前を入力&lt;/li&gt;
+&lt;li&gt;Apple Push Notification service (APNs)にチェック&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/remotenotification01/create_key.png&#34; alt=&#34;create_key&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;作成したら、Downloadをクリックしてキーをダウンロード&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;キーは一度しかダウンロードできません。セキュアな場所に確実に保存してください&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;このキーは、Push通知を行うサーバに設定する&lt;/li&gt;
+&lt;li&gt;キーは、&lt;code&gt;AuthKey_XXXXXXXXXX.p8&lt;/code&gt;という名前でダウンロードされる&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;XXXXXXXXXX&lt;/code&gt;の部分がKey ID&lt;/li&gt;
+&lt;li&gt;Key IDもメモしておく&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/remotenotification01/download_key.png&#34; alt=&#34;download_key&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;主なコンポーネント&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;主なコンポーネント&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%bb%e3%81%aa%e3%82%b3%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%8d%e3%83%b3%e3%83%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;コンポーネント&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;説明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;UNUserNotificationCenter&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通知関連の機能を管理する&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;UNNotificationRequest&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通知の内容や、配送のトリガーを内包する&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;UNNotificationAction&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通知内で表示されるボタン&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;UNNotificationCategory&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通知の方法や表示されるアクションの設定をまとめたもの&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;UNNotificationSettings&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通知の設定情報を保持&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;UNMutableNotificationContent&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;通知する内容&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;UNPushNotificationTrigger&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;APNsから送信された通知に関するトリガー&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;実装手順&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;実装手順&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%9f%e8%a3%85%e6%89%8b%e9%a0%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;プロジェクトの設定&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;プロジェクトの設定&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%ae%e8%a8%ad%e5%ae%9a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;アプリケーションTARGETのSigningから、Teamを選択&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Apple Developer Programに登録済みのアカウントに紐付いている必要性あり&lt;/li&gt;
+&lt;li&gt;無料アカウントのTeamでは、Push Notificationが利用できない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/remotenotification01/signing_team.png&#34; alt=&#34;signing_team&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;アプリケーションTARGETのCapabilitiesから、Push NotificationsをONにする&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/remotenotification01/capabilities.png&#34; alt=&#34;capabilities&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;プッシュ通知の登録&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;プッシュ通知の登録&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%97%e3%83%83%e3%82%b7%e3%83%a5%e9%80%9a%e7%9f%a5%e3%81%ae%e7%99%bb%e9%8c%b2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ここから先は、すべてAppDelegate.swift内に記述します
+&lt;ul&gt;
+&lt;li&gt;アプリの起動時に処理するのと、&lt;code&gt;UIApplicationDelegate&lt;/code&gt;のコールバックが必要になるためです&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;UserNotificationsフレームワークを利用するので、インポート&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift:AppDelegate.swift&#34; data-lang=&#34;swift:AppDelegate.swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UserNotifications&lt;/span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 01. import&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ユーザに対して、通知の許可依頼を行う&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift:AppDelegate.swift&#34; data-lang=&#34;swift:AppDelegate.swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;application&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; application: UIApplication,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&amp;gt; Bool {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 02. request to user&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;guard&lt;/span&gt; granted &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; { &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// 〜省略〜&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ユーザが通知を許可していた場合は、APNsへ登録&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;**「どのデバイスにインストールされたどのアプリか」**を登録する&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これにより、APNsは対象を特定して通知を発行できるようになる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;この結果として、一意に識別するトークンが返される&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift:AppDelegate.swift&#34; data-lang=&#34;swift:AppDelegate.swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 02. request to user&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;guard&lt;/span&gt; granted &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; { &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 03. register to APNs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    DispatchQueue.main.async {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        UIApplication.shared.registerForRemoteNotifications()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;APNsへの登録後に呼び出されるコールバックを実装（&lt;code&gt;UIApplicationDelegate&lt;/code&gt;のメソッド）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;成功時: &lt;code&gt;application(_:didRegisterForRemoteNotificationsWithDeviceToken:)&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;先述したトークンは第2引数に渡される&lt;/li&gt;
+&lt;li&gt;このトークンを、Push通知を送信するサービスに登録する必要がある
+&lt;ul&gt;
+&lt;li&gt;今回はテストとしてmacOS上のプログラムからPush通知を送信するので、トークンをログ出力しておく&lt;/li&gt;
+&lt;li&gt;外部のサービスへトークンを登録する方法は、各サービスのドキュメントを参照してください&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;失敗時: &lt;code&gt;application(_:didFailToRegisterForRemoteNotificationsWithError:)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift:AppDelegate.swift&#34; data-lang=&#34;swift:AppDelegate.swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; - Callback for Remote Notification&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;extension&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AppDelegate&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 04-1. succeeded to register to APNs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;application&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; application: UIApplication,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// Data -&amp;gt; Token string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; tokenBytes = deviceToken.map { (byte: UInt8) &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; String(format: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%02.2hhx&amp;#34;&lt;/span&gt;, byte) }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Device token: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;tokenBytes.joined&lt;span style=&#34;color:#e6db74&#34;&gt;())&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; failed to register to APNs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;application&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; application: UIApplication,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to register to APNs: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;error&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;アプリを一度実行して通知の受信を許可し、前の手順でログ出力したトークンをメモしておきます&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;もちろん、実運用上はこの手順は不要です&lt;/li&gt;
+&lt;li&gt;実際には、&lt;code&gt;application(_:didRegisterForRemoteNotificationsWithDeviceToken:)&lt;/code&gt;内で外部サービスにトークンを登録する処理が必要になります&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;Device token: b92bf1a8af26237ad8dfad91312ece9563c8493e2bc2bf01e3bd9fb690d20d37&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;ここまでの実装（AppDelegate.swift）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ここまでの実装appdelegateswift&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%93%e3%81%93%e3%81%be%e3%81%a7%e3%81%ae%e5%ae%9f%e8%a3%85appdelegateswift&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift:AppDelegate.swift&#34; data-lang=&#34;swift:AppDelegate.swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UIKit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UserNotifications&lt;/span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 01. import&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;@UIApplicationMain&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AppDelegate&lt;/span&gt;: UIResponder, UIApplicationDelegate {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; window: UIWindow?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;application&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; application: UIApplication,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -&amp;gt; Bool {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 02. request to user&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;guard&lt;/span&gt; granted &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; { &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 03. register to APNs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            DispatchQueue.main.async {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                UIApplication.shared.registerForRemoteNotifications()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; - Callback for Remote Notification&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;extension&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AppDelegate&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; 04-1. succeeded to register to APNs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;application&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; application: UIApplication,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// Data -&amp;gt; Token string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; tokenBytes = deviceToken.map { (byte: UInt8) &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; String(format: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%02.2hhx&amp;#34;&lt;/span&gt;, byte) }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Device token: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;tokenBytes.joined&lt;span style=&#34;color:#e6db74&#34;&gt;())&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;MARK:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; failed to register to APNs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;application&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; application: UIApplication,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to register to APNs: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;error&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;Push通知の受信テスト&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;push通知の受信テスト&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#push%e9%80%9a%e7%9f%a5%e3%81%ae%e5%8f%97%e4%bf%a1%e3%83%86%e3%82%b9%e3%83%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Push通知が受信できることをテストしてみます&lt;/li&gt;
+&lt;li&gt;今回は&lt;a href=&#34;https://github.com/onmyway133/PushNotifications&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;onmyway133/PushNotifications&lt;/a&gt;を利用するので、インストールしておいてください&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Push通知の送信準備（PushNotificationsアプリ）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/remotenotification01/push_tool.png&#34; alt=&#34;push_tool&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;iOSを選択&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Authentication -&amp;gt; TOKEN&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;項目&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;設定値&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;SELECT P8&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;ダウンロードしておいたAuthentication Keyを選択&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Enter key id&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;メモしておいたKey IDを入力&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Enter team id&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;メモしておいたTeam IDを入力&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Body&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;項目&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;設定値&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Enter bundle id&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;アプリのBundle Identifierを入力&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Enter device token&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;メモしておいたトークンを入力&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Enter message&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Push通知のメッセージとなるJSONを入力&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;{
+    &amp;#34;aps&amp;#34;: {
+        &amp;#34;alert&amp;#34;: &amp;#34;Minimal message&amp;#34;,
+        &amp;#34;sound&amp;#34;: &amp;#34;default&amp;#34;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Environment&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sandboxにチェック&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Push通知の送信&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sendボタンをクリックすると、Push通知が送信されます&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Push通知の受信確認&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通知は、アプリが表示されていない状態（以下の状態）で受信した場合に表示されます
+&lt;ul&gt;
+&lt;li&gt;アプリが起動していて、Backgroud状態&lt;/li&gt;
+&lt;li&gt;アプリが起動していない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/remotenotification01/push_receive.png&#34; alt=&#34;push_receive&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;まとめ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;まとめ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%be%e3%81%a8%e3%82%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;単純にPush通知を受信して、アプリを開くだけならこれだけの実装で済みます&lt;/li&gt;
+&lt;li&gt;また、以下のような実装も可能です
+&lt;ul&gt;
+&lt;li&gt;通知にボタン（アクション）を追加して、タップした際に処理を実行する&lt;/li&gt;
+&lt;li&gt;アプリが起動していない状態でも、アプリを起こしてタスクをバックグラウンドで実行させる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;通知にはUserNotificationsフレームワークを利用するので、以下の点を除いてローカル通知もほぼ同様の実装で受信できます
+&lt;ul&gt;
+&lt;li&gt;APNsへの登録がない（デバイスの中で完結するため）&lt;/li&gt;
+&lt;li&gt;通知を送信する処理の実装が必要&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;今回作成したサンプルコードは、GitHubに置きました
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aokiplayer/MinimalRemoteNotificationSample&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aokiplayer/MinimalRemoteNotificationSample&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参考&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;参考&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%82%e8%80%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/documentation/usernotifications&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;UserNotifications | Apple Developer Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.raywenderlich.com/8164-push-notifications-tutorial-getting-started&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Push Notifications Tutorial: Getting Started | raywenderlich.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
   </channel>

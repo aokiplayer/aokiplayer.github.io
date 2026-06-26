@@ -1,24 +1,180 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JavaScript on Yagamo Style</title>
+    <title>Yagamo Style – JavaScript</title>
     <link>https://yagamo-style.com/tags/javascript/</link>
     <description>Recent content in JavaScript on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 24 Jan 2024 09:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Jan 2024 09:00:00 +0900</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>JavaScript の &amp;&amp; 演算子は true/false を返すとは限らない</title>
-      <link>https://yagamo-style.com/2024/js-logical-and/</link>
+      <link>https://yagamo-style.com/2024/01/24/js-logical-and/</link>
       <pubDate>Wed, 24 Jan 2024 09:00:00 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2024/js-logical-and/</guid>
-      <description>はじめに React Hook Form のサンプルを見ていたら、こんなコードがありました。
- というか、React 本家のチュートリアルにもありますね。 https://ja.react.dev/learn/conditional-rendering#logical-and-operator-
- {errors.exampleRequired &amp;amp;&amp;amp; &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt;} 普段 JavaScript を書かない立場としては、すぐには理解できませんでした。 入力チェックの結果、エラーがある場合ならこういう挙動のはず。
- errors.exampleRequired に何らかのオブジェクトが入っている true と評価される 右オペランドが評価される  右オペランドが true と評価されれば、true が返される 右オペランドが false と評価されれば、false が返される    入力チェックの結果、エラーがない場合ならこうなるよね？
- errors.exampleRequired が undefined false と評価される 右オペランドを評価せず、false が返される  どちらにせよ、true/false のいずれかが返されるので &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; は出力されないように思えます。 正しく動作させるなら、普通に考えればこうなるかなと。
-{errors.exampleRequired ? &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; : &amp;#39;&amp;#39;} JavaScript の &amp;amp;&amp;amp; 演算子が Java などと比べて特殊なので、確認してみます。</description>
+      <guid>https://yagamo-style.com/2024/01/24/js-logical-and/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;React Hook Form のサンプルを見ていたら、こんなコードがありました。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;というか、React 本家のチュートリアルにもありますね。
+&lt;a href=&#34;https://ja.react.dev/learn/conditional-rendering#logical-and-operator-&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://ja.react.dev/learn/conditional-rendering#logical-and-operator-&lt;/a&gt;&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;{errors.exampleRequired &amp;amp;&amp;amp; &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;普段 JavaScript を書かない立場としては、すぐには理解できませんでした。
+入力チェックの結果、エラーがある場合ならこういう挙動のはず。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;errors.exampleRequired&lt;/code&gt; に何らかのオブジェクトが入っている&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;true&lt;/code&gt; と評価される&lt;/li&gt;
+&lt;li&gt;右オペランドが評価される
+&lt;ol&gt;
+&lt;li&gt;右オペランドが &lt;code&gt;true&lt;/code&gt; と評価されれば、&lt;code&gt;true&lt;/code&gt; が返される&lt;/li&gt;
+&lt;li&gt;右オペランドが &lt;code&gt;false&lt;/code&gt; と評価されれば、&lt;code&gt;false&lt;/code&gt; が返される&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;入力チェックの結果、エラーがない場合ならこうなるよね？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;errors.exampleRequired&lt;/code&gt; が &lt;code&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;false&lt;/code&gt; と評価される&lt;/li&gt;
+&lt;li&gt;右オペランドを評価せず、&lt;code&gt;false&lt;/code&gt; が返される&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;どちらにせよ、&lt;code&gt;true&lt;/code&gt;/&lt;code&gt;false&lt;/code&gt; のいずれかが返されるので &lt;code&gt;&amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt;&lt;/code&gt; は出力されないように思えます。
+正しく動作させるなら、普通に考えればこうなるかなと。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;{errors.exampleRequired ? &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt; : &amp;#39;&amp;#39;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;JavaScript の &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; 演算子が Java などと比べて特殊なので、確認してみます。&lt;/p&gt;
+&lt;h2&gt;&amp;amp;&amp;amp; 演算子の基本&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;-演算子の基本&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e5%9f%ba%e6%9c%ac&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;JavaScript も C 言語の流れを汲んでいる（基本的な文法の面では）ので、基本的には同じです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AND（論理積）を求める&lt;/li&gt;
+&lt;li&gt;ショートカット演算子なので、左オペランドを評価して式全体の結果が確定すれば、右オペランドは評価しない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;const t1 = true;
+const t2 = true;
+const f1 = false;
+const f2 = false;
+t1 &amp;amp;&amp;amp; t2    // true
+t1 &amp;amp;&amp;amp; f2    // false
+f1 &amp;amp;&amp;amp; t1    // false, f1 を評価した時点で全体の結果が確定するので t1 は評価されない&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;ちょっと変わった使い方&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ちょっと変わった使い方&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%a1%e3%82%87%e3%81%a3%e3%81%a8%e5%a4%89%e3%82%8f%e3%81%a3%e3%81%9f%e4%bd%bf%e3%81%84%e6%96%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;MDN を見ると、以下のような説明があります。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;一般的には、この演算子は左から右に向けて評価した際に最初の偽値のオペランドに遭遇したときにはその値を、またはすべてが真値であった場合は最後のオペランドの値を返します。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;つまり、論理演算子なので常に &lt;code&gt;true&lt;/code&gt;/&lt;code&gt;false&lt;/code&gt; の真偽値を返すと思いがちですが、実際には以下のような挙動となっています。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;左オペランドが &lt;code&gt;false&lt;/code&gt; として扱われる値の場合: 左オペランドを返す&lt;/li&gt;
+&lt;li&gt;左オペランドが &lt;code&gt;true&lt;/code&gt; として扱われる値の場合: 右オペランドを返す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記の挙動に当てはめた結果、真偽値型の場合は我々のよく知る挙動となっているわけですね。&lt;/p&gt;
+&lt;p&gt;ということで、真偽値型以外に適用するとこんなことが起こってしまうわけです。
+直感に反しますよね。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;const tanaka = &amp;#39;田中まさひろ&amp;#39;;
+const satoda = &amp;#39;里田まい&amp;#39;;
+
+tanaka &amp;amp;&amp;amp; satoda  // &amp;#39;里田まい&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;では最初の例は？&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;では最初の例は&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%a7%e3%81%af%e6%9c%80%e5%88%9d%e3%81%ae%e4%be%8b%e3%81%af&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;pre&gt;&lt;code&gt;{errors.exampleRequired &amp;amp;&amp;amp; &amp;lt;span&amp;gt;This field is required&amp;lt;/span&amp;gt;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;以下の挙動となります。&lt;/p&gt;
+&lt;h4&gt;入力チェックの結果、エラーがある場合&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;入力チェックの結果エラーがある場合&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%85%a5%e5%8a%9b%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%ae%e7%b5%90%e6%9e%9c%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%8c%e3%81%82%e3%82%8b%e5%a0%b4%e5%90%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;errors.exampleRequired&lt;/code&gt; に何らかのオブジェクトが入っている&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;true&lt;/code&gt; と評価される&lt;/li&gt;
+&lt;li&gt;右オペランドが返されて、メッセージを出力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;入力チェックの結果、エラーがない場合&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;入力チェックの結果エラーがない場合&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%85%a5%e5%8a%9b%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%ae%e7%b5%90%e6%9e%9c%e3%82%a8%e3%83%a9%e3%83%bc%e3%81%8c%e3%81%aa%e3%81%84%e5%a0%b4%e5%90%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;errors.exampleRequired&lt;/code&gt; は &lt;code&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;false&lt;/code&gt; と評価される&lt;/li&gt;
+&lt;li&gt;左オペランドが返されて、&lt;code&gt;undefined&lt;/code&gt; なので React は何も出力しない&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;まとめ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;まとめ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%be%e3%81%a8%e3%82%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Java などの、型を厳密に扱う言語に慣れていると JavaScript の &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; の挙動は不思議に思えますね。
+ですが、ドキュメントをしっかり読めば説明はあるので、注意して少しずつ慣れていきましょう。&lt;/p&gt;
+&lt;h2&gt;参考&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;参考&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%82%e8%80%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.react.dev/learn/conditional-rendering#logical-and-operator-&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;論理 AND 演算子 (&amp;amp;&amp;amp;): 条件付きレンダー – React&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;論理積 (&amp;amp;&amp;amp;) - JavaScript | MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
   </channel>

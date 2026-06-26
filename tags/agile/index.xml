@@ -1,158 +1,421 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Agile on Yagamo Style</title>
+    <title>Yagamo Style – Agile</title>
     <link>https://yagamo-style.com/tags/agile/</link>
     <description>Recent content in Agile on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 +0900</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>スクラムフェス金沢 2026 に、HUB おじさんとして登壇してきました</title>
-      <link>https://yagamo-style.com/2026/scrumfestkanazawa/</link>
+      <link>https://yagamo-style.com/2026/06/22/scrumfestkanazawa/</link>
       <pubDate>Mon, 22 Jun 2026 00:00:00 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2026/scrumfestkanazawa/</guid>
-      <description>はじめに 昨年の スクラム祭り 2025 での登壇 に続き、金沢での登壇の機会をいただきました。 公募型のスクラムフェスでの登壇は初めてだったので、緊張しながらも「これまで以上に多くの方々にメッセージを伝えられる」ことがうれしくて、ずっと楽しみにしていました。
-カンファレンス概要  公式サイト  https://www.scrumfestkanazawa.org/   日程  2026 年 6 月 19 日 〜 20 日    登壇で伝えたかったこと これまでのスクラムフェス神奈川、スクラム祭りで一貫して伝えたかったことは「コミュニケーションに課題を抱えている人にも、場に出ることの楽しさを感じてほしい」ということです。 それを伝え続けることには、確かな価値があると思っています。
-また、今回登壇するにあたっては自分の立ち位置が明確になったと感じています。 「誰かがハードルを超えるため、自分が踏み台になる」というのは別に自分を卑下するのではなく、サポートしたいという自分のやりたいことにマッチしているとの思いです。 こういう立ち位置に関してはこれまであまり語られることがありませんでしたが、多くの方に「そういうのもある」と知っていただきたかったです。
-私の登壇資料はこちらです。気軽に読み進められますので、ぜひ一度ご覧いただきたいです。 人見知りな HUB おじさんが 会話のハードルを超え、 今度は誰かの踏み台になろうとする話
-聞いたトークの感想 正直、自分の登壇で余裕がなさすぎて、あまりしっかりとレポートが書けない感じです🙏 が、私の直後の かつさん のトークはプロポーザルの時点から二人で話していた内容なのと、「このトークのターゲットにしてるペルソナはスティーブ」と言われ続けていたので感想を記します。
-私のトークが「とにかく人と話すのが苦手」な人に向けたもので、かつさんのトークは「仕事上で 特定の人と話すのが苦手」な人に向けたものです。なので、私の次の段階ということですね。
-ちょっと苦手だなっていう人と対話をするためのはじめの一歩（かつさん） エンジョイ人生！
-ありがとう！
-参加の感想 初めましての方、一方的に存じ上げていた方、リアルでは初めましての方、いつも仲良くしていただいている方など、たくさんの方々と会話できました。 これも、登壇でも触れた「仲間ができると、また仲間ができる」ということに繋がっているのかなと思っています。
-今回、特に感慨深かったのが、私のスクラムフェスの初参加・初登壇であるスクラムフェス神奈川で出会った仲間と同じ時間帯に登壇できたことです。 彼らとは、no me in agile や多摩.dev などいろいろな場でお会いすることがあり、「一緒に進んできた」という思いが強いです（とは言え、お二人は私よりもずっとアグレッシブに活動されています）。 ナカグチ さん、イデーさん、いつもありがとうございます！
-エモい写真を撮っていただきました。 ちなみに、私だけ体を傾けているのはお腹を目立たなくするためです。
-最後に 今回、貴重な登壇機会をいただいた運営の皆様、スポンサーの皆様、私のトークを聞いてくれた皆様、私のトークは聞かなかったけどカンファレンスに参加してくれた皆様、資料を見てくれた皆様、飲み会や廊下でお話ししてくださった皆様、本当にありがとうございました。
-私の思いや活動には意味があり、私だからこそ伝えられるものだと思っています。 なので、今後も「踏み台になる」活動は続けていきます💪
-Day 1 は仕事での登壇があり終了後のネットワーキングだけしか参加できなくて、集合写真に間に合わないという悔しい思いをしました。 勝手に自分の写真を足しておきます😆 HUB おじさんとして 北陸初出店の HUB にも行ってきました。HUB おじさんなので🍹 かつさん、いつもお付き合いいただきありがとうございます！</description>
+      <guid>https://yagamo-style.com/2026/06/22/scrumfestkanazawa/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;昨年の &lt;a href=&#34;https://yagamo-style.com/2025/10/06/scrumat-kanazawa/&#34;&gt;スクラム祭り 2025 での登壇&lt;/a&gt; に続き、金沢での登壇の機会をいただきました。 &lt;br&gt;
+公募型のスクラムフェスでの登壇は初めてだったので、緊張しながらも「これまで以上に多くの方々にメッセージを伝えられる」ことがうれしくて、ずっと楽しみにしていました。&lt;/p&gt;
+&lt;h2&gt;カンファレンス概要&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;カンファレンス概要&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%ab%e3%83%b3%e3%83%95%e3%82%a1%e3%83%ac%e3%83%b3%e3%82%b9%e6%a6%82%e8%a6%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;公式サイト
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.scrumfestkanazawa.org/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.scrumfestkanazawa.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;日程
+&lt;ul&gt;
+&lt;li&gt;2026 年 6 月 19 日 〜 20 日&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;登壇で伝えたかったこと&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;登壇で伝えたかったこと&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%99%bb%e5%a3%87%e3%81%a7%e4%bc%9d%e3%81%88%e3%81%9f%e3%81%8b%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;これまでのスクラムフェス神奈川、スクラム祭りで一貫して伝えたかったことは「コミュニケーションに課題を抱えている人にも、場に出ることの楽しさを感じてほしい」ということです。 &lt;br&gt;
+それを伝え続けることには、確かな価値があると思っています。&lt;/p&gt;
+&lt;p&gt;また、今回登壇するにあたっては自分の立ち位置が明確になったと感じています。 &lt;br&gt;
+「誰かがハードルを超えるため、自分が踏み台になる」というのは別に自分を卑下するのではなく、サポートしたいという自分のやりたいことにマッチしているとの思いです。 &lt;br&gt;
+こういう立ち位置に関してはこれまであまり語られることがありませんでしたが、多くの方に「そういうのもある」と知っていただきたかったです。&lt;/p&gt;
+&lt;p&gt;私の登壇資料はこちらです。気軽に読み進められますので、ぜひ一度ご覧いただきたいです。 &lt;br&gt;
+&lt;a href=&#34;https://speakerdeck.com/aokiplayer/hub-guy-as-a-stepping-stone&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;人見知りな HUB おじさんが 会話のハードルを超え、 今度は誰かの踏み台になろうとする話&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;聞いたトークの感想&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;聞いたトークの感想&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%81%9e%e3%81%84%e3%81%9f%e3%83%88%e3%83%bc%e3%82%af%e3%81%ae%e6%84%9f%e6%83%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;正直、自分の登壇で余裕がなさすぎて、あまりしっかりとレポートが書けない感じです🙏 &lt;br&gt;
+が、私の直後の &lt;a href=&#34;https://x.com/Katsu_19820825&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;かつさん&lt;/a&gt; のトークはプロポーザルの時点から二人で話していた内容なのと、「このトークのターゲットにしてるペルソナはスティーブ」と言われ続けていたので感想を記します。&lt;/p&gt;
+&lt;p&gt;私のトークが「とにかく人と話すのが苦手」な人に向けたもので、かつさんのトークは「&lt;strong&gt;仕事上で&lt;/strong&gt; 特定の人と話すのが苦手」な人に向けたものです。なので、私の次の段階ということですね。&lt;/p&gt;
+&lt;h3&gt;ちょっと苦手だなっていう人と対話をするためのはじめの一歩（かつさん）&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ちょっと苦手だなっていう人と対話をするためのはじめの一歩かつさん&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%a1%e3%82%87%e3%81%a3%e3%81%a8%e8%8b%a6%e6%89%8b%e3%81%a0%e3%81%aa%e3%81%a3%e3%81%a6%e3%81%84%e3%81%86%e4%ba%ba%e3%81%a8%e5%af%be%e8%a9%b1%e3%82%92%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%81%af%e3%81%98%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9%e3%81%8b%e3%81%a4%e3%81%95%e3%82%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;エンジョイ人生！&lt;/p&gt;
+&lt;p&gt;ありがとう！&lt;/p&gt;
+&lt;h2&gt;参加の感想&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;参加の感想&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%82%e5%8a%a0%e3%81%ae%e6%84%9f%e6%83%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;初めましての方、一方的に存じ上げていた方、リアルでは初めましての方、いつも仲良くしていただいている方など、たくさんの方々と会話できました。 &lt;br&gt;
+これも、登壇でも触れた「仲間ができると、また仲間ができる」ということに繋がっているのかなと思っています。&lt;/p&gt;
+&lt;p&gt;今回、特に感慨深かったのが、私のスクラムフェスの初参加・初登壇であるスクラムフェス神奈川で出会った仲間と同じ時間帯に登壇できたことです。
+彼らとは、no me in agile や多摩.dev などいろいろな場でお会いすることがあり、「一緒に進んできた」という思いが強いです（とは言え、お二人は私よりもずっとアグレッシブに活動されています）。 &lt;br&gt;
+&lt;a href=&#34;https://x.com/naka227_shima&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ナカグチ&lt;/a&gt; さん、&lt;a href=&#34;https://x.com/idee_tm&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;イデー&lt;/a&gt;さん、いつもありがとうございます！&lt;/p&gt;
+&lt;p&gt;エモい写真を撮っていただきました。 &lt;br&gt;
+&lt;img src=&#34;https://yagamo-style.com/images/scrumkanazawa2026/trio.jpg?width=50pc&#34; alt=&#34;同時登壇の 3 人&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;ちなみに、私だけ体を傾けているのはお腹を目立たなくするためです。&lt;/p&gt;
+&lt;h2&gt;最後に&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;最後に&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%80%e5%be%8c%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;今回、貴重な登壇機会をいただいた運営の皆様、スポンサーの皆様、私のトークを聞いてくれた皆様、私のトークは聞かなかったけどカンファレンスに参加してくれた皆様、資料を見てくれた皆様、飲み会や廊下でお話ししてくださった皆様、本当にありがとうございました。&lt;/p&gt;
+&lt;p&gt;私の思いや活動には意味があり、私だからこそ伝えられるものだと思っています。 &lt;br&gt;
+なので、今後も「踏み台になる」活動は続けていきます💪&lt;/p&gt;
+&lt;p&gt;Day 1 は仕事での登壇があり終了後のネットワーキングだけしか参加できなくて、集合写真に間に合わないという悔しい思いをしました。 &lt;br&gt;
+勝手に自分の写真を足しておきます😆 &lt;br&gt;
+&lt;img src=&#34;https://yagamo-style.com/images/scrumkanazawa2026/group-photo.jpg?width=50pc&#34; alt=&#34;集合写真&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;HUB おじさんとして&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;hub-おじさんとして&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#hub-%e3%81%8a%e3%81%98%e3%81%95%e3%82%93%e3%81%a8%e3%81%97%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;北陸初出店の HUB にも行ってきました。HUB おじさんなので🍹 &lt;br&gt;
+かつさん、いつもお付き合いいただきありがとうございます！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/scrumkanazawa2026/hub-toyama.jpeg?width=50pc&#34; alt=&#34;HUB 富山 MAROOT 店&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
     </item>
     
     <item>
       <title>アジャイル界隈に一歩を踏み出した、2025 年のふりかえり</title>
-      <link>https://yagamo-style.com/2025/retrospective/</link>
+      <link>https://yagamo-style.com/2025/12/31/retrospective/</link>
       <pubDate>Wed, 31 Dec 2025 09:00:00 +0000</pubDate>
       
-      <guid>https://yagamo-style.com/2025/retrospective/</guid>
-      <description>はじめに 今年は、アジャイル関連で自分の中でいろいろと変化のあった年でした。
-年越しを前に、簡単にふりかえってみたいと思います。
-コミュニティへの復帰 実際には「スクラムフェス神奈川 2024 -秋の陣-」がきっかけですが、それを契機としてアジャイルのコミュニティに少しずつ戻ってくることができました。
-以前にも触れましたが、スクラムフェス神奈川とは以下の点で良い出会いだったと思います。
- 東京西部からアクセスしやすかった 初参加者を受け入れてくれる、懐の深いコミュニティ 新卒時の 同僚との 25 年以上ぶりの再会  今年に入って合宿型の「スクラムフェス神奈川 2025 -春の陣-」にも参加し、心に火が灯ったり出会いがあったり。
-さらに「スクラムフェス神奈川 2025 -町田へ出陣-」で、登壇してみようという気持ちとなりました。
-登壇とフィードバックループ 今年の登壇は、以下の 3 本でした（それ以外に iOSDC Japan 2025 での LT もありましたが、アジャイル関連として）。
-多くの方々が何度も登壇されているこの界隈ですが、外部勉強会やイベントでほぼ登壇したことのない私にとっては大きな進歩でした。
-3 つの登壇内容はベースが同じなのですが、登壇後のフィードバックや他の方々の登壇から気づきを得て次の登壇内容に繋げた形となった点も、非常に興味深かったです。
-スクラムフェス神奈川 2025 -町田へ出陣- &amp;ldquo;初心者&amp;rdquo; をキーワードとしていたので、ここしかないと思い、登壇枠で申し込んでました。
-私はアジャイルに関する深い知見があるわけではないのですが、「自分と同じように踏み出せない人」向けの内容としました。
-初参加の RSGT で HUB 割引おじさんとして認識してもらった話 - Speaker Deck
-聞いていただいた方々からは、ありがたいことに多くの反響をいただきました。
-また、懇親会ではふりかえりエバンジェリストの びばさん から「先着順ではなく、公募制のカンファレンスにも出してみると良い」とのアドバイスをいただきました。
-スクラム祭り 2025 金沢トラック スクラムフェス神奈川は録画や配信もなかったので、より多くの方に聞いていただきたい思いが強くなりプロポーザルを出してみました。
-ありがたいことに採択いただき、金沢現地で登壇してきました。
-他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 - Speaker Deck
-当初は町田での内容をそのままブラッシュアップした内容で考えていたのですが、オンラインで参加した「スクラムフェス三河 2025」での Keitaro Oshikata さん のトークから私の行動が「計画的偶発性理論」ではないかと思い、その点を盛り込んだ内容としました。
-登壇中のフィードバックで「それは計画的偶発性理論ではなくて、どちらかというとエフェクチュエーションのように聞こえた」との声をいくつかいただきました。
-それが気になり、エフェクチュエーションに関する書籍や論文に目を通してみることになりました。</description>
+      <guid>https://yagamo-style.com/2025/12/31/retrospective/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;今年は、アジャイル関連で自分の中でいろいろと変化のあった年でした。&lt;br&gt;
+年越しを前に、簡単にふりかえってみたいと思います。&lt;/p&gt;
+&lt;h2&gt;コミュニティへの復帰&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;コミュニティへの復帰&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b3%e3%83%9f%e3%83%a5%e3%83%8b%e3%83%86%e3%82%a3%e3%81%b8%e3%81%ae%e5%be%a9%e5%b8%b0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;実際には「スクラムフェス神奈川 2024 -秋の陣-」がきっかけですが、それを契機としてアジャイルのコミュニティに少しずつ戻ってくることができました。&lt;/p&gt;
+&lt;p&gt;以前にも触れましたが、スクラムフェス神奈川とは以下の点で良い出会いだったと思います。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;東京西部からアクセスしやすかった&lt;/li&gt;
+&lt;li&gt;初参加者を受け入れてくれる、懐の深いコミュニティ&lt;/li&gt;
+&lt;li&gt;新卒時の &lt;a href=&#34;xhttps://x.com/sasatoshin3104&#34;&gt;同僚&lt;/a&gt;との 25 年以上ぶりの再会&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今年に入って合宿型の「スクラムフェス神奈川 2025 -春の陣-」にも参加し、心に火が灯ったり出会いがあったり。&lt;br&gt;
+さらに「スクラムフェス神奈川 2025 -町田へ出陣-」で、登壇してみようという気持ちとなりました。&lt;/p&gt;
+&lt;h2&gt;登壇とフィードバックループ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;登壇とフィードバックループ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%99%bb%e5%a3%87%e3%81%a8%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%83%90%e3%83%83%e3%82%af%e3%83%ab%e3%83%bc%e3%83%97&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;今年の登壇は、以下の 3 本でした（それ以外に iOSDC Japan 2025 での LT もありましたが、アジャイル関連として）。&lt;br&gt;
+多くの方々が何度も登壇されているこの界隈ですが、外部勉強会やイベントでほぼ登壇したことのない私にとっては大きな進歩でした。&lt;/p&gt;
+&lt;p&gt;3 つの登壇内容はベースが同じなのですが、登壇後のフィードバックや他の方々の登壇から気づきを得て次の登壇内容に繋げた形となった点も、非常に興味深かったです。&lt;/p&gt;
+&lt;h3&gt;スクラムフェス神奈川 2025 -町田へ出陣-&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;スクラムフェス神奈川-2025--町田へ出陣-&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b9%e3%82%af%e3%83%a9%e3%83%a0%e3%83%95%e3%82%a7%e3%82%b9%e7%a5%9e%e5%a5%88%e5%b7%9d-2025--%e7%94%ba%e7%94%b0%e3%81%b8%e5%87%ba%e9%99%a3-&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&amp;ldquo;初心者&amp;rdquo; をキーワードとしていたので、ここしかないと思い、登壇枠で申し込んでました。&lt;br&gt;
+私はアジャイルに関する深い知見があるわけではないのですが、「自分と同じように踏み出せない人」向けの内容としました。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://speakerdeck.com/aokiplayer/rsgt2025-hub-discount-guy&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;初参加の RSGT で HUB 割引おじさんとして認識してもらった話 - Speaker Deck&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;聞いていただいた方々からは、ありがたいことに多くの反響をいただきました。&lt;br&gt;
+また、懇親会ではふりかえりエバンジェリストの &lt;a href=&#34;https://x.com/viva_tweet_x&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;びばさん&lt;/a&gt; から「先着順ではなく、公募制のカンファレンスにも出してみると良い」とのアドバイスをいただきました。&lt;/p&gt;
+&lt;h3&gt;スクラム祭り 2025 金沢トラック&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;スクラム祭り-2025-金沢トラック&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b9%e3%82%af%e3%83%a9%e3%83%a0%e7%a5%ad%e3%82%8a-2025-%e9%87%91%e6%b2%a2%e3%83%88%e3%83%a9%e3%83%83%e3%82%af&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;スクラムフェス神奈川は録画や配信もなかったので、より多くの方に聞いていただきたい思いが強くなりプロポーザルを出してみました。&lt;br&gt;
+ありがたいことに採択いただき、金沢現地で登壇してきました。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://speakerdeck.com/aokiplayer/first-conversation-discount&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』 - Speaker Deck&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;当初は町田での内容をそのままブラッシュアップした内容で考えていたのですが、オンラインで参加した「スクラムフェス三河 2025」での &lt;a href=&#34;https://x.com/oshikata200&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Keitaro Oshikata さん&lt;/a&gt; のトークから私の行動が「計画的偶発性理論」ではないかと思い、その点を盛り込んだ内容としました。&lt;/p&gt;
+&lt;p&gt;登壇中のフィードバックで「それは計画的偶発性理論ではなくて、どちらかというとエフェクチュエーションのように聞こえた」との声をいくつかいただきました。&lt;br&gt;
+それが気になり、エフェクチュエーションに関する書籍や論文に目を通してみることになりました。&lt;/p&gt;
+&lt;h3&gt;no me in agile #2 忘年会をしよう！&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;no-me-in-agile-2-忘年会をしよう&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#no-me-in-agile-2-%e5%bf%98%e5%b9%b4%e4%bc%9a%e3%82%92%e3%81%97%e3%82%88%e3%81%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;計画的偶発性理論とエフェクチュエーションについてせっかく調べてみたのでどこかで話してみたいと思っていたところ、同じ「スクラムフェス神奈川 2025 -町田へ出陣-」の場で登壇してから仲良くしていただいている &lt;a href=&#34;https://x.com/nb_rady&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Harady さん&lt;/a&gt; 主催のイベントで LT 枠があったので発表してみました。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://speakerdeck.com/aokiplayer/planned-happenstance-and-effectuation&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;計画的偶発性理論じゃなくてエフェクチュエーションだったのかもしれない - Speaker Deck&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;LT 準備する中で、自分の中でこの 2 つの理論がある程度整理できた気がします。&lt;br&gt;
+もっと解像度を上げて活用してみて、またどこかで発表したい気持ちになりました。&lt;/p&gt;
+&lt;h2&gt;昨年の自分に向けて&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;昨年の自分に向けて&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%98%a8%e5%b9%b4%e3%81%ae%e8%87%aa%e5%88%86%e3%81%ab%e5%90%91%e3%81%91%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;正確には「昨年の自分と同じように踏み出せない人に向けて」です。&lt;/p&gt;
+&lt;p&gt;大丈夫、「下手くそでも踏み出してみた」人には必ず何らかの形で気づきやフィードバックがあります。&lt;br&gt;
+踏み出す前は、「自分の経験」や「ちょっとした気づき」や「考えたこと」は大したことないし、誰でもそんなのわかってるのではないかと思いがちです。&lt;br&gt;
+そうかもしれないし、そうじゃないかもしれないです。&lt;/p&gt;
+&lt;p&gt;誰か 1 人に届けばいい、という気持ちで踏み出してみてください😉&lt;/p&gt;
+&lt;h2&gt;来年&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;来年&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9d%a5%e5%b9%b4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;仕事では引き続き技術研修を担当する予定ですが、アジャイルのサポートのお仕事も少しずついただけるようになってきました。&lt;br&gt;
+良くも悪くも、今は「テクノロジー大好き」集団にいるので、少し異なる視点からサービスを提案・提供したいです。&lt;/p&gt;
+&lt;p&gt;そして、今年こそメンバーを巻き込んでいきたい！（巻き込み力には課題を感じてます）&lt;br&gt;
+そのためにも、自分自身が学び・試し・成長してアウトプットし、フィードバックループを回していくつもりです💪&lt;/p&gt;
+
+      </description>
     </item>
     
     <item>
       <title>スクラム祭り 2025 金沢トラックで登壇してきました</title>
-      <link>https://yagamo-style.com/2025/scrumat-kanazawa/</link>
+      <link>https://yagamo-style.com/2025/10/06/scrumat-kanazawa/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2025/scrumat-kanazawa/</guid>
-      <description>はじめに スクラムフェス神奈川でのトーク（スクラムフェス神奈川で &amp;ldquo;HUB 割引おじさん&amp;rdquo; として登壇してきました）後、「これをもとに公募形式のカンファレンスにもプロポーザルを出してみると良い」とのアドバイスをいただきました。 また、スクラムフェス神奈川ではトークを録画しないこともあり、自分としても「もっと多くの人に聞いていただきたい」との気持ちも強く、思い切ってスクラム祭りにプロポーザルを出してみました。
-その結果、ドラフト会議にて金沢トラックで採択いただきました。
-本記事では、自分自身の登壇部分について書いていきます。 他の方々のトークや金沢トラック全体の感想については、また別の記事として書きますね。
-カンファレンス概要 今年から始まったカンファレンスで、スクラムフェスを開催している各地の会場で同時に開催します。 また、XP 祭りとも同時開催となっています。
-スクラム祭りでは、以下の目的を掲げています。
-   地域コミュニティをはじめとした濃い繋がりが持てる少人数の良質なコミュニティを生み出したり育む
-  良質なコミュニティを繋げることで、新たな知見や経験をつむぎ出す
-  アジャイル開発、スクラムについての知見や経験、想いを共有する
-   私のお伝えしたい内容とも方向性が同じであることから、登壇できたことがとてもうれしいです。
-スクラム祭り 2025 公式サイト https://www.scrummatsuri.org/
-スクラム祭り 2025 金沢トラック 申込サイト https://agile-hokuriku.connpass.com/event/367958/
-自分の登壇について 神奈川での登壇内容をベースに
- いただいたフィードバックからの気づき モヤっとしていた部分の、他の方のトークによる気づき  などを追加して再構成しました。
-登壇資料はこちらです。 https://speakerdeck.com/aokiplayer/first-conversation-discount
-伝えたかったこと 神奈川の時から一貫して、以下をお伝えしたいと思っていました。
- カンファレンスや勉強会など、うまく対話できないのではないかと不安で参加できない人の背中を押したい 過去に辛い経験があっても、その経験はきっと役に立つから大丈夫  伝えたかった人 現地に参加しているような方々には、正直不要かなと思っていました。 どちらかというと、その場にいない人（= 参加を躊躇している人）にお伝えしたい内容でした。 オンライン配信である（そして YouTube で後から見返せる）ことから、ぜひこのトークを見つけてご覧いただきたいです。
-いただいた反応と気づき 登壇後、「コミュニケーション苦手な人の方が多いので、共感した」というような声をたくさんいただきました。 現地で登壇していたので、その場に参加されている方々はコミュニケーションに苦手意識を持っていないものだと思っていました。 でも、みなさんそれぞれ苦手なものに向き合ってここにいるんですね。
-みなさんがどうコミュニケーションの不安を克服しているのか、ぜひ伺ってみたいと思います。 いろんなパターンがあると思うので、それを集められたらもっと多くの方が参加しやすくなりそうですね。
-また、トークの中でスクラムフェス三河の以下のトークについて触れさせていただきました。
-線虫から学ぶ　“弱さ”が武器になるAI時代のチーム論（Keitaro Oshikata さん ）</description>
+      <guid>https://yagamo-style.com/2025/10/06/scrumat-kanazawa/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;スクラムフェス神奈川でのトーク（&lt;a href=&#34;https://yagamo-style.com/2025/07/06/scrumkanagawa-hub/&#34;&gt;スクラムフェス神奈川で &amp;ldquo;HUB 割引おじさん&amp;rdquo; として登壇してきました&lt;/a&gt;）後、「これをもとに公募形式のカンファレンスにもプロポーザルを出してみると良い」とのアドバイスをいただきました。
+また、スクラムフェス神奈川ではトークを録画しないこともあり、自分としても「もっと多くの人に聞いていただきたい」との気持ちも強く、思い切ってスクラム祭りにプロポーザルを出してみました。&lt;/p&gt;
+&lt;p&gt;その結果、ドラフト会議にて金沢トラックで採択いただきました。&lt;/p&gt;
+&lt;p&gt;本記事では、自分自身の登壇部分について書いていきます。
+他の方々のトークや金沢トラック全体の感想については、また別の記事として書きますね。&lt;/p&gt;
+&lt;h2&gt;カンファレンス概要&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;カンファレンス概要&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%ab%e3%83%b3%e3%83%95%e3%82%a1%e3%83%ac%e3%83%b3%e3%82%b9%e6%a6%82%e8%a6%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;今年から始まったカンファレンスで、スクラムフェスを開催している各地の会場で同時に開催します。
+また、XP 祭りとも同時開催となっています。&lt;/p&gt;
+&lt;p&gt;スクラム祭りでは、以下の目的を掲げています。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;地域コミュニティをはじめとした濃い繋がりが持てる少人数の良質なコミュニティを生み出したり育む&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;良質なコミュニティを繋げることで、新たな知見や経験をつむぎ出す&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;アジャイル開発、スクラムについての知見や経験、想いを共有する&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;私のお伝えしたい内容とも方向性が同じであることから、登壇できたことがとてもうれしいです。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;スクラム祭り 2025 公式サイト&lt;/strong&gt; &lt;br&gt;
+&lt;a href=&#34;https://www.scrummatsuri.org/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.scrummatsuri.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;スクラム祭り 2025 金沢トラック 申込サイト&lt;/strong&gt; &lt;br&gt;
+&lt;a href=&#34;https://agile-hokuriku.connpass.com/event/367958/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://agile-hokuriku.connpass.com/event/367958/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;自分の登壇について&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;自分の登壇について&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%87%aa%e5%88%86%e3%81%ae%e7%99%bb%e5%a3%87%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;神奈川での登壇内容をベースに&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;いただいたフィードバックからの気づき&lt;/li&gt;
+&lt;li&gt;モヤっとしていた部分の、他の方のトークによる気づき&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;などを追加して再構成しました。&lt;/p&gt;
+&lt;p&gt;登壇資料はこちらです。 &lt;br&gt;
+&lt;a href=&#34;https://speakerdeck.com/aokiplayer/first-conversation-discount&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://speakerdeck.com/aokiplayer/first-conversation-discount&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;伝えたかったこと&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;伝えたかったこと&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bc%9d%e3%81%88%e3%81%9f%e3%81%8b%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;神奈川の時から一貫して、以下をお伝えしたいと思っていました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;カンファレンスや勉強会など、うまく対話できないのではないかと不安で参加できない人の背中を押したい&lt;/li&gt;
+&lt;li&gt;過去に辛い経験があっても、その経験はきっと役に立つから大丈夫&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;伝えたかった人&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;伝えたかった人&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bc%9d%e3%81%88%e3%81%9f%e3%81%8b%e3%81%a3%e3%81%9f%e4%ba%ba&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;現地に参加しているような方々には、正直不要かなと思っていました。
+どちらかというと、&lt;strong&gt;その場にいない人（= 参加を躊躇している人）にお伝えしたい内容&lt;/strong&gt;でした。
+オンライン配信である（そして YouTube で後から見返せる）ことから、ぜひこのトークを見つけてご覧いただきたいです。&lt;/p&gt;
+&lt;h3&gt;いただいた反応と気づき&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;いただいた反応と気づき&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%84%e3%81%9f%e3%81%a0%e3%81%84%e3%81%9f%e5%8f%8d%e5%bf%9c%e3%81%a8%e6%b0%97%e3%81%a5%e3%81%8d&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;登壇後、「コミュニケーション苦手な人の方が多いので、共感した」というような声をたくさんいただきました。
+現地で登壇していたので、その場に参加されている方々はコミュニケーションに苦手意識を持っていないものだと思っていました。
+でも、みなさんそれぞれ苦手なものに向き合ってここにいるんですね。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;みなさんがどうコミュニケーションの不安を克服しているのか、ぜひ伺ってみたい&lt;/strong&gt;と思います。
+いろんなパターンがあると思うので、それを集められたらもっと多くの方が参加しやすくなりそうですね。&lt;/p&gt;
+&lt;p&gt;また、トークの中でスクラムフェス三河の以下のトークについて触れさせていただきました。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;線虫から学ぶ　“弱さ”が武器になるAI時代のチーム論（&lt;a href=&#34;https://x.com/oshikata200&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Keitaro Oshikata さん&lt;/a&gt; ）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;その中で、&lt;strong&gt;「偶発的計画性理論」というものを紹介されていました&lt;/strong&gt;。
+実は神奈川での登壇時から、「単に自分がたまたま会話のきっかけを作れた」内容をお話しして意味があるのか？とモヤモヤを抱えていました。&lt;/p&gt;
+&lt;p&gt;しかし、Oshikata さんの話されていた&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;キャリアや学びのほとんどは、偶然の出来事から生まれる
+必要なのはその偶然を活かす準備&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;という言葉で、すべてが繋がった気がしました。
+&lt;strong&gt;偶然だったけど、自分はその機会を活かせていたんだ&lt;/strong&gt;と納得しました。&lt;/p&gt;
+&lt;p&gt;Oshikata さん、本当に素晴らしいトークありがとうございました。&lt;/p&gt;
+&lt;h3&gt;さらなる気づき&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;さらなる気づき&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%95%e3%82%89%e3%81%aa%e3%82%8b%e6%b0%97%e3%81%a5%e3%81%8d&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;トークへの Discord でのコメントで &lt;strong&gt;「どっちかというエフェクチュエーション的な話に聞こえました！」&lt;/strong&gt; という内容をいただきました。
+Gemini の DeepResearch に &amp;ldquo;エフェクチュエーション&amp;rdquo; を調べさせたところ、以下のようなもののようでした。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;エフェクチュエーションとは、未来は予測不能であるという前提に立ち、壮大な目標から逆算するのではなく、今ある手持ちの手段（自分自身、知識、人脈）から「何ができるか」を問い、行動を始める意思決定理論です。期待されるリターンを追うのではなく「許容可能な損失」の範囲で小さく始め、協力者と共に目的を共創し、予期せぬ出来事さえも機会として活用します。これにより、計画に依存せず、自らの行動を通じて市場や未来そのものを創造していく、熟達した起業家特有のアプローチを体系化したものです。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;偶然を活かすために「準備していた」点もありますが、&lt;strong&gt;偶然に出会った際に「自分の手持ちの何が使えるのか」というアプローチを取っていたので、エフェクチュエーションだったかも&lt;/strong&gt;しれません。
+むしろ、「計画的偶発性理論」「エフェクチュエーション」両方の側面を持っていたようにも思えました。&lt;/p&gt;
+&lt;p&gt;「計画的偶発性理論」も「エフェクチュエーション」も、聞いたばかりで深くまでは理解できていないので、さらに文献にも当たってみようと思います。
+とても興味が湧きました。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;登壇というアウトプットしたことで、フィードバックによりさらなる気づきが得られた&lt;/strong&gt;ことも、本当に価値があったと感じています。&lt;/p&gt;
+&lt;h2&gt;Special Thanks&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;special-thanks&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#special-thanks&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;今回、スクラムフェス神奈川での登壇時の反応として引用させていただいた &lt;strong&gt;&lt;a href=&#34;https://x.com/naka227_shima&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ナカグチさん&lt;/a&gt;&lt;/strong&gt; 、 &lt;strong&gt;&lt;a href=&#34;https://x.com/ar_tama&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;あらたまさん&lt;/a&gt;&lt;/strong&gt; 、本当にありがとうございました。
+私のささやかな行動を受け取り、その価値を気づかせてくれたナカグチさん、コミュニティを作る立場として私のような辛い立場の人間を作らないという強い信念をお持ちのあらたまさん、素晴らしい方々です。&lt;/p&gt;
+&lt;p&gt;また、引用こそしていませんが、スクラムフェス神奈川のメンバーがあたたかな言葉をかけてくださったので、今回の金沢での登壇ができました。
+本当にありがとうございます。&lt;/p&gt;
+&lt;h2&gt;リンク&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;リンク&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%83%aa%e3%83%b3%e3%82%af&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://confengine.com/conferences/scrum-fest-mikawa-2025/proposal/22898/ai&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Scrum Fest Mikawa 2025 - 線虫から学ぶ　“弱さ”が武器になるAI時代のチーム論&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Keitaro Oshikata さん&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
     </item>
     
     <item>
       <title>スクラムフェス神奈川 2025 -町田へ出陣- 感想</title>
-      <link>https://yagamo-style.com/2025/scrumkanagawa-report/</link>
+      <link>https://yagamo-style.com/2025/07/14/scrumkanagawa-report/</link>
       <pubDate>Mon, 14 Jul 2025 11:58:34 +0000</pubDate>
       
-      <guid>https://yagamo-style.com/2025/scrumkanagawa-report/</guid>
-      <description>はじめに 自分自身の登壇については スクラムフェス神奈川で “HUB 割引おじさん” として登壇してきました で書きました。
-今回は、全体の感想を書き残しておきます。
-いろいろあって、だいぶ日数が経ってからの投稿になります。
-スポンサー LT、発表 「初心者」というテーマの中で、さまざまな切り口が取り上げられていました。
-ただ、共通していたのは「誰でも初心者」「学び、探究し続けるのは変わらない」という点でした。
-みなさん、調査したこと・試したことなどを完全ではない状態で発表されていました。 学んでいる途上であれば、心理として「誤りを責められるかも」「できていないことをバカにされるかも」という心理が働きます。
-ですが、登壇された方々も参加者も、途上であることを嘲笑せず受け止めてくれていました。
-このような「場」を、私も作っていきたいです。
-OST 自社の売り上げが生成 AI の影響をダイレクトに受ける領域なので、それに関するテーマとして「アジャイルと AI を仲良くするには」を挙げました。
-多くの方々からのご意見をいただき、価値のある時間となりました。懇親会で延長戦できなかったのが残念。
- 今までペーパープロトタイプで作っていたものを、動作するプロトタイプにできる  「動くから」という理由で、使い捨てのはずだったプロトタイプが使い続けられてしまいそう   試行回数を増やす方向で使うのが良い  たくさんの中から良いものを選択する、ということができるようになった   スパイクを減らすことができそう。AI が師匠 組織としての指標が「作った機能数」になりそう。スクラムの考え方と異なり、不要なものをたくさん作ってしまいそう  数ヶ月後に「生成 AI でこんなにたくさんの機能を作りました」という記事が出て炎上するのが見える🔥   エンジニア以外に使ってもらって、スクラムチームへの QA 割り込みを防ぐのが大事  After Party 0 次会 懇親会本編まで 1 時間程度あったので「HUB へ行きましょう！」と声をかけていただいて、軽く 0 次会をやってました。
-もちろん、7% 引きで。
-こうやって声をかけていただけるので、やっぱり登壇して良かったと思いました。
-本編 懇親会本編ではあまり席を移動せず、会話できなかった方が多かったです。
-また次回、お話しさせていただければと思います。
-二次会 HUB も挑戦しましたが、スポーツ放映があったため満席で入れず。
-きままクラフト 組へ合流しました。
-スタンディングでの飲みはデイリースクラムやレトロと同じく会話が促進されて良いですね。</description>
+      <guid>https://yagamo-style.com/2025/07/14/scrumkanagawa-report/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;自分自身の登壇については &lt;a href=&#34;https://yagamo-style.com/2025/07/06/scrumkanagawa-hub/&#34;&gt;スクラムフェス神奈川で “HUB 割引おじさん” として登壇してきました&lt;/a&gt; で書きました。&lt;/p&gt;
+&lt;p&gt;今回は、全体の感想を書き残しておきます。&lt;br&gt;
+いろいろあって、だいぶ日数が経ってからの投稿になります。&lt;/p&gt;
+&lt;h3&gt;スポンサー LT、発表&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;スポンサー-lt発表&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%b9%e3%83%9d%e3%83%b3%e3%82%b5%e3%83%bc-lt%e7%99%ba%e8%a1%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;「初心者」というテーマの中で、さまざまな切り口が取り上げられていました。&lt;br&gt;
+ただ、共通していたのは「誰でも初心者」「学び、探究し続けるのは変わらない」という点でした。&lt;/p&gt;
+&lt;p&gt;みなさん、調査したこと・試したことなどを完全ではない状態で発表されていました。
+学んでいる途上であれば、心理として「誤りを責められるかも」「できていないことをバカにされるかも」という心理が働きます。&lt;/p&gt;
+&lt;p&gt;ですが、登壇された方々も参加者も、途上であることを嘲笑せず受け止めてくれていました。&lt;br&gt;
+このような「場」を、私も作っていきたいです。&lt;/p&gt;
+&lt;h2&gt;OST&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ost&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ost&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;自社の売り上げが生成 AI の影響をダイレクトに受ける領域なので、それに関するテーマとして「アジャイルと AI を仲良くするには」を挙げました。&lt;br&gt;
+多くの方々からのご意見をいただき、価値のある時間となりました。懇親会で延長戦できなかったのが残念。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;今までペーパープロトタイプで作っていたものを、動作するプロトタイプにできる
+&lt;ul&gt;
+&lt;li&gt;「動くから」という理由で、使い捨てのはずだったプロトタイプが使い続けられてしまいそう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;試行回数を増やす方向で使うのが良い
+&lt;ul&gt;
+&lt;li&gt;たくさんの中から良いものを選択する、ということができるようになった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;スパイクを減らすことができそう。AI が師匠&lt;/li&gt;
+&lt;li&gt;組織としての指標が「作った機能数」になりそう。スクラムの考え方と異なり、不要なものをたくさん作ってしまいそう
+&lt;ul&gt;
+&lt;li&gt;数ヶ月後に「生成 AI でこんなにたくさんの機能を作りました」という記事が出て炎上するのが見える🔥&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;エンジニア以外に使ってもらって、スクラムチームへの QA 割り込みを防ぐのが大事&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/scrumkanagawa-report/agile_and_ai.jpeg?width=25pc&#34; alt=&#34;agile_and_ai&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;After Party&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;after-party&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#after-party&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;0 次会&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;0-次会&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-%e6%ac%a1%e4%bc%9a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;懇親会本編まで 1 時間程度あったので「HUB へ行きましょう！」と声をかけていただいて、軽く 0 次会をやってました。&lt;br&gt;
+もちろん、7% 引きで。&lt;br&gt;
+こうやって声をかけていただけるので、やっぱり登壇して良かったと思いました。&lt;/p&gt;
+&lt;h3&gt;本編&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;本編&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%ac%e7%b7%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;懇親会本編ではあまり席を移動せず、会話できなかった方が多かったです。&lt;br&gt;
+また次回、お話しさせていただければと思います。&lt;/p&gt;
+&lt;h3&gt;二次会&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;二次会&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%ba%8c%e6%ac%a1%e4%bc%9a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;HUB も挑戦しましたが、スポーツ放映があったため満席で入れず。&lt;br&gt;
+&lt;a href=&#34;https://www.instagram.com/kimamacraftbrewing/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;きままクラフト&lt;/a&gt; 組へ合流しました。&lt;br&gt;
+スタンディングでの飲みはデイリースクラムやレトロと同じく会話が促進されて良いですね。&lt;br&gt;
+良い会でしたし、良いバーでした。&lt;/p&gt;
+&lt;h2&gt;最後に&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;最後に&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%80%e5%be%8c%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;スクラムフェス神奈川は本当に良い場です。&lt;br&gt;
+今後も継続して参加していきたいですが、初心者としてまた別の場にも踏み出してみたいです（登壇も！）。&lt;/p&gt;
+
+      </description>
     </item>
     
     <item>
       <title>スクラムフェス神奈川で “HUB 割引おじさん” として登壇してきました</title>
-      <link>https://yagamo-style.com/2025/scrumkanagawa-hub/</link>
+      <link>https://yagamo-style.com/2025/07/06/scrumkanagawa-hub/</link>
       <pubDate>Sun, 06 Jul 2025 23:21:24 +0000</pubDate>
       
-      <guid>https://yagamo-style.com/2025/scrumkanagawa-hub/</guid>
-      <description>はじめに 昨年の秋から参加しているスクラムフェス神奈川で、登壇枠があったので「やってみよう」と思い、申し込んでみました。
-申し込んだ際には LT だと思っていて油断していたのですが、実際には 20 分枠いただけたのでいろいろお伝えすることができたと思います。
-みなさんの発表やイベント全体についてなど、書きたいことはたくさんありますが、まずは自分自身の登壇についてふりかえってみます。
-イベント概要  スクラムフェス神奈川 2025 -町田へ出陣- https://www.scrumfestkanagawa.org/2025summer  なぜ登壇してみようと思ったのか  公募制による審査形式ではなく先着順だった  複数のプロポーザルの中から選んでいただけるタイトルではないと考えた   「初心者」がテーマなので、自分には合っている  スクラムフェス神奈川、RSGT に初めて参加した立場だからこそ、お届けできることがあると考えた    登壇についてのふりかえり 「初参加の RSGT で HUB 割引おじさんとして認識してもらった話」というタイトルで発表しました。
- https://speakerdeck.com/aokiplayer/rsgt2025-hub-discount-guy  想い 「初心者」ということで、アジャイル界隈への参加を最近始めたこと、RSGT（Regional Scrum Gathering Tokyo）への参加も初だったので、その際のエピソードやこれから参加する方々のヒントになるかもしれない話をしてみようと思いました。
-他人と会話するのが苦手な自分が RSGT で場に入るために行動したことをお伝えすることで、同じように悩んでいる人に何らかのお役に立てればとの想いで話してみました。
-不安 この発表に込めた想いを届けるにはネガティブな経験も話さなければ説得力がないと考え、少し悩みました。その際に、「スクラムフェス神奈川 2025 -春の陣-」における、びばさん（@viva_tweet_x）の基調講演「心に灯を、過去に感謝を、未来に花束を。」のことを思い出し、勇気をいただきました。
-会場との一体感 他の方々の発表は豊富な経験、分析や深い洞察に基づいた素晴らしい内容でした。一方で、私の発表は毛色が違うので受け入れていただけるかは正直不安でした。
-ただ、発表が始まると会場からの大きなリアクションがあり、楽しめていただけているのがわかり、緊張も和らぎました。
-会場がライブハウスなこと、運営のみなさんやスポンサー LT の方々、先に発表された方々が場を温めてくださっていたことにより、発表中にも合いの手やツッコミが自然に入る状態になっていました。
-この「受け入れてくれる場」自体が私の伝えたいことでもあったので、参加者の皆さんと一緒に作った発表になったと実感しました。
-反響 会場が地下だったので私は電波が繋がらず後から見たのですが、登壇中には Discord にたくさんの反応をいただいていました（これは内緒ですが、メッセージから伝わる温かい想いにちょっとウルッときました）。
-また、After Party でもみなさんからお声がけいただけました。トークの中でお伝えした「話すのが苦手な人が会話するためのきっかけ」のひとつが、この「登壇する」こと自体にもあったんだ、という気持ちです。
-最後に 私にとって「スクラムフェス神奈川」は、アジャイル界隈に戻ってくるきっかけをくれた思い入れのある場です。神奈川なら自宅から近いからという理由でたまたま参加してみたのが最初ではありますが、そこから多くの方々との繋がりをいただけました。
-このスクラムフェス神奈川で登壇できたことが、本当にうれしいです。
-運営の皆様、スポンサー、参加者の皆さんに、心から感謝します。</description>
+      <guid>https://yagamo-style.com/2025/07/06/scrumkanagawa-hub/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;昨年の秋から参加しているスクラムフェス神奈川で、登壇枠があったので「やってみよう」と思い、申し込んでみました。&lt;br&gt;
+申し込んだ際には LT だと思っていて油断していたのですが、実際には 20 分枠いただけたのでいろいろお伝えすることができたと思います。&lt;/p&gt;
+&lt;p&gt;みなさんの発表やイベント全体についてなど、書きたいことはたくさんありますが、まずは自分自身の登壇についてふりかえってみます。&lt;/p&gt;
+&lt;h3&gt;イベント概要&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;イベント概要&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e6%a6%82%e8%a6%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;スクラムフェス神奈川 2025 -町田へ出陣-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.scrumfestkanagawa.org/2025summer&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.scrumfestkanagawa.org/2025summer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;なぜ登壇してみようと思ったのか&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;なぜ登壇してみようと思ったのか&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%aa%e3%81%9c%e7%99%bb%e5%a3%87%e3%81%97%e3%81%a6%e3%81%bf%e3%82%88%e3%81%86%e3%81%a8%e6%80%9d%e3%81%a3%e3%81%9f%e3%81%ae%e3%81%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;公募制による審査形式ではなく先着順だった
+&lt;ul&gt;
+&lt;li&gt;複数のプロポーザルの中から選んでいただけるタイトルではないと考えた&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;「初心者」がテーマなので、自分には合っている
+&lt;ul&gt;
+&lt;li&gt;スクラムフェス神奈川、RSGT に初めて参加した立場だからこそ、お届けできることがあると考えた&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;登壇についてのふりかえり&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;登壇についてのふりかえり&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%99%bb%e5%a3%87%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e3%81%ae%e3%81%b5%e3%82%8a%e3%81%8b%e3%81%88%e3%82%8a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;「初参加の RSGT で HUB 割引おじさんとして認識してもらった話」というタイトルで発表しました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/aokiplayer/rsgt2025-hub-discount-guy&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://speakerdeck.com/aokiplayer/rsgt2025-hub-discount-guy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;想い&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;想い&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%83%b3%e3%81%84&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;「初心者」ということで、アジャイル界隈への参加を最近始めたこと、RSGT（Regional Scrum Gathering Tokyo）への参加も初だったので、その際のエピソードやこれから参加する方々のヒントになるかもしれない話をしてみようと思いました。&lt;/p&gt;
+&lt;p&gt;他人と会話するのが苦手な自分が RSGT で場に入るために行動したことをお伝えすることで、同じように悩んでいる人に何らかのお役に立てればとの想いで話してみました。&lt;/p&gt;
+&lt;h3&gt;不安&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;不安&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%8d%e5%ae%89&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;この発表に込めた想いを届けるにはネガティブな経験も話さなければ説得力がないと考え、少し悩みました。その際に、&lt;a href=&#34;https://www.scrumfestkanagawa.org/2025spring&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;「スクラムフェス神奈川 2025 -春の陣-」&lt;/a&gt;における、びばさん（&lt;a href=&#34;https://x.com/viva_tweet_x&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@viva_tweet_x&lt;/a&gt;）の基調講演&lt;a href=&#34;https://speakerdeck.com/viva_tweet_x/xin-nideng-wo-guo-qu-nigan-xie-wo-wei-lai-nihua-shu-wo&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;「心に灯を、過去に感謝を、未来に花束を。」&lt;/a&gt;のことを思い出し、勇気をいただきました。&lt;/p&gt;
+&lt;h3&gt;会場との一体感&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;会場との一体感&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bc%9a%e5%a0%b4%e3%81%a8%e3%81%ae%e4%b8%80%e4%bd%93%e6%84%9f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;他の方々の発表は豊富な経験、分析や深い洞察に基づいた素晴らしい内容でした。一方で、私の発表は毛色が違うので受け入れていただけるかは正直不安でした。&lt;br&gt;
+ただ、発表が始まると会場からの大きなリアクションがあり、楽しめていただけているのがわかり、緊張も和らぎました。&lt;br&gt;
+会場がライブハウスなこと、運営のみなさんやスポンサー LT の方々、先に発表された方々が場を温めてくださっていたことにより、発表中にも合いの手やツッコミが自然に入る状態になっていました。&lt;/p&gt;
+&lt;p&gt;この「受け入れてくれる場」自体が私の伝えたいことでもあったので、参加者の皆さんと一緒に作った発表になったと実感しました。&lt;/p&gt;
+&lt;h3&gt;反響&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;反響&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%8d%e9%9f%bf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;会場が地下だったので私は電波が繋がらず後から見たのですが、登壇中には Discord にたくさんの反応をいただいていました（これは内緒ですが、メッセージから伝わる温かい想いにちょっとウルッときました）。&lt;/p&gt;
+&lt;p&gt;また、After Party でもみなさんからお声がけいただけました。トークの中でお伝えした「話すのが苦手な人が会話するためのきっかけ」のひとつが、この「登壇する」こと自体にもあったんだ、という気持ちです。&lt;/p&gt;
+&lt;h2&gt;最後に&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;最後に&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%80%e5%be%8c%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;私にとって「スクラムフェス神奈川」は、アジャイル界隈に戻ってくるきっかけをくれた思い入れのある場です。神奈川なら自宅から近いからという理由でたまたま参加してみたのが最初ではありますが、そこから多くの方々との繋がりをいただけました。&lt;br&gt;
+このスクラムフェス神奈川で登壇できたことが、本当にうれしいです。&lt;/p&gt;
+&lt;p&gt;運営の皆様、スポンサー、参加者の皆さんに、心から感謝します。&lt;/p&gt;
+
+      </description>
     </item>
     
     <item>
       <title>RSGT 2025 に初参加、そして小田原へ</title>
-      <link>https://yagamo-style.com/2025/rsgt2025/</link>
+      <link>https://yagamo-style.com/2025/03/14/rsgt2025/</link>
       <pubDate>Fri, 14 Mar 2025 23:58:47 +0000</pubDate>
       
-      <guid>https://yagamo-style.com/2025/rsgt2025/</guid>
-      <description>はじめに 時間が経ってしまった 1 月に開催された、RSGT 2025 に初参加してきました。
-今は 3 月です。 2 ヶ月経ってますね。
-もともと行動が遅いのと、業務の多忙により書くモチベーションが出ませんでした。
-ではなぜ今書いているのか これから、小田原で開催される「スクラムフェス神奈川2025 -春の陣-」に向かうにあたり、自分の気持ちを切り替えるためです。 楽しんで来よう！
-RSGT に参加してみた感想 参加する前 事前に「スクラムカンファレンスの歩き方」に参加して、kawaguti さんの話を伺っていました。 あまり人と話すのが得意ではない自分としては、とても不安でした。
-参加してみて とにかく、誰かに話しかけてみないと進まないと思い、多くの人に話しかけてみました。 とはいえ、なんの脈絡もない状況で会話は難しいので
- CSM トレーニングで講師をしてくださっていた haradakiro さん 昔、勉強会で仲良くしていただいていた kyon_mm さん 廊下で掲示物を横で眺めていた方々 スポンサーブースの方々 etc.  などに話しかけてみました。 特に、初めてで声をかけにくい人にはスポンサーブースがおすすめです。 私自身がカンファレンスでスポンサーブースを出した経験があり、その立場からすると「スポンサー側から強引に声をかけるよりも、参加者に立ち寄っていただきたい」気持ちが強いので、ぜひ立ち寄ってみてください。
-毎日が懇親会 懇親会は、初日はスクラムフェス神奈川を運営されている正義さん（MYoshino1125）のところに参加しました。 一度お話ししたことがあると、少し参加のハードルが下がりますね。
-2 日目はオンラインの懇親会に参加しました。 現地にも後ろ髪をひかれましたが、別の形式も気になったので。 基本、顔馴染みの方々で会話をしてる感じでしたが、こちらも時々話したり、チャットで意見を送ったりしました。 が、オンラインで顔が見えてない状況だと、話すタイミングを逸してしまうのは悩みどころでした（これは普段の業務でも言える）。
-最終日は、ワークで一緒だった方に声をかけていただき、秋葉原の HUB 組に混ざりました。 席も広いので、多くの方々が合流してたくさんお話ができました。 「通常のメンバーよりもさらに割引できる人」として、重宝してもらえました。 ちょっとはみなさんに貢献できたかも？
-そしてスクラムフェス神奈川へ この界隈に参加し始めて、最初に参加したのが「スクラムフェス神奈川2024 -秋の陣-」でした。 その場で、新卒の頃の同期（なので数十年ぶり！）のナイバン（sasatoshin3104 ）さんと嬉しい再会があり、またこのイベントをきっかけで社内読書会を開始したこともあり、ご縁を感じているイベントです。
-最近は仕事でもプライベートでも気分が落ち込んでいることが多く、行動できていなかった部分が多いので、楽しんできます！</description>
+      <guid>https://yagamo-style.com/2025/03/14/rsgt2025/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;時間が経ってしまった&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;時間が経ってしまった&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%99%82%e9%96%93%e3%81%8c%e7%b5%8c%e3%81%a3%e3%81%a6%e3%81%97%e3%81%be%e3%81%a3%e3%81%9f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;1 月に開催された、RSGT 2025 に初参加してきました。&lt;/p&gt;
+&lt;p&gt;今は 3 月です。
+2 ヶ月経ってますね。&lt;/p&gt;
+&lt;p&gt;もともと行動が遅いのと、業務の多忙により書くモチベーションが出ませんでした。&lt;/p&gt;
+&lt;h3&gt;ではなぜ今書いているのか&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;ではなぜ今書いているのか&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%a7%e3%81%af%e3%81%aa%e3%81%9c%e4%bb%8a%e6%9b%b8%e3%81%84%e3%81%a6%e3%81%84%e3%82%8b%e3%81%ae%e3%81%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;これから、小田原で開催される「スクラムフェス神奈川2025 -春の陣-」に向かうにあたり、自分の気持ちを切り替えるためです。
+楽しんで来よう！&lt;/p&gt;
+&lt;h2&gt;RSGT に参加してみた感想&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;rsgt-に参加してみた感想&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#rsgt-%e3%81%ab%e5%8f%82%e5%8a%a0%e3%81%97%e3%81%a6%e3%81%bf%e3%81%9f%e6%84%9f%e6%83%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;参加する前&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;参加する前&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%82%e5%8a%a0%e3%81%99%e3%82%8b%e5%89%8d&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;事前に「スクラムカンファレンスの歩き方」に参加して、kawaguti さんの話を伺っていました。
+あまり人と話すのが得意ではない自分としては、とても不安でした。&lt;/p&gt;
+&lt;h3&gt;参加してみて&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;参加してみて&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%82%e5%8a%a0%e3%81%97%e3%81%a6%e3%81%bf%e3%81%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;とにかく、誰かに話しかけてみないと進まないと思い、多くの人に話しかけてみました。
+とはいえ、なんの脈絡もない状況で会話は難しいので&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSM トレーニングで講師をしてくださっていた haradakiro さん&lt;/li&gt;
+&lt;li&gt;昔、勉強会で仲良くしていただいていた kyon_mm さん&lt;/li&gt;
+&lt;li&gt;廊下で掲示物を横で眺めていた方々&lt;/li&gt;
+&lt;li&gt;スポンサーブースの方々&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;などに話しかけてみました。
+特に、初めてで声をかけにくい人にはスポンサーブースがおすすめです。
+私自身がカンファレンスでスポンサーブースを出した経験があり、その立場からすると「スポンサー側から強引に声をかけるよりも、参加者に立ち寄っていただきたい」気持ちが強いので、ぜひ立ち寄ってみてください。&lt;/p&gt;
+&lt;h3&gt;毎日が懇親会&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;毎日が懇親会&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%af%8e%e6%97%a5%e3%81%8c%e6%87%87%e8%a6%aa%e4%bc%9a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;懇親会は、初日はスクラムフェス神奈川を運営されている正義さん（MYoshino1125）のところに参加しました。
+一度お話ししたことがあると、少し参加のハードルが下がりますね。&lt;/p&gt;
+&lt;p&gt;2 日目はオンラインの懇親会に参加しました。
+現地にも後ろ髪をひかれましたが、別の形式も気になったので。
+基本、顔馴染みの方々で会話をしてる感じでしたが、こちらも時々話したり、チャットで意見を送ったりしました。
+が、オンラインで顔が見えてない状況だと、話すタイミングを逸してしまうのは悩みどころでした（これは普段の業務でも言える）。&lt;/p&gt;
+&lt;p&gt;最終日は、ワークで一緒だった方に声をかけていただき、秋葉原の HUB 組に混ざりました。
+席も広いので、多くの方々が合流してたくさんお話ができました。
+「通常のメンバーよりもさらに割引できる人」として、重宝してもらえました。
+ちょっとはみなさんに貢献できたかも？&lt;/p&gt;
+&lt;h2&gt;そしてスクラムフェス神奈川へ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;そしてスクラムフェス神奈川へ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%9d%e3%81%97%e3%81%a6%e3%82%b9%e3%82%af%e3%83%a9%e3%83%a0%e3%83%95%e3%82%a7%e3%82%b9%e7%a5%9e%e5%a5%88%e5%b7%9d%e3%81%b8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;この界隈に参加し始めて、最初に参加したのが「スクラムフェス神奈川2024 -秋の陣-」でした。
+その場で、新卒の頃の同期（なので数十年ぶり！）のナイバン（sasatoshin3104
+）さんと嬉しい再会があり、またこのイベントをきっかけで社内読書会を開始したこともあり、ご縁を感じているイベントです。&lt;/p&gt;
+&lt;p&gt;最近は仕事でもプライベートでも気分が落ち込んでいることが多く、行動できていなかった部分が多いので、楽しんできます！&lt;/p&gt;
+
+      </description>
     </item>
     
   </channel>

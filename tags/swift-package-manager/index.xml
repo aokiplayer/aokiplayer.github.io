@@ -1,26 +1,114 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Swift Package Manager on Yagamo Style</title>
+    <title>Yagamo Style – Swift Package Manager</title>
     <link>https://yagamo-style.com/tags/swift-package-manager/</link>
     <description>Recent content in Swift Package Manager on Yagamo Style</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Thu, 01 Aug 2024 09:00:00 +0900</lastBuildDate><atom:link href="https://yagamo-style.com/tags/swift-package-manager/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Aug 2024 09:00:00 +0900</lastBuildDate>
+    
+	  <atom:link href="https://yagamo-style.com/tags/swift-package-manager/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
     <item>
       <title>Build Tool プラグインとしての SwiftLint 導入時のエラー対処</title>
-      <link>https://yagamo-style.com/2024/swiftlint-plugins/</link>
+      <link>https://yagamo-style.com/2024/08/01/swiftlint-plugins/</link>
       <pubDate>Thu, 01 Aug 2024 09:00:00 +0900</pubDate>
       
-      <guid>https://yagamo-style.com/2024/swiftlint-plugins/</guid>
-      <description>2025.02.07 追記
-Run Script にペーストするスクリプトが公式サイトで変更されていたので修正
- はじめに Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。 基本的には SwiftLint パッケージをプロジェクトに導入 -&amp;gt; Build Phases の Run Build Tool Plug-ins に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。
-細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。 また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。
-執筆時点で最新の、Xcode 15.4 における回避方法を記載します。
-今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。 そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。
-検証環境  macOS Sonoma 14.5 (23F79) Xcode 15.4 (15F31d)  導入手順 SwiftPM を利用して SwiftLint への依存性を追加   Xcode メニュー -&amp;gt; Add Package Dependencies...
-  検索欄に https://github.</description>
+      <guid>https://yagamo-style.com/2024/08/01/swiftlint-plugins/</guid>
+      <description>
+        
+        
+        &lt;blockquote&gt;
+  &lt;p&gt;2025.02.07 追記&lt;br&gt;
+Run Script にペーストするスクリプトが公式サイトで変更されていたので修正&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;h2&gt;はじめに&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;はじめに&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Xcode 15.4 で、Build Tool プラグインとしての SwiftLint の実行に失敗する現象に遭遇しました。
+基本的には SwiftLint パッケージをプロジェクトに導入 -&amp;gt; &lt;code&gt;Build Phases&lt;/code&gt; の &lt;code&gt;Run Build Tool Plug-ins&lt;/code&gt; に追加するだけで動作するはず（以前は動作していた）なのですが、Xcode のマイナーバージョンアップをしたところエラーが発生するようになりました。&lt;/p&gt;
+&lt;p&gt;細かくは検証できていませんが、Xcode 15.1 から 15.4 の間のどこかからのようです。
+また、SwiftLint 自体も、導入の際に指定する URL が変わっていたりするようです。&lt;/p&gt;
+&lt;p&gt;執筆時点で最新の、Xcode 15.4 における回避方法を記載します。&lt;/p&gt;
+&lt;p&gt;今回、iOS プロジェクトは Xcode のウィザードから作成したものを利用しています。
+そのため、今回はマニフェストファイルを利用せず、Xcode からパッケージを追加します。&lt;/p&gt;
+&lt;h2&gt;検証環境&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;検証環境&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a4%9c%e8%a8%bc%e7%92%b0%e5%a2%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;macOS Sonoma 14.5 (23F79)&lt;/li&gt;
+&lt;li&gt;Xcode 15.4 (15F31d)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;導入手順&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;導入手順&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%b0%8e%e5%85%a5%e6%89%8b%e9%a0%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;SwiftPM を利用して SwiftLint への依存性を追加&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;swiftpm-を利用して-swiftlint-への依存性を追加&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#swiftpm-%e3%82%92%e5%88%a9%e7%94%a8%e3%81%97%e3%81%a6-swiftlint-%e3%81%b8%e3%81%ae%e4%be%9d%e5%ad%98%e6%80%a7%e3%82%92%e8%bf%bd%e5%8a%a0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Xcode メニュー -&amp;gt; &lt;code&gt;Add Package Dependencies...&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;検索欄に &lt;code&gt;https://github.com/SimplyDanny/SwiftLintPlugins&lt;/code&gt; を入力し、&lt;code&gt;Add Package&lt;/code&gt; ボタンをクリック&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URL が SwiftLint 公式のものでない点に注意
+&lt;ul&gt;
+&lt;li&gt;以前の手順では、公式の &lt;code&gt;https://github.com/realm/SwiftLint&lt;/code&gt; となっていた&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Dependency Rule&lt;/code&gt; は &lt;code&gt;Up to Next Major Version&lt;/code&gt; のままで OK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/swiftlint-plugins/swiftlint_add.png?width=50pc&#34; alt=&#34;swiftlint_add.png&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Build Phases から Run Script を追加&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;build-phases-から-run-script-を追加&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#build-phases-%e3%81%8b%e3%82%89-run-script-%e3%82%92%e8%bf%bd%e5%8a%a0&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;アプリターゲットを選択し、&lt;code&gt;Build Phases&lt;/code&gt; タブを選択&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;+&lt;/code&gt; アイコンから &lt;code&gt;New Run Script Phase&lt;/code&gt; を選択して &lt;code&gt;Run Script&lt;/code&gt; を追加し、ドラッグして &lt;code&gt;Compile Sources&lt;/code&gt; の後へ移動&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以下の内容を &lt;code&gt;Run Script&lt;/code&gt; で実行するスクリプトとして貼り付け&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx:relative hx:mt-6 hx:first:mt-0 hx:group/code&#34;&gt;
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SWIFT_PACKAGE_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BUILD_DIR%Build/*&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;SourcePackages/artifacts&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SWIFTLINT_CMD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;ls &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$SWIFT_PACKAGE_DIR&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;/swiftlintplugins/SwiftLintBinary/SwiftLintBinary.artifactbundle/swiftlint-*-macos/bin/swiftlint | head -n 1&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; test -f &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$SWIFTLINT_CMD&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; 2&amp;gt;&amp;amp;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$SWIFTLINT_CMD&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx:opacity-0 hx:transition hx:group-hover/code:opacity-100 hx:flex hx:gap-1 hx:absolute hx:m-[11px] hx:right-0 hx:top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx:group/copybtn hx:cursor-pointer hx:transition-all hx:active:opacity-50 hx:bg-primary-700/5 hx:border hx:border-black/5 hx:text-gray-600 hx:hover:text-gray-900 hx:rounded-md hx:p-1.5 hx:dark:bg-primary-300/10 hx:dark:border-white/10 hx:dark:text-gray-400 hx:dark:hover:text-gray-50&#34;
+    title=&#34;コードをコピー&#34;
+    aria-label=&#34;コードをコピー&#34;
+    data-copied-label=&#34;コピーしました！&#34;
+  &gt;
+    &lt;div class=&#34;hextra-copy-icon hx:group-[.copied]/copybtn:hidden hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;hextra-success-icon hx:hidden hx:group-[.copied]/copybtn:block hx:pointer-events-none hx:h-4 hx:w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;https://yagamo-style.com/images/swiftlint-plugins/run_script.png?width=50pc&#34; alt=&#34;run_script.png&#34;  loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本来は &lt;code&gt;Build Phases&lt;/code&gt; の &lt;code&gt;Run Build Tool Plug-ins&lt;/code&gt; に SwiftLintBuildToolPlugin を追加するだけで OK なはずですが、プロジェクトのディレクトリ構成など様々な理由により上手くいかないことがあるようです。
+その回避策として、SwiftLint の公式サイトで上記の方法が示されていました。&lt;/p&gt;
+&lt;h2&gt;実行&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;実行&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%9f%e8%a1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;command + B などでビルドを実行すると、SwiftLint が実行されます。
+&lt;img width=&#34;80%&#34; alt=&#34;swiftlint_warning.png&#34; src=&#34;https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/100115/5fccf168-6a93-62eb-64ce-f3b5eb844a4c.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;通常通り設定ファイル &lt;code&gt;.swiftlint.yml&lt;/code&gt; をプロジェクトのルートディレクトリに配置して、チェックするルールをカスタマイズできます。ルールについて詳しくは、公式サイト内の &lt;a href=&#34;https://github.com/realm/SwiftLint?tab=readme-ov-file#rules&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rules&lt;/a&gt; の項目をご覧ください。&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;まとめ&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e3%81%be%e3%81%a8%e3%82%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;SwiftPM の Build Tool プラグインや、Xcode の Build Phases などに関してはまだ理解が浅い点が多いのですが、SwiftLint の公式サイトを見ても「Xcode 15 でパーミッションが変わった」とか「Apple Silicon だと Homebrew でインストールされるパスが変わった」とかいろいろ書かれています（後者は今回の件とは無関係ですが）。
+まずは、公式の情報を見て環境を構築できるのが大切ですね。その上で、必要な部分を深掘りしていきたいと思います。&lt;/p&gt;
+&lt;h2&gt;参考&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;参考&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%82%e8%80%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;このセクションへのパーマリンク&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/realm/SwiftLint&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;realm/SwiftLint: A tool to enforce Swift style and conventions.&lt;/a&gt;&lt;/p&gt;
+
+      </description>
     </item>
     
   </channel>
