@@ -42,6 +42,7 @@ tags: []
 プロポーザル採択型のもの、先着順のもの、カンファレンス、勉強会、LT などさまざま登壇してます。
 
 ### 2026
+- [[Tamagawa.dev #2]地域コミュニティっていいよね](https://speakerdeck.com/aokiplayer/local-communities-are-pretty-great)
 - [[スクラムフェス金沢 2026]人見知りな HUB おじさんが 会話のハードルを超え、今度は誰かの踏み台になろうとする話](https://speakerdeck.com/aokiplayer/hub-guy-as-a-stepping-stone)
 - [[Tamagawa.dev #1]フィールドエンジニア at 多摩川](https://speakerdeck.com/aokiplayer/field-engineer-at-tamagawa)
 - [[【増枠】【聖蹟桜ヶ丘開催】多摩.dev #1]多摩ニュータウンを、味わう](https://tamadev.connpass.com/event/379782/)
