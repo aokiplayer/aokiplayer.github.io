@@ -42,24 +42,51 @@ tags: []
 プロポーザル採択型のもの、先着順のもの、カンファレンス、勉強会、LT などさまざま登壇してます。
 
 ### 2026
-- [[PBL Pub 2026]新入社員を「あの子」と呼ばない運動 -PBL その前に-](https://speakerdeck.com/aokiplayer/stop-calling-new-hires-kids)
-- [[Tamagawa.dev #2]地域コミュニティっていいよね](https://speakerdeck.com/aokiplayer/local-communities-are-pretty-great)
-- [[スクラムフェス金沢 2026]人見知りな HUB おじさんが 会話のハードルを超え、今度は誰かの踏み台になろうとする話](https://speakerdeck.com/aokiplayer/hub-guy-as-a-stepping-stone)
-- [[Tamagawa.dev #1]フィールドエンジニア at 多摩川](https://speakerdeck.com/aokiplayer/field-engineer-at-tamagawa)
-- [[【増枠】【聖蹟桜ヶ丘開催】多摩.dev #1]多摩ニュータウンを、味わう](https://tamadev.connpass.com/event/379782/)
+#### [PBL Pub 2026](https://pblpub.org/)
+- [新入社員を「あの子」と呼ばない運動 -PBL その前に-](https://speakerdeck.com/aokiplayer/stop-calling-new-hires-kids)
+    - [YouTube](https://www.youtube.com/watch?v=ph01u8FtvnQ)
+
+#### [多摩.dev #4 ～真夏のLT祭り～](https://tamadev.connpass.com/event/395127/)
+- [多摩.dev で草を食べる話をしたら カンファレンスに登壇していた](https://speakerdeck.com/aokiplayer/from-eating-weeds-to-a-conference)
+
+#### [Tamagawa.dev #2](https://mokumokutamagawa.connpass.com/event/397840/)
+- [地域コミュニティっていいよね](https://speakerdeck.com/aokiplayer/local-communities-are-pretty-great)
+
+#### [スクラムフェス金沢 2026](https://www.scrumfestkanazawa.org/)
+- [人見知りな HUB おじさんが 会話のハードルを超え、今度は誰かの踏み台になろうとする話](https://speakerdeck.com/aokiplayer/hub-guy-as-a-stepping-stone)
+    - [YouTube](https://www.youtube.com/watch?v=kw9AOBLS9z0)
+
+#### [Tamagawa.dev #1](https://mokumokutamagawa.connpass.com/event/391028/)
+- [フィールドエンジニア at 多摩川](https://speakerdeck.com/aokiplayer/field-engineer-at-tamagawa)
+
+#### [多摩.dev #1](https://tamadev.connpass.com/event/379782/)
+- [多摩ニュータウンを、味わう](https://speakerdeck.com/aokiplayer/tasting-tama-new-town)
 
 ### 2025
-- [[no me in agile #2 忘年会をしよう！]計画的偶発性理論じゃなくてエフェクチュエーションだったのかもしれない](https://nomi-agile.connpass.com/event/372170/)
-- [[スクラム祭り 2025 金沢トラック]他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』](https://agile-hokuriku.connpass.com/event/367958/)
-- [[iOSDC Japan 2025] 〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025](https://fortee.jp/iosdc-japan-2025/proposal/45b0c1e2-8f11-44b5-b376-595dd8a57932)
-- [[スクラムフェス神奈川 2025 -町田へ出陣-]初参加の RSGT で HUB 割引おじさんとして認識してもらった話](https://www.scrumfestkanagawa.org/)
+#### [no me in agile #2 忘年会をしよう！](https://nomi-agile.connpass.com/event/372170/)
+- [計画的偶発性理論じゃなくてエフェクチュエーションだったのかもしれない](https://speakerdeck.com/aokiplayer/planned-happenstance-and-effectuation)
+
+#### [スクラム祭り 2025 金沢トラック](https://agile-hokuriku.connpass.com/event/367958/)
+- [他人が怖くて話せない私が、過去の寄り道に救われた『会話へのハードルを”割引”する方法』](https://speakerdeck.com/aokiplayer/first-conversation-discount)
+    - [YouTube](https://www.youtube.com/watch?v=Lq5iF0RO5AY)
+
+#### [iOSDC Japan 2025](https://iosdc.jp/2025/)
+- [〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025](https://speakerdeck.com/aokiplayer/macos-restore-history-2025)
+    - [トーク情報（fortee）](https://fortee.jp/iosdc-japan-2025/proposal/45b0c1e2-8f11-44b5-b376-595dd8a57932)
+
+#### [スクラムフェス神奈川 2025 -町田へ出陣-](https://www.scrumfestkanagawa.org/2025summer)
+- [初参加の RSGT で HUB 割引おじさんとして認識してもらった話](https://speakerdeck.com/aokiplayer/rsgt2025-hub-discount-guy)
 
 ### 2021
-- [[iOS コンソーシアム] すぐに始められるiPadの活用研修](https://giga.ios.or.jp/event/ipadweek2021/)
-- [[iOS コンソーシアム] Apple Professional Learningを体験しよう -認定講師によるオンライン研修を無料体験できる特別な4日間-](https://giga.ios.or.jp/event/apl_gw_special/)
+#### [iOS コンソーシアム: すぐに始められるiPadの活用研修](https://giga.ios.or.jp/event/ipadweek2021/)
+
+#### [iOS コンソーシアム: Apple Professional Learningを体験しよう -認定講師によるオンライン研修を無料体験できる特別な4日間-](https://giga.ios.or.jp/event/apl_gw_special/)
+- [授業に取り入れる先生のための はじめての iOS アプリ開発ハンズオン](https://speakerdeck.com/aokiplayer/the-first-ios-app-development-hands-on-for-teachers)
 
 ### 2019
-- [[iOSDC Japan 2019] 完全に同じ開発環境を素早く用意できる（もしくはできない）技術](https://fortee.jp/iosdc-japan-2019/proposal/973963ea-c6b2-46aa-a15b-1b34af099c84)
+#### [iOSDC Japan 2019](https://iosdc.jp/2019/)
+- [完全に同じ開発環境を素早く用意できる（もしくはできない）技術](https://speakerdeck.com/aokiplayer/macos-restore-history)
+    - [トーク情報（fortee）](https://fortee.jp/iosdc-japan-2019/proposal/973963ea-c6b2-46aa-a15b-1b34af099c84)
 
 ## その他登壇/出演情報
 - Schoo
