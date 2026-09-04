@@ -6,9 +6,10 @@ toc: true
 tags: []
 ---
 
-- Steve Aoki(Hiroyuki Aoki)
+- Steve Aoki(Hiroyuki Aoki, 青木 宏之)
 - スクラムマスター、トレーナー、インストラクター、トレーニングコンテンツ企画・開発
 - アジャイル, スクラム, Swift（iOS）, Android（Kotlin, Java）, macOS, MDM
+- 株式会社カサレアル所属
 
 ## Apple Certified Trainer（Apple 認定トレーナー）
 - 2015-
