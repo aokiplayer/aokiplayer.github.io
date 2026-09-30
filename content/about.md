@@ -76,6 +76,7 @@ tags: []
 
 #### [iOSDC Japan 2025](https://iosdc.jp/2025/)
 - [〜あれから 6 年〜 完全に同じ開発環境を素早く用意できる （もしくはできない）技術 2025](https://speakerdeck.com/aokiplayer/macos-restore-history-2025)
+    - [YouTube](https://www.youtube.com/watch?v=VnPEdzRYxTo)
     - [トーク情報（fortee）](https://fortee.jp/iosdc-japan-2025/proposal/45b0c1e2-8f11-44b5-b376-595dd8a57932)
 
 #### [スクラムフェス神奈川 2025 -町田へ出陣-](https://www.scrumfestkanagawa.org/2025summer)
