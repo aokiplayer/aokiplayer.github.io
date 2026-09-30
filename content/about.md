@@ -43,6 +43,9 @@ tags: []
 プロポーザル採択型のもの、先着順のもの、カンファレンス、勉強会、LT などさまざま登壇してます。
 
 ### 2026
+#### [スクラムフェス神奈川 2026 -夏の陣-](https://www.scrumfestkanagawa.org/2026summer)
+- [二次会から始まることもある](https://speakerdeck.com/aokiplayer/sometimes-it-all-starts-at-the-after-party)
+
 #### [PBL Pub 2026](https://pblpub.org/)
 - [新入社員を「あの子」と呼ばない運動 -PBL その前に-](https://speakerdeck.com/aokiplayer/stop-calling-new-hires-kids)
     - [YouTube](https://www.youtube.com/watch?v=ph01u8FtvnQ)
