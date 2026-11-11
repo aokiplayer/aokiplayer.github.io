@@ -2,7 +2,7 @@
 title = "アジャイル界隈に一歩を踏み出した、2025 年のふりかえり"
 date = "2025-12-31T09:00:00Z"
 draft = false
-tags = [ "Agile", "SCRUM" ]
+tags = [ "Agile", "登壇", "コミュニティ" ]
 images = ["images/open_graph_logo.png"]
 +++
 

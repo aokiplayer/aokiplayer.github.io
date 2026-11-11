@@ -2,7 +2,7 @@
 title = "PBL Pub 2026 で登壇してきました"
 date = "2026-08-25T00:00:00+09:00"
 draft = false
-tags = [ "アジャイル", "コミュニティ", "登壇", "PBL", "新卒研修" ]
+tags = [ "Agile", "登壇", "PBL", "新卒研修" ]
 images = ["images/open_graph_logo.png"]
 +++
 

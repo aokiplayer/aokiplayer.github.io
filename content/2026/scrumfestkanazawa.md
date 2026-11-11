@@ -2,7 +2,7 @@
 title = "スクラムフェス金沢 2026 に、HUB おじさんとして登壇してきました"
 date = "2026-06-22T00:00:00+09:00"
 draft = false
-tags = [ "スクラムフェス", "RSGT", "Agile", "SCRUM" ]
+tags = [ "Agile", "スクラムフェス", "登壇", "コミュニティ" ]
 images = ["images/open_graph_logo.png"]
 +++
 
