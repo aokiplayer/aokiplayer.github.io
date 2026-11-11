@@ -1,7 +1,7 @@
 +++
 title = "『野蛮なアジャイル』を読んで、野蛮さを取り戻す"
 date = "2026-11-11T15:45:47+09:00"
-draft = true
+draft = false
 tags = [ "Agile", "読書" ]
 images = ["images/open_graph_logo.png"]
 +++

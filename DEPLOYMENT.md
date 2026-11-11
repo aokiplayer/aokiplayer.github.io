@@ -51,18 +51,30 @@ git checkout -b article
 # 3. 執筆＆ローカル確認
 ./hugo-server.sh  # 別ターミナルで起動して、http://localhost:1313/ で確認
 
-# 4. コミット
+# 4. 公開準備（ユーザーから公開の指示を受けた場合）
+# 対象記事のフロントマターを draft = false に変更する。
+# 日付も確認し、通常のビルド（-D なし）で対象記事が生成されることを確認する。
+# 下書きの保存だけを依頼された場合は draft = true を維持する。
+
+# 5. コミット
 git add content/2026/my-post.md static/images/2026/my-post/
 git commit -m "..."
 
-# 5. write にマージ＆push（CircleCI が本番反映）
+# 6. write にマージ＆push（CircleCI が本番反映）
 git checkout write
 git merge article
 git push origin write
 
-# 6. 一時ブランチ削除
+# 7. 一時ブランチ削除
 git branch -d article
 ```
+
+### 公開前後の確認
+
+- 公開の指示を受けた対象記事は、push前に `draft = false` であることを確認する。`draft = true` の記事は通常のHugoビルドでは公開されない。
+- 下書きの作成・保存・ローカルプレビューの依頼だけでは公開状態へ変更しない。
+- 公開時は記事の日付を確認し、通常のビルド（`-D` なし）で生成されることを確認する。
+- `write` のpush後はCircleCIの成功だけでなく、`master` に対象記事が生成され、公開URLで閲覧できることも確認する。
 
 ## CircleCI（自動デプロイ）
 
