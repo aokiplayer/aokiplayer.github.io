@@ -43,6 +43,9 @@ tags: []
 プロポーザル採択型のもの、先着順のもの、カンファレンス、勉強会、LT などさまざま登壇してます。
 
 ### 2026
+#### [スクラム祭り 2026 横浜トラック](https://www.scrummatsuri.org/)
+- [人は呼び方で行動が変わる -スクラムの前にある向き合い方-](https://speakerdeck.com/aokiplayer/the-stance-that-comes-before-scrum)
+
 #### [スクラムフェス神奈川 2026 -夏の陣-](https://www.scrumfestkanagawa.org/2026summer)
 - [二次会から始まることもある](https://speakerdeck.com/aokiplayer/sometimes-it-all-starts-at-the-after-party)
 
